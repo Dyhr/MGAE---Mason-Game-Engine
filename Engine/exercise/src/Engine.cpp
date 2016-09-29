@@ -14,14 +14,49 @@ using namespace SRE;
 
 void Engine::setup() {
     // setup test objec
-    Mesh* sharedMesh = Mesh::createQuad();
-    Shader* shader = Shader::getUnlit();
-
-    auto testQuad = std::make_shared<GameObject>(sharedMesh, shader);
+    //Mesh* sharedMesh = Mesh::createQuad();
+    /*auto testQuad = std::make_shared<GameObject>(sharedMesh, shader);
     testQuad->rotation = {-89,0,0};
-    gameObjects.push_back(testQuad);
-    
-    std::vector<GameObjectDescriptor> scene = SceneParser::parseFile("data/car_house_tree.json");
+    gameObjects.push_back(testQuad);*/
+
+	std::vector<GameObjectDescriptor> scene = SceneParser::parseFile("data/car_house_tree.json");
+	Shader* shader = Shader::getStandard();
+	auto cubeMesh = Mesh::createCube();
+	auto planeMesh = Mesh::createQuad();
+	auto sphereMesh = Mesh::createSphere();
+	for (auto element : scene) {
+		SRE::Mesh * mesh;
+		if (element.meshName == "sphere") {
+			mesh = sphereMesh;
+		}
+		else if (element.meshName == "cube") {
+			mesh = cubeMesh;
+		}
+		else if (element.meshName == "plane") {
+			mesh = planeMesh;
+		}
+		auto gameObject = std::make_shared<GameObject>(mesh, shader);
+		gameObject->position = element.position;
+		gameObject->scale = element.scale;
+		gameObject->rotation = element.rotationEuler;
+		gameObject->color = element.color;
+		gameObjects.push_back(gameObject);
+		if (element.parentId != -1) {
+			gameObject->parent = gameObjects[element.parentId].get();
+		}
+	}
+
+
+	auto camera = SimpleRenderEngine::instance->getCamera();
+	camera->setPerspectiveProjection(60, 640, 480, 1, 1000);
+	camera->lookAt(glm::vec3(10, 10, 10), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+	auto directionalLight = Light(LightType::Directional, glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 1, 1), 0, 20.0f);
+	auto pointLight1 = Light(LightType::Point, glm::vec3(-1, 1, 1), glm::vec3(0, 0, 0), glm::vec3(5, 0, 0), 5, 20.0f);
+	auto pointLight2 = Light(LightType::Point, glm::vec3(0, 1, 2), glm::vec3(0, 0, 0), glm::vec3(3, 3, 3), 5, 20.0f);
+	SimpleRenderEngine::instance->setLight(0, directionalLight);
+	SimpleRenderEngine::instance->setLight(1, pointLight1);
+	SimpleRenderEngine::instance->setLight(2, pointLight2);
+   
 }
 
 void Engine::start() {

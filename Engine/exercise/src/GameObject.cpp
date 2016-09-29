@@ -3,6 +3,7 @@
 #include <SRE/SimpleRenderEngine.hpp>
 #include <SRE/Shader.hpp>
 #include "glm/gtx/euler_angles.hpp"
+#include "glm/gtc/matrix_transform.hpp"
 
 using namespace SRE;
 
@@ -19,17 +20,28 @@ GameObject::GameObject(Mesh *mesh, Shader *shader)
 }
 
 void GameObject::draw() {
+	shader->setVector("color", color);
     SimpleRenderEngine::instance->draw(mesh,globalTransform(),shader);
 }
 
 glm::mat4 GameObject::localTransform() {
     // todo implement (using translate, rotate, scale)
-    return glm::eulerAngleX(glm::radians(rotation.x));
+	
+	auto translateMat = glm::translate(glm::mat4(1), position);
+	auto rotateMat = glm::eulerAngleYXZ(glm::radians(rotation.y), glm::radians(rotation.x), glm::radians(rotation.z));
+	auto scaleMat = glm::scale(glm::mat4(1), scale);
+	auto transform = translateMat * rotateMat * scaleMat;
 
+	return transform;
 }
 
 glm::mat4 GameObject::globalTransform() {
     // todo implement
-    return localTransform();
+	glm::mat4 transform = localTransform();
+	if (parent) {
+		auto parentTransform = parent->globalTransform();
+		transform = parentTransform * transform;
+	}
+    return transform;
 }
 
