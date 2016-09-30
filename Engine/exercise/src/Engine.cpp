@@ -52,7 +52,7 @@ void Engine::setup() {
 	camera->lookAt(glm::vec3(10, 10, 10), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 	auto directionalLight = Light(LightType::Directional, glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 1, 1), 0, 20.0f);
 	auto pointLight1 = Light(LightType::Point, glm::vec3(-1, 1, 1), glm::vec3(0, 0, 0), glm::vec3(5, 0, 0), 5, 20.0f);
-	auto pointLight2 = Light(LightType::Point, glm::vec3(0, 1, 2), glm::vec3(0, 0, 0), glm::vec3(3, 3, 3), 5, 20.0f);
+	auto pointLight2 = Light(LightType::Point, glm::vec3(0,1,-2), glm::vec3(0, 0, 0), glm::vec3(3, 3, 3), 5, 20.0f);
 	SimpleRenderEngine::instance->setLight(0, directionalLight);
 	SimpleRenderEngine::instance->setLight(1, pointLight1);
 	SimpleRenderEngine::instance->setLight(2, pointLight2);
