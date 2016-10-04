@@ -258,6 +258,7 @@
     <ClInclude Include="..\..\Testbed\Tests\VaryingRestitution.h" />
     <ClInclude Include="..\..\Testbed\Tests\VerticalStack.h" />
     <ClInclude Include="..\..\Testbed\Tests\Web.h" />
+    <ClInclude Include="FlappyBird.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Testbed\Framework\DebugDraw.cpp" />

@@ -70,9 +70,11 @@
 #include "VaryingRestitution.h"
 #include "VerticalStack.h"
 #include "Web.h"
+#include "../Box2D/Build/vs2015/FlappyBird.h"
 
 TestEntry g_testEntries[] =
 {
+	{"FlappyBird", FlappyBird::Create },
 	{"Character Collision", CharacterCollision::Create},
 	{"Tiles", Tiles::Create},
 	{"Heavy on Light", HeavyOnLight::Create},

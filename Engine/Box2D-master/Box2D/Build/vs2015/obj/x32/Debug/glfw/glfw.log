@@ -1,14 +1,1 @@
-﻿  winmm_joystick.c
-  window.c
-  win32_window.c
-  win32_tls.c
-  win32_time.c
-  win32_monitor.c
-  win32_init.c
-  wgl_context.c
-  monitor.c
-  input.c
-  init.c
-  context.c
-  Generating Code...
-  glfw.vcxproj -> C:\Users\Bjørn\Dropbox\BSL\Game Engines\Development Libraries\Box2D-master\Box2D-master\Box2D\Build\vs2015\bin\x32\Debug\glfw.lib
+﻿  glfw.vcxproj -> H:\gameEngines\TeamDoesNotMatter\TeamDoesNotMatter\Engine\Box2D-master\Box2D\Build\vs2015\bin\x32\Debug\glfw.lib
