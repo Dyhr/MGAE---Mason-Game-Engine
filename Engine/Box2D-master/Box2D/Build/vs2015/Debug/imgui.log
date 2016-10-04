@@ -1,0 +1,6 @@
+﻿  imgui_impl_glfw_gl3.cpp
+  imgui_draw.cpp
+  imgui_demo.cpp
+  imgui.cpp
+  Generating Code...
+  imgui.vcxproj -> C:\Users\Bjørn\Dropbox\BSL\Game Engines\Development Libraries\Box2D-master\Box2D-master\Box2D\Build\vs2015\Debug\imgui.lib
