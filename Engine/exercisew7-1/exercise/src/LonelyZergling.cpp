@@ -1,7 +1,8 @@
 #include "LonelyZergling.hpp"
 #include <iostream>
 
-LonelyZergling::LonelyZergling(GameObject *gameObject):Component(gameObject)
+LonelyZergling::LonelyZergling(GameObject *gameObject)
+	:Component(gameObject)
 {
 }
 
