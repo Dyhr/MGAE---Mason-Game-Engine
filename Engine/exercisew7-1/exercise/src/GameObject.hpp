@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "Component.hpp"
+#include <memory>
 
 // forward declaration
 class Scene;
