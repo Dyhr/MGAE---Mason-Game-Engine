@@ -1,28 +1,54 @@
 #pragma once
 
+#include <string>
+#include <vector>
+#include "Component.hpp"
+#include <memory>
 
-#include <SRE/Mesh.hpp>
-#include "glm/glm.hpp"
+// forward declaration
+class Scene;
 
 class GameObject {
 public:
-    GameObject(SRE::Mesh* mesh, SRE::Shader* shader);
+    ~GameObject();
 
-    void draw();
+    std::string getName();
+    template<typename C>
+    std::shared_ptr<C> addComponent();
 
-    glm::vec4 color;
+    bool removeComponent(std::shared_ptr<Component> ptr);
 
-    GameObject * parent;
-    glm::vec3 position;
-    // rotation in degrees (default value 0,0,0)
-    glm::vec3 rotation;
-    glm::vec3 scale;
 
-    glm::mat4 localTransform();
-    glm::mat4 globalTransform();
+    template<typename C>
+    std::shared_ptr<C> getComponent();
+
 private:
-    SRE::Mesh* mesh;
-    SRE::Shader* shader;
+    std::vector<std::shared_ptr<Component>> components;
+    GameObject(std::string name);
+    std::string name;
+    friend class Scene;
 };
+
+// function templates has to defined in header files
+template<typename C>
+std::shared_ptr<C> GameObject::addComponent() {
+    C * c = new C(this);
+    auto res = std::shared_ptr<C>(c);
+    components.push_back(res);
+    return res;
+}
+
+template<typename C>
+std::shared_ptr<C> GameObject::getComponent() {
+    for (auto c : components){
+        auto castPtr = std::dynamic_pointer_cast<C>(c);
+        if (castPtr != nullptr){
+            return castPtr;
+        }
+    }
+    // not found
+    return nullptr;
+}
+
 
 
