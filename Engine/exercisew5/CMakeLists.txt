@@ -1,15 +1,17 @@
 cmake_minimum_required(VERSION 3.6)
-project(Ex5_2_Scenegraph)
+project(GameEngine)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
 file(GLOB SOURCE_FILES
-"src/*.hpp"
-"src/*.cpp"
+  "src/*.c"
+  "src/*.h"
+  "src/*.hpp"
+  "src/*.cpp"
 )
 
-add_executable(Ex5_2_Scenegraph ${SOURCE_FILES})
+add_executable(GameEngine ${SOURCE_FILES})
 
 
 find_package(SDL2 REQUIRED)
@@ -39,6 +41,10 @@ find_package(SDL2_IMAGE REQUIRED)
 include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
 include_directories(.)
 
+# Box2D
+find_package(Box2D REQUIRED)
+include_directories(${BOX2D_INCLUDE_DIR})
+
 # GLM -- on Windows: depends on env var: GLM_ROOT_DIR
 find_package (glm REQUIRED)
 
@@ -63,7 +69,7 @@ ELSE (SRE_FOUND)
     MESSAGE( STATUS "Failed to find Simple Render Engine")
 endif(SRE_FOUND)
 
-target_link_libraries(Ex5_2_Scenegraph ${EXTRA_LIBS} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SRE_LIBRARY})
+target_link_libraries(GameEngine ${EXTRA_LIBS} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SRE_LIBRARY})
 
 file(COPY data DESTINATION Debug)
 file(COPY data DESTINATION Release)
