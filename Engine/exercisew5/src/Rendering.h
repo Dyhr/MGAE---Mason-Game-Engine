@@ -5,6 +5,7 @@
 #include <SRE/Shader.hpp>
 #include "GameObject.hpp"
 
+class Transform;
 
 class Rendering : public Component {
 public:

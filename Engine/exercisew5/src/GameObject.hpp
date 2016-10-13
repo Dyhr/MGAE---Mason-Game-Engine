@@ -11,6 +11,7 @@ class Scene;
 class GameObject {
 public:
     ~GameObject();
+	GameObject(std::string name);
 
     std::string getName();
     template<typename C>
@@ -23,7 +24,7 @@ public:
 
 private:
     std::vector<std::shared_ptr<Component>> components;
-    GameObject(std::string name);
+    
     std::string name;
     friend class Scene;
 };

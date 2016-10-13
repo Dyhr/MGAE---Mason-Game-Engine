@@ -15,13 +15,18 @@
 using namespace SRE;
 
 void Engine::setup() {
+    // setup test objec
+    //Mesh* sharedMesh = Mesh::createQuad();
+    /*auto testQuad = std::make_shared<GameObject>(sharedMesh, shader);
+    testQuad->rotation = {-89,0,0};
+    gameObjects.push_back(testQuad);*/
 
-	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data/car_house_tree.json");
+	std::vector<GameObjectDescriptor> scene = SceneParser::parseFile("data/car_house_tree.json");
 	Shader* shader = Shader::getStandard();
 	auto cubeMesh = Mesh::createCube();
 	auto planeMesh = Mesh::createQuad();
 	auto sphereMesh = Mesh::createSphere();
-	for (auto element : gameObjectDescriptors) {
+	for (auto element : scene) {
 		SRE::Mesh * mesh;
 		if (element.meshName == "sphere") {
 			mesh = sphereMesh;
@@ -33,19 +38,23 @@ void Engine::setup() {
 			mesh = planeMesh;
 		}
 
-		auto gameObject = scene.addGameObject(element.meshName);
+		auto gameObject = std::make_shared<GameObject>(element.meshName);
 		auto transformComponent = gameObject->addComponent<Transform>();
 		auto renderingComponent = gameObject->addComponent<Rendering>();
-		renderingComponent->loadMesh = mesh;
-		renderingComponent->loadShader = shader;
-		renderingComponent->setColor = element.color;
-		transformComponent->setPosition = element.position;
-		transformComponent->setRotation = element.rotationEuler;
-		transformComponent->setScale = element.scale;
+		renderingComponent->loadMesh(std::make_shared<SRE::Mesh>(*mesh));
+		renderingComponent->loadShader(std::make_shared<SRE::Shader>(*shader));
+		renderingComponent->setColor(element.color);
+		transformComponent->setPosition(element.position);
+		transformComponent->setRotation(element.rotationEuler);
+		transformComponent->setScale(element.scale);
 		
+		
+
+		
+		/*
 		if (element.parentId != -1) {
-			transformComponent->setParent = scene.getGameObject(element.parentId)->getComponent<Transform>();
-		}
+			gameObject->parent = gameObjects[element.parentId].get();
+		}*/
 	}
 
 
@@ -84,9 +93,8 @@ void Engine::update(float deltaTimeSec) {
     SimpleRenderEngine::instance->clearScreen({0,0,1,1});
 
     // render game object
-	for (int i = 0; i < scene.getSize(); i++) {
-		auto gameObject = scene.getGameObject(i);
-		gameObject->getComponent<Rendering>()->draw();
-	}
+    for (auto & go : gameObjects){
+        //go->draw();
+    }
     SimpleRenderEngine::instance->swapWindow();
 }
