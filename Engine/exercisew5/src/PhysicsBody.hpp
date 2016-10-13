@@ -2,7 +2,6 @@
 
 #include "Component.hpp"
 #include "Physics.hpp"
-#include "Box2D/Box2D.h"
 
 class PhysicsBody : public Component {
 public:

@@ -19,12 +19,22 @@ void Transform::setScale(glm::vec3 scale) {
 	this->scale = scale;
 }
 
-void setParent(GameObject *gameObject);
+void Transform::setParent(Transform *parent) {
+	this->parent = parent;
+}
+glm::vec3 Transform::getPosition() {
+	return this->position;
+}
 
-glm::vec3 getPosition();
-glm::vec3 getRotation();
-glm::vec3 getScale();
-GameObject getParent();
+glm::vec3 Transform::getRotation() {
+	return this->rotation;
+}
+glm::vec3 Transform::getScale() {
+	return this->scale;
+}
+Transform* Transform::getParent() {
+	return this->parent;
+}
 
 glm::mat4 Transform::localTransform() {
 	auto translateMat = glm::translate(glm::mat4(1), position);
@@ -38,10 +48,10 @@ glm::mat4 Transform::localTransform() {
 
 glm::mat4 Transform::globalTransform() {
 	glm::mat4 transform = localTransform();
+	Transform* parent = this->getParent();
 	if (parent) {
 		auto parentTransform = parent->globalTransform();
 		transform = parentTransform * transform;
 	}
 	return transform;
 }
-
