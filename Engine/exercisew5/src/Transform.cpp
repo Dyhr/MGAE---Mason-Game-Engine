@@ -3,7 +3,10 @@
 #include "glm/gtc/matrix_transform.hpp"
 
 Transform::Transform(GameObject *gameObject):Component(gameObject) {
+	this->position = glm::vec3(0, 0, 0);
 	this->rotation = glm::vec3(0, 0, 0);
+	this->scale = glm::vec3(0, 0, 0);
+	this->parent = nullptr;
 }
 
 void Transform::setPosition(glm::vec3 position) {

@@ -15,46 +15,37 @@
 using namespace SRE;
 
 void Engine::setup() {
-    // setup test objec
-    //Mesh* sharedMesh = Mesh::createQuad();
-    /*auto testQuad = std::make_shared<GameObject>(sharedMesh, shader);
-    testQuad->rotation = {-89,0,0};
-    gameObjects.push_back(testQuad);*/
-
 	std::vector<GameObjectDescriptor> scene = SceneParser::parseFile("data/car_house_tree.json");
 	Shader* shader = Shader::getStandard();
 	auto cubeMesh = Mesh::createCube();
 	auto planeMesh = Mesh::createQuad();
 	auto sphereMesh = Mesh::createSphere();
 	for (auto element : scene) {
-		SRE::Mesh * mesh;
-		if (element.meshName == "sphere") {
+		Mesh* mesh;
+		if (element.meshName == "sphere") 
 			mesh = sphereMesh;
-		}
-		else if (element.meshName == "cube") {
+		else if (element.meshName == "cube") 
 			mesh = cubeMesh;
-		}
-		else if (element.meshName == "plane") {
+		else if (element.meshName == "plane") 
 			mesh = planeMesh;
-		}
+		else
+			throw "Undefined mesh";
 
 		auto gameObject = std::make_shared<GameObject>(element.meshName);
 		auto transformComponent = gameObject->addComponent<Transform>();
 		auto renderingComponent = gameObject->addComponent<Rendering>();
-		renderingComponent->loadMesh(std::make_shared<SRE::Mesh>(*mesh));
-		renderingComponent->loadShader(std::make_shared<SRE::Shader>(*shader));
+		renderingComponent->loadMesh(std::make_shared<Mesh>(*mesh));
+		renderingComponent->loadShader(std::make_shared<Shader>(*shader));
 		renderingComponent->setColor(element.color);
 		transformComponent->setPosition(element.position);
 		transformComponent->setRotation(element.rotationEuler);
 		transformComponent->setScale(element.scale);
-		
-		
 
-		
-		/*
 		if (element.parentId != -1) {
-			gameObject->parent = gameObjects[element.parentId].get();
-		}*/
+			transformComponent->setParent(gameObjects[element.parentId].get()->getComponent<Transform>().get());
+		}
+
+		gameObjects.push_back(gameObject);
 	}
 
 
@@ -80,7 +71,7 @@ void Engine::start() {
         float deltaTimeSec = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count()/1000000.0f;
         update(deltaTimeSec);
 
-        int updateTimeMillis = (int)std::chrono::duration_cast<std::chrono::milliseconds>(Clock::now() - t2).count();
+        int updateTimeMillis = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(Clock::now() - t2).count());
         int wait = timePerFrameMillis - updateTimeMillis;
         if (wait > 0){
             SDL_Delay( wait );
@@ -94,7 +85,9 @@ void Engine::update(float deltaTimeSec) {
 
     // render game object
     for (auto & go : gameObjects){
-        //go->draw();
+		auto rendering = go.get()->getComponent<Rendering>();
+		if(rendering)
+			rendering->draw();
     }
     SimpleRenderEngine::instance->swapWindow();
 }
