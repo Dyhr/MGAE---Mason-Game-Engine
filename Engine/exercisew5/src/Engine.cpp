@@ -15,11 +15,6 @@
 using namespace SRE;
 
 void Engine::setup() {
-    // setup test objec
-    //Mesh* sharedMesh = Mesh::createQuad();
-    /*auto testQuad = std::make_shared<GameObject>(sharedMesh, shader);
-    testQuad->rotation = {-89,0,0};
-    gameObjects.push_back(testQuad);*/
 
 	std::vector<GameObjectDescriptor> scene = SceneParser::parseFile("data/car_house_tree.json");
 	Shader* shader = Shader::getStandard();
@@ -50,7 +45,7 @@ void Engine::setup() {
 		
 		
 
-		
+		//TODO PARENT
 		/*
 		if (element.parentId != -1) {
 			gameObject->parent = gameObjects[element.parentId].get();
@@ -96,5 +91,9 @@ void Engine::update(float deltaTimeSec) {
     for (auto & go : gameObjects){
         //go->draw();
     }
+	for (int i = 0; i < scene.getSize(); i++) {
+		auto gameObject = scene.getGameObject(i);
+		gameObject->getComponent<Rendering>()->draw();
+	}
     SimpleRenderEngine::instance->swapWindow();
 }
