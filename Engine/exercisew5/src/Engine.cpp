@@ -37,20 +37,24 @@ void Engine::setup() {
 		else if (element.meshName == "plane") {
 			mesh = planeMesh;
 		}
+
 		auto gameObject = std::make_shared<GameObject>(element.meshName);
-		auto transformComponent = std::make_shared<Transform>(*gameObject);
-		auto renderingComponent = std::make_shared<Rendering>(*gameObject);
+		auto transformComponent = gameObject->addComponent<Transform>();
+		auto renderingComponent = gameObject->addComponent<Rendering>();
 		renderingComponent->loadMesh = mesh;
 		renderingComponent->loadShader = shader;
 		renderingComponent->setColor = element.color;
-		gameObject->position = element.position;
-		gameObject->scale = element.scale;
-		gameObject->rotation = element.rotationEuler;
-		gameObject->color = element.color;
-		gameObjects.push_back(gameObject);
+		transformComponent->setPosition = element.position;
+		transformComponent->setRotation = element.rotationEuler;
+		transformComponent->setScale = element.scale;
+		
+		
+
+		
+		/*
 		if (element.parentId != -1) {
 			gameObject->parent = gameObjects[element.parentId].get();
-		}
+		}*/
 	}
 
 
@@ -90,7 +94,7 @@ void Engine::update(float deltaTimeSec) {
 
     // render game object
     for (auto & go : gameObjects){
-        go->draw();
+        //go->draw();
     }
     SimpleRenderEngine::instance->swapWindow();
 }
