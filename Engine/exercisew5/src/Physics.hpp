@@ -1,12 +1,12 @@
 #pragma once
-#include <Box2D/Box2D.h>
+//#include <Box2D/Box2D.h>
 
 class Physics
 {
 public:
-	static Physics* instance;
+	//static Physics* instance;
 
-	b2World* world;
+	//b2World* world;
 
 	Physics();
 	~Physics();
