@@ -9,6 +9,8 @@
 #include "glm/glm.hpp"
 #include "glm/gtx/euler_angles.hpp"
 #include "SceneParser.hpp"
+#include "Transform.h"
+#include "Rendering.h"
 
 using namespace SRE;
 
@@ -35,7 +37,12 @@ void Engine::setup() {
 		else if (element.meshName == "plane") {
 			mesh = planeMesh;
 		}
-		auto gameObject = std::make_shared<GameObject>(mesh, shader);
+		auto gameObject = std::make_shared<GameObject>(element.meshName);
+		auto transformComponent = std::make_shared<Transform>(*gameObject);
+		auto renderingComponent = std::make_shared<Rendering>(*gameObject);
+		renderingComponent->loadMesh = mesh;
+		renderingComponent->loadShader = shader;
+		renderingComponent->setColor = element.color;
 		gameObject->position = element.position;
 		gameObject->scale = element.scale;
 		gameObject->rotation = element.rotationEuler;
