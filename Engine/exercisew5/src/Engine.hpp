@@ -4,6 +4,7 @@
 #include <memory>
 #include "glm/glm.hpp"
 #include "GameObject.hpp"
+#include "Scene.hpp"
 
 class Engine {
 public:
@@ -12,6 +13,7 @@ public:
 private:
     void update(float deltaTimeSec);
     std::vector<std::shared_ptr<GameObject>> gameObjects;
+	Scene scene;
 };
 
 

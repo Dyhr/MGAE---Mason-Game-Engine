@@ -10,7 +10,7 @@ Rendering::Rendering(GameObject *gameObject)
 void Rendering::draw() {
 	if (transform) {
 		shader->setVector("color", color);
-		SRE::SimpleRenderEngine::instance->draw(mesh.get, transform.get.globalTransform(), shader.get);
+		SRE::SimpleRenderEngine::instance->draw(&*mesh, transform->globalTransform(), &*shader);
 	}
 }
 

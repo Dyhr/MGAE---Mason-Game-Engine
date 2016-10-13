@@ -16,12 +16,12 @@ using namespace SRE;
 
 void Engine::setup() {
 
-	std::vector<GameObjectDescriptor> scene = SceneParser::parseFile("data/car_house_tree.json");
+	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data/car_house_tree.json");
 	Shader* shader = Shader::getStandard();
 	auto cubeMesh = Mesh::createCube();
 	auto planeMesh = Mesh::createQuad();
 	auto sphereMesh = Mesh::createSphere();
-	for (auto element : scene) {
+	for (auto element : gameObjectDescriptors) {
 		SRE::Mesh * mesh;
 		if (element.meshName == "sphere") {
 			mesh = sphereMesh;
@@ -33,7 +33,7 @@ void Engine::setup() {
 			mesh = planeMesh;
 		}
 
-		auto gameObject = std::make_shared<GameObject>(element.meshName);
+		auto gameObject = scene.addGameObject(element.meshName);
 		auto transformComponent = gameObject->addComponent<Transform>();
 		auto renderingComponent = gameObject->addComponent<Rendering>();
 		renderingComponent->loadMesh = mesh;
@@ -43,13 +43,9 @@ void Engine::setup() {
 		transformComponent->setRotation = element.rotationEuler;
 		transformComponent->setScale = element.scale;
 		
-		
-
-		//TODO PARENT
-		/*
 		if (element.parentId != -1) {
-			gameObject->parent = gameObjects[element.parentId].get();
-		}*/
+			transformComponent->setParent = scene.getGameObject(element.parentId)->getComponent<Transform>();
+		}
 	}
 
 
@@ -88,9 +84,6 @@ void Engine::update(float deltaTimeSec) {
     SimpleRenderEngine::instance->clearScreen({0,0,1,1});
 
     // render game object
-    for (auto & go : gameObjects){
-        //go->draw();
-    }
 	for (int i = 0; i < scene.getSize(); i++) {
 		auto gameObject = scene.getGameObject(i);
 		gameObject->getComponent<Rendering>()->draw();

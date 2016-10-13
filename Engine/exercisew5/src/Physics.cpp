@@ -6,7 +6,7 @@ Physics::Physics()
 		throw "Physics instantiated twice";
 	instance = this;
 
-	world = new b2World(b2Vec2(0, -10));
+	//world = new b2World(b2Vec2(0, -10));
 }
 
 Physics::~Physics()
