@@ -1,7 +1,6 @@
 #pragma once
 #include "Component.hpp"
 #include "glm/glm.hpp"
-#pragma once
 #include "GameObject.hpp"
 #include "Rendering.h"
 
@@ -12,12 +11,12 @@ public:
 	void setPosition(glm::vec3 position);
 	void setRotation(glm::vec3 rotation);
 	void setScale(glm::vec3 scale);
-	void setParent(GameObject *gameObject);
+	void setParent(Transform *gameObject);
 
 	glm::vec3 getPosition();
 	glm::vec3 getRotation();
 	glm::vec3 getScale();
-	GameObject getParent();
+	Transform* getParent();
 
 protected:
 	Transform(GameObject *gameObject);
@@ -30,5 +29,5 @@ private:
 	glm::vec3 position;
 	glm::vec3 rotation;
 	glm::vec3 scale;
-	GameObject parent;
+	Transform* parent; // the parent is not a game object but a transform*
 };
