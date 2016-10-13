@@ -36,14 +36,14 @@ void Engine::setup() {
 			mesh = planeMesh;
 		}
 		auto gameObject = std::make_shared<GameObject>(mesh, shader);
-		gameObject->position = element.position;
+		/*gameObject->position = element.position;
 		gameObject->scale = element.scale;
 		gameObject->rotation = element.rotationEuler;
 		gameObject->color = element.color;
 		gameObjects.push_back(gameObject);
 		if (element.parentId != -1) {
 			gameObject->parent = gameObjects[element.parentId].get();
-		}
+		}*/
 	}
 
 
@@ -83,7 +83,7 @@ void Engine::update(float deltaTimeSec) {
 
     // render game object
     for (auto & go : gameObjects){
-        go->draw();
+        //go->draw();
     }
     SimpleRenderEngine::instance->swapWindow();
 }

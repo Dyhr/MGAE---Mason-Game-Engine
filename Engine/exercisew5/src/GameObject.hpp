@@ -18,7 +18,6 @@ public:
 
     bool removeComponent(std::shared_ptr<Component> ptr);
 
-
     template<typename C>
     std::shared_ptr<C> getComponent();
 

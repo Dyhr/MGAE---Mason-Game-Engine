@@ -1,5 +1,6 @@
-#include "Component.hpp"
 #pragma once
+#include "Component.hpp"
+
 class Mesh : public Component {
 
 };

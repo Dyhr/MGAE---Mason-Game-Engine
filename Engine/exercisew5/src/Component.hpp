@@ -1,6 +1,6 @@
 #pragma once
+//#include "GameObject.hpp"
 
-// forward declaration
 class GameObject;
 
 class Component {
