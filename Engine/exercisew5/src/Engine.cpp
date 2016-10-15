@@ -11,6 +11,7 @@
 #include "SceneParser.hpp"
 #include "Transform.h"
 #include "Rendering.h"
+#include "Physics.hpp"
 
 using namespace SRE;
 
@@ -66,12 +67,14 @@ void Engine::start() {
     auto t1 = Clock::now();
     int timePerFrameMillis = 1000/60;
     while (true) {
+		using namespace std::chrono;
+
         auto t2 = Clock::now();
         // time since last update
-        float deltaTimeSec = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count()/1000000.0f;
+        float deltaTimeSec = duration_cast<microseconds>(t2 - t1).count()/1000000.0f;
         update(deltaTimeSec);
 
-        int updateTimeMillis = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(Clock::now() - t2).count());
+        int updateTimeMillis = static_cast<int>(duration_cast<milliseconds>(Clock::now() - t2).count());
         int wait = timePerFrameMillis - updateTimeMillis;
         if (wait > 0){
             SDL_Delay( wait );
@@ -83,11 +86,13 @@ void Engine::start() {
 void Engine::update(float deltaTimeSec) {
     SimpleRenderEngine::instance->clearScreen({0,0,1,1});
 
+	// step the physics
+	Physics::instance.step(deltaTimeSec);
+
     // render game object
     for (auto & go : gameObjects){
 		auto rendering = go.get()->getComponent<Rendering>();
-		if(rendering)
-			rendering->draw();
+		if(rendering) rendering->draw();
     }
     SimpleRenderEngine::instance->swapWindow();
 }

@@ -1,16 +1,17 @@
 #pragma once
-//#include <Box2D/Box2D.h>
+#include <Box2D/Box2D.h>
 
 class Physics
 {
 public:
-	//static Physics* instance;
+	static Physics instance;
 
-	//b2World* world;
+	b2World world;
+	int velIterations = 10;
+	int posIterations = 10;
 
 	Physics();
-	~Physics();
 
-	void step();
+	void step(float dt);
 private:
 };

@@ -69,7 +69,7 @@ ELSE (SRE_FOUND)
     MESSAGE( STATUS "Failed to find Simple Render Engine")
 endif(SRE_FOUND)
 
-target_link_libraries(GameEngine ${EXTRA_LIBS} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SRE_LIBRARY})
+target_link_libraries(GameEngine ${EXTRA_LIBS} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SRE_LIBRARY} ${BOX2D_LIBRARY})
 
 file(COPY data DESTINATION Debug)
 file(COPY data DESTINATION Release)
