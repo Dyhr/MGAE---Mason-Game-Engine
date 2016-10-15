@@ -1,8 +1,9 @@
 #pragma once
 #include "Component.hpp"
+#include "Physics.hpp"
 
-class Collider2D : public Component {
+class Collider : public Component {
 public:
 protected:
-	Collider2D(GameObject* gameObject) : Component(gameObject) {}
+	Collider(GameObject* gameObject) : Component(gameObject) { }
 };

@@ -16,6 +16,8 @@
 using namespace SRE;
 
 void Engine::setup() {
+	physics = new Physics();
+
 	std::vector<GameObjectDescriptor> scene = SceneParser::parseFile("data/car_house_tree.json");
 	Shader* shader = Shader::getStandard();
 	auto cubeMesh = Mesh::createCube();
@@ -87,7 +89,7 @@ void Engine::update(float deltaTimeSec) {
     SimpleRenderEngine::instance->clearScreen({0,0,1,1});
 
 	// step the physics
-	Physics::instance.step(deltaTimeSec);
+	Physics::instance->step(deltaTimeSec);
 
     // render game object
     for (auto & go : gameObjects){
