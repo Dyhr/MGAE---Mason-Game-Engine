@@ -21,6 +21,8 @@ public:
 
     template<typename C>
     std::shared_ptr<C> getComponent();
+	template<typename C>
+	std::vector<std::shared_ptr<C>> getComponents();
 
 private:
     std::vector<std::shared_ptr<Component>> components;
@@ -42,13 +44,19 @@ template<typename C>
 std::shared_ptr<C> GameObject::getComponent() {
     for (auto c : components){
         auto castPtr = std::dynamic_pointer_cast<C>(c);
-        if (castPtr != nullptr){
+        if (castPtr != nullptr)
             return castPtr;
-        }
     }
     // not found
     return nullptr;
 }
-
-
-
+template<typename C>
+std::vector<std::shared_ptr<C>> GameObject::getComponents() {
+	std::vector<std::shared_ptr<C>> result;
+	for(auto c : components) {
+		auto castPtr = std::dynamic_pointer_cast<C>(c);
+		if(castPtr != nullptr)
+			result.push_back(castPtr);
+	}
+	return result;
+}

@@ -9,6 +9,7 @@ public:
 	void setSize(float width, float height);
 protected:
 	BoxCollider2D(GameObject* gameObject);
+	friend class GameObject;
 private:
 	b2PolygonShape polyShape;
 	b2Vec2 center;

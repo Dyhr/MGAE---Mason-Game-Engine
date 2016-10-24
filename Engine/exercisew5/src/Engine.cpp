@@ -12,6 +12,8 @@
 #include "Transform.h"
 #include "Rendering.h"
 #include "Physics.hpp"
+#include "PhysicsBody2D.hpp"
+#include "BoxCollider2D.hpp"
 
 using namespace SRE;
 
@@ -37,6 +39,7 @@ void Engine::setup() {
 		auto gameObject = std::make_shared<GameObject>(element.meshName);
 		auto transformComponent = gameObject->addComponent<Transform>();
 		auto renderingComponent = gameObject->addComponent<Rendering>();
+
 		renderingComponent->loadMesh(std::make_shared<Mesh>(*mesh));
 		renderingComponent->loadShader(std::make_shared<Shader>(*shader));
 		renderingComponent->setColor(element.color);
@@ -47,6 +50,11 @@ void Engine::setup() {
 		if (element.parentId != -1) {
 			transformComponent->setParent(gameObjects[element.parentId].get()->getComponent<Transform>().get());
 		}
+
+		// Physics is not tested properly. It kinda works?
+		auto bodyComponent = gameObject->addComponent<PhysicsBody2D>();
+		auto sphereComponent = gameObject->addComponent<BoxCollider2D>();
+		sphereComponent->setSize(40, 40);
 
 		gameObjects.push_back(gameObject);
 	}
@@ -65,6 +73,8 @@ void Engine::setup() {
 }
 
 void Engine::start() {
+	Physics::instance->init();
+
     typedef std::chrono::high_resolution_clock Clock;
     auto t1 = Clock::now();
     int timePerFrameMillis = 1000/60;
@@ -79,7 +89,7 @@ void Engine::start() {
         int updateTimeMillis = static_cast<int>(duration_cast<milliseconds>(Clock::now() - t2).count());
         int wait = timePerFrameMillis - updateTimeMillis;
         if (wait > 0){
-            SDL_Delay( wait );
+            SDL_Delay(wait);
         }
         t1 = t2;
     }

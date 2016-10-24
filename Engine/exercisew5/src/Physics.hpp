@@ -20,6 +20,7 @@ public:
 	int posIterations = 10;
 
 	void step(float dt);
+	void init();
 private:
 	std::vector<PhysicsBody2D*> bodies2D;
 	std::vector<PhysicsBody*> bodies;
