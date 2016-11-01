@@ -12,6 +12,18 @@
 
 using namespace std;
 
+void spriteRendering(SDL_Window *window) {
+	using namespace SRE;
+	SimpleRenderEngine r{ window };
+
+	// todo implement 
+
+	r.swapWindow();
+
+	float duration = 10000;
+	SDL_Delay(duration);
+}
+
 int main(int argc, char** argv) {
     SDL_Window *window;                    // Declare a pointer
 
@@ -41,6 +53,8 @@ int main(int argc, char** argv) {
         printf("Could not create window: %s\n", SDL_GetError());
         return 1;
     }
+
+	spriteRendering(window);
 
     SRE::SimpleRenderEngine r{window};
 
