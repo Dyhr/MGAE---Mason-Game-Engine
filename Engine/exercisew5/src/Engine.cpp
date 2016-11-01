@@ -14,21 +14,18 @@
 #include "Physics.hpp"
 #include "PhysicsBody2D.hpp"
 #include "BoxCollider2D.hpp"
-#include <map>
 
 using namespace SRE;
 
 void Engine::setup() {
-	physics = new Physics();
-	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
+	physics = Physics::getInstance();
 
-	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data/car_house_tree.json");
+	std::vector<GameObjectDescriptor> scene = SceneParser::parseFile("data/car_house_tree.json");
 	Shader* shader = Shader::getStandard();
 	auto cubeMesh = Mesh::createCube();
 	auto planeMesh = Mesh::createQuad();
 	auto sphereMesh = Mesh::createSphere();
-	for (auto element : gameObjectDescriptors) {
-
+	for (auto element : scene) {
 		Mesh* mesh;
 		if (element.meshName == "sphere") 
 			mesh = sphereMesh;
@@ -39,8 +36,7 @@ void Engine::setup() {
 		else
 			throw "Undefined mesh";
 
-		auto gameObject = scene.addGameObject(element.meshName);
-		//1		auto gameObject = std::make_shared<GameObject>(element.meshName);
+		auto gameObject = std::make_shared<GameObject>(element.meshName);
 		auto transformComponent = gameObject->addComponent<Transform>();
 		auto renderingComponent = gameObject->addComponent<Rendering>();
 
@@ -51,21 +47,16 @@ void Engine::setup() {
 		transformComponent->setRotation(element.rotationEuler);
 		transformComponent->setScale(element.scale);
 
+		if (element.parentId != -1) {
+			transformComponent->setParent(gameObjects[element.parentId].get()->getComponent<Transform>().get());
+		}
+
 		// Physics is not tested properly. It kinda works?
 		auto bodyComponent = gameObject->addComponent<PhysicsBody2D>();
 		auto sphereComponent = gameObject->addComponent<BoxCollider2D>();
 		sphereComponent->setSize(40, 40);
 
-		map_gameObjects[element.uniqueId] = gameObject;
-	}
-	
-	//Set up parent relationships between Transform components
-	for (auto element : gameObjectDescriptors) {
-		if (element.parentId != -1) {
-			auto gameObject = map_gameObjects[element.uniqueId];
-			auto parentGameObject = map_gameObjects[element.parentId];
-			gameObject->getComponent<Transform>()->setParent(parentGameObject->getComponent<Transform>().get());
-		}
+		gameObjects.push_back(gameObject);
 	}
 
 
@@ -82,7 +73,7 @@ void Engine::setup() {
 }
 
 void Engine::start() {
-	Physics::instance->init();
+	physics->init();
 
     typedef std::chrono::high_resolution_clock Clock;
     auto t1 = Clock::now();
@@ -108,10 +99,11 @@ void Engine::update(float deltaTimeSec) {
     SimpleRenderEngine::instance->clearScreen({0,0,1,1});
 
 	// step the physics
-	Physics::instance->step(deltaTimeSec);
+	physics->step(deltaTimeSec);
 
     // render game object
-    for (auto & rendering : scene.getAllComponent<Rendering>()){
+    for (auto & go : gameObjects){
+		auto rendering = go.get()->getComponent<Rendering>();
 		if(rendering) rendering->draw();
     }
     SimpleRenderEngine::instance->swapWindow();

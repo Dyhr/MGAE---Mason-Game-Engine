@@ -3,26 +3,25 @@
 #include "GameObject.hpp"
 #include "Transform.h"
 #include "PhysicsBody2D.hpp"
-#include "PhysicsBody.hpp"
 #include "Collider2D.hpp"
 
 Physics* Physics::instance = nullptr;
 
+
 Physics::Physics()
 {
-	if(instance != nullptr) throw "Physics was instantiated twice";
-	instance = this;
 }
 
-Physics::~Physics()
+Physics* Physics::getInstance()
 {
-	instance = nullptr;
+	instance = new Physics();
+	return instance;
 }
 
 void Physics::step(float dt)
 {
 	world.Step(dt, velIterations, posIterations);
-	for (auto body : bodies2D)
+	for (auto body : bodies)
 	{
 		auto transform = body->getGameObject()->getComponent<Transform>();
 		auto pos = body->body->GetWorldCenter();
@@ -33,7 +32,7 @@ void Physics::step(float dt)
 
 void Physics::init()
 {
-	for(auto body : bodies2D) {
+	for(auto body : bodies) {
 		auto transform = body->getGameObject()->getComponent<Transform>();
 		if(transform) {
 			auto pos = transform->getPosition();

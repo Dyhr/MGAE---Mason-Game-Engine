@@ -4,16 +4,12 @@
 
 #include <Box2D/Box2D.h>
 
-class PhysicsBody;
 class PhysicsBody2D;
 
 class Physics
 {
 public:
-	static Physics* instance;
-
-	Physics();
-	~Physics();
+	static Physics* getInstance();
 
 	b2World world = b2World(b2Vec2(0, -10));
 	int velIterations = 10;
@@ -22,8 +18,10 @@ public:
 	void step(float dt);
 	void init();
 private:
-	std::vector<PhysicsBody2D*> bodies2D;
-	std::vector<PhysicsBody*> bodies;
+	static Physics* instance;
+
+	Physics();
+
+	std::vector<PhysicsBody2D*> bodies;
 	friend PhysicsBody2D;
-	friend PhysicsBody;
 };
