@@ -52,11 +52,11 @@ void Engine::setup() {
 		}
 
 		// Physics is not tested properly. It kinda works?
-		auto bodyComponent = gameObject->addComponent<PhysicsBody2D>();
+		/*auto bodyComponent = gameObject->addComponent<PhysicsBody2D>();
 		auto sphereComponent = gameObject->addComponent<BoxCollider2D>();
 		sphereComponent->setSize(40, 40);
 
-		gameObjects.push_back(gameObject);
+		gameObjects.push_back(gameObject);*/
 	}
 
 
