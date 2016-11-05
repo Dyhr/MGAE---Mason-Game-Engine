@@ -1,4 +1,3 @@
-#pragma once
 #include "glm/glm.hpp"
 #include "SRE/Mesh.hpp"
 #include "SRE/Texture.hpp"
@@ -18,3 +17,4 @@ private:
 	SRE::Texture* texture;
 	SRE::SimpleRenderEngine* sre;
 };
+
