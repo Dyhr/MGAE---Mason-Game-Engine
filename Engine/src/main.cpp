@@ -73,13 +73,13 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-	spriteRendering(window);
+	//spriteRendering(window);
 
-   // SRE::SimpleRenderEngine r{window};
+   SRE::SimpleRenderEngine r{window};
 
-   // Engine e;
-   // e.setup();
-   // e.start();
+   Engine e;
+   e.setup();
+   e.start();
 
     // Close and destroy the window
     SDL_DestroyWindow(window);

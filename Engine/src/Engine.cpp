@@ -7,6 +7,7 @@
 #include <SRE/Shader.hpp>
 #include "SRE/SimpleRenderEngine.hpp"
 #include "glm/glm.hpp"
+#include <glm/gtc/random.hpp>
 #include "glm/gtx/euler_angles.hpp"
 #include "SceneParser.hpp"
 #include "Transform.h"
@@ -14,18 +15,22 @@
 #include "Physics.hpp"
 #include "PhysicsBody2D.hpp"
 #include "BoxCollider2D.hpp"
+#include "ParticleSystem.hpp"
+#include <map>
 
 using namespace SRE;
+using namespace glm;
 
 void Engine::setup() {
 	physics = Physics::getInstance();
+	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 
-	std::vector<GameObjectDescriptor> scene = SceneParser::parseFile("data/car_house_tree.json");
+	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data/car_house_tree.json");
 	Shader* shader = Shader::getStandard();
 	auto cubeMesh = Mesh::createCube();
 	auto planeMesh = Mesh::createQuad();
 	auto sphereMesh = Mesh::createSphere();
-	for (auto element : scene) {
+	for (auto element : gameObjectDescriptors) {
 		Mesh* mesh;
 		if (element.meshName == "sphere") 
 			mesh = sphereMesh;
@@ -36,7 +41,7 @@ void Engine::setup() {
 		else
 			throw "Undefined mesh";
 
-		auto gameObject = std::make_shared<GameObject>(element.meshName);
+		auto gameObject = scene.addGameObject(element.meshName);
 		auto transformComponent = gameObject->addComponent<Transform>();
 		auto renderingComponent = gameObject->addComponent<Rendering>();
 
@@ -47,16 +52,22 @@ void Engine::setup() {
 		transformComponent->setRotation(element.rotationEuler);
 		transformComponent->setScale(element.scale);
 
+		map_gameObjects[element.uniqueId] = gameObject;
+		
+	}
+	//For testing particles
+	map_gameObjects[10]->addComponent<ParticleSystem>();
+	map_gameObjects[10]->getComponent<ParticleSystem>()->setSize(128);
+	map_gameObjects[10]->getComponent<ParticleSystem>()->init();
+
+	//Set up parent relationships between Transform components
+	for (auto element : gameObjectDescriptors) {
 		if (element.parentId != -1) {
-			transformComponent->setParent(gameObjects[element.parentId].get()->getComponent<Transform>().get());
+			auto gameObject = map_gameObjects[element.uniqueId];
+			auto parentGameObject = map_gameObjects[element.parentId];
+			gameObject->getComponent<Transform>()->setParent(parentGameObject->getComponent<Transform>().get());
+			
 		}
-
-		// Physics is not tested properly. It kinda works?
-		/*auto bodyComponent = gameObject->addComponent<PhysicsBody2D>();
-		auto sphereComponent = gameObject->addComponent<BoxCollider2D>();
-		sphereComponent->setSize(40, 40);
-
-		gameObjects.push_back(gameObject);*/
 	}
 
 
@@ -102,9 +113,18 @@ void Engine::update(float deltaTimeSec) {
 	physics->step(deltaTimeSec);
 
     // render game object
-    for (auto & go : gameObjects){
-		auto rendering = go.get()->getComponent<Rendering>();
+	for (auto & rendering : scene.getAllComponent<Rendering>()) {
 		if(rendering) rendering->draw();
     }
+	//for (auto & particleSystem : scene.getAllComponent<ParticleSystem>()) {
+	//	if (particleSystem)
+	//	{
+	//		
+	//		particleSystem->emit(glm::vec3(glm::sphericalRand<float>(250.0f)));
+	//		particleSystem->update(deltaTimeSec);
+	//		particleSystem->render();
+	//	}
+
+	//}
     SimpleRenderEngine::instance->swapWindow();
 }
