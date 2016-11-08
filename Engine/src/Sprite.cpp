@@ -1,7 +1,7 @@
 
 #include "Sprite.h"
-#include "SRE/Shader.hpp"
-#include <glm/gtc/matrix_transform.hpp>
+#include <SRE\Shader.hpp>
+#include <glm\gtc\matrix_transform.hpp>
 using namespace SRE;
 
 Sprite::Sprite(int x, int y, int width, int height, float anchorX, float anchorY, SRE::Texture * texture, SRE::SimpleRenderEngine * sre)

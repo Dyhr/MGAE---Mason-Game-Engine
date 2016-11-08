@@ -1,5 +1,5 @@
 #include "Rendering.h"
-#include "SRE/SimpleRenderEngine.hpp"
+#include <SRE\SimpleRenderEngine.hpp>
 
 Rendering::Rendering(GameObject *gameObject)
 :Component(gameObject) {

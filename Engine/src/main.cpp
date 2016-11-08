@@ -2,14 +2,12 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include "glm/glm.hpp"
-#include "glm/gtx/transform.hpp"
 #include "Sprite.h"
 #include "SpriteAtlas.h"
 
 #define SDL_MAIN_HANDLED
-#include "SDL.h"
-#include "SRE/SimpleRenderEngine.hpp"
+#include <SDL.h>
+#include <SRE\SimpleRenderEngine.hpp>
 #include "Engine.hpp"
 
 using namespace std;
@@ -23,7 +21,7 @@ void spriteRendering(SDL_Window *window) {
 		r.getCamera()->setWindowCoordinates();
 
 	r.clearScreen({ 1,0,0,1 });
-	Texture* texture = Texture::createFromFile("data/number_puzzle.png", false);
+	Texture* texture = Texture::createFromFile("data\number_puzzle.png", false);
 	texture->setFilterSampling(false);
 
 	Sprite number2_pivot0_0(170 * 2, 0, 170, 128, 0, 0, texture, &r);
