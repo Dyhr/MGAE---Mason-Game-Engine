@@ -45,10 +45,6 @@ include_directories(.)
 find_package(Box2D REQUIRED)
 include_directories(${BOX2D_INCLUDE_DIR})
 
-# LuaBridge
-find_package(LuaBridge REQUIRED)
-include_directories(${LUABRIDGE_INCLUDE_DIR})
-
 # GLM -- on Windows: depends on env var: GLM_ROOT_DIR
 find_package (glm REQUIRED)
 
