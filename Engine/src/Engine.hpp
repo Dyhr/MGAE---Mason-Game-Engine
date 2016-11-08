@@ -6,7 +6,6 @@
 #include "GameObject.hpp"
 #include "Scene.hpp"
 #include "Physics.hpp"
-#include "ParticleSystem.hpp"
 
 class Engine {
 public:
@@ -17,7 +16,6 @@ private:
     std::vector<std::shared_ptr<GameObject>> gameObjects;
 	Scene scene;
 	Physics* physics;
-	ParticleSystem* particleSystem;
 	bool running;
 };
 

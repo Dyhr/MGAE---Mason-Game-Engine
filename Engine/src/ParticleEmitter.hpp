@@ -3,7 +3,7 @@
 #include <glm/glm.hpp>
 #include "Component.hpp"
 #include "Transform.h"
-#include "ParticleSystem.hpp"
+#include <SRE/SimpleRenderEngine.hpp>
 
 class ParticleEmitter : public Component {
 public:
@@ -16,14 +16,17 @@ protected:
 	static SRE::ParticleMesh* mesh;
 	static SRE::Shader* shader;
 
+	static std::vector<glm::vec3> positions;
+	static std::vector<float> particleSize;
+	static std::vector<glm::vec4> colors;
+	static std::vector<glm::vec2> uvs;
+	static std::vector<float> uvSize;
+	static std::vector<float> uvRotation;
+
 	ParticleEmitter(GameObject *gameObject);
 
 	glm::vec3 velocity;
 	glm::vec4 color;
-
-	std::vector<float> particleSize;
-	std::vector<Particle> particles;
-	std::vector<glm::vec4> colors;
 
 	friend class GameObject;
 };

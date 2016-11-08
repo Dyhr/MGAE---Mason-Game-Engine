@@ -3,7 +3,6 @@
 #include <glm/glm.hpp>
 #include "GameObject.hpp"
 #include "Rendering.h"
-#include "ParticleSystem.hpp"
 
 class Transform : public Component {
 public:
