@@ -69,12 +69,16 @@ void Engine::setup() {
 	map_gameObjects[0]->addComponent<PlayerController>();
 
 	auto emitter = map_gameObjects[0]->addComponent<ParticleEmitter>();
+	emitter->init({ 10, 3 });
 	emitter->setVelocity(vec3(0,10,0));
 	emitter->setColor(vec4(1, 1, 1, 1));
+	emitter->start();
 
 	emitter = map_gameObjects[16]->addComponent<ParticleEmitter>();
+	emitter->init({ 1, 2 });
 	emitter->setVelocity(vec3(0, 10, 0));
 	emitter->setColor(vec4(1, 1, 1, 1));
+	emitter->start();
 
 
 	auto camera = SimpleRenderEngine::instance->getCamera();
@@ -157,7 +161,7 @@ void Engine::update(float deltaTimeSec) {
     // render game object
 	for (auto & rendering : scene.getAllComponent<Rendering>()) {
 		if (rendering) {
-			rendering->draw();
+			//rendering->draw();
 		}
     }
 
