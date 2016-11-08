@@ -2,14 +2,12 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include "glm/glm.hpp"
-#include "glm/gtx/transform.hpp"
 #include "Sprite.h"
 #include "SpriteAtlas.h"
 
 #define SDL_MAIN_HANDLED
-#include "SDL.h"
-#include "SRE/SimpleRenderEngine.hpp"
+#include <SDL.h>
+#include <SRE\SimpleRenderEngine.hpp>
 #include "Engine.hpp"
 #include "Engine2D.h"
 
@@ -52,11 +50,11 @@ int main(int argc, char** argv) {
 	Engine e2d;
 	e2d.setup();
 	e2d.start();
-
-   // Engine e;
-   // e.setup();
-   // e.start();
-
+/**
+   Engine e;
+   e.setup();
+   e.start();
+   */
     // Close and destroy the window
     SDL_DestroyWindow(window);
 

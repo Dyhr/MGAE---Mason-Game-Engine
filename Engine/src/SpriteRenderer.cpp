@@ -1,7 +1,9 @@
-#include "SpriteRenderer.h"
-#include "SRE/SimpleRenderEngine.hpp"
-#include <glm/gtc/matrix_transform.hpp>
-#include "SRE/Shader.hpp"
+#include "Sprite.h"
+#include <SRE\Shader.hpp>
+#include <SRE\SimpleRenderEngine.hpp>
+#include <glm\gtc\matrix_transform.hpp>
+
+using namespace SRE;
 
 SpriteRenderer::SpriteRenderer(GameObject *gameObject):Component(gameObject) {
 	transform = gameObject->getComponent<Transform>();
