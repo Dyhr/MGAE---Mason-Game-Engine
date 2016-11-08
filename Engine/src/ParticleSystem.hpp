@@ -1,6 +1,6 @@
 #pragma once
-#include "SRE/ParticleMesh.hpp"
-#include "glm/glm.hpp"
+#include <SRE\ParticleMesh.hpp>
+#include <glm\glm.hpp>
 #include <SRE\ParticleMesh.hpp>
 
 #include <vector>
