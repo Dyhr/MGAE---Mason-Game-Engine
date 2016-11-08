@@ -4,7 +4,7 @@
 #include <map>
 #include <memory>
 #include <SRE\SimpleRenderEngine.hpp>
-#include "SRE\Texture.hpp"
+#include <SRE\Texture.hpp>
 
 class Sprite;
 

@@ -1,6 +1,6 @@
 #include "Transform.h"
-#include "glm\gtx\euler_angles.hpp"
-#include "glm\gtc\matrix_transform.hpp"
+#include <glm\gtx\euler_angles.hpp>
+#include <glm\gtc\matrix_transform.hpp>
 
 Transform::Transform(GameObject *gameObject):Component(gameObject) {
 	this->position = glm::vec3(0, 0, 0);

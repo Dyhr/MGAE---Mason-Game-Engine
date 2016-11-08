@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <memory>
-#include "glm\glm.hpp"
+#include <glm\glm.hpp>
 #include "GameObject.hpp"
 #include "Scene.hpp"
 #include "Physics.hpp"
