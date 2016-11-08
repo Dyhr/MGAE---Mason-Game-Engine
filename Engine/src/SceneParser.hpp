@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include "glm/glm.hpp"
-#include "SRE/Mesh.hpp"
+#include <SRE\Mesh.hpp>
 #include "GameObject.hpp"
 
 

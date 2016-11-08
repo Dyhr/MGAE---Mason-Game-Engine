@@ -7,19 +7,24 @@ class Time
 public:
 	static float getTime()
 	{
-		return float(time) / 1000;
+		return float(instance->time) / 1000;
 	}
-	static float getDeltaTiem()
+	static float getDeltaTime()
 	{
-		return delta;
+		return instance->delta;
 	}
 private:
-	static int time;
-	static int delta;
+	static Time* instance;
+	int time = 0;
+	int delta = 0;
+
 	static void update(int delta)
 	{
-		Time::time += delta;
-		Time::delta = delta;
+		if (instance == nullptr) instance = new Time();
+
+		instance->time += delta;
+		instance->delta = delta;
 	}
+
 	friend Engine;
 };

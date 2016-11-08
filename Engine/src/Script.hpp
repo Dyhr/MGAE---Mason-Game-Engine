@@ -1,5 +1,7 @@
 #pragma once
 #include "Transform.h"
+#include "Time.hpp"
+#include <SDL.h>
 
 class Script : public Component
 {
@@ -26,7 +28,7 @@ public:
 	//virtual void OnCollisionEnter() {}
 	//virtual void OnCollisionStay() {}
 	//virtual void OnCollisionExit() {}
-	virtual void OnInput() {}
+	virtual void OnInput(SDL_Event event) {} // TODO refactor to better input system
 private:
 	bool started = false;
 	friend Engine;

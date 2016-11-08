@@ -1,7 +1,7 @@
 #include "glm/glm.hpp"
-#include "SRE/Mesh.hpp"
-#include "SRE/Texture.hpp"
-#include "SRE/SimpleRenderEngine.hpp"
+#include <SRE\Mesh.hpp>
+#include <SRE\Texture.hpp>
+#include <SRE\SimpleRenderEngine.hpp>
 
 
 class Sprite {
