@@ -1,11 +1,11 @@
 #pragma once
 
 class Engine;
-/*
+
 class Time
 {
 public:
-	static Time* getInstance();
+	static Time* Time::getInstance();
 
 	float getTime() const;
 	float getDeltaTime() const;
@@ -18,4 +18,4 @@ private:
 	void update(int delta);
 
 	friend Engine;
-};*/
+};

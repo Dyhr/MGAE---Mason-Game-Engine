@@ -20,6 +20,7 @@
 #include "Script.hpp"
 #include "Time.hpp"
 #include <SDL.h>
+#include "PlayerController.hpp"
 
 using namespace SRE;
 using namespace glm;
@@ -73,6 +74,8 @@ void Engine::setup() {
 		}
 	}
 
+	map_gameObjects[0]->addComponent<PlayerController>();
+
 
 	auto camera = SimpleRenderEngine::instance->getCamera();
 	camera->setPerspectiveProjection(60, 640, 480, 1, 1000);
@@ -101,7 +104,7 @@ void Engine::start() {
 		float deltaTimeSec = deltaTimeMicSec / 1000000.0f;
 
 		// Set the time
-		//Time::getInstance()->update(deltaTimeMicSec/1000);
+		Time::getInstance()->update(deltaTimeMicSec/1000);
 
 		// Update the engine
         update(deltaTimeSec);

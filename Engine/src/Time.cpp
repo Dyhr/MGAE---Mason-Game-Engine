@@ -1,5 +1,7 @@
 #include "Time.hpp"
-/*
+
+Time* Time::instance = nullptr;
+
 Time* Time::getInstance()
 {
 	if (instance == nullptr) instance = new Time();
@@ -12,7 +14,7 @@ float Time::getTime() const
 }
 float Time::getDeltaTime() const
 {
-	return delta;
+	return float(delta) / 1000;
 }
 
 void Time::update(int delta)
@@ -21,4 +23,3 @@ void Time::update(int delta)
 	this->time += delta;
 	this->delta = delta;
 }
-*/
