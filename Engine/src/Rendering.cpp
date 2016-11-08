@@ -1,7 +1,7 @@
 #include "Rendering.h"
 
-#include "SRE\Texture.hpp"
-#include <SRE\SimpleRenderEngine.hpp>
+#include "SRE/Texture.hpp"
+#include <SRE/SimpleRenderEngine.hpp>
 
 Rendering::Rendering(GameObject *gameObject)
 :Component(gameObject) {

@@ -1,12 +1,12 @@
 #pragma once
 
-#include <SRE\ParticleMesh.hpp>
-#include <SRE\Texture.hpp>
-#include <SRE\SimpleRenderEngine.hpp>
-#include <glm\glm.hpp>
+#include <SRE/ParticleMesh.hpp>
+#include <SRE/Texture.hpp>
+#include <SRE/SimpleRenderEngine.hpp>
+#include <glm/glm.hpp>
 
 #include <vector>
-#include <SRE\Shader.hpp>
+#include <SRE/Shader.hpp>
 
 class Particle {
 public:

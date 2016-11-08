@@ -1,6 +1,6 @@
 #pragma once
 
-#include <glm\glm.hpp>
+#include <glm/glm.hpp>
 #include "Component.hpp"
 #include "Transform.h"
 #include "ParticleSystem.hpp"

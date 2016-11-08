@@ -3,12 +3,12 @@
 #include <chrono>
 #include <iostream>
 #include <SDL_timer.h>
-#include <SRE\Mesh.hpp>
-#include <SRE\Shader.hpp>
-#include <SRE\SimpleRenderEngine.hpp>
-#include <glm\glm.hpp>
-#include <glm\gtc\random.hpp>
-#include <glm\gtx\euler_angles.hpp>
+#include <SRE/Mesh.hpp>
+#include <SRE/Shader.hpp>
+#include <SRE/SimpleRenderEngine.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtc/random.hpp>
+#include <glm/gtx/euler_angles.hpp>
 #include "SceneParser.hpp"
 #include "Transform.h"
 #include "Rendering.h"
@@ -136,7 +136,7 @@ void Engine::update(float deltaTimeSec) {
 	// fetch input
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
-		switch (event.type) {	// TODO gamepad support?
+		switch (event.type) {
 		case SDL_KEYDOWN:
 		case SDL_KEYUP:
 		case SDL_MOUSEMOTION:

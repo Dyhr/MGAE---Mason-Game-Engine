@@ -476,19 +476,19 @@ std::isnan(n) || std::isinf(n)
         void operator()(char c) {
             switch (c) {
 #define MAP(val, sym) case val: copy(sym, oi); break
-                MAP('"', "\\\"");
-                MAP('\\', "\\\\");
-                MAP('/', "\\/");
-                MAP('\b', "\\b");
-                MAP('\f', "\\f");
-                MAP('\n', "\\n");
-                MAP('\r', "\\r");
-                MAP('\t', "\\t");
+                MAP('"', "///"");
+                MAP('\\', "////");
+                MAP('/', "///");
+                MAP('\b', "//b");
+                MAP('\f', "//f");
+                MAP('\n', "//n");
+                MAP('\r', "//r");
+                MAP('\t', "//t");
 #undef MAP
                 default:
                     if (static_cast<unsigned char>(c) < 0x20 || c == 0x7f) {
                         char buf[7];
-                        SNPRINTF(buf, sizeof(buf), "\\u%04x", c & 0xff);
+                        SNPRINTF(buf, sizeof(buf), "//u%04x", c & 0xff);
                         copy(buf, buf + 6, oi);
                     } else {
                         *oi++ = c;
@@ -734,7 +734,7 @@ std::isnan(n) || std::isinf(n)
                 }
                 switch (ch) {
 #define MAP(sym, val) case sym: out.push_back(val); break
-                    MAP('"', '\"');
+                    MAP('"', '/"');
                     MAP('\\', '\\');
                     MAP('/', '/');
                     MAP('b', '\b');

@@ -1,6 +1,6 @@
 #pragma once
 #include "Component.hpp"
-#include <glm\glm.hpp>
+#include <glm/glm.hpp>
 #include "GameObject.hpp"
 #include "Rendering.h"
 #include "ParticleSystem.hpp"
