@@ -15,6 +15,8 @@ class ParticleEmitter : public Component {
 public:
 	static void render();
 
+	~ParticleEmitter();
+
 	void init(ParticleEmitterConfig config);
 	void update();
 	void start();

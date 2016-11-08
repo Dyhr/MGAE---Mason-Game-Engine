@@ -33,23 +33,24 @@ void ParticleEmitter::update()
 {
 	if (!running()) return;
 
-	auto position = gameObject->getComponent<Transform>()->getPosition();
+	auto position = glm::vec3(gameObject->getComponent<Transform>()->globalTransform()[3]);
 
-	glm::vec3 a(0, -10, 0);
+	glm::vec3 a(0, -9.8f, 0);
 	float time = Time::getInstance()->getTime();
 	float dt = time - startTime;
 
 	numParticles = ceil(dt * config.rate);
 	if (numParticles > maxParticles) numParticles = maxParticles;
-	if (numParticles == maxParticles) mark = floor(fmod(dt, config.lifespan)/config.rate);
+	if (dt > config.lifespan) mark = floor(fmod(dt, config.lifespan)*config.rate);
+
+	// TODO simplify all this by making particles stateful
 
 	for (int i = 0; i < numParticles; i++) {
-		float t = fmod(dt + ((i+mark)%maxParticles)*(1/config.rate), config.lifespan);
-		auto v0 = velocity;
-		auto p0 = position;
+		float offset = (i + mark) % maxParticles / config.rate;
+		float t = fmod(fmod(dt,1/config.rate) + offset, config.lifespan);
 
 		auto index = (i+mark) % maxParticles + pos;
-		positions[index] = 0.5f*a*t*t + v0*t + p0;
+		positions[index] = 0.5f*a*t*t + velocity*t + position;
 		colors[index] = color;
 	}
 }
@@ -61,6 +62,7 @@ void ParticleEmitter::start()
 
 void ParticleEmitter::stop()
 {
+	numParticles = mark = 0;
 	startTime = -1.0f;
 }
 
@@ -73,6 +75,11 @@ void ParticleEmitter::render() {
 	mesh->update(positions, colors, uvs, uvSize, uvRotation, particleSize);
 	shader->set("tex", SRE::Texture::getSphereTexture());
 	SRE::SimpleRenderEngine::instance->draw(mesh, glm::mat4(1), shader);
+}
+
+ParticleEmitter::~ParticleEmitter()
+{
+	// TODO very important to clean up on removal
 }
 
 void ParticleEmitter::init(ParticleEmitterConfig config)

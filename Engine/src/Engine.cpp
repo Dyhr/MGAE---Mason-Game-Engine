@@ -69,15 +69,21 @@ void Engine::setup() {
 	map_gameObjects[0]->addComponent<PlayerController>();
 
 	auto emitter = map_gameObjects[0]->addComponent<ParticleEmitter>();
-	emitter->init({ 10, 3 });
+	emitter->init({ 0.5f, 6 });
 	emitter->setVelocity(vec3(0,10,0));
 	emitter->setColor(vec4(1, 1, 1, 1));
 	emitter->start();
 
 	emitter = map_gameObjects[16]->addComponent<ParticleEmitter>();
-	emitter->init({ 1, 2 });
-	emitter->setVelocity(vec3(0, 10, 0));
-	emitter->setColor(vec4(1, 1, 1, 1));
+	emitter->init({ 8, 4 });
+	emitter->setVelocity(vec3(0, 12, 0));
+	emitter->setColor(vec4(0, 1, 0, 1));
+	emitter->start();
+
+	emitter = map_gameObjects[17]->addComponent<ParticleEmitter>();
+	emitter->init({ 2, 1 });
+	emitter->setVelocity(vec3(0, 12, 0));
+	emitter->setColor(vec4(1, 0, 0, 1));
 	emitter->start();
 
 
@@ -161,7 +167,7 @@ void Engine::update(float deltaTimeSec) {
     // render game object
 	for (auto & rendering : scene.getAllComponent<Rendering>()) {
 		if (rendering) {
-			//rendering->draw();
+			rendering->draw();
 		}
     }
 
