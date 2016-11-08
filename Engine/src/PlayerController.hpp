@@ -12,7 +12,7 @@ public:
 	void OnUpdate() override
 	{
 		auto pos = transform->getPosition();
-		pos.x += direction * speed * Time::getDeltaTime();
+		pos.x += direction * speed * Time::getInstance()->getDeltaTime();
 	}
 
 	void OnInput(SDL_Event event) override

@@ -1,30 +1,21 @@
 #pragma once
 
 class Engine;
-
+/*
 class Time
 {
 public:
-	static float getTime()
-	{
-		return float(instance->time) / 1000;
-	}
-	static float getDeltaTime()
-	{
-		return instance->delta;
-	}
+	static Time* getInstance();
+
+	float getTime() const;
+	float getDeltaTime() const;
 private:
 	static Time* instance;
+
 	int time = 0;
 	int delta = 0;
 
-	static void update(int delta)
-	{
-		if (instance == nullptr) instance = new Time();
-
-		instance->time += delta;
-		instance->delta = delta;
-	}
+	void update(int delta);
 
 	friend Engine;
-};
+};*/

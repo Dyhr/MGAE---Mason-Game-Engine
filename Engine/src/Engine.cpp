@@ -28,7 +28,7 @@ void Engine::setup() {
 	physics = Physics::getInstance();
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 
-	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data\car_house_tree.json");
+	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data/car_house_tree.json");
 	Shader* shader = Shader::getStandard();
 	auto cubeMesh = Mesh::createCube();
 	auto planeMesh = Mesh::createQuad();
@@ -101,7 +101,7 @@ void Engine::start() {
 		float deltaTimeSec = deltaTimeMicSec / 1000000.0f;
 
 		// Set the time
-		Time::update(deltaTimeMicSec/1000);
+		//Time::getInstance()->update(deltaTimeMicSec/1000);
 
 		// Update the engine
         update(deltaTimeSec);
