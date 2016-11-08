@@ -4,6 +4,7 @@
 #include <vector>
 #include "Component.hpp"
 #include <memory>
+#include "Transform.h"
 
 // forward declaration
 class Scene;
@@ -13,7 +14,9 @@ public:
     ~GameObject();
 	GameObject(std::string name);
 
-    std::string getName();
+    std::string GameObject::getName();
+	void GameObject::setName(std::string nm);
+
     template<typename C>
     std::shared_ptr<C> addComponent();
 
@@ -23,10 +26,13 @@ public:
     std::shared_ptr<C> getComponent();
 	template<typename C>
 	std::vector<std::shared_ptr<C>> getComponents();
+	std::shared_ptr<Transform> GameObject::getTransform();
+	void GameObject::setTransform(std::shared_ptr<Transform>);
 
 private:
     std::vector<std::shared_ptr<Component>> components;
-    
+
+	std::shared_ptr<Transform> transform;
     std::string name;
     friend class Scene;
 };

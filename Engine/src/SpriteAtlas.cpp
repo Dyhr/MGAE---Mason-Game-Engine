@@ -1,6 +1,6 @@
 
 #include "SpriteAtlas.h"
-#include "Sprite.h"
+#include "SpriteRenderer.h"
 #include "picojson.h"
 #include <sstream>
 #include <fstream>

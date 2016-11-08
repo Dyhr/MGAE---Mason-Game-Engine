@@ -1,14 +1,16 @@
-
-#include "Sprite.h"
-#include "SRE/Shader.hpp"
+#include "SpriteRenderer.h"
+#include "SRE/SimpleRenderEngine.hpp"
 #include <glm/gtc/matrix_transform.hpp>
-using namespace SRE;
+#include "SRE/Shader.hpp"
 
-Sprite::Sprite(int x, int y, int width, int height, float anchorX, float anchorY, SRE::Texture * texture, SRE::SimpleRenderEngine * sre)
-{
-	this->texture = texture;
-	this->sre = sre;
+SpriteRenderer::SpriteRenderer(GameObject *gameObject):Component(gameObject) {
+	transform = gameObject->getComponent<Transform>();
 
+
+	//(transform-position, int width, int height, float anchorX, float anchorY, SRE::Texture * texture, SRE::SimpleRenderEngine * sre)
+	
+	this->width = width;
+	this->height = height;
 
 	float fwidth = (float)texture->getWidth();
 	float fheight = (float)texture->getHeight();
@@ -42,18 +44,61 @@ Sprite::Sprite(int x, int y, int width, int height, float anchorX, float anchorY
 	});
 
 	this->mesh = new Mesh(vertices, normals, uvs);
-
 }
 
-Sprite::~Sprite()
+
+SpriteRenderer::~SpriteRenderer()
 {
 	delete this->mesh;
 }
+void SpriteRenderer::draw() {
+	if (transform) {
+		shader->setVector("color", color);
+		SRE::SimpleRenderEngine::instance->draw(&*mesh, transform->globalTransform(), &*shader);
+	}
+}
 
-void Sprite::draw(glm::vec2 position)
-{
-	Shader* shader = Shader::getUnlitSprite();
-	// Assign the texture to the shader
-	shader->setTexture("tex", texture);
-	sre->draw(mesh, glm::translate(glm::mat4(1), glm::vec3(position.x, position.y, 0)), shader);
+void SpriteRenderer::setPos(glm::vec2 pos) {
+	this->pos = pos;
+}
+
+void SpriteRenderer::setColor(glm::vec4 color) {
+	this->color = color;
+}
+
+void SpriteRenderer::setAnchorX(float ax) {
+	this->anchorX=ax;
+}
+
+void SpriteRenderer::setAnchorY(float ay) {
+	this->anchorY=ay;
+}
+
+glm::vec2 SpriteRenderer::getPos() {
+	return this->pos;
+}
+
+glm::vec4 SpriteRenderer::getColor() {
+	return this->color;
+}
+float SpriteRenderer::getAnchorX() {
+	return this->anchorX;
+}
+float SpriteRenderer::getAnchorY() {
+	return this->anchorY;
+}
+
+void  SpriteRenderer::setWidth(int width) {
+	this->width = width;
+
+}
+void  SpriteRenderer::setHeight(int height) {
+	this->height = height;
+}
+
+int  SpriteRenderer::getWidth() {
+	return this->width;
+}
+int  SpriteRenderer::getHeight() {
+	return this->height;
 }
