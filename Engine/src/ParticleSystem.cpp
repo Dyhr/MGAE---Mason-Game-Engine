@@ -1,15 +1,12 @@
-
-#include <SRE\SimpleRenderEngine.hpp>
-
 #include "ParticleSystem.hpp"
-#include "SRE/Texture.hpp"
+
 
 Particle::Particle(glm::vec3 position, glm::vec3 velocity, float timeOfBirth)
-	:position(position), velocity(velocity), timeOfBirth(timeOfBirth) {
+	: position(position), velocity(velocity), timeOfBirth(timeOfBirth) {
 }
 
 ParticleSystem::ParticleSystem(int size)
-	: mesh(nullptr), currentTime(0.0f), emissionIndex(0) {
+	: currentTime(0.0f), emissionIndex(0), mesh(nullptr) {
 	shader = SRE::Shader::getStandardParticles();
 
 	for (int i = 0; i<size; i++) {

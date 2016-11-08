@@ -72,12 +72,9 @@ void Engine::setup() {
 		}
 	}
 
-<<<<<<< HEAD
-=======
 	map_gameObjects[0]->addComponent<PlayerController>();
 
 
->>>>>>> 51a41ab4beb74fe256d36c7bd31219aa103f90b6
 	auto camera = SimpleRenderEngine::instance->getCamera();
 	camera->setPerspectiveProjection(60, 640, 480, 1, 1000);
 	camera->lookAt(vec3(10, 10, 10), vec3(0, 0, 0), vec3(0, 1, 0));
@@ -154,7 +151,6 @@ void Engine::update(float deltaTimeSec) {
 	}
 
     // render game object
-
 	for (auto & rendering : scene.getAllComponent<Rendering>()) {
 		if (rendering) {
 			rendering->draw();

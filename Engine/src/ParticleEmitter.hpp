@@ -1,7 +1,8 @@
 #pragma once
-#include "GameObject.hpp"
+
+#include <glm\glm.hpp>
 #include "Component.hpp"
-#include "glm/glm.hpp"
+#include "Transform.h"
 #include "ParticleSystem.hpp"
 
 class ParticleEmitter : public Component {

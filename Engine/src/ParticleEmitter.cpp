@@ -1,7 +1,4 @@
 #include "ParticleEmitter.hpp"
-#include "Transform.h"
-#include <glm/gtc/random.hpp>
-#include "glm/gtx/euler_angles.hpp"
 
 
 
