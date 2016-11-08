@@ -18,6 +18,7 @@
 #include "ParticleSystem.hpp"
 #include <map>
 #include "Script.hpp"
+#include "Time.hpp"
 
 using namespace SRE;
 using namespace glm;
@@ -95,7 +96,13 @@ void Engine::start() {
 
         auto t2 = Clock::now();
         // time since last update
-        float deltaTimeSec = duration_cast<microseconds>(t2 - t1).count()/1000000.0f;
+        int deltaTimeMicSec = duration_cast<microseconds>(t2 - t1).count();
+		float deltaTimeSec = deltaTimeMicSec / 1000000.0f;
+
+		// Set the time
+		Time::update(deltaTimeMicSec/1000);
+
+		// Update the engine
         update(deltaTimeSec);
 
         int updateTimeMillis = static_cast<int>(duration_cast<milliseconds>(Clock::now() - t2).count());
