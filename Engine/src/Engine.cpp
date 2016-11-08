@@ -136,7 +136,7 @@ void Engine::update(float deltaTimeSec) {
 	// fetch input
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
-		switch (event.type) {	// TODO gamepad support?
+		switch (event.type) {
 		case SDL_KEYDOWN:
 		case SDL_KEYUP:
 		case SDL_MOUSEMOTION:

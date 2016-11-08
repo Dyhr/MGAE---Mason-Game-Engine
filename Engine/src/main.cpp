@@ -7,7 +7,7 @@
 
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
-#include <SRE\SimpleRenderEngine.hpp>
+#include <SRE/SimpleRenderEngine.hpp>
 #include "Engine.hpp"
 
 using namespace std;
@@ -21,7 +21,7 @@ void spriteRendering(SDL_Window *window) {
 		r.getCamera()->setWindowCoordinates();
 
 	r.clearScreen({ 1,0,0,1 });
-	Texture* texture = Texture::createFromFile("data\number_puzzle.png", false);
+	Texture* texture = Texture::createFromFile("data/number_puzzle.png", false);
 	texture->setFilterSampling(false);
 
 	Sprite number2_pivot0_0(170 * 2, 0, 170, 128, 0, 0, texture, &r);
@@ -67,7 +67,7 @@ int main(int argc, char** argv) {
     // Check that the window was successfully made
     if (window == NULL) {
         // In the event that the window could not be made...
-        printf("Could not create window: %s\n", SDL_GetError());
+        printf("Could not create window: %s/n", SDL_GetError());
         return 1;
     }
 
