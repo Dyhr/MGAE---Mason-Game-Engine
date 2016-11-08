@@ -2,8 +2,6 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include <glm$1>
-#include <glm$1>
 #include "Sprite.h"
 #include "SpriteAtlas.h"
 
