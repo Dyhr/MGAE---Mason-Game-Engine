@@ -1,10 +1,14 @@
 #pragma once
 
-#include "SRE/ParticleMesh.hpp"
-#include "glm/glm.hpp"
+#include <SRE\ParticleMesh.hpp>
+#include <glm\glm.hpp>
+#include <SRE\ParticleMesh.hpp>
 
 #include <vector>
-#include <SRE/Shader.hpp>
+#include <SRE\Shader.hpp>
+#include "Component.hpp"
+#include "GameObject.hpp"
+#include <memory>
 
 class Particle {
 public:

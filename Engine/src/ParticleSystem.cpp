@@ -1,8 +1,6 @@
-//
-// Created by Morten Nobel-Jørgensen on 02/11/2016.
-//
 
-#include <SRE/SimpleRenderEngine.hpp>
+#include <SRE\SimpleRenderEngine.hpp>
+
 #include "ParticleSystem.hpp"
 #include "SRE/Texture.hpp"
 

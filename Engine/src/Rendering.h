@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Transform.h"
-#include <SRE/Mesh.hpp>
-#include <SRE/Shader.hpp>
+#include <SRE\Mesh.hpp>
+#include <SRE\Shader.hpp>
 #include "GameObject.hpp"
 
 class Transform;
