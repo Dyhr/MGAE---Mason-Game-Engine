@@ -7,16 +7,11 @@
 #include <SRE/Shader.hpp>
 #include <SRE/SimpleRenderEngine.hpp>
 #include <glm/glm.hpp>
-#include <glm/gtc/random.hpp>
-#include <glm/gtx/euler_angles.hpp>
 #include "SceneParser.hpp"
 #include "Transform.h"
 #include "Rendering.h"
 #include "Physics.hpp"
-#include "PhysicsBody2D.hpp"
-#include "BoxCollider2D.hpp"
 #include "ParticleEmitter.hpp"
-#include "ParticleSystem.hpp"
 #include <map>
 #include "Script.hpp"
 #include "Time.hpp"
@@ -28,7 +23,6 @@ using namespace glm;
 
 void Engine::setup() {
 	physics = Physics::getInstance();
-	particleSystem = new ParticleSystem(1024);
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 
 	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data/car_house_tree.json");
@@ -75,12 +69,10 @@ void Engine::setup() {
 	map_gameObjects[0]->addComponent<PlayerController>();
 
 	auto emitter = map_gameObjects[0]->addComponent<ParticleEmitter>();
-	emitter->setParticleSystem(particleSystem);
 	emitter->setVelocity(vec3(0,10,0));
 	emitter->setColor(vec4(1, 1, 1, 1));
 
 	emitter = map_gameObjects[16]->addComponent<ParticleEmitter>();
-	emitter->setParticleSystem(particleSystem);
 	emitter->setVelocity(vec3(0, 10, 0));
 	emitter->setColor(vec4(1, 1, 1, 1));
 
@@ -169,14 +161,13 @@ void Engine::update(float deltaTimeSec) {
 		}
     }
 
+	// update and render particle emitters
 	for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
 		if (particleEmitter) {
-			particleEmitter->emit();
+			particleEmitter->update();
 		}
 	}
-
-	particleSystem->update(deltaTimeSec);
-	particleSystem->render();
+	ParticleEmitter::render();
 
     SimpleRenderEngine::instance->swapWindow();
 }
