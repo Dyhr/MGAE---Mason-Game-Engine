@@ -17,6 +17,7 @@
 #include "BoxCollider2D.hpp"
 #include "ParticleSystem.hpp"
 #include <map>
+#include "Script.hpp"
 
 using namespace SRE;
 using namespace glm;
@@ -112,10 +113,19 @@ void Engine::update(float deltaTimeSec) {
 	// step the physics
 	physics->step(deltaTimeSec);
 
+	// update scripts
+	for (auto & script : scene.getAllComponent<Script>()) {
+		if (!script->started) {
+			script->started = true;
+			script->OnStart();
+		}
+		if (script) script->OnUpdate();
+	}
+
     // render game object
-	for (auto & rendering : scene.getAllComponent<Rendering>()) {
+	for (auto & rendering : scene.getAllComponent<Rendering>()) 
 		if(rendering) rendering->draw();
-    }
+
 	//for (auto & particleSystem : scene.getAllComponent<ParticleSystem>()) {
 	//	if (particleSystem)
 	//	{
