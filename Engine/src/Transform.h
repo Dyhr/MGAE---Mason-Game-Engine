@@ -23,7 +23,7 @@ protected:
 	Transform(GameObject *gameObject);
 	friend class GameObject;
 	friend class Rendering;
-	friend class ParticleSystem;
+	friend class ParticleEmitter;
 	glm::mat4 localTransform();
 	glm::mat4 globalTransform();
 

@@ -15,6 +15,7 @@
 #include "Physics.hpp"
 #include "PhysicsBody2D.hpp"
 #include "BoxCollider2D.hpp"
+#include "ParticleEmitter.hpp"
 #include "ParticleSystem.hpp"
 #include <map>
 
@@ -23,6 +24,7 @@ using namespace glm;
 
 void Engine::setup() {
 	physics = Physics::getInstance();
+	particleSystem = new ParticleSystem(1024);
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 
 	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data/car_house_tree.json");
@@ -55,10 +57,6 @@ void Engine::setup() {
 		map_gameObjects[element.uniqueId] = gameObject;
 		
 	}
-	//For testing particles
-	map_gameObjects[10]->addComponent<ParticleSystem>();
-	map_gameObjects[10]->getComponent<ParticleSystem>()->setSize(128);
-	map_gameObjects[10]->getComponent<ParticleSystem>()->init();
 
 	//Set up parent relationships between Transform components
 	for (auto element : gameObjectDescriptors) {
@@ -69,7 +67,6 @@ void Engine::setup() {
 			
 		}
 	}
-
 
 	auto camera = SimpleRenderEngine::instance->getCamera();
 	camera->setPerspectiveProjection(60, 640, 480, 1, 1000);
@@ -114,16 +111,19 @@ void Engine::update(float deltaTimeSec) {
 
     // render game object
 	for (auto & rendering : scene.getAllComponent<Rendering>()) {
-		if(rendering) rendering->draw();
+		if (rendering) {
+			rendering->draw();
+		}
     }
-	//for (auto & particleSystem : scene.getAllComponent<ParticleSystem>()) {
-	//	if (particleSystem)
-	//	{
-	//		
-	//		particleSystem->emit(glm::vec3(glm::sphericalRand<float>(250.0f)));
-	//		particleSystem->update(deltaTimeSec);
-	//		particleSystem->render();
-	//	}
+
+	for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
+		if (particleEmitter) {
+			particleEmitter->emit();
+		}
+	}
+
+	particleSystem->update(deltaTimeSec);
+	particleSystem->render();
 
 	//}
     SimpleRenderEngine::instance->swapWindow();
