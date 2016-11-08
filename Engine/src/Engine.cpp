@@ -74,6 +74,16 @@ void Engine::setup() {
 
 	map_gameObjects[0]->addComponent<PlayerController>();
 
+	auto emitter = map_gameObjects[0]->addComponent<ParticleEmitter>();
+	emitter->setParticleSystem(particleSystem);
+	emitter->setVelocity(vec3(0,10,0));
+	emitter->setColor(vec4(1, 1, 1, 1));
+
+	emitter = map_gameObjects[16]->addComponent<ParticleEmitter>();
+	emitter->setParticleSystem(particleSystem);
+	emitter->setVelocity(vec3(0, 10, 0));
+	emitter->setColor(vec4(1, 1, 1, 1));
+
 
 	auto camera = SimpleRenderEngine::instance->getCamera();
 	camera->setPerspectiveProjection(60, 640, 480, 1, 1000);
@@ -93,7 +103,8 @@ void Engine::start() {
     typedef std::chrono::high_resolution_clock Clock;
     auto t1 = Clock::now();
     int timePerFrameMillis = 1000/60;
-    while (true) {
+	running = true;
+    while (running) {
 		using namespace std::chrono;
 
         auto t2 = Clock::now();
@@ -136,6 +147,7 @@ void Engine::update(float deltaTimeSec) {
 				if (script) script->OnInput(event);
 			break;
 		case SDL_QUIT:
+			running = false;
 			break;
 		default: break;
 		}

@@ -18,6 +18,7 @@ private:
 	Scene scene;
 	Physics* physics;
 	ParticleSystem* particleSystem;
+	bool running;
 };
 
 
