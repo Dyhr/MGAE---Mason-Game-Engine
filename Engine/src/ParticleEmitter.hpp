@@ -37,10 +37,14 @@ protected:
 	static std::vector<float> uvRotation;
 	static int totalParticles;
 
+	static std::vector<float> birthTimes;
+	static std::vector<float> times;
+	static std::vector<glm::vec3> velocities;
+
 	ParticleEmitter(GameObject *gameObject);
 
 	ParticleEmitterConfig config;
-	int numParticles, maxParticles, pos, mark;
+	int numParticles, maxParticles, pos;
 	float startTime;
 
 	glm::vec3 velocity;

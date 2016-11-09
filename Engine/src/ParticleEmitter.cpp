@@ -4,6 +4,7 @@
 #include <SRE/SimpleRenderEngine.hpp>
 #include <SRE/ParticleMesh.hpp>
 #include <SRE/Texture.hpp>
+#include <iostream>
 
 
 SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;
@@ -17,6 +18,10 @@ std::vector<float> ParticleEmitter::uvSize = std::vector<float>();
 std::vector<float> ParticleEmitter::uvRotation = std::vector<float>();
 
 int ParticleEmitter::totalParticles = 0;
+
+std::vector<float> ParticleEmitter::birthTimes = std::vector<float>();
+std::vector<float> ParticleEmitter::times = std::vector<float>();
+std::vector<glm::vec3> ParticleEmitter::velocities = std::vector<glm::vec3>();
 
 ParticleEmitter::ParticleEmitter(GameObject * gameObject) : Component(gameObject) {
 	if(shader == nullptr)
@@ -36,22 +41,34 @@ void ParticleEmitter::update()
 	auto position = glm::vec3(gameObject->getComponent<Transform>()->globalTransform()[3]);
 
 	glm::vec3 a(0, -9.8f, 0);
-	float time = Time::getInstance()->getTime();
-	float dt = time - startTime;
+	float currenttime = Time::getInstance()->getTime();
+	float timeSinceStart = currenttime - startTime;
 
-	numParticles = ceil(dt * config.rate);
+	numParticles = ceil(timeSinceStart * config.rate);
 	if (numParticles > maxParticles) numParticles = maxParticles;
-	if (dt > config.lifespan) mark = floor(fmod(dt, config.lifespan)*config.rate);
 
-	// TODO simplify all this by making particles stateful
+	for (int i = pos; i < pos+numParticles; i++) {
+		if (times[i] > config.lifespan) birthTimes[i] = times[i] = -1.0f;
 
-	for (int i = 0; i < numParticles; i++) {
-		float offset = (i + mark) % maxParticles / config.rate;
-		float t = fmod(fmod(dt,1/config.rate) + offset, config.lifespan);
+		if(birthTimes[i] < 0)
+		{
+			positions[i] = position;
+			velocities[i] = velocity;
+			birthTimes[i] = timeSinceStart;
+			times[i] = 0.0f;
+		}
 
-		auto index = (i+mark) % maxParticles + pos;
-		positions[index] = 0.5f*a*t*t + velocity*t + position;
-		colors[index] = color;
+		float timeSinceBirth = timeSinceStart - birthTimes[i];
+		float timeSinceUpdate = timeSinceBirth - times[i];
+
+		auto p0 = positions[i];
+		auto v0 = velocities[i];
+
+		auto dt = timeSinceUpdate;
+		positions[i] = 0.5f*a*dt*dt + v0*dt + p0;
+		velocities[i] = a*dt + v0;
+		times[i] = timeSinceBirth;
+		colors[i] = color;
 	}
 }
 
@@ -62,7 +79,7 @@ void ParticleEmitter::start()
 
 void ParticleEmitter::stop()
 {
-	numParticles = mark = 0;
+	numParticles = 0;
 	startTime = -1.0f;
 }
 
@@ -86,14 +103,17 @@ void ParticleEmitter::init(ParticleEmitterConfig config)
 {
 	this->config = config;
 	maxParticles = ceil(config.lifespan * config.rate);
-	numParticles = mark = 0;
+	numParticles = 0;
 	startTime = -1.0f;
 
 	pos = totalParticles;
 	for(int i = 0; i < maxParticles; i++)
 	{
 		totalParticles++;
+		birthTimes.push_back(-1.0f);
+		times.push_back(-1.0f);
 		positions.push_back(glm::vec3());
+		velocities.push_back(glm::vec3());
 		colors.push_back(glm::vec4());
 		//uvs.push_back(glm::vec2());
 		//uvSize.push_back(0.0f);
