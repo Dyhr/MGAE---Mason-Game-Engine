@@ -11,7 +11,7 @@ SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;
 SRE::Shader* ParticleEmitter::shader = nullptr;
 
 std::vector<glm::vec3> ParticleEmitter::positions = std::vector<glm::vec3>();
-std::vector<float> ParticleEmitter::particleSize = std::vector<float>();
+std::vector<float> ParticleEmitter::sizes = std::vector<float>();
 std::vector<glm::vec4> ParticleEmitter::colors = std::vector<glm::vec4>();
 std::vector<glm::vec2> ParticleEmitter::uvs = std::vector<glm::vec2>();
 std::vector<float> ParticleEmitter::uvSize = std::vector<float>();
@@ -27,11 +27,7 @@ ParticleEmitter::ParticleEmitter(GameObject * gameObject) : Component(gameObject
 	if(shader == nullptr)
 		shader = SRE::Shader::getStandardParticles();
 	if (mesh == nullptr)
-		mesh = new SRE::ParticleMesh(positions, colors, uvs, uvSize, uvRotation, particleSize);
-}
-
-void ParticleEmitter::setVelocity(glm::vec3 velocity) {
-	this->velocity = velocity;
+		mesh = new SRE::ParticleMesh(positions, colors, uvs, uvSize, uvRotation, sizes);
 }
 
 void ParticleEmitter::update()
@@ -48,12 +44,15 @@ void ParticleEmitter::update()
 	if (numParticles > maxParticles) numParticles = maxParticles;
 
 	for (int i = pos; i < pos+numParticles; i++) {
-		if (times[i] > config.lifespan) birthTimes[i] = times[i] = -1.0f;
+		if (times[i] > config.lifespan) {
+			birthTimes[i] = times[i] = -1.0f;
+			colors[i] = glm::vec4();
+		}
 
 		if(birthTimes[i] < 0)
 		{
 			positions[i] = position;
-			velocities[i] = velocity;
+			velocities[i] = config.velocity;
 			birthTimes[i] = timeSinceStart;
 			times[i] = 0.0f;
 		}
@@ -67,8 +66,12 @@ void ParticleEmitter::update()
 		auto dt = timeSinceUpdate;
 		positions[i] = 0.5f*a*dt*dt + v0*dt + p0;
 		velocities[i] = a*dt + v0;
+
+		float lerp = times[i] / config.lifespan;
+		colors[i] = config.initialColor * (1 - lerp) - config.finalColor * lerp;
+		sizes[i] = config.initialSize * (1 - lerp) - config.finalSize * lerp;
+
 		times[i] = timeSinceBirth;
-		colors[i] = color;
 	}
 }
 
@@ -89,14 +92,14 @@ bool ParticleEmitter::running()
 }
 
 void ParticleEmitter::render() {
-	mesh->update(positions, colors, uvs, uvSize, uvRotation, particleSize);
+	mesh->update(positions, colors, uvs, uvSize, uvRotation, sizes);
 	shader->set("tex", SRE::Texture::getSphereTexture());
 	SRE::SimpleRenderEngine::instance->draw(mesh, glm::mat4(1), shader);
 }
 
 ParticleEmitter::~ParticleEmitter()
 {
-	// TODO very important to clean up on removal
+	// TODO clean up on removal. very important 
 }
 
 void ParticleEmitter::init(ParticleEmitterConfig config)
@@ -118,11 +121,6 @@ void ParticleEmitter::init(ParticleEmitterConfig config)
 		//uvs.push_back(glm::vec2());
 		//uvSize.push_back(0.0f);
 		//uvRotation.push_back(0.0f);
-		particleSize.push_back(0.5f);
+		sizes.push_back(0.5f);
 	}
 }
-
-void ParticleEmitter::setColor(glm::vec4 color) {
-	this->color = color;
-}
-

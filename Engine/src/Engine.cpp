@@ -68,22 +68,18 @@ void Engine::setup() {
 
 	map_gameObjects[0]->addComponent<PlayerController>();
 
+	auto g = vec3(0, -10, 0);
+
 	auto emitter = map_gameObjects[0]->addComponent<ParticleEmitter>();
-	emitter->init({ 0.5f, 6 });
-	emitter->setVelocity(vec3(0,10,0));
-	emitter->setColor(vec4(1, 1, 1, 1));
+	emitter->init(ParticleEmitterConfig(0.5f, 6, vec3(3, 10, 0), g, 0.2f, vec4(0, 1, 1, 1)));
 	emitter->start();
 
 	emitter = map_gameObjects[16]->addComponent<ParticleEmitter>();
-	emitter->init({ 8, 4 });
-	emitter->setVelocity(vec3(0, 12, 0));
-	emitter->setColor(vec4(0, 1, 0, 1));
+	emitter->init(ParticleEmitterConfig(8, 4, vec3(-5, 1, 0), g, 0.5f, vec4(0, 1, 0, 1), vec4(0, 1, 0, 0)));
 	emitter->start();
 
 	emitter = map_gameObjects[17]->addComponent<ParticleEmitter>();
-	emitter->init({ 2, 1 });
-	emitter->setVelocity(vec3(0, 12, 0));
-	emitter->setColor(vec4(1, 0, 0, 1));
+	emitter->init(ParticleEmitterConfig(2, 1, vec3(0, 20, 0), g, 1.0f, 0.0f, vec4(0, 1, 1, 1)));
 	emitter->start();
 
 
