@@ -6,7 +6,7 @@
 
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
-#include <SRE\SimpleRenderEngine.hpp>
+#include <SRE/SimpleRenderEngine.hpp>
 #include "Engine.hpp"
 #include "Engine2D.h"
 
@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
     // Check that the window was successfully made
     if (window == NULL) {
         // In the event that the window could not be made...
-        printf("Could not create window: %s\n", SDL_GetError());
+        printf("Could not create window: %s/n", SDL_GetError());
         return 1;
     }
 

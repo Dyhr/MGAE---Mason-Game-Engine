@@ -5,7 +5,7 @@ class Engine;
 class Time
 {
 public:
-	static Time* Time::getInstance();
+	static Time* getInstance();
 
 	float getTime() const;
 	float getDeltaTime() const;

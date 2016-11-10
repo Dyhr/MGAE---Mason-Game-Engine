@@ -3,10 +3,11 @@
 #include <string>
 #include <map>
 #include <memory>
+#include <SRE/SimpleRenderEngine.hpp>
+#include <SRE/Texture.hpp>
 
-#include <SRE\Texture.hpp>
-#include <SRE\SimpleRenderEngine.hpp>
-class SpriteRenderer;
+class Sprite;
+
 class SpriteAtlas {
 public:
 	SpriteAtlas(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile, SRE::SimpleRenderEngine * sre);

@@ -3,20 +3,15 @@
 #include <chrono>
 #include <iostream>
 #include <SDL_timer.h>
-#include <SRE\Mesh.hpp>
-#include <SRE\Shader.hpp>
-#include <SRE\SimpleRenderEngine.hpp>
-#include <glm\glm.hpp>
-#include <glm\gtc\random.hpp>
-#include <glm\gtx\euler_angles.hpp>
+#include <SRE/Mesh.hpp>
+#include <SRE/Shader.hpp>
+#include <SRE/SimpleRenderEngine.hpp>
+#include <glm/glm.hpp>
 #include "SceneParser.hpp"
 #include "Transform.h"
 #include "Rendering.h"
 #include "Physics.hpp"
-#include "PhysicsBody2D.hpp"
-#include "BoxCollider2D.hpp"
 #include "ParticleEmitter.hpp"
-#include "ParticleSystem.hpp"
 #include <map>
 #include "Script.hpp"
 #include "Time.hpp"
@@ -28,7 +23,6 @@ using namespace glm;
 
 void Engine::setup() {
 	physics = Physics::getInstance();
-	particleSystem = new ParticleSystem(1024);
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 
 	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data/car_house_tree.json");
@@ -72,12 +66,23 @@ void Engine::setup() {
 		}
 	}
 
-//<<<<<<< HEAD
-//=======
-//	map_gameObjects[0]->addComponent<PlayerController>();
-//
-//
-//>>>>>>> 51a41ab4beb74fe256d36c7bd31219aa103f90b6
+	map_gameObjects[0]->addComponent<PlayerController>();
+
+	auto g = vec3(0, -10, 0);
+
+	auto emitter = map_gameObjects[0]->addComponent<ParticleEmitter>();
+	emitter->init(ParticleEmitterConfig(0.5f, 6, vec3(3, 10, 0), g, 0.2f, vec4(0, 1, 1, 1)));
+	emitter->start();
+
+	emitter = map_gameObjects[16]->addComponent<ParticleEmitter>();
+	emitter->init(ParticleEmitterConfig(8, 4, vec3(-5, 1, 0), g, 0.5f, vec4(0, 1, 0, 1), vec4(0, 1, 0, 0)));
+	emitter->start();
+
+	emitter = map_gameObjects[17]->addComponent<ParticleEmitter>();
+	emitter->init(ParticleEmitterConfig(2, 1, vec3(0, 20, 0), g, 1.0f, 0.0f, vec4(0, 1, 1, 1)));
+	emitter->start();
+
+
 	auto camera = SimpleRenderEngine::instance->getCamera();
 	camera->setPerspectiveProjection(60, 640, 480, 1, 1000);
 	camera->lookAt(vec3(10, 10, 10), vec3(0, 0, 0), vec3(0, 1, 0));
@@ -96,7 +101,8 @@ void Engine::start() {
     typedef std::chrono::high_resolution_clock Clock;
     auto t1 = Clock::now();
     int timePerFrameMillis = 1000/60;
-    while (true) {
+	running = true;
+    while (running) {
 		using namespace std::chrono;
 
         auto t2 = Clock::now();
@@ -128,7 +134,7 @@ void Engine::update(float deltaTimeSec) {
 	// fetch input
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
-		switch (event.type) {	// TODO gamepad support?
+		switch (event.type) {
 		case SDL_KEYDOWN:
 		case SDL_KEYUP:
 		case SDL_MOUSEMOTION:
@@ -139,6 +145,7 @@ void Engine::update(float deltaTimeSec) {
 				if (script) script->OnInput(event);
 			break;
 		case SDL_QUIT:
+			running = false;
 			break;
 		default: break;
 		}
@@ -154,21 +161,19 @@ void Engine::update(float deltaTimeSec) {
 	}
 
     // render game object
-
 	for (auto & rendering : scene.getAllComponent<Rendering>()) {
 		if (rendering) {
 			rendering->draw();
 		}
     }
 
+	// update and render particle emitters
 	for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
 		if (particleEmitter) {
-			particleEmitter->emit();
+			particleEmitter->update();
 		}
 	}
-
-	particleSystem->update(deltaTimeSec);
-	particleSystem->render();
+	ParticleEmitter::render();
 
     SimpleRenderEngine::instance->swapWindow();
 }
