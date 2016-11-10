@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.5.1)
 project(GameEngine)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
@@ -46,7 +46,7 @@ find_package(Box2D REQUIRED)
 include_directories(${BOX2D_INCLUDE_DIR})
 
 # GLM -- on Windows: depends on env var: GLM_ROOT_DIR
-find_package (glm REQUIRED)
+find_package (GLM REQUIRED)
 
 IF(UNIX AND NOT APPLE)
     IF( glm_FOUND )
