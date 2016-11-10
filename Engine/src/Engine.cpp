@@ -18,6 +18,8 @@
 #include <SDL.h>
 #include "PlayerController.hpp"
 #include <SRE\SimpleRenderEngine.hpp>
+#include "SpriteRenderer.h"
+#include "SpriteAtlas.h"
 using namespace SRE;
 using namespace glm;
 
@@ -81,6 +83,12 @@ void Engine::setup() {
 	emitter = map_gameObjects[17]->addComponent<ParticleEmitter>();
 	emitter->init(ParticleEmitterConfig(2, 1, vec3(0, 20, 0), g, 1.0f, 0.0f, vec4(0, 1, 1, 1)));
 	emitter->start();
+
+	// Load the spritesheet
+	SpriteAtlas atlas("data/", "data/MarioPacked.json");
+
+	auto sprite = map_gameObjects[0]->addComponent<SpriteRenderer>();
+	sprite->sprite = atlas.getSprite("brick");
 
 
 	auto camera = SimpleRenderEngine::instance->getCamera();
@@ -166,6 +174,13 @@ void Engine::update(float deltaTimeSec) {
 			rendering->draw();
 		}
     }
+
+	// render sprites
+	for (auto & sprite : scene.getAllComponent<SpriteRenderer>()) {
+		if (sprite) {
+			sprite->draw();
+		}
+	}
 
 	// update and render particle emitters
 	for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {

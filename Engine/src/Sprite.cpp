@@ -1,59 +1,38 @@
-
 #include "Sprite.h"
+#include <vector>
+#include <glm/gtx/transform.hpp>
 #include <SRE/Shader.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-using namespace SRE;
+#include <memory>
+#include <SRE/SimpleRenderEngine.hpp>
 
-Sprite::Sprite(int x, int y, int width, int height, float anchorX, float anchorY, SRE::Texture * texture, SRE::SimpleRenderEngine * sre)
-{
+Sprite::Sprite(int x, int y, int width, int height, float anchorX, float anchorY, std::shared_ptr<SRE::Texture> texture) {
 	this->texture = texture;
-	this->sre = sre;
 
+	using namespace glm;
 
-	float fwidth = (float)texture->getWidth();
-	float fheight = (float)texture->getHeight();
-
-	float lower_x = (float)x / fwidth;
-	float lower_y = (float)y / fheight;
-
-	float higher_x = lower_x + (float)width / fwidth;
-	float higher_y = lower_y + (float)height / fheight;
-
-	//we move the pivot point to the centre as anchorX and anchorY indicate.
-	//we are actually moving the whole sprite (the mesh) to make its centre meet the rotation point that is right now at (0,0)
-	//depending of where we situate the pivot, the object will act different 
-
-	int minX = 0 - (width*anchorX);
-	int maxX = width - (width*anchorX);
-	int minY = 0 - (height*anchorY);
-	int maxY = height - (height*anchorY);
-
-	// The coordinates used for rendering, two triangles is used to create a square defined in windows coordinates
-	std::vector<glm::vec3> vertices({
-		glm::vec3{ maxX, minY, 0 }, glm::vec3{ maxX, maxY, 0 },glm::vec3{ minX, minY, 0 },
-		glm::vec3{ minX, minY, 0 }, glm::vec3{ maxX, maxY, 0 }, glm::vec3{ minX, maxY, 0 }
+	float dx = anchorX * width;
+	float dy = anchorY * height;
+	std::vector<vec3> vertices({
+		vec3{ width - dx, -dy, 0 }, vec3{ width - dx, height - dy, 0 }, vec3{ -dx, -dy, 0 },
+		vec3{ -dx, -dy, 0 }, vec3{ width - dx, height - dy, 0 }, vec3{ -dx, height - dy, 0 },
 	});
-	// Normals are not used for 2D graphics
-	std::vector<glm::vec3> normals;
-	// UVs containts the normalized texture coordinates.
-	std::vector<glm::vec2> uvs({
-		glm::vec2{ higher_x, lower_y }, glm::vec2{ higher_x, higher_y }, glm::vec2{ lower_x, lower_y },
-		glm::vec2{ lower_x, lower_y }, glm::vec2{ higher_x, higher_y }, glm::vec2{ lower_x, higher_y }
+	std::vector<vec3> normals;
+
+	float a = float(x) / float(texture->getWidth());
+	float b = float(y) / float(texture->getHeight());
+	float c = float(width) / float(texture->getWidth()) + a;
+	float d = float(height) / float(texture->getHeight()) + b;
+	std::vector<vec2> uvs({
+		vec2{ c, b }, vec2{ c, d }, vec2{ a, b },
+		vec2{ a, b }, vec2{ c, d }, vec2{ a, d }
 	});
 
-	this->mesh = new Mesh(vertices, normals, uvs);
-
+	this->mesh = std::make_shared<SRE::Mesh>(vertices, normals, uvs);
 }
 
-Sprite::~Sprite()
+void Sprite::draw(glm::vec3 position) const
 {
-	delete this->mesh;
-}
-
-void Sprite::draw(glm::vec2 position)
-{
-	Shader* shader = Shader::getUnlitSprite();
-	// Assign the texture to the shader
-	shader->setTexture("tex", texture);
-	sre->draw(mesh, glm::translate(glm::mat4(1), glm::vec3(position.x, position.y, 0)), shader);
+	SRE::Shader* shader = SRE::Shader::getUnlitSprite();
+	shader->set("tex", texture.get());
+	SRE::SimpleRenderEngine::instance->draw(mesh.get(), translate(glm::mat4(1), position), shader);
 }

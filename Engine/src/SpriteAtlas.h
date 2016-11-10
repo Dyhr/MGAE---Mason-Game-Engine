@@ -1,23 +1,19 @@
 #pragma once
 
 #include <map>
-#include <SRE/SimpleRenderEngine.hpp>
 #include <SRE/Texture.hpp>
-#include "SpriteRenderer.h"
+#include <memory>
 
 class Sprite;
 
 class SpriteAtlas {
 public:
-	SpriteAtlas(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile, SRE::SimpleRenderEngine * sre);
-	~SpriteAtlas();
+	SpriteAtlas(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile);
 
-	SpriteRenderer* getSprite(std::string name);//make sense?
+	std::shared_ptr<Sprite> getSprite(std::string name);
 private:
-	//A map will sort members alphabetically. not repeated keys
-	//don't need to be initialized in constructor
-	std::map<std::string, SpriteRenderer*> sprites;
+	std::map<std::string, std::shared_ptr<Sprite>> sprites;
 	// Note: the json file has the origin in the upper left corner
-	void init(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile, SRE::SimpleRenderEngine * sre);
-	SRE::Texture* texture;
+	void init(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile);
+	std::shared_ptr<SRE::Texture> texture;
 };

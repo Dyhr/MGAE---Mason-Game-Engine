@@ -1,110 +1,42 @@
-
 #include "SpriteAtlas.h"
-#include "SpriteRenderer.h"
+#include "Sprite.h"
 #include "picojson.h"
-#include <sstream>
 #include <fstream>
-#include <iostream>
-SpriteAtlas::SpriteAtlas(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile, SRE::SimpleRenderEngine * sre) {
 
-	std::map<std::string, SpriteRenderer*> mapSpr;
+SpriteAtlas::SpriteAtlas(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile) {
+	using namespace picojson;
 
-	picojson::value v;
-	std::string meta;
+	// Load the json file
+	value root;
+	std::fstream file(atlasJsonDataFile);
+	file >> root;
 
-	std::string err = picojson::get_last_error();
-	double textureH;
-
+	std::string	err = get_last_error();
 	if (err != "") {
 		std::cerr << err << std::endl;
 		return;
 	}
-	else {
 
+	// Load the texture
+	std::string dir = atlasJsonDataDirectory + root.get("meta").get("image").get<std::string>();
+	this->texture = std::shared_ptr<SRE::Texture>(SRE::Texture::createFromFile(dir.c_str(), false));
 
-		std::ifstream f(atlasJsonDataDirectory + atlasJsonDataFile);
-		//std::stringstream ss;
+	array frames = root.get("frames").get<array>();
+	for (auto frame : frames) {
+		value coords = frame.get("frame");
+		value pivot = frame.get("pivot");
 
-		//parse JSON
-
-		f >> v;
-		//ss << f.rdbuf();
-		//sprites= v.get<Sprite*>()["brick"].get<Sprite*>();
-		//std::cout << "TestInt: " << v["brick"].get<Sprite*>() << endl;
-
-
-
-		// obtain a const reference to the map, and print the contents
-		double frame_X, frame_Y, frame_W, frame_H, pivot_X, pivot_Y;
-		std::string filen;
-
-
-		//get "meta": {		"image" : "MarioPacked.png", .-.. from JSON
-		meta = v.get("meta").get("image").get<std::string>();
-		meta = atlasJsonDataDirectory + meta;
-		const char * c = meta.c_str();
-
-
-		SRE::Texture* texture = SRE::Texture::createFromFile(c, false);
-		texture->setFilterSampling(false);
-
-		const picojson::value::object& obj = v.get<picojson::object>();
-
-		for (picojson::value::object::const_iterator i = obj.begin(); i != obj.end(); ++i) {
-			//i->first; //frame		i->second.to_str(); //meta
-
-
-			//all the numbers in picojson are doubles
-			//here we are getting data from the file
-
-			picojson::array arrFrames = v.get(i->first).get<picojson::array>();
-
-			
-
-			for (auto it = arrFrames.begin(); it != arrFrames.end(); ++it)
-			{
-				filen = it->get("filename").get<std::string>();
-				frame_X = it->get("frame").get("x").get<double>();
-				frame_Y = it->get("frame").get("y").get<double>();
-				frame_W = it->get("frame").get("w").get<double>();
-				frame_H = it->get("frame").get("h").get<double>();
-				pivot_X = it->get("pivot").get("x").get<double>();
-				pivot_Y = it->get("pivot").get("y").get<double>();
-
-				//change coordinates to our system: coord=textH-y-h, only in Y axis
-				textureH = texture->getHeight();
-
-				frame_Y = (int)(textureH)-frame_Y - frame_H;
-
-				//other option:
-				//mapSpr.insert(std::pair<std::string, Sprite*>(filen, new Sprite((int)frame_X, (int)frame_Y, (int)frame_W, (int)frame_H, (int)pivot_X, (int)pivot_Y, texture, sre)));
-
-				//mapSpr[filen] = new SpriteRenderer((int)frame_X, (int)frame_Y, (int)frame_W, (int)frame_H, (float)pivot_X, (float)pivot_Y, texture, sre);
-				//mapSpr[filen] = new SpriteRenderer;
-			}
-			break; //not very elegant -.-
-		}
-
-		//std::string filename = arrFrames[0].get("filename").get<std::string>();
-		//std::cout << filename;
-		//double frame_X = arrFrames[0].get("frame").get("x").get<double>();
-
-		//Sprite sample1(170 * 2, 0, 170, 128, 0, 0, texture, sre);
-		//sample1.draw(glm::vec2(170 * 2, 128));
-		f.close();
+		sprites[frame.get("filename").get<std::string>()] = std::make_shared<Sprite>(
+			int(coords.get("x").get<double>()),
+			this->texture->getHeight() - int(coords.get("y").get<double>()) - int(coords.get("h").get<double>()),
+			int(coords.get("w").get<double>()),
+			int(coords.get("h").get<double>()),
+			float(pivot.get("x").get<double>()),
+			float(pivot.get("y").get<double>()),
+			texture);
 	}
-	this->sprites = mapSpr;
-	this->texture = texture;
 }
 
-
-SpriteAtlas::~SpriteAtlas() {
-
+std::shared_ptr<Sprite> SpriteAtlas::getSprite(std::string name) {
+	return this->sprites[name];
 }
-
-SpriteRenderer* SpriteAtlas::getSprite(std::string name) {
-
-	return sprites[name];
-}
-
-// Note: the json file has the origin in the upper left cornervoid SpriteAtlas::init(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile, SRE::SimpleRenderEngine * sre) {
