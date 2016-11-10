@@ -1,15 +1,15 @@
-#ifndef SPRITERENDERER_H
-#define SPRITERENDERER_H
+#pragma once
+
 #include "Component.hpp"
 #include <SRE/Mesh.hpp>
 #include <SRE/Shader.hpp>
 #include <SRE/Texture.hpp>
 #include <glm/glm.hpp>
-
-
+#include <memory>
 
 class Transform;
 class GameObject;
+
 class SpriteRenderer : public Component {
 public:
 	void SpriteRenderer::draw();
@@ -48,6 +48,3 @@ protected:
 	float anchorX;
 	float anchorY;
 };
-#endif // !SPRITERENDERER_H
-
-

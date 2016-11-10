@@ -2,7 +2,6 @@
 
 #include <glm/glm.hpp>
 #include "Component.hpp"
-#include "Transform.h"
 #include <SRE/SimpleRenderEngine.hpp>
 
 struct ParticleEmitterConfig

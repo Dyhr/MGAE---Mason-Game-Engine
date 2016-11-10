@@ -1,10 +1,9 @@
-#ifndef SPRITEATLAS_H
-#define SPRITEATLAS_H
-#include <string>
+#pragma once
+
 #include <map>
-#include <memory>
 #include <SRE/SimpleRenderEngine.hpp>
 #include <SRE/Texture.hpp>
+#include "SpriteRenderer.h"
 
 class Sprite;
 
@@ -22,8 +21,3 @@ private:
 	void init(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile, SRE::SimpleRenderEngine * sre);
 	SRE::Texture* texture;
 };
-
-
-
-#endif // !SPRITEATLAS_H
-

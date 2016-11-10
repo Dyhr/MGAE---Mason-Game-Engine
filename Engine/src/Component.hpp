@@ -1,6 +1,7 @@
-#ifndef COMPONENT_HPP
-#define COMPONENT_HPP
+#pragma once
+
 class GameObject;
+
 class Component {
 public:
 	virtual ~Component();
@@ -11,7 +12,6 @@ protected:
 
 	friend class GameObject;
 };
-#endif // !COMPONENT_HPP
 
 
 
