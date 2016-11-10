@@ -17,7 +17,7 @@
 #include "Time.hpp"
 #include <SDL.h>
 #include "PlayerController.hpp"
-
+#include <SRE\SimpleRenderEngine.hpp>
 using namespace SRE;
 using namespace glm;
 

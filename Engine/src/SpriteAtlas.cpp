@@ -1,14 +1,13 @@
 
 #include "SpriteAtlas.h"
-#include "Sprite.h"
+#include "SpriteRenderer.h"
 #include "picojson.h"
 #include <sstream>
 #include <fstream>
 #include <iostream>
-
 SpriteAtlas::SpriteAtlas(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile, SRE::SimpleRenderEngine * sre) {
 
-	std::map<std::string, Sprite*> mapSpr;
+	std::map<std::string, SpriteRenderer*> mapSpr;
 
 	picojson::value v;
 	std::string meta;
@@ -60,6 +59,7 @@ SpriteAtlas::SpriteAtlas(std::string atlasJsonDataDirectory, std::string atlasJs
 
 			picojson::array arrFrames = v.get(i->first).get<picojson::array>();
 
+			
 
 			for (auto it = arrFrames.begin(); it != arrFrames.end(); ++it)
 			{
@@ -79,7 +79,8 @@ SpriteAtlas::SpriteAtlas(std::string atlasJsonDataDirectory, std::string atlasJs
 				//other option:
 				//mapSpr.insert(std::pair<std::string, Sprite*>(filen, new Sprite((int)frame_X, (int)frame_Y, (int)frame_W, (int)frame_H, (int)pivot_X, (int)pivot_Y, texture, sre)));
 
-				mapSpr[filen] = new Sprite((int)frame_X, (int)frame_Y, (int)frame_W, (int)frame_H, (float)pivot_X, (float)pivot_Y, texture, sre);
+				//mapSpr[filen] = new SpriteRenderer((int)frame_X, (int)frame_Y, (int)frame_W, (int)frame_H, (float)pivot_X, (float)pivot_Y, texture, sre);
+				//mapSpr[filen] = new SpriteRenderer;
 			}
 			break; //not very elegant -.-
 		}
@@ -101,12 +102,9 @@ SpriteAtlas::~SpriteAtlas() {
 
 }
 
-Sprite* SpriteAtlas::getSprite(std::string name) {
+SpriteRenderer* SpriteAtlas::getSprite(std::string name) {
 
 	return sprites[name];
 }
 
-// Note: the json file has the origin in the upper left corner
-void SpriteAtlas::init(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile, SRE::SimpleRenderEngine * sre) {
-
-}
+// Note: the json file has the origin in the upper left cornervoid SpriteAtlas::init(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile, SRE::SimpleRenderEngine * sre) {

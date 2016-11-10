@@ -4,7 +4,10 @@
 #include <SRE/SimpleRenderEngine.hpp>
 #include <SRE/ParticleMesh.hpp>
 #include <SRE/Texture.hpp>
+#include <SRE/Shader.hpp>
 #include <iostream>
+#include "Transform.h"
+#include "GameObject.hpp"
 
 
 SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;

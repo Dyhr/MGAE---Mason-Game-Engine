@@ -1,8 +1,7 @@
 #pragma once
+
 #include "Component.hpp"
 #include <glm/glm.hpp>
-#include "GameObject.hpp"
-#include "Rendering.h"
 
 class Transform : public Component {
 public:
@@ -17,14 +16,14 @@ public:
 	glm::vec3 getRotation();
 	glm::vec3 getScale();
 	Transform* getParent();
-
+	glm::mat4 localTransform();
+	glm::mat4 globalTransform();
 protected:
 	Transform(GameObject *gameObject);
 	friend class GameObject;
 	friend class Rendering;
 	friend class ParticleEmitter;
-	glm::mat4 localTransform();
-	glm::mat4 globalTransform();
+
 
 private:
 	glm::vec3 position;
