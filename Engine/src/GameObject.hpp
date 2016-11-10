@@ -2,13 +2,10 @@
 
 #include <string>
 #include <vector>
-#include "Component.hpp"
 #include <memory>
 #include "Transform.h"
-
 // forward declaration
 class Scene;
-
 class GameObject {
 public:
     ~GameObject();

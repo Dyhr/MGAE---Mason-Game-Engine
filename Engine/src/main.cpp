@@ -2,7 +2,6 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include "Sprite.h"
 #include "SpriteAtlas.h"
 
 #define SDL_MAIN_HANDLED

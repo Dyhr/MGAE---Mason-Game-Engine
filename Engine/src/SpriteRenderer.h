@@ -1,19 +1,19 @@
-#pragma once
-
+#ifndef SPRITERENDERER_H
+#define SPRITERENDERER_H
 #include "Component.hpp"
 #include <SRE/Mesh.hpp>
 #include <SRE/Shader.hpp>
-#include "GameObject.hpp"
-#include "glm/glm.hpp"
-#include "SRE/Texture.hpp"
-#include "SRE/SimpleRenderEngine.hpp"
+#include <SRE/Texture.hpp>
+#include <glm/glm.hpp>
+
+
 
 class Transform;
-
+class GameObject;
 class SpriteRenderer : public Component {
 public:
 	void SpriteRenderer::draw();
-	
+
 	void SpriteRenderer::setPos(glm::vec2 pos);
 	void SpriteRenderer::setColor(glm::vec4 color);
 	void SpriteRenderer::setAnchorX(float ax);
@@ -29,10 +29,10 @@ public:
 
 	int  SpriteRenderer::getWidth();
 	int  SpriteRenderer::getHeight();
-
+	~SpriteRenderer();
 protected:
 	SpriteRenderer(GameObject *gameObject);
-	~SpriteRenderer();
+
 	friend class GameObject;
 	SRE::Texture* texture;
 	SRE::SimpleRenderEngine* sre;
@@ -48,3 +48,6 @@ protected:
 	float anchorX;
 	float anchorY;
 };
+#endif // !SPRITERENDERER_H
+
+

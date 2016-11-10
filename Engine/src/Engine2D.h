@@ -6,7 +6,6 @@
 #include "GameObject.hpp"
 #include "Scene.hpp"
 #include "Physics.hpp"
-
 class Engine2D {
 public:
 	void setup();

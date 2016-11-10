@@ -1,16 +1,16 @@
-#include "Sprite.h"
-#include <SRE\Shader.hpp>
+#include "GameObject.hpp"
 #include <SRE\SimpleRenderEngine.hpp>
 #include <glm\gtc\matrix_transform.hpp>
-
+#include "SpriteRenderer.h"
 using namespace SRE;
 
 SpriteRenderer::SpriteRenderer(GameObject *gameObject):Component(gameObject) {
 	transform = gameObject->getComponent<Transform>();
 
-
+	//provisional position
+	float x = 0, y = 0;
 	//(transform-position, int width, int height, float anchorX, float anchorY, SRE::Texture * texture, SRE::SimpleRenderEngine * sre)
-	
+	//need to read the size of the Mesh from a file 
 	this->width = width;
 	this->height = height;
 
@@ -27,6 +27,7 @@ SpriteRenderer::SpriteRenderer(GameObject *gameObject):Component(gameObject) {
 	//we are actually moving the whole sprite (the mesh) to make its centre meet the rotation point that is right now at (0,0)
 	//depending of where we situate the pivot, the object will act different 
 
+
 	int minX = 0 - (width*anchorX);
 	int maxX = width - (width*anchorX);
 	int minY = 0 - (height*anchorY);
@@ -37,7 +38,7 @@ SpriteRenderer::SpriteRenderer(GameObject *gameObject):Component(gameObject) {
 		glm::vec3{ maxX, minY, 0 }, glm::vec3{ maxX, maxY, 0 },glm::vec3{ minX, minY, 0 },
 		glm::vec3{ minX, minY, 0 }, glm::vec3{ maxX, maxY, 0 }, glm::vec3{ minX, maxY, 0 }
 	});
-	// Normals are not used for 2D graphics
+	// Normals are not used for 2D graphics, refer to the direction where the object faces
 	std::vector<glm::vec3> normals;
 	// UVs containts the normalized texture coordinates.
 	std::vector<glm::vec2> uvs({
@@ -45,13 +46,13 @@ SpriteRenderer::SpriteRenderer(GameObject *gameObject):Component(gameObject) {
 		glm::vec2{ lower_x, lower_y }, glm::vec2{ higher_x, higher_y }, glm::vec2{ lower_x, higher_y }
 	});
 
-	this->mesh = new Mesh(vertices, normals, uvs);
+	this->mesh = std::shared_ptr<Mesh>(new Mesh(vertices, normals, uvs));
 }
 
 
 SpriteRenderer::~SpriteRenderer()
 {
-	delete this->mesh;
+
 }
 void SpriteRenderer::draw() {
 	if (transform) {

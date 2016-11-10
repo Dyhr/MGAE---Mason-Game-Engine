@@ -6,8 +6,7 @@
 #include "GameObject.hpp"
 //everytime we create a gameobject we should add its Transform
 
-GameObject::GameObject(std::string name_)
-:name(name_)
+GameObject::GameObject(std::string name_):name(name_) //why???
 {
 }
 
@@ -15,13 +14,8 @@ GameObject::~GameObject() {
 
 }
 
-
 std::string GameObject::getName() {
     return name;
-}
-
-void GameObject::setName(std::string nm) {
-	this->name=nm;
 }
 
 std::shared_ptr<Transform> GameObject::getTransform(){
