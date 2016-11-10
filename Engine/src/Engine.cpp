@@ -17,9 +17,21 @@
 #include "Time.hpp"
 #include <SDL.h>
 #include "PlayerController.hpp"
-#include <SRE\SimpleRenderEngine.hpp>
+//GUI
+#include <imgui.h>
+#include "SRE/imgui_sre.hpp"
+
 using namespace SRE;
 using namespace glm;
+
+//GUI
+ImVec4 clear_color;
+bool show_another_window;
+float rotationSpeed;
+
+Engine::Engine(SDL_Window *window) {
+	this->window = window;
+}
 
 void Engine::setup() {
 	physics = Physics::getInstance();
@@ -53,6 +65,7 @@ void Engine::setup() {
 		transformComponent->setScale(element.scale);
 
 		map_gameObjects[element.uniqueId] = gameObject;
+		
 		
 	}
 
@@ -92,6 +105,13 @@ void Engine::setup() {
 	SimpleRenderEngine::instance->setLight(0, directionalLight);
 	SimpleRenderEngine::instance->setLight(1, pointLight1);
 	SimpleRenderEngine::instance->setLight(2, pointLight2);
+
+	//GUI
+	ImGui_SRE_Init(window);
+	show_another_window = true;
+	clear_color = ImColor(114, 144, 154);
+	rotationSpeed = 10.0;
+
    
 }
 
@@ -123,11 +143,13 @@ void Engine::start() {
         }
         t1 = t2;
     }
+
+	ImGui_SRE_Shutdown();
 }
 
 void Engine::update(float deltaTimeSec) {
     SimpleRenderEngine::instance->clearScreen({0,0,1,1});
-
+	
 	// step the physics
 	physics->step(deltaTimeSec);
 
@@ -175,5 +197,37 @@ void Engine::update(float deltaTimeSec) {
 	}
 	ParticleEmitter::render();
 
+	DebugUI();
+
     SimpleRenderEngine::instance->swapWindow();
+
+	
+}
+
+void Engine::DebugUI() {
+
+	ImGui_SRE_NewFrame(this->window);
+
+	// 1. Show a simple window
+	// Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
+	{
+		static float f = 0.0f;
+		ImGui::Text("Hello, world!");
+		ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
+		ImGui::ColorEdit3("clear color", (float*)&clear_color);
+		if (ImGui::Button("Another Window")) show_another_window ^= 1;
+		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	}
+
+	// 2. Show another simple window, this time using an explicit Begin/End pair
+	if (show_another_window)
+	{
+		ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
+		ImGui::Begin("Another Window", &show_another_window);
+		ImGui::Text("Hello");
+		ImGui::End();
+	}
+
+	ImGui::Render();
+
 }
