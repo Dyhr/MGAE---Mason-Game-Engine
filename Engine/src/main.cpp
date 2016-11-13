@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include "SpriteAtlas.h"
-
+#include "AudioMaster.hpp"
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
 #include <SRE/SimpleRenderEngine.hpp>
@@ -43,11 +43,17 @@ int main(int argc, char** argv) {
 
 	//spriteRendering(window);
 
-	SRE::SimpleRenderEngine r{ window };
+	//SRE::SimpleRenderEngine r{ window };
 
-	Engine e;
-	e.setup();
-	e.start();
+	//Engine e;
+	//e.setup();
+	//e.start();
+
+	//Audio testing
+	AudioMaster am;
+	am.playSound();
+
+	std::cin.get();
 
 	// Close and destroy the window
 	SDL_DestroyWindow(window);

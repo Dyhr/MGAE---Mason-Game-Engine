@@ -45,6 +45,11 @@ include_directories(.)
 find_package(Box2D REQUIRED)
 include_directories(${BOX2D_INCLUDE_DIR})
 
+#OpenAL
+find_library (OPENAL_LIBRARY REQUIRED)
+find_library (OPENAL_INCLUDE_DIR REQUIRED)
+include_directories(${OPENAL_INCLUDE_DIR})
+
 # GLM -- on Windows: depends on env var: GLM_ROOT_DIR
 find_package (GLM REQUIRED)
 
@@ -69,7 +74,7 @@ ELSE (SRE_FOUND)
     MESSAGE( STATUS "Failed to find Simple Render Engine")
 endif(SRE_FOUND)
 
-target_link_libraries(GameEngine ${EXTRA_LIBS} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SRE_LIBRARY} ${BOX2D_LIBRARY})
+target_link_libraries(GameEngine ${EXTRA_LIBS} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SRE_LIBRARY} ${BOX2D_LIBRARY} ${OPENAL_LIBRARY})
 
 #file(COPY data DESTINATION Debug)
 #file(COPY data DESTINATION Release)
