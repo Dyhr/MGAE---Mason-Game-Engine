@@ -20,7 +20,8 @@
 //GUI
 #include <imgui.h>
 #include "SRE/imgui_sre.hpp"
-
+#include <cstdint>
+#include "LeakDetection.h"
 using namespace SRE;
 using namespace glm;
 
@@ -28,6 +29,7 @@ using namespace glm;
 ImVec4 clear_color;
 bool show_another_window;
 float rotationSpeed;
+int numberSprites;
 
 Engine::Engine(SDL_Window *window) {
 	this->window = window;
@@ -149,6 +151,7 @@ void Engine::start() {
 
 void Engine::update(float deltaTimeSec) {
     SimpleRenderEngine::instance->clearScreen({0,0,1,1});
+	numberSprites = 0;
 	
 	// step the physics
 	physics->step(deltaTimeSec);
@@ -186,6 +189,7 @@ void Engine::update(float deltaTimeSec) {
 	for (auto & rendering : scene.getAllComponent<Rendering>()) {
 		if (rendering) {
 			rendering->draw();
+			numberSprites++;
 		}
     }
 
@@ -196,6 +200,7 @@ void Engine::update(float deltaTimeSec) {
 		}
 	}
 	ParticleEmitter::render();
+	
 
 	DebugUI();
 
@@ -207,27 +212,41 @@ void Engine::update(float deltaTimeSec) {
 void Engine::DebugUI() {
 
 	ImGui_SRE_NewFrame(this->window);
-
+	ImGui::Begin("Game Debug GUI");
 	// 1. Show a simple window
 	// Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
 	{
 		static float f = 0.0f;
-		ImGui::Text("Hello, world!");
+		ImGui::Text("Number of models rendered : %i", numberSprites);
 		ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
 		ImGui::ColorEdit3("clear color", (float*)&clear_color);
-		if (ImGui::Button("Another Window")) show_another_window ^= 1;
+		if (ImGui::Button("Memory Stats")) show_another_window ^= 1;
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+		
 	}
-
+	ImGui::End();
+		
 	// 2. Show another simple window, this time using an explicit Begin/End pair
 	if (show_another_window)
 	{
 		ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
-		ImGui::Begin("Another Window", &show_another_window);
-		ImGui::Text("Hello");
+		ImGui::Begin("Memory Stats", &show_another_window);
+		//memory stat
+		LeakDetection leakd;
+		int64_t totv = leakd.TotalVirtualMem();
+		int64_t currv = leakd.CurrentVirtualMem();
+		int64_t projectv = leakd.VirtualMemByCurrentProccess();
+		ImGui::Text("Virtual Memory Used: %lld Mb (out of Total: %lld Mb)", currv, totv);
+		ImGui::Text("Virtual Memory Used by the GE: %lld Mb", projectv);
+		int64_t totp = leakd.TotalPhysMem();
+		int64_t currp = leakd.CurrentPhysMem();
+		int64_t projectp = leakd.PhysMemByCurrentProccess();
+		ImGui::Text("Physical Memory Used: %lld Mb (out of Total: %lld Mb)", currp, totp);
+		ImGui::Text("Physical Memory Used by the GE: %lld Mb", projectp);
+
 		ImGui::End();
 	}
-
+	
 	ImGui::Render();
 
 }

@@ -11,9 +11,13 @@
 class Engine {
 public:
 	Engine::Engine(SDL_Window *window);
+	int numberSprites;
+
     void setup();
     void start();
 	void Engine::DebugUI();
+
+	
 private:
     void update(float deltaTimeSec);
     std::vector<std::shared_ptr<GameObject>> gameObjects;
