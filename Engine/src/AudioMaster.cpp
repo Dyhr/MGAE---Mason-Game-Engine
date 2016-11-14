@@ -101,14 +101,20 @@ int AudioMaster::playSound()
 	alSourcef(source, AL_GAIN, 1.0f);
 	alSourcefv(source, AL_POSITION, SourcePos);
 	alSourcefv(source, AL_VELOCITY, SourceVel);
-	alSourcei(source, AL_LOOPING, AL_TRUE);
+	alSourcei(source, AL_LOOPING, AL_FALSE);
 
 	//Play
 	alSourcePlay(source);
-	Sleep(5000);
+
+	
+
+	alGetSourcei(source, AL_SOURCE_STATE, &source_state);
+	//Blocking thread
+	while (source_state == AL_PLAYING) {
+		alGetSourcei(source, AL_SOURCE_STATE, &source_state);
+	}
 
 	//Cleanup
-	//TODO DONT CLEAN UP UNTIL SOUND IS DONE PLAYING
 	fclose(fp);
 	delete[] buf;
 	alDeleteSources(1, &source);

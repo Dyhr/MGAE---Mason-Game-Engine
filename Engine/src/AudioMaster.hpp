@@ -22,4 +22,5 @@ private:
 	ALCcontext *context;
 	ALuint *buffers;
 	ALuint *sources;
+	ALint source_state;
 };

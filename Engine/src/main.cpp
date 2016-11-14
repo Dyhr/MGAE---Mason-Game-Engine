@@ -8,6 +8,7 @@
 #include <SDL.h>
 #include <SRE/SimpleRenderEngine.hpp>
 #include "Engine.hpp"
+#include <thread>
 
 using namespace std;
 
@@ -51,9 +52,10 @@ int main(int argc, char** argv) {
 
 	//Audio testing
 	AudioMaster am;
+	char* file = "C:/TestData/Sounds/Alesis-Fusion-Acoustic-Bass-C2.wav";
+
 	am.playSound();
 
-	std::cin.get();
 
 	// Close and destroy the window
 	SDL_DestroyWindow(window);
