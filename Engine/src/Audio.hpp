@@ -7,11 +7,12 @@
 class Audio : public Component {
 public: 
 	void play();
-	bool stillGoing();
+	void cleanUp();
 	void init(std::string file);
+	bool isPlaying();
 protected:
 	Audio(GameObject *gameObject);
 	friend class GameObject;
 private:
-	const char * path;
+	std::string path;
 };

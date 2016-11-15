@@ -6,7 +6,7 @@ using namespace std;
 
 
 static Uint8 * audio_pos; // global pointer to the audio buffer to be played
-static Uint32 audio_len = 1; // remaining length of the sample we have to play
+static Uint32 audio_len; // remaining length of the sample we have to play
 static Uint8 * wav_buffer; // buffer containing our audio file
 
 void audio_callback(void * userdata, Uint8 * stream, int len);
@@ -21,9 +21,9 @@ void Audio::init(std::string file)
 	path = file.c_str();
 }
 
+
 void Audio::play()
 {
-	audio_len = 0;
 	// Initialize SDL.
 	if (SDL_Init(SDL_INIT_AUDIO) < 0)
 		return;
@@ -36,7 +36,7 @@ void Audio::play()
 
 	/* Load the WAV */
 	// the specs, length and buffer of our wav are filled
-	if (SDL_LoadWAV(path, &wav_spec, &wav_buffer, &wav_length) == NULL) {
+	if (SDL_LoadWAV(path.c_str(), &wav_spec, &wav_buffer, &wav_length) == NULL) {
 		return;
 	}
 	// set the callback function
@@ -71,20 +71,27 @@ void audio_callback(void *userdata, Uint8 *stream, int len) {
 	audio_len -= len;
 }
 
-bool Audio::stillGoing()
+void Audio::cleanUp()
 {	
-	if (audio_len > 0) {
-		// wait until we're not playing
-		return true;
+	if (isPlaying()) {
+		// wait until we're not playing	
 	}
 	else {
 		// shut everything down
 		SDL_CloseAudio();
 		SDL_FreeWAV(wav_buffer);
-		return false;
 	}
 }
 
+bool Audio::isPlaying()
+{
+	if (audio_len > 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 
 

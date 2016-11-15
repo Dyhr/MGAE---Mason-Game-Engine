@@ -70,8 +70,8 @@ void Engine::setup() {
 		}
 	}
 
-	auto audioComponent = map_gameObjects[0]->addComponent<Audio>();
-	audioComponent->init("sounds/data/Alesis-Fusion-Acoustic-Bass-C2.wav");
+	//auto audioComponent = map_gameObjects[0]->addComponent<Audio>();
+	//audioComponent->init("data/sounds/Alesis-Fusion-Acoustic-Bass-C2.wav");
 
 	map_gameObjects[0]->addComponent<PlayerController>();
 
@@ -194,11 +194,12 @@ void Engine::update(float deltaTimeSec) {
 		}
 	}
 
-	for (auto & audio : scene.getAllComponent<Audio>()) {
-		if (!audio->stillGoing()) {
-			audio->play();
-		}
-	}
+	//for (auto & audio : scene.getAllComponent<Audio>()) {
+	//	if (!audio->isPlaying()) {
+	//		audio->play();
+	//	}
+	//	audio->cleanUp();	
+	//}
 	ParticleEmitter::render();
 
     SimpleRenderEngine::instance->swapWindow();
