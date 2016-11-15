@@ -3,12 +3,11 @@
 #include <fstream>
 #include <sstream>
 #include "SpriteAtlas.h"
-#include "AudioMaster.hpp"
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
 #include <SRE/SimpleRenderEngine.hpp>
 #include "Engine.hpp"
-#include <thread>
+#include "Audio.hpp"
 
 using namespace std;
 
@@ -46,16 +45,9 @@ int main(int argc, char** argv) {
 
 	//SRE::SimpleRenderEngine r{ window };
 
-	//Engine e;
-	//e.setup();
-	//e.start();
-
-	//Audio testing
-	AudioMaster am;
-	char* file = "C:/TestData/Sounds/Alesis-Fusion-Acoustic-Bass-C2.wav";
-
-	am.playSound();
-
+	Engine e;
+	e.setup();
+	e.start();
 
 	// Close and destroy the window
 	SDL_DestroyWindow(window);

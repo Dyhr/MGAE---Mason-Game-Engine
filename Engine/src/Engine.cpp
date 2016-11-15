@@ -20,6 +20,7 @@
 #include <SRE\SimpleRenderEngine.hpp>
 #include "SpriteRenderer.h"
 #include "SpriteAtlas.h"
+#include "Audio.hpp"
 using namespace SRE;
 using namespace glm;
 
@@ -58,6 +59,7 @@ void Engine::setup() {
 		
 	}
 
+
 	//Set up parent relationships between Transform components
 	for (auto element : gameObjectDescriptors) {
 		if (element.parentId != -1) {
@@ -67,6 +69,9 @@ void Engine::setup() {
 			
 		}
 	}
+
+	auto audioComponent = map_gameObjects[0]->addComponent<Audio>();
+	audioComponent->init("sounds/data/Alesis-Fusion-Acoustic-Bass-C2.wav");
 
 	map_gameObjects[0]->addComponent<PlayerController>();
 
@@ -186,6 +191,12 @@ void Engine::update(float deltaTimeSec) {
 	for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
 		if (particleEmitter) {
 			particleEmitter->update();
+		}
+	}
+
+	for (auto & audio : scene.getAllComponent<Audio>()) {
+		if (!audio->stillGoing()) {
+			audio->play();
 		}
 	}
 	ParticleEmitter::render();
