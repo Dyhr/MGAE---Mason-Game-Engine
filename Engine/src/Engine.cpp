@@ -159,12 +159,16 @@ void Engine::update(float deltaTimeSec) {
 
 	// fetch input
 	SDL_Event event;
-	InputManage inp = InputManage();
+	
 	while (SDL_PollEvent(&event)) {
 		switch (event.type) {
 		case SDL_KEYDOWN:
+			
+			InputManage::getInstance()->KeyDown(event);
+			
+			break;
 		case SDL_KEYUP:
-			inp.KeyDown(event);
+			
 
 			break;
 		case SDL_MOUSEMOTION:
@@ -206,7 +210,7 @@ void Engine::update(float deltaTimeSec) {
 	}
 	ParticleEmitter::render();
 	
-	if (inp.getToggle())
+	if (InputManage::getInstance()->toggleGUI)
 		DebugUI();
 
     SimpleRenderEngine::instance->swapWindow();

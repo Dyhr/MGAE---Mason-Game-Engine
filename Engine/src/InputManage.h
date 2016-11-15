@@ -8,8 +8,10 @@ class InputManage {
 public:
 	
 	InputManage();
-	bool getToggle();
+	static InputManage* getInstance();
 	void KeyDown(SDL_Event event);
-private:
 	bool toggleGUI;
+private:
+	static InputManage* instance;
+	
 };

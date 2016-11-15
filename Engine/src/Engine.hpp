@@ -11,8 +11,10 @@
 
 class Engine {
 public:
+	
 	Engine::Engine(SDL_Window *window);
 	int numberSprites;
+	//InputManage* inp;
 
     void setup();
     void start();
