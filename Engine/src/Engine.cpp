@@ -31,6 +31,7 @@ bool show_another_window;
 float rotationSpeed;
 int numberSprites;
 
+
 Engine::Engine(SDL_Window *window) {
 	this->window = window;
 }
@@ -158,10 +159,14 @@ void Engine::update(float deltaTimeSec) {
 
 	// fetch input
 	SDL_Event event;
+	InputManage inp = InputManage();
 	while (SDL_PollEvent(&event)) {
 		switch (event.type) {
 		case SDL_KEYDOWN:
 		case SDL_KEYUP:
+			inp.KeyDown(event);
+
+			break;
 		case SDL_MOUSEMOTION:
 		case SDL_MOUSEBUTTONDOWN:
 		case SDL_MOUSEBUTTONUP:
@@ -201,8 +206,8 @@ void Engine::update(float deltaTimeSec) {
 	}
 	ParticleEmitter::render();
 	
-
-	DebugUI();
+	if (inp.getToggle())
+		DebugUI();
 
     SimpleRenderEngine::instance->swapWindow();
 

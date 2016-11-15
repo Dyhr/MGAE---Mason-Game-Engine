@@ -7,6 +7,7 @@
 #include "Scene.hpp"
 #include "Physics.hpp"
 #include <SDL.h>
+#include "InputManage.h"
 
 class Engine {
 public:
