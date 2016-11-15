@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
 
 	//spriteRendering(window);
 
-	//SRE::SimpleRenderEngine r{ window };
+	SRE::SimpleRenderEngine r{ window };
 
 	Engine e;
 	e.setup();
