@@ -1,21 +1,6 @@
-cmake_minimum_required(VERSION 3.5.1)
-project(GameEngine)
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
-file(GLOB SOURCE_FILES
-  "src/*.c"
-  "src/*.h"
-  "src/*.hpp"
-  "src/*.cpp"
-)
-
-add_executable(GameEngine ${SOURCE_FILES})
-
-
-find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIR})
 
 #########################################################
 # FIND OPENGL
@@ -36,6 +21,10 @@ ELSE (APPLE)
     include_directories(${GLEW_INCLUDE_DIR})
     SET(EXTRA_LIBS ${OPENGL_LIBRARY} ${GLEW_LIBRARY})
 ENDIF (APPLE)
+
+# SDL2
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIR})
 
 find_package(SDL2_IMAGE REQUIRED)
 include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
@@ -69,10 +58,6 @@ ELSE (SRE_FOUND)
     MESSAGE( STATUS "Failed to find Simple Render Engine")
 endif(SRE_FOUND)
 
-target_link_libraries(GameEngine ${EXTRA_LIBS} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SRE_LIBRARY} ${BOX2D_LIBRARY})
-
-#file(COPY data DESTINATION Debug)
-#file(COPY data DESTINATION Release)
 IF (WIN32)
     SET(SDL2_dll "" CACHE STRING "Where the SDL2.dll can be found")
     SET(SDL2_image_dll "" CACHE STRING "Where the SDL2_image.dll can be found")
@@ -85,3 +70,17 @@ IF (WIN32)
     file(COPY ${DLLFileList} DESTINATION Debug)
     file(COPY ${DLLFileList} DESTINATION Release)
 ENDIF(WIN32)
+
+
+
+file(GLOB SOURCE_FILES
+  "src/*.c"
+  "src/*.cpp"
+  "include/*.h"
+  "include/*.hpp"
+)
+
+
+add_library(Mason ${SOURCE_FILES})
+target_link_libraries(Mason ${EXTRA_LIBS} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SRE_LIBRARY} ${BOX2D_LIBRARY})
+
