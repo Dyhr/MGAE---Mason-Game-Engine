@@ -26,7 +26,7 @@ private:
     std::vector<std::shared_ptr<GameObject>> gameObjects;
 	Scene scene;
 	Physics* physics;
-	bool running;
+	bool running, paused;
 	SDL_Window *window;
 };
 

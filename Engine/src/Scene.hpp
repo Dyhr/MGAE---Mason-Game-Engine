@@ -7,6 +7,8 @@
 class Scene {
 public:
 
+	static Scene* getInstance();
+
     // Add game object
     std::shared_ptr<GameObject> addGameObject(std::string name);
 
@@ -19,11 +21,15 @@ public:
     // Get game object by index
     std::shared_ptr<GameObject> getGameObject(int index);
 
+	//Get all game objects
+	std::vector<std::shared_ptr<GameObject>> getGameObjects();
+
     // Returns all components of type C
     template<typename C>
     std::vector<std::shared_ptr<C>> getAllComponent();
 
 private:
+	static Scene* instance;
     std::vector<std::shared_ptr<GameObject>> gameObjects;
 };
 
