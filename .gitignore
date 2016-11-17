@@ -3,6 +3,12 @@
 !**/data/*
 CMakeFiles/
 
+*.vcxproj
+*.vcxproj.filters
+CMakeCache.txt
+cmake_install.cmake
+*.sln
+
 
 # Created by https://www.gitignore.io/api/visualstudio
 
