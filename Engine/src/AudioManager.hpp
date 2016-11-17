@@ -1,14 +1,22 @@
 #pragma once
 #include <vector>
 #include "Audio.hpp"
+#include <queue>
+class Audio;
+
 class AudioManager {
 public:
-	AudioManager & getInstance();
-	void init();
-	void cleanUp();
+	static AudioManager* getInstance();
 	void step();
 	void AddAudioSource(Audio* audioComponent);
 private:
-	AudioManager() {};
+	AudioManager();
+	void cleanUp();
+	void init();
+	static AudioManager* instance;
 	std::vector<Audio*> sourcesToBePlayed;
+	std::vector<Audio*> sourcesPlayed;
+	std::queue<Audio*> sourcesToBePlayed1;
+	std::queue<Audio*> sourcesPlayed1;
+	bool initialized;
 };

@@ -6,6 +6,7 @@
 #include "GameObject.hpp"
 #include "Scene.hpp"
 #include "Physics.hpp"
+#include "AudioManager.hpp"
 
 class Engine {
 public:
@@ -16,6 +17,7 @@ private:
     std::vector<std::shared_ptr<GameObject>> gameObjects;
 	Scene scene;
 	Physics* physics;
+	AudioManager* audioManager;
 	bool running;
 };
 

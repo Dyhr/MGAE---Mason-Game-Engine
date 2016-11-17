@@ -26,6 +26,7 @@ using namespace glm;
 
 void Engine::setup() {
 	physics = Physics::getInstance();
+	audioManager = AudioManager::getInstance();
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 
 	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data/car_house_tree.json");
@@ -71,7 +72,12 @@ void Engine::setup() {
 	}
 
 	//auto audioComponent = map_gameObjects[0]->addComponent<Audio>();
-	//audioComponent->init("data/sounds/Alesis-Fusion-Acoustic-Bass-C2.wav");
+	//audioComponent->init("data/sounds/Alesis-Fusion-Acoustic-Bass-C2.wav", audioManager);
+	//audioComponent->query();
+
+	//auto anotherAudioComponent = map_gameObjects[1]->addComponent<Audio>();
+	//anotherAudioComponent->init("data/sounds/Bass-Drum-1.wav", audioManager);
+	//anotherAudioComponent->query();
 
 	map_gameObjects[0]->addComponent<PlayerController>();
 
@@ -194,12 +200,7 @@ void Engine::update(float deltaTimeSec) {
 		}
 	}
 
-	//for (auto & audio : scene.getAllComponent<Audio>()) {
-	//	if (!audio->isPlaying()) {
-	//		audio->play();
-	//	}
-	//	audio->cleanUp();	
-	//}
+	audioManager->step();
 	ParticleEmitter::render();
 
     SimpleRenderEngine::instance->swapWindow();
