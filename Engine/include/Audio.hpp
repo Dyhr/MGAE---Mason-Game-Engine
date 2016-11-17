@@ -1,9 +1,6 @@
 #pragma once
-#include <SDL.h>
-#include <string>
-#include <vector>
+
 #include "Component.hpp"
-#include "GameObject.hpp"
 #include "AudioManager.hpp"
 
 class AudioManager;

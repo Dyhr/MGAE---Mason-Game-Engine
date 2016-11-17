@@ -1,6 +1,9 @@
 #include "Audio.hpp"
+
 #include <iostream>
 #include <string>
+#include <SDL_hints.h>
+#include <SDL.h>
 
 using namespace std;
 
