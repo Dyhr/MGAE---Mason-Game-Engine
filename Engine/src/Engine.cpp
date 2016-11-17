@@ -27,6 +27,7 @@
 
 #include "SpriteRenderer.h"
 #include "SpriteAtlas.h"
+#include "Audio.hpp"
 using namespace SRE;
 using namespace glm;
 
@@ -43,6 +44,7 @@ Engine::Engine(SDL_Window *window) {
 
 void Engine::setup() {
 	physics = Physics::getInstance();
+	audioManager = AudioManager::getInstance();
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 
 	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data/car_house_tree.json");
@@ -77,6 +79,7 @@ void Engine::setup() {
 
 	}
 
+
 	//Set up parent relationships between Transform components
 	for (auto element : gameObjectDescriptors) {
 		if (element.parentId != -1) {
@@ -86,6 +89,14 @@ void Engine::setup() {
 
 		}
 	}
+
+	//auto audioComponent = map_gameObjects[0]->addComponent<Audio>();
+	//audioComponent->init("data/sounds/Alesis-Fusion-Acoustic-Bass-C2.wav", audioManager);
+	//audioComponent->query();
+
+	//auto anotherAudioComponent = map_gameObjects[1]->addComponent<Audio>();
+	//anotherAudioComponent->init("data/sounds/Bass-Drum-1.wav", audioManager);
+	//anotherAudioComponent->query();
 
 	map_gameObjects[0]->addComponent<PlayerController>();
 
@@ -218,6 +229,7 @@ void Engine::update(float deltaTimeSec) {
 			particleEmitter->update();
 		}
 	}
+
 	// render game object
 	for (auto & rendering : scene.getAllComponent<Rendering>()) {
 		if (rendering) {
@@ -226,6 +238,9 @@ void Engine::update(float deltaTimeSec) {
 		}
 	}
 
+
+
+	audioManager->step();
 
 	ParticleEmitter::render();
 

@@ -3,11 +3,11 @@
 #include <fstream>
 #include <sstream>
 #include "SpriteAtlas.h"
-
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
 #include <SRE/SimpleRenderEngine.hpp>
 #include "Engine.hpp"
+#include "Audio.hpp"
 
 using namespace std;
 

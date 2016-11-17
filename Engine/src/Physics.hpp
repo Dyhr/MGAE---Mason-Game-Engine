@@ -17,7 +17,7 @@ public:
 
 	void step(float dt);
 	void init();
-private:
+private:	
 	static Physics* instance;
 
 	Physics();
