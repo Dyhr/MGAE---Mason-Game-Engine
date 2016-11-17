@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
 
 	SRE::SimpleRenderEngine r{ window };
 
-	Engine e;
+	Engine e(window);
 	e.setup();
 	e.start();
 
