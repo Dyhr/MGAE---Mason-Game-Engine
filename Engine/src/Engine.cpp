@@ -17,6 +17,7 @@
 #include "Time.hpp"
 #include <SDL.h>
 #include "PlayerController.hpp"
+
 //GUI
 #include <imgui.h>
 #include "SRE/imgui_sre.hpp"
@@ -24,6 +25,8 @@
 #include "LeakDetection.h"
 #include "Scene.hpp"
 
+#include "SpriteRenderer.h"
+#include "SpriteAtlas.h"
 using namespace SRE;
 using namespace glm;
 
@@ -100,6 +103,12 @@ void Engine::setup() {
 	emitter->init(ParticleEmitterConfig(2, 1, vec3(0, 20, 0), g, 1.0f, 0.0f, vec4(0, 1, 1, 1)));
 	emitter->start();
 
+	// Load the spritesheet
+	SpriteAtlas atlas("data/", "data/MarioPacked.json");
+
+	/*auto sprite = map_gameObjects[0]->addComponent<SpriteRenderer>();
+	sprite->sprite = atlas.getSprite("brick");
+	*/
 
 	auto camera = SimpleRenderEngine::instance->getCamera();
 	camera->setPerspectiveProjection(60, 640, 480, 1, 1000);
@@ -194,8 +203,15 @@ void Engine::update(float deltaTimeSec) {
 			}
 			if (script) script->OnUpdate();
 		}
-		
+    }
+
+	// render sprites
+	for (auto & sprite : scene.getAllComponent<SpriteRenderer>()) {
+		if (sprite) {
+			sprite->draw();
+		}
 	}
+
 	// update and render particle emitters
 	for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
 		if (particleEmitter) {
