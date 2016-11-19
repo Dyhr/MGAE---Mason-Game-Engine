@@ -3,6 +3,7 @@
 #include <glm/glm.hpp>
 #include "Component.hpp"
 #include <SRE/SimpleRenderEngine.hpp>
+#include <vector>
 
 struct ParticleEmitterConfig
 {
