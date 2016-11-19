@@ -1,4 +1,4 @@
-#include "SceneParser.hpp"
+#include "Mason/SceneParser.hpp"
 #include <fstream>
 #include "picojson.h"
 

@@ -1,4 +1,4 @@
-#include "Component.hpp"
+#include "Mason/Component.hpp"
 
 
 Component::Component(GameObject *gameObject)

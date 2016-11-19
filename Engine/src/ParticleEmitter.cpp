@@ -1,13 +1,13 @@
-#include "ParticleEmitter.hpp"
+#include "Mason/ParticleEmitter.hpp"
 
-#include "Time.hpp"
+#include "Mason/Time.hpp"
 #include <SRE/SimpleRenderEngine.hpp>
 #include <SRE/ParticleMesh.hpp>
 #include <SRE/Texture.hpp>
 #include <SRE/Shader.hpp>
 #include <iostream>
-#include "Transform.h"
-#include "GameObject.hpp"
+#include "Mason/Transform.h"
+#include "Mason/GameObject.hpp"
 
 
 SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;
@@ -43,7 +43,7 @@ void ParticleEmitter::update()
 	float currenttime = Time::getInstance()->getTime();
 	float timeSinceStart = currenttime - startTime;
 
-	numParticles = ceil(timeSinceStart * config.rate);
+	numParticles = int(ceil(timeSinceStart * config.rate));
 	if (numParticles > maxParticles) numParticles = maxParticles;
 
 	for (int i = pos; i < pos+numParticles; i++) {
@@ -108,7 +108,7 @@ ParticleEmitter::~ParticleEmitter()
 void ParticleEmitter::init(ParticleEmitterConfig config)
 {
 	this->config = config;
-	maxParticles = ceil(config.lifespan * config.rate);
+	maxParticles = int(ceil(config.lifespan * config.rate));
 	numParticles = 0;
 	startTime = -1.0f;
 

@@ -1,6 +1,17 @@
-#include "Engine.hpp"
+#include "Mason/Engine.hpp"
 
 #define SDL_MAIN_HANDLED
+
+#include "Mason/SceneParser.hpp"
+#include "Mason/Transform.h"
+#include "Mason/Rendering.h"
+#include "Mason/Physics.hpp"
+#include "Mason/ParticleEmitter.hpp"
+#include "Mason/Script.hpp"
+#include "Mason/Time.hpp"
+#include "Mason/PlayerController.hpp"
+#include "Mason/SpriteRenderer.h"
+#include "Mason/SpriteAtlas.h"
 
 #include <chrono>
 #include <iostream>
@@ -9,19 +20,8 @@
 #include <SRE/Shader.hpp>
 #include <SRE/SimpleRenderEngine.hpp>
 #include <glm/glm.hpp>
-#include "SceneParser.hpp"
-#include "Transform.h"
-#include "Rendering.h"
-#include "Physics.hpp"
-#include "ParticleEmitter.hpp"
-#include <map>
-#include "Script.hpp"
-#include "Time.hpp"
 #include <SDL.h>
-#include "PlayerController.hpp"
-#include "SpriteRenderer.h"
-#include "SpriteAtlas.h"
-#include "Audio.hpp"
+#include <map>
 
 
 using namespace SRE;

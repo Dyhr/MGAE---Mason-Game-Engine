@@ -1,4 +1,5 @@
-#include "Sprite.h"
+#include "Mason/Sprite.h"
+
 #include <vector>
 #include <glm/gtx/transform.hpp>
 #include <SRE/Shader.hpp>

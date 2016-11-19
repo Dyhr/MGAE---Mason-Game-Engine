@@ -1,5 +1,6 @@
-#include "SpriteAtlas.h"
-#include "Sprite.h"
+#include "Mason/SpriteAtlas.h"
+
+#include "Mason/Sprite.h"
 #include "picojson.h"
 #include <fstream>
 

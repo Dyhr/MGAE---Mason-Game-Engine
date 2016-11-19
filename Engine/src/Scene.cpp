@@ -1,8 +1,4 @@
-//
-// Created by Morten Nobel-Jørgensen on 07/10/16.
-//
-
-#include "Scene.hpp"
+#include "Mason/Scene.hpp"
 
 using namespace std;
 

@@ -1,9 +1,9 @@
-#include "Physics.hpp"
+#include "Mason/Physics.hpp"
 
-#include "GameObject.hpp"
-#include "Transform.h"
-#include "PhysicsBody2D.hpp"
-#include "Collider2D.hpp"
+#include "Mason/GameObject.hpp"
+#include "Mason/Transform.h"
+#include "Mason/PhysicsBody2D.hpp"
+#include "Mason/Collider2D.hpp"
 
 Physics* Physics::instance = nullptr;
 

@@ -1,5 +1,6 @@
-#include "SpriteRenderer.h"
-#include "GameObject.hpp"
+#include "Mason/SpriteRenderer.h"
+
+#include "Mason/GameObject.hpp"
 
 using namespace SRE;
 
