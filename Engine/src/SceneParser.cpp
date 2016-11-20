@@ -30,8 +30,8 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 	std::vector<GameObjectDescriptor> res;
 	for (auto o : v.get("gameobjects").get<picojson::array>()) {
 		GameObjectDescriptor d;
-		d.name = o.get("name").get<std::string>();
-		d.uniqueId = int(o.get("uniqueId").get<double>());
+		if(o.contains("name")) d.name = o.get("name").get<std::string>();
+		if (o.contains("uniqueId")) d.uniqueId = int(o.get("uniqueId").get<double>());
 
 		if (o.contains("transform")) {
 			auto t = o.get("transform");
@@ -42,15 +42,25 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 		}
 
 		if (o.contains("mesh")) {
+			d.mesh.found = true;
 			auto m = o.get("mesh");
 			if (m.contains("name")) d.mesh.name = m.get("name").get<std::string>();
 			if (m.contains("color")) d.mesh.color = to_vec4(m.get("color"));
 		}
 
 		if (o.contains("sprite")) {
+			d.sprite.found = true;
 			auto m = o.get("mesh");
 			if (m.contains("name")) d.sprite.name = m.get("name").get<std::string>();
 			if (m.contains("color")) d.sprite.color = to_vec4(m.get("color"));
+		}
+
+		if (o.contains("camera")) {
+			d.camera.found = true;
+			auto m = o.get("camera");
+			if (m.contains("fieldOfView")) d.camera.fieldOfView = float(m.get("fieldOfView").get<double>());
+			if (m.contains("nearClip")) d.camera.nearClip = float(m.get("nearClip").get<double>());
+			if (m.contains("farClip")) d.camera.farClip = float(m.get("farClip").get<double>());
 		}
 
 		res.push_back(d);

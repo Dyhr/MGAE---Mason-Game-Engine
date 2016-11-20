@@ -15,6 +15,7 @@ public:
 	glm::vec3 getRotation();
 	glm::vec3 getScale();
 	Transform* getParent();
+
 	glm::mat4 localTransform();
 	glm::mat4 globalTransform();
 protected:
@@ -24,9 +25,8 @@ protected:
 	friend class ParticleEmitter;
 
 
-private:
 	glm::vec3 position;
 	glm::vec3 rotation;
 	glm::vec3 scale;
-	Transform* parent; // the parent is not a game object but a transform*
+	Transform* parent;
 };

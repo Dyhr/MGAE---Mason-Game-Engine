@@ -2,6 +2,13 @@
   "scenename": "car house tree",
   "gameobjects": [
     {
+      "uniqueId": 100,
+      "name": "Camera",
+      "camera": {
+        "fieldOfView": 60 
+      }   
+    },
+    {
       "uniqueId": 0,
       "name": "Car",
       "mesh": {
