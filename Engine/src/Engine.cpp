@@ -1,7 +1,5 @@
 #include "Mason/Engine.hpp"
 
-#define SDL_MAIN_HANDLED
-
 #include "Mason/SceneParser.hpp"
 #include "Mason/Transform.h"
 #include "Mason/Rendering.h"
@@ -26,7 +24,6 @@
 
 using namespace SRE;
 using namespace glm;
-
 
 Engine::Engine()
 {
