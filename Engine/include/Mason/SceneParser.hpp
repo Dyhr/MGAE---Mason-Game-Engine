@@ -3,31 +3,36 @@
 #include <string>
 #include <vector>
 #include <glm/glm.hpp>
-#include <SRE/Mesh.hpp>
-#include "GameObject.hpp"
 
 
-class GameObjectDescriptor{
+class MeshDescriptor {
 public:
-    // Uniquely defines a game object
-    int uniqueId;
+	std::string name = "";
+	glm::vec4 color = glm::vec4(1, 1, 1, 1);
+};
 
-    // valid values are: "plane", "cube" and "sphere"
-    std::string meshName;
-    
-    // object color
-    glm::vec4 color;
-    
-    // transform
-    // position relative to parent
-    glm::vec3 position;
-    // rotation relative to parent
-    glm::vec3 rotationEuler;
-    // scale relative to parent
-    glm::vec3 scale;
-    
-    // parent id (-1 means no parent)
-    int parentId;
+class SpriteDescriptor {
+public:
+	std::string name = "";
+	glm::vec4 color = glm::vec4(1, 1, 1, 1);
+};
+
+class TransformDescriptor{
+public:
+    glm::vec3 position = glm::vec3(0, 0, 0);
+    glm::vec3 rotationEuler = glm::vec3(0, 0, 0);
+    glm::vec3 scale = glm::vec3(1,1,1);
+    int parentId = -1;
+};
+
+class GameObjectDescriptor {
+public:
+	std::string name = "Object";
+	int uniqueId = 0;
+
+	TransformDescriptor transform;
+	MeshDescriptor mesh;
+	SpriteDescriptor sprite;
 };
 
 

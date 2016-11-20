@@ -1,8 +1,9 @@
-file(GLOB GAME_SOURCE_FILES
+file(GLOB_RECURSE GAME_SOURCE_FILES
 	"src/*.c"
 	"src/*.cpp"
 	"src/*.h"
 	"src/*.hpp"
+	"data/*.json"
 )
 
 include_directories(../Engine/include)

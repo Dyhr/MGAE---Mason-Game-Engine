@@ -16,6 +16,8 @@ public:
     void setup();
     void start();
 
+	void loadScene(std::string path);
+
 	Engine();
 	~Engine();
 
