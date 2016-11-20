@@ -8,7 +8,8 @@
 #include <iostream>
 #include "Transform.h"
 #include "GameObject.hpp"
-
+#include <time.h>
+#include <random>
 
 SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;
 SRE::Shader* ParticleEmitter::shader = nullptr;
@@ -25,6 +26,24 @@ int ParticleEmitter::totalParticles = 0;
 std::vector<float> ParticleEmitter::birthTimes = std::vector<float>();
 std::vector<float> ParticleEmitter::times = std::vector<float>();
 std::vector<glm::vec3> ParticleEmitter::velocities = std::vector<glm::vec3>();
+
+float ParticleEmitter::lerp(float f1, float f2, float perc)
+{
+	auto diff = f2 - f1;
+	return f1 + (diff * perc);
+}
+
+float ParticleEmitter::cubicBezier(float t, float splinePoints[4])
+{
+	auto a1 = lerp(splinePoints[0], splinePoints[1], t);
+	auto b1 = lerp(splinePoints[1], splinePoints[2], t);
+	auto c1 = lerp(splinePoints[2], splinePoints[3], t);
+
+	auto a2 = lerp(a1, b1, t);
+	auto b2 = lerp(b1, c1, t);
+
+	return lerp(a2, b2, t);
+}
 
 ParticleEmitter::ParticleEmitter(GameObject * gameObject) : Component(gameObject) {
 	if(shader == nullptr)
@@ -69,10 +88,56 @@ void ParticleEmitter::update()
 		auto dt = timeSinceUpdate;
 		positions[i] = 0.5f*a*dt*dt + v0*dt + p0;
 		velocities[i] = a*dt + v0;
+		
+		glm::vec4 newColor = colors[i];
+		float newSize = sizes[i];
 
-		float lerp = times[i] / config.lifespan;
-		colors[i] = config.initialColor * (1 - lerp) - config.finalColor * lerp;
-		sizes[i] = config.initialSize * (1 - lerp) - config.finalSize * lerp;
+		switch (config.colorState) {
+			case AttributeState::FIXED:
+				newColor = config.initialColor;
+				break;
+			case AttributeState::RANDOM:
+				srand(time(NULL));
+				newColor.x = lerp(config.initialColor.x, config.finalColor.x, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				newColor.y = lerp(config.initialColor.y, config.finalColor.y, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				newColor.z = lerp(config.initialColor.z, config.finalColor.z, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				newColor.w = lerp(config.initialColor.w, config.finalColor.w, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				break;
+			case AttributeState::LINEAR:
+				newColor.x = lerp(config.initialColor.x, config.finalColor.x, times[i] / config.lifespan);
+				newColor.y = lerp(config.initialColor.y, config.finalColor.y, times[i] / config.lifespan);
+				newColor.z = lerp(config.initialColor.z, config.finalColor.z, times[i] / config.lifespan);
+				newColor.w = lerp(config.initialColor.w, config.finalColor.w, times[i] / config.lifespan);
+				break;
+			case AttributeState::SPLINE:
+				auto colorMod = cubicBezier(times[i] / config.lifespan, config.splinePointsColor);
+				newColor.x = lerp(config.initialColor.x, config.finalColor.x, colorMod);
+				newColor.y = lerp(config.initialColor.y, config.finalColor.y, colorMod);
+				newColor.z = lerp(config.initialColor.z, config.finalColor.z, colorMod);
+				newColor.w = lerp(config.initialColor.w, config.finalColor.w, colorMod);
+
+				break;
+		}
+
+		switch (config.sizeState) {
+			case AttributeState::FIXED:
+				newSize = config.initialSize;
+				break;
+			case AttributeState::RANDOM:
+				srand(time(NULL));
+				newSize = lerp(config.initialSize, config.finalSize, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				break;
+			case AttributeState::LINEAR:
+				newSize = lerp(config.initialSize, config.finalSize, times[i]/config.lifespan);
+				break;
+			case AttributeState::SPLINE:
+				auto sizeMod = cubicBezier(times[i], config.splinePointsSize);
+				newSize = lerp(config.initialSize, config.finalSize, sizeMod);
+				break;
+		}
+
+		colors[i] = newColor;
+		sizes[i] = newSize;
 
 		times[i] = timeSinceBirth;
 	}
