@@ -27,7 +27,8 @@ using namespace glm;
 
 Engine::Engine()
 {
-	SDL_Init(SDL_INIT_VIDEO); 
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+		throw SDL_GetError();
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
@@ -52,9 +53,11 @@ Engine::Engine()
 		throw "Error";
 	}
 
-	SimpleRenderEngine r{ window };
+	sre = new SimpleRenderEngine(window);
 	physics = Physics::getInstance();
 	audioManager = AudioManager::getInstance();
+
+	running = false;
 }
 Engine::~Engine()
 {
@@ -139,15 +142,15 @@ void Engine::setup() {
 	sprite->sprite = atlas.getSprite("brick");
 
 
-	auto camera = SimpleRenderEngine::instance->getCamera();
+	auto camera = sre->getCamera();
 	camera->setPerspectiveProjection(60, 640, 480, 1, 1000);
 	camera->lookAt(vec3(10, 10, 10), vec3(0, 0, 0), vec3(0, 1, 0));
 	auto directionalLight = Light(LightType::Directional, vec3(0, 0, 0), vec3(1, 1, 1), vec3(1, 1, 1), 0, 20.0f);
 	auto pointLight1 = Light(LightType::Point, vec3(-1, 1, 1), vec3(0, 0, 0), vec3(5, 0, 0), 5, 20.0f);
 	auto pointLight2 = Light(LightType::Point, vec3(0,1,-2), vec3(0, 0, 0), vec3(3, 3, 3), 5, 20.0f);
-	SimpleRenderEngine::instance->setLight(0, directionalLight);
-	SimpleRenderEngine::instance->setLight(1, pointLight1);
-	SimpleRenderEngine::instance->setLight(2, pointLight2);
+	sre->setLight(0, directionalLight);
+	sre->setLight(1, pointLight1);
+	sre->setLight(2, pointLight2);
    
 }
 
@@ -182,7 +185,7 @@ void Engine::start() {
 }
 
 void Engine::update(float deltaTimeSec) {
-    SimpleRenderEngine::instance->clearScreen({0,0,1,1});
+    sre->clearScreen({0,0,1,1});
 
 	// step the physics
 	physics->step(deltaTimeSec);
@@ -236,9 +239,9 @@ void Engine::update(float deltaTimeSec) {
 			particleEmitter->update();
 		}
 	}
+	//ParticleEmitter::render();
 
 	audioManager->step();
-	ParticleEmitter::render();
 
-    SimpleRenderEngine::instance->swapWindow();
+    sre->swapWindow();
 }

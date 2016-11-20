@@ -9,6 +9,7 @@
 #include "Physics.hpp"
 #include "AudioManager.hpp"
 #include <SDL.h>
+#include <SRE/SimpleRenderEngine.hpp>
 
 class Engine {
 public:
@@ -22,6 +23,7 @@ public:
 private:
     void update(float deltaTimeSec);
     std::vector<std::shared_ptr<GameObject>> gameObjects;
+	SRE::SimpleRenderEngine* sre;
 	Physics* physics;
 	AudioManager* audioManager;
 	bool running;
