@@ -73,6 +73,7 @@ Engine::Engine()
 	show_another_window = true;
 	clear_color = ImColor(114, 144, 154);
 
+	Time::init(0);
 	running = paused = false;
 }
 Engine::~Engine()
@@ -87,7 +88,6 @@ void Engine::start() {
 	typedef std::chrono::high_resolution_clock Clock;
 	auto t1 = Clock::now();
 	int timePerFrameMillis = 1000 / 60;
-	Time::init(0);
 	running = true;
 
 	while (running) {
@@ -185,9 +185,6 @@ void Engine::loadScene(std::string path)
 			gameObject->getComponent<Transform>()->setParent(parentGameObject->getComponent<Transform>().get());
 		}
 	}
-
-	auto sprite = map_gameObjects[0]->addComponent<SpriteRenderer>();
-	sprite->sprite = atlas.getSprite("brick");
 
 	auto directionalLight = SRE::Light(SRE::LightType::Directional, vec3(0, 0, 0), vec3(1, 1, 1), vec3(1, 1, 1), 0);
 	auto pointLight1 = SRE::Light(SRE::LightType::Point, vec3(-1, 1, 1), vec3(0, 0, 0), vec3(5, 0, 0), 5);
