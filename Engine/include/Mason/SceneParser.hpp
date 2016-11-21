@@ -8,6 +8,8 @@
 class CameraDescriptor {
 public:
 	bool found = false;
+	
+	bool perspective = false;
 	float fieldOfView = 60;
 	float nearClip = 0.1f;
 	float farClip = 1000;

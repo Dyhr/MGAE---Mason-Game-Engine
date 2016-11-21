@@ -5,8 +5,13 @@
       "uniqueId": 100,
       "name": "Camera",
       "camera": {
-        "fieldOfView": 60 
-      }   
+        "perspective": true, 
+        "fieldOfView": 60
+      },
+      "transform":
+      {
+        "position": [10, 10, 10] 
+      } 
     },
     {
       "uniqueId": 0,

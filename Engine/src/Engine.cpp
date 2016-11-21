@@ -119,8 +119,8 @@ void Engine::loadScene(std::string path)
 			camera->setRotation(element.transform.rotationEuler);
 			camera->setScale(element.transform.scale);
 
-			camera->setPerspectiveProjection(element.camera.fieldOfView, 640, 480, element.camera.nearClip, element.camera.farClip);
-			camera->lookAt(vec3(0, 0, 0), vec3(0, 1, 0));
+			//camera->setPerspectiveProjection(element.camera.fieldOfView, 640, 480, element.camera.nearClip, element.camera.farClip);
+			//camera->lookAt(vec3(0, 0, 0), vec3(0, 1, 0));
 
 			gameObject->addComponent<PlayerController>();
 		} else {
@@ -168,6 +168,8 @@ void Engine::loadScene(std::string path)
 		}
 	}
 
+	auto sprite = map_gameObjects[0]->addComponent<SpriteRenderer>();
+	sprite->sprite = atlas.getSprite("brick");
 
 	auto directionalLight = SRE::Light(SRE::LightType::Directional, vec3(0, 0, 0), vec3(1, 1, 1), vec3(1, 1, 1), 0, 20.0f);
 	auto pointLight1 = SRE::Light(SRE::LightType::Point, vec3(-1, 1, 1), vec3(0, 0, 0), vec3(5, 0, 0), 5, 20.0f);

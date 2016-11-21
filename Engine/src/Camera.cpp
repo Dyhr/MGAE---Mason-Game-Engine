@@ -1,10 +1,17 @@
 #include <Mason/Camera.hpp>
 #include <SRE/SimpleRenderEngine.hpp>
+#include <iostream>
 
 
 Camera::Camera(GameObject* gameObject) : Transform(gameObject)
 {
 	cam = new SRE::Camera();
+}
+
+void Camera::transformize()
+{
+	Transform::transformize();
+	cam->setViewTransform(matrix);
 }
 
 Camera::~Camera()

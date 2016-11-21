@@ -6,21 +6,32 @@
 Transform::Transform(GameObject *gameObject):Component(gameObject) {
 	this->position = glm::vec3(0, 0, 0);
 	this->rotation = glm::vec3(0, 0, 0);
-	this->scale = glm::vec3(0, 0, 0);
+	this->scale = glm::vec3(1, 1, 1);
 	this->parent = nullptr;
+}
+
+void Transform::transformize()
+{
+	auto translateMat = glm::translate(glm::mat4(1), position);
+	auto rotateMat = glm::eulerAngleYXZ(glm::radians(rotation.y), glm::radians(rotation.x), glm::radians(rotation.z));
+	auto scaleMat = glm::scale(glm::mat4(1), scale);
+	matrix = translateMat * rotateMat * scaleMat;
 }
 
 void Transform::setPosition(glm::vec3 position) {
 	this->position = position;
+	transformize();
 }
 
 void Transform::setRotation(glm::vec3 rotation) {
 	this->rotation = rotation;
+	transformize();
 }
 
 
 void Transform::setScale(glm::vec3 scale) {
 	this->scale = scale;
+	transformize();
 }
 
 void Transform::setParent(Transform *parent) {
@@ -41,12 +52,7 @@ Transform* Transform::getParent() {
 }
 
 glm::mat4 Transform::localTransform() {
-	auto translateMat = glm::translate(glm::mat4(1), position);
-	auto rotateMat = glm::eulerAngleYXZ(glm::radians(rotation.y), glm::radians(rotation.x), glm::radians(rotation.z));
-	auto scaleMat = glm::scale(glm::mat4(1), scale);
-	auto transform = translateMat * rotateMat * scaleMat;
-
-	return transform;
+	return matrix;
 
 }
 

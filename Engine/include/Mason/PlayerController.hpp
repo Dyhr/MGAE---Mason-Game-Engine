@@ -18,6 +18,10 @@ public:
 		auto pos = transform->getPosition();
 		pos.x += direction * speed * Time::getInstance()->getDeltaTime();
 		transform->setPosition(pos);
+
+		auto rot = transform->getRotation();
+		rot.y += speed * Time::getInstance()->getDeltaTime();
+		transform->setRotation(rot);
 	}
 
 	void OnInput(SDL_Event event) override

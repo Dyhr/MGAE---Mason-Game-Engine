@@ -6,9 +6,9 @@
 class Transform : public Component {
 public:
 	
-	void setPosition(glm::vec3 position);
-	void setRotation(glm::vec3 rotation);
-	void setScale(glm::vec3 scale);
+	virtual void setPosition(glm::vec3 position);
+	virtual void setRotation(glm::vec3 rotation);
+	virtual void setScale(glm::vec3 scale);
 	void setParent(Transform *gameObject);
 
 	glm::vec3 getPosition();
@@ -20,13 +20,17 @@ public:
 	glm::mat4 globalTransform();
 protected:
 	Transform(GameObject *gameObject);
-	friend class GameObject;
-	friend class Rendering;
-	friend class ParticleEmitter;
 
+	virtual void transformize();
 
+	glm::mat4 matrix;
 	glm::vec3 position;
 	glm::vec3 rotation;
 	glm::vec3 scale;
 	Transform* parent;
+
+
+	friend class GameObject;
+	friend class Rendering;
+	friend class ParticleEmitter;
 };
