@@ -22,13 +22,14 @@ namespace Mason {
 		Engine();
 		~Engine();
 
+		SRE::SimpleRenderEngine* sre; // TODO make this private once everything is implemented
+
 		Scene scene;
 	private:
 		void DebugUI();
 
 		void update(float deltaTimeSec);
 		std::vector<std::shared_ptr<GameObject>> gameObjects;
-		SRE::SimpleRenderEngine* sre;
 		Physics* physics;
 		AudioManager* audioManager;
 		bool running, paused;

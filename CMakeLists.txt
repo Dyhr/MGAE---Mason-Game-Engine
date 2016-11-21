@@ -51,3 +51,4 @@ endif(SRE_FOUND)
 
 add_subdirectory(Engine)
 add_subdirectory(Game)
+add_subdirectory(Demo)
