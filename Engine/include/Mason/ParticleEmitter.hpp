@@ -4,6 +4,7 @@
 #include "Component.hpp"
 #include <SRE/SimpleRenderEngine.hpp>
 #include <math.h>
+#include <SRE/Texture.hpp>
 
 
 namespace Mason {
@@ -162,7 +163,7 @@ namespace Mason {
 
 	class ParticleEmitter : public Component {
 	public:
-		static void render();
+		static void render(SRE::Texture * tex);
 
 		~ParticleEmitter();
 

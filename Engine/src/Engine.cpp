@@ -188,7 +188,9 @@ void Engine::loadScene(std::string path)
 }
 
 void Engine::update(float deltaTimeSec) {
+	auto tex = SRE::Texture::createFromFile("data/dice.PNG", false);
 	sre->clearScreen({ 0,0,1,1 });
+	numberSprites = 0;
 
 	// fetch input
 	SDL_Event event;
@@ -243,9 +245,11 @@ void Engine::update(float deltaTimeSec) {
 				particleEmitter->update();
 			}
 		}
-		ParticleEmitter::render();
+		ParticleEmitter::render(tex);
+		delete tex; //makeshift to show how to 
 	}
-
+	if (InputManager::getInstance()->toggleGUI)
+		DebugUI();
 	sre->swapWindow();
 }
 

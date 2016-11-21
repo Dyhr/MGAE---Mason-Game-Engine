@@ -160,9 +160,9 @@ bool ParticleEmitter::running()
 	return startTime >= 0.0f;
 }
 
-void ParticleEmitter::render() {
+void ParticleEmitter::render(SRE::Texture * tex) {
 	mesh->update(positions, colors, uvs, uvSize, uvRotation, sizes);
-	shader->set("tex", SRE::Texture::getSphereTexture());
+	shader->set("tex", tex);
 	SRE::SimpleRenderEngine::instance->draw(mesh, glm::mat4(1), shader);
 }
 
