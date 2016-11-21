@@ -6,16 +6,15 @@ namespace Mason {
 	class Time
 	{
 	public:
-		static Time* getInstance();
-
-		float getTime() const;
-		float getDeltaTime() const;
+		static float getTime();
+		static float getDeltaTime();
 	private:
 		static Time* instance;
 
-		int time = 0;
+		long time = 0;
 		int delta = 0;
 
+		static void init(long time);
 		void update(int delta);
 
 		friend Engine;

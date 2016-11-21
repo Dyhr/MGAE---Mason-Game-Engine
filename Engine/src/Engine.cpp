@@ -66,6 +66,7 @@ Engine::Engine()
 	physics = Physics::getInstance();
 	audioManager = AudioManager::getInstance();
 
+	srand(uint(time(nullptr)));
 
 	//GUI
 	ImGui_SRE_Init(window);
@@ -86,17 +87,19 @@ void Engine::start() {
 	typedef std::chrono::high_resolution_clock Clock;
 	auto t1 = Clock::now();
 	int timePerFrameMillis = 1000 / 60;
+	Time::init(0);
 	running = true;
+
 	while (running) {
 		using namespace std::chrono;
 
 		auto t2 = Clock::now();
 		// time since last update
-		int deltaTimeMicSec = duration_cast<microseconds>(t2 - t1).count();
+		long deltaTimeMicSec = long(duration_cast<microseconds>(t2 - t1).count());
 		float deltaTimeSec = deltaTimeMicSec / 1000000.0f;
 
 		// Set the time
-		Time::getInstance()->update(deltaTimeMicSec / 1000);
+		Time::instance->update(deltaTimeMicSec / 1000);
 
 		// Update the engine
 		update(deltaTimeSec);
@@ -186,9 +189,9 @@ void Engine::loadScene(std::string path)
 	auto sprite = map_gameObjects[0]->addComponent<SpriteRenderer>();
 	sprite->sprite = atlas.getSprite("brick");
 
-	auto directionalLight = SRE::Light(SRE::LightType::Directional, vec3(0, 0, 0), vec3(1, 1, 1), vec3(1, 1, 1), 0, 20.0f);
-	auto pointLight1 = SRE::Light(SRE::LightType::Point, vec3(-1, 1, 1), vec3(0, 0, 0), vec3(5, 0, 0), 5, 20.0f);
-	auto pointLight2 = SRE::Light(SRE::LightType::Point, vec3(0, 1, -2), vec3(0, 0, 0), vec3(3, 3, 3), 5, 20.0f);
+	auto directionalLight = SRE::Light(SRE::LightType::Directional, vec3(0, 0, 0), vec3(1, 1, 1), vec3(1, 1, 1), 0);
+	auto pointLight1 = SRE::Light(SRE::LightType::Point, vec3(-1, 1, 1), vec3(0, 0, 0), vec3(5, 0, 0), 5);
+	auto pointLight2 = SRE::Light(SRE::LightType::Point, vec3(0, 1, -2), vec3(0, 0, 0), vec3(3, 3, 3), 5);
 	sre->setLight(0, directionalLight);
 	sre->setLight(1, pointLight1);
 	sre->setLight(2, pointLight2);

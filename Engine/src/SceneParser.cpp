@@ -60,7 +60,7 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 		if (o.contains("camera")) {
 			d.camera.found = true;
 			auto m = o.get("camera");
-			if (m.contains("perspective")) d.camera.perspective = float(m.get("perspective").get<bool>());
+			if (m.contains("perspective")) d.camera.perspective = m.get("perspective").get<bool>();
 			if (m.contains("fieldOfView")) d.camera.fieldOfView = float(m.get("fieldOfView").get<double>());
 			if (m.contains("nearClip")) d.camera.nearClip = float(m.get("nearClip").get<double>());
 			if (m.contains("farClip")) d.camera.farClip = float(m.get("farClip").get<double>());

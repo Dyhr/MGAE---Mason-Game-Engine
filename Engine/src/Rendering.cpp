@@ -13,7 +13,7 @@ Rendering::Rendering(GameObject *gameObject)
 
 void Rendering::draw() {
 	if (transform) {
-		shader->setVector("color", color);
+		shader->set("color", color);
 		shader->set("tex", SRE::Texture::getWhiteTexture());
 		SRE::SimpleRenderEngine::instance->draw(&*mesh, transform->globalTransform(), &*shader);
 	}

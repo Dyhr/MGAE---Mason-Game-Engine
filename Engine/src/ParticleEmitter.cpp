@@ -62,7 +62,7 @@ void ParticleEmitter::update()
 	auto position = glm::vec3(gameObject->getComponent<Transform>()->globalTransform()[3]);
 
 	glm::vec3 a(0, -9.8f, 0);
-	float currenttime = Time::getInstance()->getTime();
+	float currenttime = Time::getTime();
 	float timeSinceStart = currenttime - startTime;
 
 	numParticles = int(ceil(timeSinceStart * config.rate));
@@ -100,7 +100,6 @@ void ParticleEmitter::update()
 				newColor = config.initialColor;
 				break;
 			case RANDOM:
-				srand(time(NULL));
 				newColor.x = glm::lerp(config.initialColor.x, config.finalColor.x, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				newColor.y = glm::lerp(config.initialColor.y, config.finalColor.y, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				newColor.z = glm::lerp(config.initialColor.z, config.finalColor.z, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
@@ -127,7 +126,6 @@ void ParticleEmitter::update()
 				newSize = config.initialSize;
 				break;
 			case RANDOM:
-				srand(time(NULL));
 				newSize = glm::lerp(config.initialSize, config.finalSize, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				break;
 			case LINEAR:
@@ -148,7 +146,7 @@ void ParticleEmitter::update()
 
 void ParticleEmitter::start()
 {
-	startTime = Time::getInstance()->getTime();
+	startTime = Time::getTime();
 }
 
 void ParticleEmitter::stop()

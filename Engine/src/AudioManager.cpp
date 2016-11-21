@@ -54,7 +54,7 @@ void AudioManager::step()
 		sourcesPlayed1.push(audio);
 	}
 
-	for (int i = 0; i < sourcesPlayed1.size();) {
+	for (Uint32 i = 0; i < sourcesPlayed1.size();) {
 		auto audio = sourcesPlayed1.front();
 		if (audio->isDone()) {
 			audio->cleanUp();
