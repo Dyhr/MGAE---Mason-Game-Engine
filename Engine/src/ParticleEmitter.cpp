@@ -28,7 +28,7 @@ std::vector<float> ParticleEmitter::birthTimes = std::vector<float>();
 std::vector<float> ParticleEmitter::times = std::vector<float>();
 std::vector<glm::vec3> ParticleEmitter::velocities = std::vector<glm::vec3>();
 
-float ParticleEmitter::lerp(float f1, float f2, float perc)
+float ParticleEmitter::maybeWrongLerp(float f1, float f2, float perc)
 {
 	auto diff = f2 - f1;
 	return f1 + (diff * perc);
