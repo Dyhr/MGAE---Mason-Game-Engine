@@ -164,6 +164,7 @@ namespace Mason {
 	class ParticleEmitter : public Component {
 	public:
 		static void render(SRE::Texture * tex);
+		static void clear();
 
 		~ParticleEmitter();
 

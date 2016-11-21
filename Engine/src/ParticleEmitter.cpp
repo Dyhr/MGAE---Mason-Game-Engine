@@ -166,6 +166,22 @@ void ParticleEmitter::render(SRE::Texture * tex) {
 	SRE::SimpleRenderEngine::instance->draw(mesh, glm::mat4(1), shader);
 }
 
+void ParticleEmitter::clear() // TODO actual garbage collection
+{
+	positions = std::vector<glm::vec3>();
+	sizes = std::vector<float>();
+	colors = std::vector<glm::vec4>();
+	uvs = std::vector<glm::vec2>();
+	uvSize = std::vector<float>();
+	uvRotation = std::vector<float>();
+
+	totalParticles = 0;
+
+	birthTimes = std::vector<float>();
+	times = std::vector<float>();
+	velocities = std::vector<glm::vec3>();
+}
+
 ParticleEmitter::~ParticleEmitter()
 {
 	// TODO clean up on removal. very important 

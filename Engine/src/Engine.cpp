@@ -75,9 +75,11 @@ Engine::Engine()
 
 	Time::init(0);
 	running = paused = false;
+	scene = new Scene();
 }
 Engine::~Engine()
 {
+	delete scene;
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
@@ -115,6 +117,10 @@ void Engine::start() {
 
 void Engine::loadScene(std::string path)
 {
+	delete scene;
+	scene = new Scene();
+	ParticleEmitter::clear();
+
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 
 	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile(path);
@@ -126,7 +132,7 @@ void Engine::loadScene(std::string path)
 	auto sphereMesh = SRE::Mesh::createSphere();
 	for (auto element : gameObjectDescriptors) {
 
-		auto gameObject = scene.addGameObject(element.name);
+		auto gameObject = scene->addGameObject(element.name);
 
 		if (element.camera.found)
 		{
@@ -189,42 +195,22 @@ void Engine::loadScene(std::string path)
 
 void Engine::update(float deltaTimeSec) {
 	auto tex = SRE::Texture::createFromFile("data/dice.PNG", false);
-	sre->clearScreen({ 0,0,1,1 });
+	sre->clearScreen({ 0,0,0,1 });
 	numberSprites = 0;
 
-	// fetch input
-	SDL_Event event;
-
-	while (SDL_PollEvent(&event)) {
-		switch (event.type) {
-		case SDL_KEYDOWN:
-			InputManager::getInstance()->KeyDown(event);
-		case SDL_KEYUP:
-		case SDL_MOUSEMOTION:
-		case SDL_MOUSEBUTTONDOWN:
-		case SDL_MOUSEBUTTONUP:
-		case SDL_MOUSEWHEEL:
-			for (auto & script : scene.getAllComponent<Script>())
-				if (script) script->OnInput(event);
-			break;
-		case SDL_QUIT:
-			running = false;
-			break;
-		default: break;
-		}
-	}
+	InputManager::getInstance()->Handle(this);
 
 	if (!paused) {
 		physics->step(deltaTimeSec);
 		audioManager->step();
 	}
 
-	for (auto & camera : scene.getAllComponent<Camera>()) {
+	for (auto & camera : scene->getAllComponent<Camera>()) {
 
 		sre->setCamera(camera->cam);
 
 		// render game object
-		for (auto & rendering : scene.getAllComponent<Rendering>()) {
+		for (auto & rendering : scene->getAllComponent<Rendering>()) {
 			if (rendering) {
 				rendering->draw();
 				numberSprites++;
@@ -232,7 +218,7 @@ void Engine::update(float deltaTimeSec) {
 		}
 
 		// render sprites
-		for (auto & sprite : scene.getAllComponent<SpriteRenderer>()) {
+		for (auto & sprite : scene->getAllComponent<SpriteRenderer>()) {
 			if (sprite) {
 				sprite->draw();
 				numberSprites++;
@@ -240,7 +226,7 @@ void Engine::update(float deltaTimeSec) {
 		}
 
 		// update and render particle emitters
-		for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
+		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
 			if (particleEmitter) {
 				particleEmitter->update();
 			}
@@ -248,8 +234,8 @@ void Engine::update(float deltaTimeSec) {
 		ParticleEmitter::render(tex);
 		delete tex; //makeshift to show how to 
 	}
-	if (InputManager::getInstance()->toggleGUI)
-		DebugUI();
+	if (showDebugGUI) DebugUI();
+
 	sre->swapWindow();
 }
 
@@ -257,23 +243,18 @@ void Engine::DebugUI()
 {
 	ImGui_SRE_NewFrame(this->window);
 	ImGui::Begin("Game Debug GUI");
-	// 1. Show a simple window
-	// Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
 	{
 		static float f = 0.0f;
 		ImGui::Text("Number of models rendered : %i", numberSprites);
-		//ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
 		if (ImGui::Button("Pause Game")) {
 			paused = !paused;
 		}
-		//ImGui::ColorEdit3("clear color", (float*)&clear_color);
 		if (ImGui::Button("Memory Stats")) show_another_window ^= 1;
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
 	}
 	ImGui::End();
 
-	// 2. Show another simple window, this time using an explicit Begin/End pair
 	if (show_another_window)
 	{
 		ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);

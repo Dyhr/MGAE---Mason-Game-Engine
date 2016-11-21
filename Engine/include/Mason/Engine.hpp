@@ -24,7 +24,7 @@ namespace Mason {
 
 		SRE::SimpleRenderEngine* sre; // TODO make this private once everything is implemented
 
-		Scene scene;
+		Scene* scene;
 	private:
 		void DebugUI();
 
@@ -33,7 +33,10 @@ namespace Mason {
 		Physics* physics;
 		AudioManager* audioManager;
 		bool running, paused;
+		bool showDebugGUI;
 		SDL_Window *window;
+
+		friend class InputManager;
 	};
 }
 

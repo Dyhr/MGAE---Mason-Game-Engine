@@ -1,13 +1,12 @@
 #include "Mason/InputManager.h"
 
-#include <iostream>
+#include "Mason/Engine.hpp"
+#include "Mason/Script.hpp"
 
 
 using namespace Mason;
 
-InputManager::InputManager() {
-	this->toggleGUI = false;
-}
+
 InputManager* InputManager::instance = nullptr;
 
 InputManager* InputManager::getInstance()
@@ -16,28 +15,35 @@ InputManager* InputManager::getInstance()
 	return instance;
 }
 
-void InputManager::KeyDown(SDL_Event event) {
-	char input;
-	
+void InputManager::Handle(Engine* engine)
+{
+	// fetch input
+	SDL_Event event;
 
-	//only for letters for the moment
-	if (event.key.keysym.sym < 0x80 && event.key.keysym.sym > 0) {
-		input = char(event.key.keysym.sym); //virtual keycode
-		std::cout << input << " ";
-	}
-	else {
-		input = '0';
-	}
+	while (SDL_PollEvent(&event)) {
 
-	switch (input)
-	{
-	case 'm': //show debug menu
-		
-		this->toggleGUI = !this->toggleGUI;
-		break;
+		switch (event.type) {
+		case SDL_KEYDOWN:
+			if (char(event.key.keysym.sym) == 'p') engine->showDebugGUI = !engine->showDebugGUI;
+		case SDL_KEYUP:
+		case SDL_MOUSEMOTION:
+		case SDL_MOUSEBUTTONDOWN:
+		case SDL_MOUSEBUTTONUP:
+		case SDL_MOUSEWHEEL:
+			for (auto s : subscribers) s(event);
 
-	case '0': //default
-		break;
-	default: break;
+			for (auto & script : engine->scene->getAllComponent<Script>())
+				if (script) script->OnInput(event);
+			break;
+		case SDL_QUIT:
+			engine->running = false;
+			break;
+		default: break;
+		}
 	}
+}
+
+void InputManager::Subscribe(void(* action)(SDL_Event))
+{
+	subscribers.push_back(action);
 }
