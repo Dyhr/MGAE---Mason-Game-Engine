@@ -5,9 +5,7 @@
 #include "Mason/Rendering.h"
 #include "Mason/Physics.hpp"
 #include "Mason/ParticleEmitter.hpp"
-#include "Mason/Script.hpp"
 #include "Mason/Time.hpp"
-#include "Mason/PlayerController.hpp"
 #include "Mason/SpriteRenderer.h"
 #include "Mason/SpriteAtlas.h"
 #include "Mason/LeakDetection.h"
@@ -144,8 +142,6 @@ void Engine::loadScene(std::string path)
 
 			camera->setPerspectiveProjection(element.camera.fieldOfView, 640, 480, element.camera.nearClip, element.camera.farClip);
 			camera->lookAt(vec3(0, 0, 0), vec3(0, 1, 0));
-
-			gameObject->addComponent<PlayerController>();
 		}
 		else {
 			auto transformComponent = gameObject->addComponent<Transform>();
@@ -242,14 +238,12 @@ void Engine::update(float deltaTimeSec) {
 void Engine::DebugUI()
 {
 	ImGui_SRE_NewFrame(this->window);
+
 	ImGui::Begin("Game Debug GUI");
 	{
-		static float f = 0.0f;
 		ImGui::Text("Number of models rendered : %i", numberSprites);
-		if (ImGui::Button("Pause Game")) {
-			paused = !paused;
-		}
-		if (ImGui::Button("Memory Stats")) show_another_window ^= 1;
+		if (ImGui::Button("Pause Game")) paused = !paused;
+		if (ImGui::Button("Memory Stats")) show_another_window = !show_another_window;
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
 	}

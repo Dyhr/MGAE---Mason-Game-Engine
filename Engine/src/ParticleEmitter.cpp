@@ -14,9 +14,6 @@
 
 using namespace Mason;
 
-SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;
-SRE::Shader* ParticleEmitter::shader = nullptr;
-
 std::vector<glm::vec3> ParticleEmitter::positions = std::vector<glm::vec3>();
 std::vector<float> ParticleEmitter::sizes = std::vector<float>();
 std::vector<glm::vec4> ParticleEmitter::colors = std::vector<glm::vec4>();
@@ -29,6 +26,9 @@ int ParticleEmitter::totalParticles = 0;
 std::vector<float> ParticleEmitter::birthTimes = std::vector<float>();
 std::vector<float> ParticleEmitter::times = std::vector<float>();
 std::vector<glm::vec3> ParticleEmitter::velocities = std::vector<glm::vec3>();
+
+SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;
+SRE::Shader* ParticleEmitter::shader = nullptr;
 
 float ParticleEmitter::maybeWrongLerp(float f1, float f2, float perc)
 {
@@ -49,10 +49,6 @@ float ParticleEmitter::cubicBezier(float t, float splinePoints[4])
 }
 
 ParticleEmitter::ParticleEmitter(GameObject * gameObject) : Component(gameObject) {
-	if(shader == nullptr)
-		shader = SRE::Shader::getStandardParticles();
-	if (mesh == nullptr)
-		mesh = new SRE::ParticleMesh(positions, colors, uvs, uvSize, uvRotation, sizes);
 }
 
 void ParticleEmitter::update()
@@ -61,7 +57,6 @@ void ParticleEmitter::update()
 
 	auto position = glm::vec3(gameObject->getComponent<Transform>()->globalTransform()[3]);
 
-	glm::vec3 a(0, -9.8f, 0);
 	float currenttime = Time::getTime();
 	float timeSinceStart = currenttime - startTime;
 
@@ -89,8 +84,8 @@ void ParticleEmitter::update()
 		auto v0 = velocities[i];
 
 		auto dt = timeSinceUpdate;
-		positions[i] = 0.5f*a*dt*dt + v0*dt + p0;
-		velocities[i] = a*dt + v0;
+		positions[i] = 0.5f*config.gravity*dt*dt + v0*dt + p0;
+		velocities[i] = config.gravity*dt + v0;
 		
 		glm::vec4 newColor = colors[i];
 		float newSize = sizes[i];
@@ -161,6 +156,11 @@ bool ParticleEmitter::running()
 }
 
 void ParticleEmitter::render(SRE::Texture * tex) {
+	if (shader == nullptr)
+		shader = SRE::Shader::getStandardParticles();
+	if (mesh == nullptr)
+		mesh = new SRE::ParticleMesh(positions, colors, uvs, uvSize, uvRotation, sizes);
+
 	mesh->update(positions, colors, uvs, uvSize, uvRotation, sizes);
 	shader->set("tex", tex);
 	SRE::SimpleRenderEngine::instance->draw(mesh, glm::mat4(1), shader);

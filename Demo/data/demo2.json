@@ -1,0 +1,31 @@
+{
+  "scenename": "Demo 2",
+  "gameobjects": [
+    {
+      "uniqueId": 100,
+      "name": "Camera",
+      "camera": {
+        "perspective": true, 
+        "fieldOfView": 60
+      },
+      "transform":
+      {
+        "position": [10, 10, 10] 
+      } 
+    },
+    {
+      "uniqueId": 0,
+      "name": "Car",
+      "mesh": {
+        "name": "cube",
+        "color": [ 0.03082866, 0.03082866, 0.03082866, 1 ]
+      },
+      "transform": {
+        "position": [ -0.315, 0.737, -0.753 ],
+        "rotationEuler": [ 0, 341.61, 0 ],
+        "scale": [ 0.6726984, 0.3758441, 0.9162858 ],
+        "parentId": -1
+      }
+    }
+  ]
+}

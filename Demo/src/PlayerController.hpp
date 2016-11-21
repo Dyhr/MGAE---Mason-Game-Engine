@@ -1,5 +1,6 @@
 #pragma once
-#include "Script.hpp"
+
+#include "Mason/Script.hpp"
 
 using namespace Mason;
 
