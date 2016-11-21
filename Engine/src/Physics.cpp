@@ -5,6 +5,9 @@
 #include "Mason/PhysicsBody2D.hpp"
 #include "Mason/Collider2D.hpp"
 
+
+using namespace Mason;
+
 Physics* Physics::instance = nullptr;
 
 

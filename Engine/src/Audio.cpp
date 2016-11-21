@@ -6,6 +6,7 @@
 #include <SDL.h>
 
 using namespace std;
+using namespace Mason;
 
 static Uint8 * audio_pos; // global pointer to the audio buffer to be played
 static Uint32 audio_len; // remaining length of the sample we have to play
@@ -61,7 +62,7 @@ void audio_callback(void *userdata, Uint8 *stream, int len) {
 		return;
 
 	len = (len > audio_len ? audio_len : len);
-	SDL_memcpy (stream, audio_pos, len); 					// simply copy from one buffer into the other
+	SDL_memcpy(stream, audio_pos, len); 					// simply copy from one buffer into the other
 	//SDL_MixAudio(stream, audio_pos, len, SDL_MIX_MAXVOLUME);// mix from one buffer into another
 
 	audio_pos += len;
@@ -69,7 +70,7 @@ void audio_callback(void *userdata, Uint8 *stream, int len) {
 }
 
 void Audio::cleanUp()
-{	
+{
 	if (isPlaying()) {
 		// wait until we're not playing	
 	}
@@ -83,12 +84,9 @@ void Audio::cleanUp()
 
 bool Audio::isPlaying()
 {
-	if (audio_len > 0) {
+	if (audio_len > 0)
 		return true;
-	}
-	else {
-		return false;
-	}
+	return false;
 }
 
 bool Audio::isDone() {

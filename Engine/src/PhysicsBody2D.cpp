@@ -2,6 +2,8 @@
 
 #include <algorithm>
 
+using namespace Mason;
+
 PhysicsBody2D::~PhysicsBody2D() {
 	auto vec = &Physics::instance->bodies;
 	vec->erase(remove(vec->begin(),vec->end(),this), vec->end());

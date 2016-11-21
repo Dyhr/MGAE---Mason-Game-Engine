@@ -1,6 +1,8 @@
 #pragma once
 #include "Script.hpp"
 
+using namespace Mason;
+
 class PlayerController :public Script
 {
 protected:

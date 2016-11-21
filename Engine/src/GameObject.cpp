@@ -1,6 +1,8 @@
 #include "Mason/GameObject.hpp"
 
-GameObject::GameObject(std::string name_):name(name_) //why???
+using namespace Mason;
+
+GameObject::GameObject(std::string name_):name(name_)
 {
 }
 

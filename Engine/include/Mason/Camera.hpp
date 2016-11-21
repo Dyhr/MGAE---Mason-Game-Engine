@@ -5,23 +5,25 @@
 #include <SRE/Camera.hpp>
 #include <glm/glm.hpp>
 
-class Camera : public Transform {
-public:
-	void setPerspectiveProjection(float fieldOfView, float viewPortWidth, float viewPortHeight, float nearClip, float farClip) const;
-	void lookAt(glm::vec3 at, glm::vec3 up) const;
+namespace Mason {
+	class Camera : public Transform {
+	public:
+		void setPerspectiveProjection(float fieldOfView, float viewPortWidth, float viewPortHeight, float nearClip, float farClip) const;
+		void lookAt(glm::vec3 at, glm::vec3 up) const;
 
-	~Camera();
+		~Camera();
 
-protected:
-	Camera(GameObject *gameObject);
+	protected:
+		Camera(GameObject *gameObject);
 
-	void transformize() override;
+		void transformize() override;
 
-	SRE::Camera* cam;
+		SRE::Camera* cam;
 
-	friend class GameObject;
-	friend class Engine;
+		friend class GameObject;
+		friend class Engine;
 
-private:
-	void setScale(glm::vec3 scale) override {}
-};
+	private:
+		void setScale(glm::vec3 scale) override {}
+	};
+}

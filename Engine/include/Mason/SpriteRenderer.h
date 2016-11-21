@@ -4,19 +4,21 @@
 #include <memory>
 #include "Sprite.h"
 
-class Transform;
-class GameObject;
+namespace Mason {
 
-class SpriteRenderer : public Component {
-public:
-	void draw();
+	class Transform;
 
-	std::shared_ptr<Sprite> sprite;
+	class SpriteRenderer : public Component {
+	public:
+		void draw();
 
-protected:
-	SpriteRenderer(GameObject *gameObject);
+		std::shared_ptr<Sprite> sprite;
 
-	std::shared_ptr<Transform> transform;
+	protected:
+		SpriteRenderer(GameObject *gameObject);
 
-	friend class GameObject;
-};
+		std::shared_ptr<Transform> transform;
+
+		friend class GameObject;
+	};
+}

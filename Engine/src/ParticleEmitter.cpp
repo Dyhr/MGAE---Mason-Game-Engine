@@ -12,6 +12,8 @@
 #include <random>
 #include <glm/gtx/compatibility.hpp>
 
+using namespace Mason;
+
 SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;
 SRE::Shader* ParticleEmitter::shader = nullptr;
 

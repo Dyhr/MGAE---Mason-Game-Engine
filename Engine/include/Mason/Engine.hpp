@@ -11,26 +11,29 @@
 #include <SDL.h>
 #include <SRE/SimpleRenderEngine.hpp>
 
-class Engine {
-public:
-    void start();
+namespace Mason {
 
-	void loadScene(std::string path);
+	class Engine {
+	public:
+		void start();
 
-	Engine();
-	~Engine();
+		void loadScene(std::string path);
 
-	Scene scene;
-private:
-	void DebugUI();
+		Engine();
+		~Engine();
 
-    void update(float deltaTimeSec);
-    std::vector<std::shared_ptr<GameObject>> gameObjects;
-	SRE::SimpleRenderEngine* sre;
-	Physics* physics;
-	AudioManager* audioManager;
-	bool running, paused;
-	SDL_Window *window;
-};
+		Scene scene;
+	private:
+		void DebugUI();
+
+		void update(float deltaTimeSec);
+		std::vector<std::shared_ptr<GameObject>> gameObjects;
+		SRE::SimpleRenderEngine* sre;
+		Physics* physics;
+		AudioManager* audioManager;
+		bool running, paused;
+		SDL_Window *window;
+	};
+}
 
 

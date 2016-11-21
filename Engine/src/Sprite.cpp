@@ -6,6 +6,8 @@
 #include <memory>
 #include <SRE/SimpleRenderEngine.hpp>
 
+using namespace Mason;
+
 Sprite::Sprite(int x, int y, int width, int height, float anchorX, float anchorY, std::shared_ptr<SRE::Texture> texture) {
 	this->texture = texture;
 

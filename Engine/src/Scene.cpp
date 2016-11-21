@@ -1,6 +1,7 @@
 #include "Mason/Scene.hpp"
 
 using namespace std;
+using namespace Mason;
 
 shared_ptr<GameObject> Scene::addGameObject(string name) {
     GameObject * go = new GameObject(name);

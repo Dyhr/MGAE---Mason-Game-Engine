@@ -4,24 +4,26 @@
 
 #include <Box2D/Box2D.h>
 
-class PhysicsBody2D;
+namespace Mason {
+	class PhysicsBody2D;
 
-class Physics
-{
-public:
-	static Physics* getInstance();
+	class Physics
+	{
+	public:
+		static Physics* getInstance();
 
-	b2World world = b2World(b2Vec2(0, -10));
-	int velIterations = 10;
-	int posIterations = 10;
+		b2World world = b2World(b2Vec2(0, -10));
+		int velIterations = 10;
+		int posIterations = 10;
 
-	void step(float dt);
-	void init();
-private:	
-	static Physics* instance;
+		void step(float dt);
+		void init();
+	private:
+		static Physics* instance;
 
-	Physics();
+		Physics();
 
-	std::vector<PhysicsBody2D*> bodies;
-	friend PhysicsBody2D;
-};
+		std::vector<PhysicsBody2D*> bodies;
+		friend PhysicsBody2D;
+	};
+}

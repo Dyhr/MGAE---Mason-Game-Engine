@@ -3,34 +3,36 @@
 #include "Component.hpp"
 #include <glm/glm.hpp>
 
-class Transform : public Component {
-public:
-	
-	virtual void setPosition(glm::vec3 position);
-	virtual void setRotation(glm::vec3 rotation);
-	virtual void setScale(glm::vec3 scale);
-	void setParent(Transform *gameObject);
+namespace Mason {
+	class Transform : public Component {
+	public:
 
-	glm::vec3 getPosition();
-	glm::vec3 getRotation();
-	glm::vec3 getScale();
-	Transform* getParent();
+		virtual void setPosition(glm::vec3 position);
+		virtual void setRotation(glm::vec3 rotation);
+		virtual void setScale(glm::vec3 scale);
+		void setParent(Transform *gameObject);
 
-	glm::mat4 localTransform();
-	glm::mat4 globalTransform();
-protected:
-	Transform(GameObject *gameObject);
+		glm::vec3 getPosition();
+		glm::vec3 getRotation();
+		glm::vec3 getScale();
+		Transform* getParent();
 
-	virtual void transformize();
+		glm::mat4 localTransform();
+		glm::mat4 globalTransform();
+	protected:
+		Transform(GameObject *gameObject);
 
-	glm::mat4 matrix;
-	glm::vec3 position;
-	glm::vec3 rotation;
-	glm::vec3 scale;
-	Transform* parent;
+		virtual void transformize();
+
+		glm::mat4 matrix;
+		glm::vec3 position;
+		glm::vec3 rotation;
+		glm::vec3 scale;
+		Transform* parent;
 
 
-	friend class GameObject;
-	friend class Rendering;
-	friend class ParticleEmitter;
-};
+		friend class GameObject;
+		friend class Rendering;
+		friend class ParticleEmitter;
+	};
+}

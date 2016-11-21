@@ -2,6 +2,8 @@
 #include <fstream>
 #include "picojson.h"
 
+using namespace Mason;
+
 glm::vec4 to_vec4(picojson::value v) {
 	glm::vec4 res;
 	auto array = v.get<picojson::array>();

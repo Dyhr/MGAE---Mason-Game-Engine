@@ -3,6 +3,8 @@
 #include "SRE/Texture.hpp"
 #include <SRE/SimpleRenderEngine.hpp>
 
+using namespace Mason;
+
 Rendering::Rendering(GameObject *gameObject)
 :Component(gameObject) {
 	transform = gameObject->getComponent<Transform>();

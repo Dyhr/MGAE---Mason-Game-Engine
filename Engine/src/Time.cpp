@@ -1,5 +1,7 @@
 #include "Mason/Time.hpp"
 
+using namespace Mason;
+
 Time* Time::instance = nullptr;
 
 Time* Time::getInstance()

@@ -3,6 +3,8 @@
 #include <SDL.h>
 #include <iostream>
 
+using namespace Mason;
+
 AudioManager* AudioManager::instance = nullptr;	
 
 AudioManager * AudioManager::getInstance()
@@ -21,12 +23,9 @@ AudioManager * AudioManager::getInstance()
 void AudioManager::init()
 {
 	//Set max size of sourcesToBePlayed ? ?
-	if (SDL_Init(SDL_INIT_AUDIO) < 0) {
+	if (SDL_Init(SDL_INIT_AUDIO) < 0) 
 		return;
-	}
-	else {
-		initialized = true;
-	}
+	initialized = true;
 }
 
 AudioManager::AudioManager() {

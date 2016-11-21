@@ -1,18 +1,17 @@
 #pragma once
 
-class GameObject;
+namespace Mason {
 
-class Component {
-public:
-	virtual ~Component();
-	GameObject* getGameObject();
-protected:
-	Component(GameObject *gameObject);
-	GameObject *gameObject;
+	class GameObject;
 
-	friend class GameObject;
-};
+	class Component {
+	public:
+		virtual ~Component();
+		GameObject* getGameObject();
+	protected:
+		Component(GameObject *gameObject);
+		GameObject *gameObject;
 
-
-
-
+		friend class GameObject;
+	};
+}

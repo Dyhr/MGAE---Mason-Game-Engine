@@ -2,6 +2,7 @@
 
 #include "Mason/GameObject.hpp"
 
+using namespace Mason;
 using namespace SRE;
 
 SpriteRenderer::SpriteRenderer(GameObject *gameObject):Component(gameObject) {

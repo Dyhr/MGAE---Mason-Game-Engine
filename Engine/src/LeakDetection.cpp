@@ -11,6 +11,8 @@
 #include "TCHAR.h"
 #include "pdh.h"
 
+using namespace Mason;
+
 int64_t LeakDetection::TotalVirtualMem() {
 	MEMORYSTATUSEX memInfo;
 	memInfo.dwLength = sizeof(MEMORYSTATUSEX);

@@ -3,6 +3,8 @@
 #include <iostream>
 
 
+using namespace Mason;
+
 Camera::Camera(GameObject* gameObject) : Transform(gameObject)
 {
 	cam = new SRE::Camera();

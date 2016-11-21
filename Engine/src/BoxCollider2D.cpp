@@ -1,5 +1,7 @@
 ﻿#include "Mason/BoxCollider2D.hpp"
 
+using namespace Mason;
+
 void BoxCollider2D::setCenter(float x, float y)
 {
 	center = b2Vec2(x, y);

@@ -3,6 +3,8 @@
 #include <glm/gtx/euler_angles.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+using namespace Mason;
+
 Transform::Transform(GameObject *gameObject):Component(gameObject) {
 	this->position = glm::vec3(0, 0, 0);
 	this->rotation = glm::vec3(0, 0, 0);

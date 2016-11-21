@@ -12,7 +12,7 @@
 #include "Mason/SpriteAtlas.h"
 #include "Mason/LeakDetection.h"
 #include "Mason/Camera.hpp"
-#include "Mason/InputManage.h"
+#include "Mason/InputManager.h"
 
 #include <chrono>
 #include <iostream>
@@ -23,12 +23,11 @@
 #include <glm/glm.hpp>
 #include <SDL.h>
 #include <map>
-#include <SDL.h>
 #include <imgui.h>
 #include "SRE/imgui_sre.hpp"
-#include <cstdint>
 
 using namespace glm;
+using namespace Mason;
 
 
 ImVec4 clear_color;
@@ -227,7 +226,7 @@ void Engine::update(float deltaTimeSec) {
 	while (SDL_PollEvent(&event)) {
 		switch (event.type) {
 		case SDL_KEYDOWN:
-			InputManage::getInstance()->KeyDown(event);
+			InputManager::getInstance()->KeyDown(event);
 		case SDL_KEYUP:
 		case SDL_MOUSEMOTION:
 		case SDL_MOUSEBUTTONDOWN:
