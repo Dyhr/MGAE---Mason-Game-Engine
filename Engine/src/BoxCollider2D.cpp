@@ -1,4 +1,6 @@
-﻿#include "BoxCollider2D.hpp"
+﻿#include "Mason/BoxCollider2D.hpp"
+
+using namespace Mason;
 
 void BoxCollider2D::setCenter(float x, float y)
 {

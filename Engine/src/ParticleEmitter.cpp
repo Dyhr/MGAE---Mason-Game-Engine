@@ -1,16 +1,18 @@
-#include "ParticleEmitter.hpp"
+#include "Mason/ParticleEmitter.hpp"
 
-#include "Time.hpp"
+#include "Mason/Time.hpp"
 #include <SRE/SimpleRenderEngine.hpp>
 #include <SRE/ParticleMesh.hpp>
 #include <SRE/Texture.hpp>
 #include <SRE/Shader.hpp>
 #include <iostream>
-#include "Transform.h"
-#include "GameObject.hpp"
+#include "Mason/Transform.h"
+#include "Mason/GameObject.hpp"
 #include <time.h>
 #include <random>
 #include <glm/gtx/compatibility.hpp>
+
+using namespace Mason;
 
 SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;
 SRE::Shader* ParticleEmitter::shader = nullptr;
@@ -60,10 +62,10 @@ void ParticleEmitter::update()
 	auto position = glm::vec3(gameObject->getComponent<Transform>()->globalTransform()[3]);
 
 	glm::vec3 a(0, -9.8f, 0);
-	float currenttime = Time::getInstance()->getTime();
+	float currenttime = Time::getTime();
 	float timeSinceStart = currenttime - startTime;
 
-	numParticles = ceil(timeSinceStart * config.rate);
+	numParticles = int(ceil(timeSinceStart * config.rate));
 	if (numParticles > maxParticles) numParticles = maxParticles;
 
 	for (int i = pos; i < pos+numParticles; i++) {
@@ -94,23 +96,22 @@ void ParticleEmitter::update()
 		float newSize = sizes[i];
 
 		switch (config.colorState) {
-			case AttributeState::FIXED:
+			case FIXED:
 				newColor = config.initialColor;
 				break;
-			case AttributeState::RANDOM:
-				srand(time(NULL));
+			case RANDOM:
 				newColor.x = glm::lerp(config.initialColor.x, config.finalColor.x, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				newColor.y = glm::lerp(config.initialColor.y, config.finalColor.y, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				newColor.z = glm::lerp(config.initialColor.z, config.finalColor.z, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				newColor.w = glm::lerp(config.initialColor.w, config.finalColor.w, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				break;
-			case AttributeState::LINEAR:
+			case LINEAR:
 				newColor.x = glm::lerp(config.initialColor.x, config.finalColor.x, times[i] / config.lifespan);
 				newColor.y = glm::lerp(config.initialColor.y, config.finalColor.y, times[i] / config.lifespan);
 				newColor.z = glm::lerp(config.initialColor.z, config.finalColor.z, times[i] / config.lifespan);
 				newColor.w = glm::lerp(config.initialColor.w, config.finalColor.w, times[i] / config.lifespan);
 				break;
-			case AttributeState::SPLINE:
+			case SPLINE:
 				auto colorMod = cubicBezier(times[i] / config.lifespan, config.splinePointsColor);
 				newColor.x = glm::lerp(config.initialColor.x, config.finalColor.x, colorMod);
 				newColor.y = glm::lerp(config.initialColor.y, config.finalColor.y, colorMod);
@@ -121,17 +122,16 @@ void ParticleEmitter::update()
 		}
 
 		switch (config.sizeState) {
-			case AttributeState::FIXED:
+			case FIXED:
 				newSize = config.initialSize;
 				break;
-			case AttributeState::RANDOM:
-				srand(time(NULL));
+			case RANDOM:
 				newSize = glm::lerp(config.initialSize, config.finalSize, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				break;
-			case AttributeState::LINEAR:
+			case LINEAR:
 				newSize = glm::lerp(config.initialSize, config.finalSize, times[i]/config.lifespan);
 				break;
-			case AttributeState::SPLINE:
+			case SPLINE:
 				auto sizeMod = cubicBezier(times[i], config.splinePointsSize);
 				newSize = glm::lerp(config.initialSize, config.finalSize, sizeMod);
 				break;
@@ -146,7 +146,7 @@ void ParticleEmitter::update()
 
 void ParticleEmitter::start()
 {
-	startTime = Time::getInstance()->getTime();
+	startTime = Time::getTime();
 }
 
 void ParticleEmitter::stop()
@@ -174,7 +174,7 @@ ParticleEmitter::~ParticleEmitter()
 void ParticleEmitter::init(ParticleEmitterConfig config)
 {
 	this->config = config;
-	maxParticles = ceil(config.lifespan * config.rate);
+	maxParticles = int(ceil(config.lifespan * config.rate));
 	numParticles = 0;
 	startTime = -1.0f;
 

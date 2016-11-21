@@ -1,4 +1,18 @@
-#include "Engine.hpp"
+#include "Mason/Engine.hpp"
+
+#include "Mason/SceneParser.hpp"
+#include "Mason/Transform.h"
+#include "Mason/Rendering.h"
+#include "Mason/Physics.hpp"
+#include "Mason/ParticleEmitter.hpp"
+#include "Mason/Script.hpp"
+#include "Mason/Time.hpp"
+#include "Mason/PlayerController.hpp"
+#include "Mason/SpriteRenderer.h"
+#include "Mason/SpriteAtlas.h"
+#include "Mason/LeakDetection.h"
+#include "Mason/Camera.hpp"
+#include "Mason/InputManager.h"
 
 #include <chrono>
 #include <iostream>
@@ -7,98 +21,180 @@
 #include <SRE/Shader.hpp>
 #include <SRE/SimpleRenderEngine.hpp>
 #include <glm/glm.hpp>
-#include "SceneParser.hpp"
-#include "Transform.h"
-#include "Rendering.h"
-#include "Physics.hpp"
-#include "ParticleEmitter.hpp"
-#include <map>
-#include "Script.hpp"
-#include "Time.hpp"
 #include <SDL.h>
-#include "PlayerController.hpp"
-
-//GUI
+#include <map>
 #include <imgui.h>
 #include "SRE/imgui_sre.hpp"
-#include <cstdint>
-#include "LeakDetection.h"
-#include "Scene.hpp"
 
-#include "SpriteRenderer.h"
-#include "SpriteAtlas.h"
-#include "Audio.hpp"
-using namespace SRE;
 using namespace glm;
+using namespace Mason;
 
-//GUI
+
 ImVec4 clear_color;
 bool show_another_window;
-float rotationSpeed;
 int numberSprites;
 
+Engine::Engine()
+{
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+		throw SDL_GetError();
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
-Engine::Engine(SDL_Window *window) {
-	this->window = window;
-}
+	int width = 640;
+	int height = 480;
 
-void Engine::setup() {
+	// Create an application window with the following settings:
+	window = SDL_CreateWindow(
+		"An SDL2 window",                  // window title
+		SDL_WINDOWPOS_UNDEFINED,           // initial x position
+		SDL_WINDOWPOS_UNDEFINED,           // initial y position
+		width,                               // width, in pixels
+		height,                               // height, in pixels
+		SDL_WINDOW_OPENGL                  // flags - see below
+	);
+
+	SDL_SetWindowTitle(window, "Mason");
+
+	if (window == nullptr) {
+		printf("Could not create window: %s/n", SDL_GetError());
+		throw "Error";
+	}
+
+	sre = new SRE::SimpleRenderEngine(window);
 	physics = Physics::getInstance();
 	audioManager = AudioManager::getInstance();
+
+	srand(uint(time(nullptr)));
+
+	//GUI
+	ImGui_SRE_Init(window);
+	show_another_window = true;
+	clear_color = ImColor(114, 144, 154);
+
+	running = paused = false;
+}
+Engine::~Engine()
+{
+	SDL_DestroyWindow(window);
+	SDL_Quit();
+}
+
+void Engine::start() {
+	physics->init();
+
+	typedef std::chrono::high_resolution_clock Clock;
+	auto t1 = Clock::now();
+	int timePerFrameMillis = 1000 / 60;
+	Time::init(0);
+	running = true;
+
+	while (running) {
+		using namespace std::chrono;
+
+		auto t2 = Clock::now();
+		// time since last update
+		long deltaTimeMicSec = long(duration_cast<microseconds>(t2 - t1).count());
+		float deltaTimeSec = deltaTimeMicSec / 1000000.0f;
+
+		// Set the time
+		Time::instance->update(deltaTimeMicSec / 1000);
+
+		// Update the engine
+		update(deltaTimeSec);
+
+		int updateTimeMillis = static_cast<int>(duration_cast<milliseconds>(Clock::now() - t2).count());
+		int wait = timePerFrameMillis - updateTimeMillis;
+		if (wait > 0) {
+			SDL_Delay(wait);
+		}
+		t1 = t2;
+	}
+}
+
+void Engine::loadScene(std::string path)
+{
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 
-	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile("data/car_house_tree.json");
-	Shader* shader = Shader::getStandard();
-	auto cubeMesh = Mesh::createCube();
-	auto planeMesh = Mesh::createQuad();
-	auto sphereMesh = Mesh::createSphere();
+	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile(path);
+
+	SpriteAtlas atlas("data/", "data/MarioPacked.json"); // TODO asset pipeline
+	SRE::Shader* shader = SRE::Shader::getStandard();
+	auto cubeMesh = SRE::Mesh::createCube();
+	auto planeMesh = SRE::Mesh::createQuad();
+	auto sphereMesh = SRE::Mesh::createSphere();
 	for (auto element : gameObjectDescriptors) {
-		Mesh* mesh;
-		if (element.meshName == "sphere")
-			mesh = sphereMesh;
-		else if (element.meshName == "cube")
-			mesh = cubeMesh;
-		else if (element.meshName == "plane")
-			mesh = planeMesh;
-		else
-			throw "Undefined mesh";
 
-		auto gameObject = scene.addGameObject(element.meshName);
-		auto transformComponent = gameObject->addComponent<Transform>();
-		auto renderingComponent = gameObject->addComponent<Rendering>();
+		auto gameObject = scene.addGameObject(element.name);
 
-		renderingComponent->loadMesh(std::make_shared<Mesh>(*mesh));
-		renderingComponent->loadShader(std::make_shared<Shader>(*shader));
-		renderingComponent->setColor(element.color);
-		transformComponent->setPosition(element.position);
-		transformComponent->setRotation(element.rotationEuler);
-		transformComponent->setScale(element.scale);
+		if (element.camera.found)
+		{
+			auto camera = gameObject->addComponent<Camera>();
+
+			camera->setPosition(element.transform.position);
+			camera->setRotation(element.transform.rotationEuler);
+			camera->setScale(element.transform.scale);
+
+			camera->setPerspectiveProjection(element.camera.fieldOfView, 640, 480, element.camera.nearClip, element.camera.farClip);
+			camera->lookAt(vec3(0, 0, 0), vec3(0, 1, 0));
+
+			gameObject->addComponent<PlayerController>();
+		}
+		else {
+			auto transformComponent = gameObject->addComponent<Transform>();
+			transformComponent->setPosition(element.transform.position);
+			transformComponent->setRotation(element.transform.rotationEuler);
+			transformComponent->setScale(element.transform.scale);
+		}
+
+		if (element.mesh.found) {
+			SRE::Mesh* mesh;
+			if (element.mesh.name == "sphere")
+				mesh = sphereMesh;
+			else if (element.mesh.name == "cube")
+				mesh = cubeMesh;
+			else if (element.mesh.name == "plane")
+				mesh = planeMesh;
+			else
+				throw "Undefined mesh";
+
+			auto renderingComponent = gameObject->addComponent<Rendering>();
+
+			renderingComponent->loadMesh(std::make_shared<SRE::Mesh>(*mesh));
+			renderingComponent->loadShader(std::make_shared<SRE::Shader>(*shader));
+			renderingComponent->setColor(element.mesh.color);
+		}
+
+		if (element.sprite.found)
+		{
+			auto sprite = gameObject->addComponent<SpriteRenderer>();
+			sprite->sprite = atlas.getSprite(element.sprite.name);
+			// TODO support changing color of sprite
+		}
 
 		map_gameObjects[element.uniqueId] = gameObject;
-
-
 	}
 
 
 	//Set up parent relationships between Transform components
 	for (auto element : gameObjectDescriptors) {
-		if (element.parentId != -1) {
+		if (element.transform.parentId != -1) {
 			auto gameObject = map_gameObjects[element.uniqueId];
-			auto parentGameObject = map_gameObjects[element.parentId];
+			auto parentGameObject = map_gameObjects[element.transform.parentId];
 			gameObject->getComponent<Transform>()->setParent(parentGameObject->getComponent<Transform>().get());
-
 		}
 	}
 
-	//auto audioComponent = map_gameObjects[0]->addComponent<Audio>();
-	//audioComponent->init("data/sounds/Alesis-Fusion-Acoustic-Bass-C2.wav", audioManager);
-	//audioComponent->query();
+	auto sprite = map_gameObjects[0]->addComponent<SpriteRenderer>();
+	sprite->sprite = atlas.getSprite("brick");
 
-	//auto anotherAudioComponent = map_gameObjects[1]->addComponent<Audio>();
-	//anotherAudioComponent->init("data/sounds/Bass-Drum-1.wav", audioManager);
-	//anotherAudioComponent->query();
-
-	map_gameObjects[0]->addComponent<PlayerController>();
+	auto directionalLight = SRE::Light(SRE::LightType::Directional, vec3(0, 0, 0), vec3(1, 1, 1), vec3(1, 1, 1), 0);
+	auto pointLight1 = SRE::Light(SRE::LightType::Point, vec3(-1, 1, 1), vec3(0, 0, 0), vec3(5, 0, 0), 5);
+	auto pointLight2 = SRE::Light(SRE::LightType::Point, vec3(0, 1, -2), vec3(0, 0, 0), vec3(3, 3, 3), 5);
+	sre->setLight(0, directionalLight);
+	sre->setLight(1, pointLight1);
+	sre->setLight(2, pointLight2);
 
 	auto g = vec3(0, -10, 0);
 
@@ -115,76 +211,17 @@ void Engine::setup() {
 	config16.setLERPColor(vec4(0, 1, 0, 1), vec4(0, 1, 0, 0));
 	emitter->init(config16);
 	emitter->start();
-	
+
 	emitter = map_gameObjects[17]->addComponent<ParticleEmitter>();
 	ParticleEmitterConfig config17(2, 1, vec3(0, 20, 0), g);
 	config17.setLERPSize(1.0f, 0.0f);
 	config17.setFixedColor(vec4(0, 1, 1, 1));
 	emitter->init(config17);
 	emitter->start();
-
-	// Load the spritesheet
-	SpriteAtlas atlas("data/", "data/MarioPacked.json");
-
-	/*auto sprite = map_gameObjects[0]->addComponent<SpriteRenderer>();
-	sprite->sprite = atlas.getSprite("brick");
-	*/
-
-	auto camera = SimpleRenderEngine::instance->getCamera();
-	camera->setPerspectiveProjection(60, 640, 480, 1, 1000);
-	camera->lookAt(vec3(10, 10, 10), vec3(0, 0, 0), vec3(0, 1, 0));
-	auto directionalLight = Light(LightType::Directional, vec3(0, 0, 0), vec3(1, 1, 1), vec3(1, 1, 1), 0, 20.0f);
-	auto pointLight1 = Light(LightType::Point, vec3(-1, 1, 1), vec3(0, 0, 0), vec3(5, 0, 0), 5, 20.0f);
-	auto pointLight2 = Light(LightType::Point, vec3(0, 1, -2), vec3(0, 0, 0), vec3(3, 3, 3), 5, 20.0f);
-	SimpleRenderEngine::instance->setLight(0, directionalLight);
-	SimpleRenderEngine::instance->setLight(1, pointLight1);
-	SimpleRenderEngine::instance->setLight(2, pointLight2);
-
-	//GUI
-	ImGui_SRE_Init(window);
-	show_another_window = true;
-	clear_color = ImColor(114, 144, 154);
-	rotationSpeed = 10.0;
-
-
-}
-
-void Engine::start() {
-	physics->init();
-
-	typedef std::chrono::high_resolution_clock Clock;
-	auto t1 = Clock::now();
-	int timePerFrameMillis = 1000 / 60;
-	running = true;
-	paused = false;
-	while (running) {
-		using namespace std::chrono;
-
-		auto t2 = Clock::now();
-		// time since last update
-		int deltaTimeMicSec = duration_cast<microseconds>(t2 - t1).count();
-		float deltaTimeSec = deltaTimeMicSec / 1000000.0f;
-
-		// Set the time
-		Time::getInstance()->update(deltaTimeMicSec / 1000);
-
-		// Update the engine
-		update(deltaTimeSec);
-
-		int updateTimeMillis = static_cast<int>(duration_cast<milliseconds>(Clock::now() - t2).count());
-		int wait = timePerFrameMillis - updateTimeMillis;
-		if (wait > 0) {
-			SDL_Delay(wait);
-		}
-		t1 = t2;
-	}
-
-	ImGui_SRE_Shutdown();
 }
 
 void Engine::update(float deltaTimeSec) {
-	SimpleRenderEngine::instance->clearScreen({ 0,0,1,1 });
-	numberSprites = 0;
+	sre->clearScreen({ 0,0,1,1 });
 
 	// fetch input
 	SDL_Event event;
@@ -192,17 +229,14 @@ void Engine::update(float deltaTimeSec) {
 	while (SDL_PollEvent(&event)) {
 		switch (event.type) {
 		case SDL_KEYDOWN:
-
-			InputManage::getInstance()->KeyDown(event);
+			InputManager::getInstance()->KeyDown(event);
 		case SDL_KEYUP:
 		case SDL_MOUSEMOTION:
 		case SDL_MOUSEBUTTONDOWN:
 		case SDL_MOUSEBUTTONUP:
 		case SDL_MOUSEWHEEL:
-			if (!paused) {
-				for (auto & script : scene.getAllComponent<Script>())
-					if (script) script->OnInput(event);
-			}
+			for (auto & script : scene.getAllComponent<Script>())
+				if (script) script->OnInput(event);
 			break;
 		case SDL_QUIT:
 			running = false;
@@ -212,57 +246,44 @@ void Engine::update(float deltaTimeSec) {
 	}
 
 	if (!paused) {
-		// step the physics
 		physics->step(deltaTimeSec);
+		audioManager->step();
+	}
 
-		// update scripts
-		for (auto & script : scene.getAllComponent<Script>()) {
-			if (!script->started) {
-				script->started = true;
-				script->OnStart();
+	for (auto & camera : scene.getAllComponent<Camera>()) {
+
+		sre->setCamera(camera->cam);
+
+		// render game object
+		for (auto & rendering : scene.getAllComponent<Rendering>()) {
+			if (rendering) {
+				rendering->draw();
+				numberSprites++;
 			}
-			if (script) script->OnUpdate();
 		}
-    }
 
-	// render sprites
-	for (auto & sprite : scene.getAllComponent<SpriteRenderer>()) {
-		if (sprite) {
-			sprite->draw();
+		// render sprites
+		for (auto & sprite : scene.getAllComponent<SpriteRenderer>()) {
+			if (sprite) {
+				sprite->draw();
+				numberSprites++;
+			}
 		}
+
+		// update and render particle emitters
+		for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
+			if (particleEmitter) {
+				particleEmitter->update();
+			}
+		}
+		ParticleEmitter::render();
 	}
 
-	// update and render particle emitters
-	for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
-		if (particleEmitter) {
-			particleEmitter->update();
-		}
-	}
-
-	// render game object
-	for (auto & rendering : scene.getAllComponent<Rendering>()) {
-		if (rendering) {
-			rendering->draw();
-			numberSprites++;
-		}
-	}
-
-
-
-	audioManager->step();
-
-	ParticleEmitter::render();
-
-	if (InputManage::getInstance()->toggleGUI)
-		DebugUI();
-
-	SimpleRenderEngine::instance->swapWindow();
-
-
+	sre->swapWindow();
 }
 
-void Engine::DebugUI() {
-
+void Engine::DebugUI()
+{
 	ImGui_SRE_NewFrame(this->window);
 	ImGui::Begin("Game Debug GUI");
 	// 1. Show a simple window
@@ -303,5 +324,4 @@ void Engine::DebugUI() {
 	}
 
 	ImGui::Render();
-
 }

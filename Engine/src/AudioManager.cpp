@@ -1,6 +1,9 @@
-#include "AudioManager.hpp"
+#include "Mason/AudioManager.hpp"
+
 #include <SDL.h>
 #include <iostream>
+
+using namespace Mason;
 
 AudioManager* AudioManager::instance = nullptr;	
 
@@ -20,12 +23,9 @@ AudioManager * AudioManager::getInstance()
 void AudioManager::init()
 {
 	//Set max size of sourcesToBePlayed ? ?
-	if (SDL_Init(SDL_INIT_AUDIO) < 0) {
+	if (SDL_Init(SDL_INIT_AUDIO) < 0) 
 		return;
-	}
-	else {
-		initialized = true;
-	}
+	initialized = true;
 }
 
 AudioManager::AudioManager() {
@@ -54,7 +54,7 @@ void AudioManager::step()
 		sourcesPlayed1.push(audio);
 	}
 
-	for (int i = 0; i < sourcesPlayed1.size();) {
+	for (Uint32 i = 0; i < sourcesPlayed1.size();) {
 		auto audio = sourcesPlayed1.front();
 		if (audio->isDone()) {
 			audio->cleanUp();

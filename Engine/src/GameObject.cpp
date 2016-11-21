@@ -1,12 +1,8 @@
+#include "Mason/GameObject.hpp"
 
-//
-// Created by Morten Nobel-Jørgensen on 07/10/16.
-//
+using namespace Mason;
 
-#include "GameObject.hpp"
-//everytime we create a gameobject we should add its Transform
-
-GameObject::GameObject(std::string name_):name(name_) //why???
+GameObject::GameObject(std::string name_):name(name_)
 {
 }
 

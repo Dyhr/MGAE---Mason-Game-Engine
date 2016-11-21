@@ -1,6 +1,8 @@
 #pragma once
 #include "Script.hpp"
 
+using namespace Mason;
+
 class PlayerController :public Script
 {
 protected:
@@ -16,8 +18,12 @@ public:
 		direction = rightDown - leftDown;
 
 		auto pos = transform->getPosition();
-		pos.x += direction * speed * Time::getInstance()->getDeltaTime();
+		pos.x += direction * speed * Time::getDeltaTime();
 		transform->setPosition(pos);
+
+		auto rot = transform->getRotation();
+		rot.y += speed * Time::getDeltaTime();
+		transform->setRotation(rot);
 	}
 
 	void OnInput(SDL_Event event) override

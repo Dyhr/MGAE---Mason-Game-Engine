@@ -1,6 +1,8 @@
-#include "SpriteRenderer.h"
-#include "GameObject.hpp"
+#include "Mason/SpriteRenderer.h"
 
+#include "Mason/GameObject.hpp"
+
+using namespace Mason;
 using namespace SRE;
 
 SpriteRenderer::SpriteRenderer(GameObject *gameObject):Component(gameObject) {

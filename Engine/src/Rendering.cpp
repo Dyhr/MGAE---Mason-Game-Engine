@@ -1,7 +1,9 @@
-#include "Rendering.h"
+#include "Mason/Rendering.h"
 
 #include "SRE/Texture.hpp"
 #include <SRE/SimpleRenderEngine.hpp>
+
+using namespace Mason;
 
 Rendering::Rendering(GameObject *gameObject)
 :Component(gameObject) {
@@ -11,7 +13,7 @@ Rendering::Rendering(GameObject *gameObject)
 
 void Rendering::draw() {
 	if (transform) {
-		shader->setVector("color", color);
+		shader->set("color", color);
 		shader->set("tex", SRE::Texture::getWhiteTexture());
 		SRE::SimpleRenderEngine::instance->draw(&*mesh, transform->globalTransform(), &*shader);
 	}

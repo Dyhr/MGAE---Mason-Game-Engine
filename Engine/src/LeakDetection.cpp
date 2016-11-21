@@ -1,4 +1,7 @@
-#include "LeakDetection.h"
+#include "Mason/LeakDetection.h"
+
+#include <cstdint>
+
 
 #ifdef _WIN32
 //define for Windows (32-bit and 64-bit)
@@ -7,6 +10,8 @@
 #include "psapi.h"
 #include "TCHAR.h"
 #include "pdh.h"
+
+using namespace Mason;
 
 int64_t LeakDetection::TotalVirtualMem() {
 	MEMORYSTATUSEX memInfo;

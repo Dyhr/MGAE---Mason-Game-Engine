@@ -1,6 +1,8 @@
-#include "PhysicsBody2D.hpp"
+#include "Mason/PhysicsBody2D.hpp"
 
 #include <algorithm>
+
+using namespace Mason;
 
 PhysicsBody2D::~PhysicsBody2D() {
 	auto vec = &Physics::instance->bodies;

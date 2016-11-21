@@ -1,7 +1,10 @@
-#include "SpriteAtlas.h"
-#include "Sprite.h"
+#include "Mason/SpriteAtlas.h"
+
+#include "Mason/Sprite.h"
 #include "picojson.h"
 #include <fstream>
+
+using namespace Mason;
 
 SpriteAtlas::SpriteAtlas(std::string atlasJsonDataDirectory, std::string atlasJsonDataFile) {
 	using namespace picojson;
