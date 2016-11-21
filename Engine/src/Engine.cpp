@@ -10,6 +10,9 @@
 #include "Mason/PlayerController.hpp"
 #include "Mason/SpriteRenderer.h"
 #include "Mason/SpriteAtlas.h"
+#include "Mason/LeakDetection.h"
+#include "Mason/Camera.hpp"
+#include "Mason/InputManage.h"
 
 #include <chrono>
 #include <iostream>
@@ -20,9 +23,17 @@
 #include <glm/glm.hpp>
 #include <SDL.h>
 #include <map>
-#include "Mason/Camera.hpp"
+#include <SDL.h>
+#include <imgui.h>
+#include "SRE/imgui_sre.hpp"
+#include <cstdint>
 
 using namespace glm;
+
+
+ImVec4 clear_color;
+bool show_another_window;
+int numberSprites;
 
 Engine::Engine()
 {
@@ -55,6 +66,12 @@ Engine::Engine()
 	sre = new SRE::SimpleRenderEngine(window);
 	physics = Physics::getInstance();
 	audioManager = AudioManager::getInstance();
+
+
+	//GUI
+	ImGui_SRE_Init(window);
+	show_another_window = true;
+	clear_color = ImColor(114, 144, 154);
 
 	running = false;
 }
@@ -109,8 +126,6 @@ void Engine::loadScene(std::string path)
 
 		auto gameObject = scene.addGameObject(element.name);
 
-
-
 		if (element.camera.found)
 		{
 			auto camera = gameObject->addComponent<Camera>();
@@ -119,11 +134,12 @@ void Engine::loadScene(std::string path)
 			camera->setRotation(element.transform.rotationEuler);
 			camera->setScale(element.transform.scale);
 
-			//camera->setPerspectiveProjection(element.camera.fieldOfView, 640, 480, element.camera.nearClip, element.camera.farClip);
-			//camera->lookAt(vec3(0, 0, 0), vec3(0, 1, 0));
+			camera->setPerspectiveProjection(element.camera.fieldOfView, 640, 480, element.camera.nearClip, element.camera.farClip);
+			camera->lookAt(vec3(0, 0, 0), vec3(0, 1, 0));
 
 			gameObject->addComponent<PlayerController>();
-		} else {
+		}
+		else {
 			auto transformComponent = gameObject->addComponent<Transform>();
 			transformComponent->setPosition(element.transform.position);
 			transformComponent->setRotation(element.transform.rotationEuler);
@@ -178,19 +194,40 @@ void Engine::loadScene(std::string path)
 	sre->setLight(1, pointLight1);
 	sre->setLight(2, pointLight2);
 
+	auto g = vec3(0, -10, 0);
+
+	auto emitter = map_gameObjects[0]->addComponent<ParticleEmitter>();
+	ParticleEmitterConfig config0(0.5f, 6, vec3(3, 10, 0), g);
+	config0.setFixedSize(0.2f);
+	config0.setFixedColor(vec4(0, 1, 1, 1));
+	emitter->init(config0);
+	emitter->start();
+
+	emitter = map_gameObjects[16]->addComponent<ParticleEmitter>();
+	ParticleEmitterConfig config16(8, 4, vec3(-5, 1, 0), g);
+	config16.setFixedSize(0.5f);
+	config16.setLERPColor(vec4(0, 1, 0, 1), vec4(0, 1, 0, 0));
+	emitter->init(config16);
+	emitter->start();
+
+	emitter = map_gameObjects[17]->addComponent<ParticleEmitter>();
+	ParticleEmitterConfig config17(2, 1, vec3(0, 20, 0), g);
+	config17.setLERPSize(1.0f, 0.0f);
+	config17.setFixedColor(vec4(0, 1, 1, 1));
+	emitter->init(config17);
+	emitter->start();
 }
 
 void Engine::update(float deltaTimeSec) {
 	sre->clearScreen({ 0,0,1,1 });
 
-	// step the physics
-	physics->step(deltaTimeSec);
-
 	// fetch input
 	SDL_Event event;
+
 	while (SDL_PollEvent(&event)) {
 		switch (event.type) {
 		case SDL_KEYDOWN:
+			InputManage::getInstance()->KeyDown(event);
 		case SDL_KEYUP:
 		case SDL_MOUSEMOTION:
 		case SDL_MOUSEBUTTONDOWN:
@@ -206,43 +243,93 @@ void Engine::update(float deltaTimeSec) {
 		}
 	}
 
-	// update scripts
-	for (auto & script : scene.getAllComponent<Script>()) {
-		if (!script->started) {
-			script->started = true;
-			script->OnStart();
+	if (!paused) {
+		// step the physics
+		physics->step(deltaTimeSec);
+
+		for (auto & camera : scene.getAllComponent<Camera>()) {
+
+			sre->setCamera(camera->cam);
+
+			// render game object
+			for (auto & rendering : scene.getAllComponent<Rendering>()) {
+				if (rendering) {
+					rendering->draw();
+				}
+			}
+
+			// render sprites
+			for (auto & sprite : scene.getAllComponent<SpriteRenderer>()) {
+				if (sprite) {
+					sprite->draw();
+				}
+			}
+
+			// update and render particle emitters
+			for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
+				if (particleEmitter) {
+					particleEmitter->update();
+				}
+			}
+			ParticleEmitter::render();
 		}
-		if (script) script->OnUpdate();
-	}
-
-	for (auto & camera : scene.getAllComponent<Camera>()) {
-
-		sre->setCamera(camera->cam);
 
 		// render game object
 		for (auto & rendering : scene.getAllComponent<Rendering>()) {
 			if (rendering) {
 				rendering->draw();
+				numberSprites++;
 			}
 		}
 
-		// render sprites
-		for (auto & sprite : scene.getAllComponent<SpriteRenderer>()) {
-			if (sprite) {
-				sprite->draw();
-			}
-		}
 
-		// update and render particle emitters
-		for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
-			if (particleEmitter) {
-				particleEmitter->update();
-			}
+
+		audioManager->step();
+
+		sre->swapWindow();
+	}
+}
+
+void Engine::DebugUI()
+{
+	ImGui_SRE_NewFrame(this->window);
+	ImGui::Begin("Game Debug GUI");
+	// 1. Show a simple window
+	// Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
+	{
+		static float f = 0.0f;
+		ImGui::Text("Number of models rendered : %i", numberSprites);
+		//ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
+		if (ImGui::Button("Pause Game")) {
+			paused = !paused;
 		}
-		//ParticleEmitter::render();
+		//ImGui::ColorEdit3("clear color", (float*)&clear_color);
+		if (ImGui::Button("Memory Stats")) show_another_window ^= 1;
+		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+
+	}
+	ImGui::End();
+
+	// 2. Show another simple window, this time using an explicit Begin/End pair
+	if (show_another_window)
+	{
+		ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
+		ImGui::Begin("Memory Stats", &show_another_window);
+		//memory stat
+		LeakDetection leakd;
+		int64_t totv = leakd.TotalVirtualMem();
+		int64_t currv = leakd.CurrentVirtualMem();
+		int64_t projectv = leakd.VirtualMemByCurrentProccess();
+		ImGui::Text("Virtual Memory Used: %lld Mb (out of Total: %lld Mb)", currv, totv);
+		ImGui::Text("Virtual Memory Used by the GE: %lld Mb", projectv);
+		int64_t totp = leakd.TotalPhysMem();
+		int64_t currp = leakd.CurrentPhysMem();
+		int64_t projectp = leakd.PhysMemByCurrentProccess();
+		ImGui::Text("Physical Memory Used: %lld Mb (out of Total: %lld Mb)", currp, totp);
+		ImGui::Text("Physical Memory Used by the GE: %lld Mb", projectp);
+
+		ImGui::End();
 	}
 
-	audioManager->step();
-
-	sre->swapWindow();
+	ImGui::Render();
 }

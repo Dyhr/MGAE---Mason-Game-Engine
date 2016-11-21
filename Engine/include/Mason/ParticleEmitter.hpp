@@ -3,21 +3,138 @@
 #include <glm/glm.hpp>
 #include "Component.hpp"
 #include <SRE/SimpleRenderEngine.hpp>
-#include <vector>
+#include <math.h>
+
+enum AttributeState {
+	FIXED, RANDOM, LINEAR, SPLINE
+};
 
 struct ParticleEmitterConfig
 {
 	float rate;
 	float lifespan;
-	
+
 	glm::vec3 velocity;
 	glm::vec3 gravity;
-	
+
+	//Used for random
+	float minSize;
+	float maxSize;
+	float minRotation;
+	float maxRotation;
+	glm::vec4 minColor;
+	glm::vec4 maxColor;
+
+	//Used for interpolation
 	float initialSize;
 	float finalSize;
 	glm::vec4 initialColor;
 	glm::vec4 finalColor;
+	float initialRotation;
+	float finalRotation;
 
+	float *splinePointsColor;
+	float *splinePointsSize;
+	float *splinePointsRotation;
+
+	AttributeState colorState;
+	AttributeState sizeState;
+	AttributeState rotationState;
+	float *normalize(float input[4]) {
+		float min = input[0];
+		float max = input[0];
+		for (int i = 1; i < 4; i++) {
+			if (input[i] < min) {
+				min = input[i];
+			}
+			if (input[i] > max) {
+				max = input[i];
+			}
+		}
+		input[0] = (input[0] - min) / (max - min);
+		input[1] = (input[1] - min) / (max - min);
+		input[2] = (input[2] - min) / (max - min);
+		input[3] = (input[3] - min) / (max - min);
+		return input;
+	}
+	void setRate(float _rate) {
+		rate = _rate;
+	}
+	void setLifespan(float _lifespan) {
+		lifespan = _lifespan;
+	}
+	void setVelocity(glm::vec3 _velocity) {
+		velocity = _velocity;
+	}
+	void setGravity(glm::vec3 _gravity) {
+		gravity = _gravity;
+	}
+	//SIZE SETTERS
+	void setFixedSize(float size) {
+		initialSize = size;
+		finalSize = size;
+		sizeState = FIXED;
+	}
+	void setRandomSize(float min, float max) {
+		minSize = min;
+		maxSize = max;
+		sizeState = RANDOM;
+	}
+	void setLERPSize(float initial, float final) {
+		initialSize = initial;
+		finalSize = final;
+		sizeState = LINEAR;
+	}
+	void setSplineInterpSize(float initial, float final, float splinePoints[4]) {
+		initialSize = initial;
+		finalSize = final;
+		splinePointsSize = normalize(splinePoints);
+		sizeState = SPLINE;
+	}
+	//COLOR SETTERS
+	void setFixedColor(glm::vec4 color) {
+		initialColor = color;
+		finalColor = color;
+		colorState = FIXED;
+	}
+	void setRandomColor(glm::vec4 min, glm::vec4 max) {
+		minColor = min;
+		maxColor = max;
+		colorState = RANDOM;
+	}
+	void setLERPColor(glm::vec4 initial, glm::vec4 final) {
+		initialColor = initial;
+		finalColor = final;
+		colorState = LINEAR;
+	}
+	void setSplineInterpColor(glm::vec4 initial, glm::vec4 final, float splinePoints[4]) {
+		initialColor = initial;
+		finalColor = final;
+		splinePointsColor = normalize(splinePoints);
+		colorState = SPLINE;
+	}
+	//ROTATION SETTERS
+	void setFixedRotation(float rotation) {
+		initialRotation = rotation;
+		finalRotation = rotation;
+		rotationState = FIXED;
+	}
+	void setRandomRotation(float min, float max) {
+		minRotation = min;
+		maxRotation = max;
+		rotationState = RANDOM;
+	}
+	void setLERPRotation(float initial, float final) {
+		initialRotation = initial;
+		finalRotation = final;
+		rotationState = LINEAR;
+	}
+	void setSplineInterpRotation(float initial, float final, float splinePoints[4]) {
+		initialRotation = initial;
+		finalRotation = final;
+		splinePointsRotation = normalize(splinePoints);
+		rotationState = SPLINE;
+	}
 
 	ParticleEmitterConfig()
 		: rate(0),
@@ -31,48 +148,11 @@ struct ParticleEmitterConfig
 	{
 	}
 
-	ParticleEmitterConfig(float rate, float lifespan, glm::vec3 velocity, glm::vec3 gravity, float size, glm::vec4 color)
+	ParticleEmitterConfig(float rate, float lifespan, glm::vec3 velocity, glm::vec3 gravity)
 		: rate(rate),
 		lifespan(lifespan),
 		velocity(velocity),
-		gravity(gravity),
-		initialSize(size),
-		finalSize(size),
-		initialColor(color),
-		finalColor(color)
-	{
-	}
-	ParticleEmitterConfig(float rate, float lifespan, glm::vec3 velocity, glm::vec3 gravity, float initial_size, float final_size, glm::vec4 color)
-		: rate(rate),
-		lifespan(lifespan),
-		velocity(velocity),
-		gravity(gravity),
-		initialSize(initial_size),
-		finalSize(final_size),
-		initialColor(color),
-		finalColor(color)
-	{
-	}
-	ParticleEmitterConfig(float rate, float lifespan, glm::vec3 velocity, glm::vec3 gravity, float size, glm::vec4 initial_color, glm::vec4 final_color)
-		: rate(rate),
-		lifespan(lifespan),
-		velocity(velocity),
-		gravity(gravity),
-		initialSize(size),
-		finalSize(size),
-		initialColor(initial_color),
-		finalColor(final_color)
-	{
-	}
-	ParticleEmitterConfig(float rate, float lifespan, glm::vec3 velocity, glm::vec3 gravity, float initial_size, float final_size, glm::vec4 initial_color, glm::vec4 final_color)
-		: rate(rate),
-		  lifespan(lifespan),
-		  velocity(velocity),
-		  gravity(gravity),
-		  initialSize(initial_size),
-		  finalSize(final_size),
-		  initialColor(initial_color),
-		  finalColor(final_color)
+		gravity(gravity)
 	{
 	}
 };
@@ -103,6 +183,9 @@ protected:
 	static std::vector<float> birthTimes;
 	static std::vector<float> times;
 	static std::vector<glm::vec3> velocities;
+
+	static float cubicBezier(float t, float splinePoints[4]);
+	static float maybeWrongLerp(float f1, float f2, float perc);
 
 	ParticleEmitter(GameObject *gameObject);
 

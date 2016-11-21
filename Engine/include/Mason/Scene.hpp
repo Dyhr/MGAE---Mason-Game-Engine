@@ -19,6 +19,9 @@ public:
     // Get game object by index
     std::shared_ptr<GameObject> getGameObject(int index);
 
+	//Get all game objects
+	std::vector<std::shared_ptr<GameObject>> getGameObjects();
+
     // Returns all components of type C
     template<typename C>
     std::vector<std::shared_ptr<C>> getAllComponent();

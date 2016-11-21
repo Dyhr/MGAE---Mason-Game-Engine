@@ -12,7 +12,7 @@ Transform::Transform(GameObject *gameObject):Component(gameObject) {
 
 void Transform::transformize()
 {
-	auto translateMat = glm::translate(glm::mat4(1), position);
+	auto translateMat = translate(glm::mat4(1), position);
 	auto rotateMat = glm::eulerAngleYXZ(glm::radians(rotation.y), glm::radians(rotation.x), glm::radians(rotation.z));
 	auto scaleMat = glm::scale(glm::mat4(1), scale);
 	matrix = translateMat * rotateMat * scaleMat;

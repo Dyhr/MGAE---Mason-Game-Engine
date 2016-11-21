@@ -7,8 +7,8 @@
 using namespace std;
 
 string readFileAsString(string filename) {
-	std::ifstream t(filename);
-	std::stringstream buffer;
+	ifstream t(filename);
+	stringstream buffer;
 	buffer << t.rdbuf();
 	auto s = buffer.str();
 	if (s.length() == 0) {

@@ -11,7 +11,7 @@ Camera::Camera(GameObject* gameObject) : Transform(gameObject)
 void Camera::transformize()
 {
 	Transform::transformize();
-	cam->setViewTransform(matrix);
+	//cam->setViewTransform(matrix);
 }
 
 Camera::~Camera()

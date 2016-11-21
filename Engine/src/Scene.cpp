@@ -2,17 +2,17 @@
 
 using namespace std;
 
-std::shared_ptr<GameObject> Scene::addGameObject(std::string name) {
+shared_ptr<GameObject> Scene::addGameObject(string name) {
     GameObject * go = new GameObject(name);
     auto res = shared_ptr<GameObject>(go);
-    gameObjects.push_back(res);
+	this->gameObjects.push_back(res);
     return res;
 }
 
-bool Scene::removeGameObject(std::shared_ptr<GameObject> ptr) {
-    for (auto iter = gameObjects.begin();iter != gameObjects.end(); iter++){
+bool Scene::removeGameObject(shared_ptr<GameObject> ptr) {
+    for (auto iter = this->gameObjects.begin();iter != this->gameObjects.end(); iter++){
         if (*iter == ptr){
-            gameObjects.erase(iter);
+			this->gameObjects.erase(iter);
             return true;
         }
     }
@@ -21,9 +21,13 @@ bool Scene::removeGameObject(std::shared_ptr<GameObject> ptr) {
 }
 
 int Scene::getSize() {
-    return (int) gameObjects.size();
+    return (int) this->gameObjects.size();
 }
 
-std::shared_ptr<GameObject> Scene::getGameObject(int index) {
-    return gameObjects.at(index);
+shared_ptr<GameObject> Scene::getGameObject(int index) {
+    return this->gameObjects.at(index);
+}
+
+vector<shared_ptr<GameObject>> Scene::getGameObjects() {
+	return this->gameObjects;
 }

@@ -17,7 +17,7 @@ Audio::Audio(GameObject * gameObject) :Component(gameObject)
 {
 }
 
-void Audio::init(std::string file, AudioManager * manager)
+void Audio::init(string file, AudioManager * manager)
 {
 	path = file.c_str();
 	this->manager = manager;
@@ -76,7 +76,7 @@ void Audio::cleanUp()
 	else {
 		// shut everything down
 		//SDL_CloseAudio();
-		std::cout << "Freeing wav buffer" << std::endl;
+		cout << "Freeing wav buffer" << endl;
 		SDL_FreeWAV(wav_buffer);
 	}
 }

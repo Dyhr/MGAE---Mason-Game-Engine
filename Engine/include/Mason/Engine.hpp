@@ -13,7 +13,6 @@
 
 class Engine {
 public:
-    void setup();
     void start();
 
 	void loadScene(std::string path);
@@ -23,12 +22,14 @@ public:
 
 	Scene scene;
 private:
+	void DebugUI();
+
     void update(float deltaTimeSec);
     std::vector<std::shared_ptr<GameObject>> gameObjects;
 	SRE::SimpleRenderEngine* sre;
 	Physics* physics;
 	AudioManager* audioManager;
-	bool running;
+	bool running, paused;
 	SDL_Window *window;
 };
 
