@@ -2,6 +2,7 @@
 
 #include "Mason/Engine.hpp"
 #include "Mason/Script.hpp"
+#include <iostream>
 
 
 using namespace Mason;

@@ -9,6 +9,7 @@ CMakeCache.txt
 cmake_install.cmake
 *.sln
 .DS_STORE
+imgui.ini
 
 
 # Created by https://www.gitignore.io/api/visualstudio

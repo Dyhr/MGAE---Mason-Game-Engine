@@ -64,9 +64,10 @@ int currentScene = 0;
 
 void handleInput(SDL_Event event)
 {
-	if(event.type == SDL_KEYDOWN && char(event.key.keysym.sym) == ' ')
+	if(event.type == SDL_KEYDOWN && char(event.key.keysym.sym) == ' ') {
 		currentScene = (currentScene + 1) % numScenes;
-	loadScene(currentScene);
+		loadScene(currentScene);
+	}
 }
 
 int main(int argc, char** argv) {
