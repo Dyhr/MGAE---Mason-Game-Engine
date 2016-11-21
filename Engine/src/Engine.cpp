@@ -73,7 +73,7 @@ Engine::Engine()
 	show_another_window = true;
 	clear_color = ImColor(114, 144, 154);
 
-	running = false;
+	running = paused = false;
 }
 Engine::~Engine()
 {
@@ -244,35 +244,13 @@ void Engine::update(float deltaTimeSec) {
 	}
 
 	if (!paused) {
-		// step the physics
 		physics->step(deltaTimeSec);
+		audioManager->step();
+	}
 
-		for (auto & camera : scene.getAllComponent<Camera>()) {
+	for (auto & camera : scene.getAllComponent<Camera>()) {
 
-			sre->setCamera(camera->cam);
-
-			// render game object
-			for (auto & rendering : scene.getAllComponent<Rendering>()) {
-				if (rendering) {
-					rendering->draw();
-				}
-			}
-
-			// render sprites
-			for (auto & sprite : scene.getAllComponent<SpriteRenderer>()) {
-				if (sprite) {
-					sprite->draw();
-				}
-			}
-
-			// update and render particle emitters
-			for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
-				if (particleEmitter) {
-					particleEmitter->update();
-				}
-			}
-			ParticleEmitter::render();
-		}
+		sre->setCamera(camera->cam);
 
 		// render game object
 		for (auto & rendering : scene.getAllComponent<Rendering>()) {
@@ -282,12 +260,24 @@ void Engine::update(float deltaTimeSec) {
 			}
 		}
 
+		// render sprites
+		for (auto & sprite : scene.getAllComponent<SpriteRenderer>()) {
+			if (sprite) {
+				sprite->draw();
+				numberSprites++;
+			}
+		}
 
-
-		audioManager->step();
-
-		sre->swapWindow();
+		// update and render particle emitters
+		for (auto & particleEmitter : scene.getAllComponent<ParticleEmitter>()) {
+			if (particleEmitter) {
+				particleEmitter->update();
+			}
+		}
+		ParticleEmitter::render();
 	}
+
+	sre->swapWindow();
 }
 
 void Engine::DebugUI()
