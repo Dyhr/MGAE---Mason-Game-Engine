@@ -185,7 +185,7 @@ protected:
 	static std::vector<glm::vec3> velocities;
 
 	static float cubicBezier(float t, float splinePoints[4]);
-	static float lerp(float f1, float f2, float perc);
+	static float maybeWrongLerp(float f1, float f2, float perc);
 
 	ParticleEmitter(GameObject *gameObject);
 
