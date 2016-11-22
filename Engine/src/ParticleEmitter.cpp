@@ -30,22 +30,24 @@ std::vector<glm::vec3> ParticleEmitter::velocities = std::vector<glm::vec3>();
 SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;
 SRE::Shader* ParticleEmitter::shader = nullptr;
 
-float ParticleEmitter::maybeWrongLerp(float f1, float f2, float perc)
+glm::vec2 ParticleEmitter::cubicBezier(float t, glm::vec2 splinePoints[4])
 {
-	auto diff = f2 - f1;
-	return f1 + (diff * perc);
-}
+	auto ax = glm::lerp(splinePoints[0].x, splinePoints[1].x, t);
+	auto ay = glm::lerp(splinePoints[0].y, splinePoints[1].y, t);
+	auto bx = glm::lerp(splinePoints[1].x, splinePoints[2].x, t);
+	auto by = glm::lerp(splinePoints[1].y, splinePoints[2].y, t);
+	auto cx = glm::lerp(splinePoints[2].x, splinePoints[3].x, t);
+	auto cy = glm::lerp(splinePoints[2].y, splinePoints[3].y, t);
 
-float ParticleEmitter::cubicBezier(float t, float splinePoints[4])
-{
-	auto a1 = glm::lerp(splinePoints[0], splinePoints[1], t);
-	auto b1 = glm::lerp(splinePoints[1], splinePoints[2], t);
-	auto c1 = glm::lerp(splinePoints[2], splinePoints[3], t);
+	auto ix = glm::lerp(ax, bx, t);
+	auto iy = glm::lerp(ay, by, t);
+	auto jx = glm::lerp(bx, cx, t);
+	auto jy = glm::lerp(by, cy, t);
 
-	auto a2 = glm::lerp(a1, b1, t);
-	auto b2 = glm::lerp(b1, c1, t);
+	auto px = glm::lerp(ix, jx, t);
+	auto py = glm::lerp(iy, jy, t);
 
-	return glm::lerp(a2, b2, t);
+	return glm::vec2(px, py);
 }
 
 ParticleEmitter::ParticleEmitter(GameObject * gameObject) : Component(gameObject) {
@@ -75,6 +77,19 @@ void ParticleEmitter::update()
 			velocities[i] = config.velocity;
 			birthTimes[i] = timeSinceStart;
 			times[i] = 0.0f;
+			if (config.sizeState == AttributeState::RANDOM) {
+				sizes[i] = glm::lerp(config.minSize, config.maxSize, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+			}
+			if (config.colorState == AttributeState::RANDOM) {
+				glm::vec4 color;
+				color[0] = glm::lerp(config.minColor[0], config.maxColor[0], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				color[1] = glm::lerp(config.minColor[1], config.maxColor[1], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				color[2] = glm::lerp(config.minColor[2], config.maxColor[2], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				color[3] = glm::lerp(config.minColor[3], config.maxColor[3], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				colors[i] = color;
+			}
+			
+
 		}
 
 		float timeSinceBirth = timeSinceStart - birthTimes[i];
@@ -95,24 +110,19 @@ void ParticleEmitter::update()
 				newColor = config.initialColor;
 				break;
 			case RANDOM:
-				newColor.x = glm::lerp(config.initialColor.x, config.finalColor.x, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
-				newColor.y = glm::lerp(config.initialColor.y, config.finalColor.y, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
-				newColor.z = glm::lerp(config.initialColor.z, config.finalColor.z, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
-				newColor.w = glm::lerp(config.initialColor.w, config.finalColor.w, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				break;
 			case LINEAR:
-				newColor.x = glm::lerp(config.initialColor.x, config.finalColor.x, times[i] / config.lifespan);
-				newColor.y = glm::lerp(config.initialColor.y, config.finalColor.y, times[i] / config.lifespan);
-				newColor.z = glm::lerp(config.initialColor.z, config.finalColor.z, times[i] / config.lifespan);
-				newColor.w = glm::lerp(config.initialColor.w, config.finalColor.w, times[i] / config.lifespan);
+				newColor[0] = glm::lerp(config.initialColor[0], config.finalColor[0], times[i] / config.lifespan);
+				newColor[1] = glm::lerp(config.initialColor[1], config.finalColor[1], times[i] / config.lifespan);
+				newColor[2] = glm::lerp(config.initialColor[2], config.finalColor[2], times[i] / config.lifespan);
+				newColor[3] = glm::lerp(config.initialColor[3], config.finalColor[3], times[i] / config.lifespan);
 				break;
 			case SPLINE:
 				auto colorMod = cubicBezier(times[i] / config.lifespan, config.splinePointsColor);
-				newColor.x = glm::lerp(config.initialColor.x, config.finalColor.x, colorMod);
-				newColor.y = glm::lerp(config.initialColor.y, config.finalColor.y, colorMod);
-				newColor.z = glm::lerp(config.initialColor.z, config.finalColor.z, colorMod);
-				newColor.w = glm::lerp(config.initialColor.w, config.finalColor.w, colorMod);
-
+				newColor[0] = glm::lerp(config.initialColor[0], config.finalColor[0], colorMod.y);
+				newColor[1] = glm::lerp(config.initialColor[1], config.finalColor[1], colorMod.y);
+				newColor[2] = glm::lerp(config.initialColor[2], config.finalColor[2], colorMod.y);
+				newColor[3] = glm::lerp(config.initialColor[3], config.finalColor[3], colorMod.y);
 				break;
 		}
 
@@ -121,14 +131,13 @@ void ParticleEmitter::update()
 				newSize = config.initialSize;
 				break;
 			case RANDOM:
-				newSize = glm::lerp(config.initialSize, config.finalSize, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				break;
 			case LINEAR:
 				newSize = glm::lerp(config.initialSize, config.finalSize, times[i]/config.lifespan);
 				break;
 			case SPLINE:
 				auto sizeMod = cubicBezier(times[i], config.splinePointsSize);
-				newSize = glm::lerp(config.initialSize, config.finalSize, sizeMod);
+				newSize = glm::lerp(config.initialSize, config.finalSize, sizeMod.y);
 				break;
 		}
 
@@ -203,9 +212,11 @@ void ParticleEmitter::init(ParticleEmitterConfig config)
 		positions.push_back(glm::vec3());
 		velocities.push_back(glm::vec3());
 		colors.push_back(glm::vec4());
+		sizes.push_back(0.5f);
+		
 		//uvs.push_back(glm::vec2());
 		//uvSize.push_back(0.0f);
 		//uvRotation.push_back(0.0f);
-		sizes.push_back(0.5f);
+		
 	}
 }
