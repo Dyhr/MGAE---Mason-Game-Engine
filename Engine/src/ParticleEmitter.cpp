@@ -30,24 +30,33 @@ std::vector<glm::vec3> ParticleEmitter::velocities = std::vector<glm::vec3>();
 SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;
 SRE::Shader* ParticleEmitter::shader = nullptr;
 
-glm::vec2 ParticleEmitter::cubicBezier(float t, glm::vec2 splinePoints[4])
+glm::vec2 ParticleEmitter::cubicBezier(float t, std::vector<glm::vec2> splinePoints)
 {
-	auto ax = glm::lerp(splinePoints[0].x, splinePoints[1].x, t);
-	auto ay = glm::lerp(splinePoints[0].y, splinePoints[1].y, t);
-	auto bx = glm::lerp(splinePoints[1].x, splinePoints[2].x, t);
-	auto by = glm::lerp(splinePoints[1].y, splinePoints[2].y, t);
-	auto cx = glm::lerp(splinePoints[2].x, splinePoints[3].x, t);
-	auto cy = glm::lerp(splinePoints[2].y, splinePoints[3].y, t);
+	if (splinePoints.size() == 1) {
+		return splinePoints[0];
+	}
+	std::vector<glm::vec2> deeper;
 
-	auto ix = glm::lerp(ax, bx, t);
-	auto iy = glm::lerp(ay, by, t);
-	auto jx = glm::lerp(bx, cx, t);
-	auto jy = glm::lerp(by, cy, t);
+	for (int i = 0; i < splinePoints.size() - 1; i++) {
+		deeper.push_back(glm::lerp(splinePoints[i], splinePoints[i + 1], t));
+	}
 
-	auto px = glm::lerp(ix, jx, t);
-	auto py = glm::lerp(iy, jy, t);
+	//auto ax = glm::lerp(splinePoints[0].x, splinePoints[1].x, t);
+	//auto ay = glm::lerp(splinePoints[0].y, splinePoints[1].y, t);
+	//auto bx = glm::lerp(splinePoints[1].x, splinePoints[2].x, t);
+	//auto by = glm::lerp(splinePoints[1].y, splinePoints[2].y, t);
+	//auto cx = glm::lerp(splinePoints[2].x, splinePoints[3].x, t);
+	//auto cy = glm::lerp(splinePoints[2].y, splinePoints[3].y, t);
 
-	return glm::vec2(px, py);
+	//auto ix = glm::lerp(ax, bx, t);
+	//auto iy = glm::lerp(ay, by, t);
+	//auto jx = glm::lerp(bx, cx, t);
+	//auto jy = glm::lerp(by, cy, t);
+
+	//auto px = glm::lerp(ix, jx, t);
+	//auto py = glm::lerp(iy, jy, t);
+
+	return cubicBezier(t, deeper);
 }
 
 ParticleEmitter::ParticleEmitter(GameObject * gameObject) : Component(gameObject) {
@@ -136,7 +145,7 @@ void ParticleEmitter::update()
 				newSize = glm::lerp(config.initialSize, config.finalSize, times[i]/config.lifespan);
 				break;
 			case SPLINE:
-				auto sizeMod = cubicBezier(times[i], config.splinePointsSize);
+				auto sizeMod = cubicBezier(times[i] / config.lifespan, config.splinePointsSize);
 				newSize = glm::lerp(config.initialSize, config.finalSize, sizeMod.y);
 				break;
 		}

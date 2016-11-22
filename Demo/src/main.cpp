@@ -24,9 +24,16 @@ void loadScene(int index)
 		emitter->init(config1);
 		emitter->start();
 
+		std::vector<glm::vec2> splinePoints;
+		splinePoints.push_back(glm::vec2(0, 0));
+		splinePoints.push_back(glm::vec2(0.25f, 1));
+		splinePoints.push_back(glm::vec2(0.5f, 0.5));
+		splinePoints.push_back(glm::vec2(0.85f, 0));
+		splinePoints.push_back(glm::vec2(1, 1));
+
 		emitter = engine.scene->getGameObject(3)->addComponent<ParticleEmitter>();
 		ParticleEmitterConfig config2(15, 2, vec3(10, 10, 0), vec3(0, -10, 0));
-		config2.setFixedSize(2.0f);
+		config2.setSplineInterpSize(0.5f, 4.0f, splinePoints);
 		config2.setRandomColor(vec4(1, 1, 1, 1), vec4(0, 0, 0, 1));
 		emitter->init(config2);
 		emitter->start();
@@ -35,14 +42,14 @@ void loadScene(int index)
 		ParticleEmitterConfig config3(2, 5, vec3(10, 5, 0), vec3(-10, 0, 0));
 		config3.setFixedSize(1.0f);
 		config3.setFixedColor(vec4(1, 0, 0, 1));
-		//config3.setSplineInterpColor(vec4(1, 0, 0, 1), vec4(0, 1, 0, 0), (float[]) { 1, 2, 3, 4 });
+		config3.setSplineInterpColor(vec4(1, 0, 0, 1), vec4(0, 1, 0, 0), splinePoints);
 		emitter->init(config3);
 		emitter->start();
 
 
 		emitter = engine.scene->getGameObject(5)->addComponent<ParticleEmitter>();
 		ParticleEmitterConfig config4(8, 2, vec3(-20, 5, 0), vec3(10, 0, 0));
-		config4.setLERPSize(4.0f, 0.0f);
+		config4.setLERPSize(4.0, 0.0f);
 		config4.setFixedColor(vec4(0, 1, 1, 1));
 		emitter->init(config4);
 		emitter->start();

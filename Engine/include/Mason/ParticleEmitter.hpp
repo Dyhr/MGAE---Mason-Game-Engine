@@ -5,6 +5,8 @@
 #include <SRE/SimpleRenderEngine.hpp>
 #include <math.h>
 #include <SRE/Texture.hpp>
+#include <vector>
+#include <iostream>
 
 
 namespace Mason {
@@ -37,40 +39,36 @@ namespace Mason {
 		float initialRotation;
 		float finalRotation;
 
-		glm::vec2 *splinePointsColor;
-		glm::vec2 *splinePointsSize;
-		glm::vec2 *splinePointsRotation;
+		std::vector<glm::vec2> splinePointsColor;
+		std::vector<glm::vec2> splinePointsSize;
+		std::vector<glm::vec2> splinePointsRotation;
 
 		AttributeState colorState;
 		AttributeState sizeState;
 		AttributeState rotationState;
-		glm::vec2 *normalize(glm::vec2 input[4]) {
+		std::vector<glm::vec2> normalize(std::vector<glm::vec2>  input) {
+
 			auto minX = input[0].x;
 			auto maxX = input[0].x;
 			auto minY = input[0].y;
 			auto maxY = input[0].x;
-			for (int i = 1; i < 4; i++) {
-				if (input[i].x < minX) {
-					minX= input[i].x;
+			for (auto v : input) {
+				if (v.x < minX) {
+					minX= v.x;
 				}
-				if (input[i].x > maxX) {
-					maxX = input[i].x;
+				if (v.x > maxX) {
+					maxX = v.x;
 				}
-				if (input[i].y < minY) {
-					minY = input[i].y;
+				if (v.y < minY) {
+					minY = v.y;
 				}
-				if (input[i].y > minY) {
-					maxY = input[i].y;
+				if (v.y > minY) {
+					maxY = v.y;
 				}
 			}
-			input[0].x = (input[0].x - minX) / (maxX - minX);
-			input[1].x = (input[1].x - minX) / (maxX - minX);
-			input[2].x = (input[2].x - minX) / (maxX - minX);
-			input[3].x = (input[3].x - minX) / (maxX - minX);
-			input[0].y = (input[0].y - minY) / (maxY - minY);
-			input[1].y = (input[1].y - minY) / (maxY - minY);
-			input[2].y = (input[2].y - minY) / (maxY - minY);
-			input[3].y = (input[3].y - minY) / (maxY - minY);
+			for (auto v : input) {
+				v.x = (v.x - minX) / ( maxX - minX);
+			}
 			return input;
 		}
 		void setRate(float _rate) {
@@ -101,7 +99,7 @@ namespace Mason {
 			finalSize = final;
 			sizeState = LINEAR;
 		}
-		void setSplineInterpSize(float initial, float final, glm::vec2 splinePoints[4]) {
+		void setSplineInterpSize(float initial, float final, std::vector<glm::vec2>  splinePoints) {
 			initialSize = initial;
 			finalSize = final;
 			splinePointsSize = normalize(splinePoints);
@@ -123,7 +121,7 @@ namespace Mason {
 			finalColor = final;
 			colorState = LINEAR;
 		}
-		void setSplineInterpColor(glm::vec4 initial, glm::vec4 final, glm::vec2 splinePoints[4]) {
+		void setSplineInterpColor(glm::vec4 initial, glm::vec4 final, std::vector<glm::vec2>  splinePoints) {
 			initialColor = initial;
 			finalColor = final;
 			splinePointsColor = normalize(splinePoints);
@@ -145,7 +143,7 @@ namespace Mason {
 			finalRotation = final;
 			rotationState = LINEAR;
 		}
-		void setSplineInterpRotation(float initial, float final, glm::vec2 splinePoints[4]) {
+		void setSplineInterpRotation(float initial, float final, std::vector<glm::vec2> splinePoints) {
 			initialRotation = initial;
 			finalRotation = final;
 			splinePointsRotation = normalize(splinePoints);
@@ -201,7 +199,7 @@ namespace Mason {
 		static std::vector<float> times;
 		static std::vector<glm::vec3> velocities;
 
-		static glm::vec2 cubicBezier(float t, glm::vec2 splinePoints[4]);
+		static glm::vec2 cubicBezier(float t, std::vector<glm::vec2> splinePoints);
 
 		ParticleEmitter(GameObject *gameObject);
 
