@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Mason/Script.hpp"
+#include <iostream>
 
 using namespace Mason;
 
@@ -21,10 +22,6 @@ public:
 		auto pos = transform->getPosition();
 		pos.x += direction * speed * Time::getDeltaTime();
 		transform->setPosition(pos);
-
-		auto rot = transform->getRotation();
-		rot.y += speed * Time::getDeltaTime();
-		transform->setRotation(rot);
 	}
 
 	void OnInput(SDL_Event event) override
@@ -44,5 +41,5 @@ public:
 	int leftDown = 0;
 	int rightDown = 0;
 	int direction = 0;
-	float speed = 2.0f;
+	float speed = 50.0f;
 };

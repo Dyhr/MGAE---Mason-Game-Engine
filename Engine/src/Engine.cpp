@@ -23,6 +23,7 @@
 #include <map>
 #include <imgui.h>
 #include "SRE/imgui_sre.hpp"
+#include "Mason/Script.hpp"
 
 using namespace glm;
 using namespace Mason;
@@ -197,6 +198,15 @@ void Engine::update(float deltaTimeSec) {
 	InputManager::getInstance()->Handle(this);
 
 	if (!paused) {
+		for (auto & script : scene->getAllComponent<Script>()) script->OnUpdate();
+
+		// update particle emitters
+		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
+			if (particleEmitter) {
+				particleEmitter->update();
+			}
+		}
+
 		physics->step(deltaTimeSec);
 		audioManager->step();
 	}
@@ -221,12 +231,7 @@ void Engine::update(float deltaTimeSec) {
 			}
 		}
 
-		// update and render particle emitters
-		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
-			if (particleEmitter) {
-				particleEmitter->update();
-			}
-		}
+		// render particle emitters
 		ParticleEmitter::render(tex);
 		delete tex; //makeshift to show how to 
 	}

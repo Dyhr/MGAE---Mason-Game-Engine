@@ -52,7 +52,7 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 
 		if (o.contains("sprite")) {
 			d.sprite.found = true;
-			auto m = o.get("mesh");
+			auto m = o.get("sprite");
 			if (m.contains("name")) d.sprite.name = m.get("name").get<std::string>();
 			if (m.contains("color")) d.sprite.color = to_vec4(m.get("color"));
 		}

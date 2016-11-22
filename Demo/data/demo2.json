@@ -10,21 +10,28 @@
       },
       "transform":
       {
-        "position": [10, 10, 10] 
+        "position": [0, 1, 500] 
       } 
     },
     {
       "uniqueId": 0,
       "name": "Car",
-      "mesh": {
-        "name": "cube",
-        "color": [ 0.03082866, 0.03082866, 0.03082866, 1 ]
+      "sprite": {
+        "name": "mario_0"
       },
       "transform": {
-        "position": [ -0.315, 0.737, -0.753 ],
-        "rotationEuler": [ 0, 341.61, 0 ],
-        "scale": [ 0.6726984, 0.3758441, 0.9162858 ],
-        "parentId": -1
+        "scale": [ 0.01, 0.01, 0.01 ]
+      }
+    },
+    {
+      "uniqueId": 0,
+      "name": "Brick",
+      "sprite": {
+        "name": "brick"
+      },
+      "transform": {
+        "position":  [ 100, 0, 0 ], 
+        "scale": [ 0.01, 0.01, 0.01 ]
       }
     }
   ]
