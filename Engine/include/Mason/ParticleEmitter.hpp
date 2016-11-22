@@ -37,28 +37,40 @@ namespace Mason {
 		float initialRotation;
 		float finalRotation;
 
-		float *splinePointsColor;
-		float *splinePointsSize;
-		float *splinePointsRotation;
+		glm::vec2 *splinePointsColor;
+		glm::vec2 *splinePointsSize;
+		glm::vec2 *splinePointsRotation;
 
 		AttributeState colorState;
 		AttributeState sizeState;
 		AttributeState rotationState;
-		float *normalize(float input[4]) {
-			float min = input[0];
-			float max = input[0];
+		glm::vec2 *normalize(glm::vec2 input[4]) {
+			auto minX = input[0].x;
+			auto maxX = input[0].x;
+			auto minY = input[0].y;
+			auto maxY = input[0].x;
 			for (int i = 1; i < 4; i++) {
-				if (input[i] < min) {
-					min = input[i];
+				if (input[i].x < minX) {
+					minX= input[i].x;
 				}
-				if (input[i] > max) {
-					max = input[i];
+				if (input[i].x > maxX) {
+					maxX = input[i].x;
+				}
+				if (input[i].y < minY) {
+					minY = input[i].y;
+				}
+				if (input[i].y > minY) {
+					maxY = input[i].y;
 				}
 			}
-			input[0] = (input[0] - min) / (max - min);
-			input[1] = (input[1] - min) / (max - min);
-			input[2] = (input[2] - min) / (max - min);
-			input[3] = (input[3] - min) / (max - min);
+			input[0].x = (input[0].x - minX) / (maxX - minX);
+			input[1].x = (input[1].x - minX) / (maxX - minX);
+			input[2].x = (input[2].x - minX) / (maxX - minX);
+			input[3].x = (input[3].x - minX) / (maxX - minX);
+			input[0].y = (input[0].y - minY) / (maxY - minY);
+			input[1].y = (input[1].y - minY) / (maxY - minY);
+			input[2].y = (input[2].y - minY) / (maxY - minY);
+			input[3].y = (input[3].y - minY) / (maxY - minY);
 			return input;
 		}
 		void setRate(float _rate) {
@@ -89,7 +101,7 @@ namespace Mason {
 			finalSize = final;
 			sizeState = LINEAR;
 		}
-		void setSplineInterpSize(float initial, float final, float splinePoints[4]) {
+		void setSplineInterpSize(float initial, float final, glm::vec2 splinePoints[4]) {
 			initialSize = initial;
 			finalSize = final;
 			splinePointsSize = normalize(splinePoints);
@@ -111,7 +123,7 @@ namespace Mason {
 			finalColor = final;
 			colorState = LINEAR;
 		}
-		void setSplineInterpColor(glm::vec4 initial, glm::vec4 final, float splinePoints[4]) {
+		void setSplineInterpColor(glm::vec4 initial, glm::vec4 final, glm::vec2 splinePoints[4]) {
 			initialColor = initial;
 			finalColor = final;
 			splinePointsColor = normalize(splinePoints);
@@ -133,7 +145,7 @@ namespace Mason {
 			finalRotation = final;
 			rotationState = LINEAR;
 		}
-		void setSplineInterpRotation(float initial, float final, float splinePoints[4]) {
+		void setSplineInterpRotation(float initial, float final, glm::vec2 splinePoints[4]) {
 			initialRotation = initial;
 			finalRotation = final;
 			splinePointsRotation = normalize(splinePoints);
@@ -189,8 +201,7 @@ namespace Mason {
 		static std::vector<float> times;
 		static std::vector<glm::vec3> velocities;
 
-		static float cubicBezier(float t, float splinePoints[4]);
-		static float maybeWrongLerp(float f1, float f2, float perc);
+		static glm::vec2 cubicBezier(float t, glm::vec2 splinePoints[4]);
 
 		ParticleEmitter(GameObject *gameObject);
 
