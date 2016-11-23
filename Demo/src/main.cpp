@@ -21,6 +21,7 @@ void loadScene(int index)
 		ParticleEmitterConfig config1(8, 1, vec3(10, 5, 0), vec3(0, -20, 0));
 		config1.setFixedSize(4.0f);
 		config1.setLERPColor(vec4(0, 1, 0, 1), vec4(0, 1, 0, 0));
+		config1.setFixedRotation(3.0f);
 		emitter->init(config1);
 		emitter->start();
 
@@ -35,6 +36,7 @@ void loadScene(int index)
 		ParticleEmitterConfig config2(15, 2, vec3(10, 10, 0), vec3(0, -10, 0));
 		config2.setSplineInterpSize(0.5f, 4.0f, splinePoints);
 		config2.setRandomColor(vec4(1, 1, 1, 1), vec4(0, 0, 0, 1));
+		config2.setLERPRotation(0.0f, 1.6f);
 		emitter->init(config2);
 		emitter->start();
 
@@ -43,6 +45,7 @@ void loadScene(int index)
 		config3.setFixedSize(1.0f);
 		config3.setFixedColor(vec4(1, 0, 0, 1));
 		config3.setSplineInterpColor(vec4(1, 0, 0, 1), vec4(0, 1, 0, 0), splinePoints);
+		config3.setRandomRotation(0.3,1.2);
 		emitter->init(config3);
 		emitter->start();
 
