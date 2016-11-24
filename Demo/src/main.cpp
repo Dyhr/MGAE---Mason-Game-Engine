@@ -15,6 +15,13 @@ void loadScene(int index)
 	switch (index)
 	{
 	case 0: {
+		engine.loadScene("data/demo2.json");
+
+		engine.scene->getGameObject(1)->addComponent<PlayerController>();
+
+		break;
+	}
+	case 1: {
 		engine.loadScene("data/demo1.json");
 
 		auto emitter = engine.scene->getGameObject(2)->addComponent<ParticleEmitter>();
@@ -70,13 +77,6 @@ void loadScene(int index)
 		config6.setFixedColor(vec4(1, 1, 0, 1));
 		emitter->init(config6);
 		emitter->start();
-
-		break;
-	}
-	case 1: {
-		engine.loadScene("data/demo2.json");
-
-		engine.scene->getGameObject(1)->addComponent<PlayerController>();
 
 		break;
 	}

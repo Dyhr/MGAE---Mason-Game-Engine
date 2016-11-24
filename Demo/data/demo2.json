@@ -15,7 +15,7 @@
     },
     {
       "uniqueId": 0,
-      "name": "Car",
+      "name": "Mario",
       "sprite": {
         "name": "mario_0"
       },
@@ -24,10 +24,10 @@
       }
     },
     {
-      "uniqueId": 0,
+      "uniqueId": 1,
       "name": "Brick",
       "sprite": {
-        "name": "brick"
+        "name": "brick" 
       },
       "transform": {
         "position":  [ 100, 0, 0 ], 

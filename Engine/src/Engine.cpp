@@ -140,9 +140,8 @@ void Engine::loadScene(std::string path)
 			camera->setPosition(element.transform.position);
 			camera->setRotation(element.transform.rotationEuler);
 			camera->setScale(element.transform.scale);
-
-			camera->setPerspectiveProjection(element.camera.fieldOfView, 640, 480, element.camera.nearClip, element.camera.farClip);
-			camera->lookAt(vec3(0, 0, 0), vec3(0, 1, 0));
+			
+			camera->cam->setWindowCoordinates(640, 480);
 		}
 		else {
 			auto transformComponent = gameObject->addComponent<Transform>();
