@@ -29,7 +29,7 @@ void Physics::step(float dt)
 		auto transform = body->getGameObject()->getComponent<Transform>();
 		auto pos = body->body->GetWorldCenter();
 		if(transform)
-			transform->setPosition(glm::vec3(pos.x,0,pos.y));
+			transform->setPosition(glm::vec3(pos.x,pos.y,0));
 	}
 }
 
@@ -39,7 +39,7 @@ void Physics::init()
 		auto transform = body->getGameObject()->getComponent<Transform>();
 		if(transform) {
 			auto pos = transform->getPosition();
-			body->body->SetTransform(b2Vec2(pos.x, pos.z), 0);
+			body->body->SetTransform(b2Vec2(pos.x, pos.y), 0);
 		}
 
 		auto colliders = body->getGameObject()->getComponents<Collider2D>();
@@ -48,7 +48,7 @@ void Physics::init()
 			fd.shape = collider->shape;
 			fd.density = collider->density;
 			fd.friction = collider->friction;
-			body->body->CreateFixture(&fd);
+			body->body->CreateFixture(&fd); //our body is a ontainer for the body we get from box2D
 		}
 	}
 }

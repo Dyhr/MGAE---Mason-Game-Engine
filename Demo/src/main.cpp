@@ -3,6 +3,9 @@
 #include "Mason/ParticleEmitter.hpp"
 #include "Mason/InputManager.h"
 #include "PlayerController.hpp"
+#include "Mason/CircleCollider2D.h"
+#include "Mason/BoxCollider2D.hpp"
+#include "Mason/PhysicsBody2D.hpp"
 
 using namespace glm;
 using namespace Mason;
@@ -18,6 +21,9 @@ void loadScene(int index)
 		engine.loadScene("data/demo2.json");
 
 		engine.scene->getGameObject(1)->addComponent<PlayerController>();
+		engine.scene->getGameObject(1)->addComponent<PhysicsBody2D>();
+		engine.scene->getGameObject(1)->addComponent<CircleCollider2D>();
+
 
 		break;
 	}

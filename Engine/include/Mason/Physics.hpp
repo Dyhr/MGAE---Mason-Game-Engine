@@ -12,7 +12,7 @@ namespace Mason {
 	public:
 		static Physics* getInstance();
 
-		b2World world = b2World(b2Vec2(0, -10));
+		b2World world = b2World(b2Vec2(0, -10));// -10 gravity, we want to be able to change it
 		int velIterations = 10;
 		int posIterations = 10;
 
