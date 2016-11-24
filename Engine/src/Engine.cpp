@@ -35,22 +35,27 @@ int numberSprites;
 
 Engine::Engine()
 {
+	Config::init();
+	Time::init(0);
+
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 		throw SDL_GetError();
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
-	int width = 640;
-	int height = 480;
+	windowWidth = Config::getInt("windowWidth");
+	windowHeight = Config::getInt("windowHeight");
+	if (*windowWidth == 0) *windowWidth = 640;
+	if (*windowHeight == 0) *windowHeight = 640;
 
 	// Create an application window with the following settings:
 	window = SDL_CreateWindow(
 		"An SDL2 window",                  // window title
 		SDL_WINDOWPOS_UNDEFINED,           // initial x position
 		SDL_WINDOWPOS_UNDEFINED,           // initial y position
-		width,                               // width, in pixels
-		height,                               // height, in pixels
+		*windowWidth,                               // width, in pixels
+		*windowHeight,                               // height, in pixels
 		SDL_WINDOW_OPENGL                  // flags - see below
 	);
 
@@ -72,7 +77,6 @@ Engine::Engine()
 	show_another_window = true;
 	clear_color = ImColor(114, 144, 154);
 
-	Time::init(0);
 	running = paused = false;
 	scene = new Scene();
 }
@@ -141,7 +145,8 @@ void Engine::loadScene(std::string path)
 			camera->setRotation(element.transform.rotationEuler);
 			camera->setScale(element.transform.scale);
 			
-			camera->cam->setWindowCoordinates(640, 480);
+			camera->cam->setWindowCoordinates(320, 480);
+			camera->cam->setViewport(320, 0, 320, 480);
 		}
 		else {
 			auto transformComponent = gameObject->addComponent<Transform>();

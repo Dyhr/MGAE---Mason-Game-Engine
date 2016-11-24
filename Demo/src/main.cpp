@@ -99,13 +99,6 @@ void handleInput(SDL_Event event)
 
 int main(int argc, char** argv) {
 
-	auto directionalLight = SRE::Light(SRE::LightType::Directional, vec3(0, 0, 0), vec3(0, 0, 1), vec3(1, 1, 1), 1000);
-	engine.sre->setLight(0, directionalLight);
-	directionalLight = SRE::Light(SRE::LightType::Directional, vec3(0, 0, 0), vec3(0, 1, 0), vec3(1, 1, 1), 1000);
-	engine.sre->setLight(1, directionalLight);
-	directionalLight = SRE::Light(SRE::LightType::Directional, vec3(0, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1), 1000);
-	engine.sre->setLight(2, directionalLight);
-
 	InputManager::getInstance()->Subscribe(handleInput);
 
 	loadScene(currentScene);

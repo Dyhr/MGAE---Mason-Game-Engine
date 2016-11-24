@@ -10,6 +10,7 @@
 #include "AudioManager.hpp"
 #include <SDL.h>
 #include <SRE/SimpleRenderEngine.hpp>
+#include "Mason/Config.hpp"
 
 namespace Mason {
 
@@ -34,6 +35,8 @@ namespace Mason {
 		AudioManager* audioManager;
 		bool running, paused;
 		bool showDebugGUI;
+		int* windowWidth;
+		int* windowHeight;
 		SDL_Window *window;
 
 		friend class InputManager;
