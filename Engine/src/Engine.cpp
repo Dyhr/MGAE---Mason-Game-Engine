@@ -32,6 +32,7 @@ using namespace Mason;
 ImVec4 clear_color;
 bool show_another_window;
 int numberSprites;
+SRE::Texture* tex;
 
 Engine::Engine()
 {
@@ -44,10 +45,10 @@ Engine::Engine()
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
-	windowWidth = Config::getInt("windowWidth");
-	windowHeight = Config::getInt("windowHeight");
+	windowWidth = Config::getInt("window-width");
+	windowHeight = Config::getInt("window-height");
 	if (*windowWidth == 0) *windowWidth = 640;
-	if (*windowHeight == 0) *windowHeight = 640;
+	if (*windowHeight == 0) *windowHeight = 480;
 
 	// Create an application window with the following settings:
 	window = SDL_CreateWindow(
@@ -79,10 +80,14 @@ Engine::Engine()
 
 	running = paused = false;
 	scene = new Scene();
+
+
+	tex = SRE::Texture::createFromFile("data/dice.PNG", false);
 }
 Engine::~Engine()
 {
 	delete scene;
+	delete tex;
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
@@ -142,11 +147,9 @@ void Engine::loadScene(std::string path)
 			auto camera = gameObject->addComponent<Camera>();
 
 			camera->setPosition(element.transform.position);
-			camera->setRotation(element.transform.rotationEuler);
 			camera->setScale(element.transform.scale);
-			
-			camera->cam->setWindowCoordinates(320, 480);
-			camera->cam->setViewport(320, 0, 320, 480);
+			camera->setViewportMin(element.camera.viewportMin);
+			camera->setViewportMax(element.camera.viewportMax);
 		}
 		else {
 			auto transformComponent = gameObject->addComponent<Transform>();
@@ -195,7 +198,6 @@ void Engine::loadScene(std::string path)
 }
 
 void Engine::update(float deltaTimeSec) {
-	auto tex = SRE::Texture::createFromFile("data/dice.PNG", false);
 	sre->clearScreen({ 0,0,0,1 });
 	numberSprites = 0;
 
@@ -237,7 +239,6 @@ void Engine::update(float deltaTimeSec) {
 
 		// render particle emitters
 		ParticleEmitter::render(tex);
-		delete tex; //makeshift to show how to 
 	}
 	if (showDebugGUI) DebugUI();
 

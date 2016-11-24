@@ -9,17 +9,8 @@ namespace Mason {
 	class CameraDescriptor {
 	public:
 		bool found = false;
-
-		bool perspective = false;
-		float fieldOfView = 60;
-		float nearClip = 0.1f;
-		float farClip = 1000;
-	};
-
-	class LightDescriptor
-	{
-	public:
-		bool found = false;
+		glm::vec2 viewportMin = glm::vec2(0, 0);
+		glm::vec2 viewportMax = glm::vec2(1, 1);
 	};
 
 	class ParticleDescriptor
@@ -59,7 +50,6 @@ namespace Mason {
 		MeshDescriptor mesh;
 		SpriteDescriptor sprite;
 		CameraDescriptor camera;
-		LightDescriptor light;
 	};
 
 

@@ -10,12 +10,12 @@ namespace Mason {
 		virtual void setPosition(glm::vec3 position);
 		virtual void setRotation(glm::vec3 rotation);
 		virtual void setScale(glm::vec3 scale);
-		void setParent(Transform *gameObject);
+		virtual void setParent(Transform *gameObject);
 
-		glm::vec3 getPosition();
-		glm::vec3 getRotation();
-		glm::vec3 getScale();
-		Transform* getParent();
+		virtual glm::vec3 getPosition();
+		virtual glm::vec3 getRotation();
+		virtual glm::vec3 getScale();
+		virtual Transform* getParent();
 
 		glm::mat4 localTransform();
 		glm::mat4 globalTransform();
