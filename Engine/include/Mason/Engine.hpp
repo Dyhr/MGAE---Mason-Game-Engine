@@ -32,6 +32,7 @@ namespace Mason {
 		std::vector<std::shared_ptr<GameObject>> gameObjects;
 		Physics* physics;
 		AudioManager* audioManager;
+		
 		bool running, paused;
 		bool showDebugGUI;
 		SDL_Window *window;

@@ -3,23 +3,28 @@
 #include "Mason/AudioManager.hpp"
 #include "Mason/Component.hpp"
 #include <string>
+#include <SDL_mixer.h>
 
 namespace Mason {
 	class AudioManager;
+	enum SoundType {
+		EFFECT, MUSIC
+	};
 
 	class Audio : public Component {
 	public:
-		void play();
-		void cleanUp();
-		void init(std::string file, AudioManager * manager);
-		bool isPlaying();
-		bool isDone();
-		void query();
+		void init(std::string file, SoundType type, AudioManager * manager, int loops = 0);
+		SoundType type;
+		std::string path;
+		void addToManager();
 	protected:
 		Audio(GameObject *gameObject);
 		friend class GameObject;
 	private:
-		std::string path;
+		
+		int loops;
 		AudioManager *manager;
+		Mix_Music *music = NULL;
+		Mix_Chunk *soundEffect = NULL;
 	};
 }

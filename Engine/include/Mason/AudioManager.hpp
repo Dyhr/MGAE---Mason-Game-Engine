@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <queue>
+#include <SDL_mixer.h>
 
 namespace Mason {
 	class Audio;
@@ -13,15 +14,15 @@ namespace Mason {
 		static AudioManager* getInstance();
 		void step();
 		void AddAudioSource(Audio* audioComponent);
+	protected:
+		std::queue<int> channelsFinished;
 	private:
 		AudioManager();
 		void cleanUp();
 		void init();
 		static AudioManager* instance;
-		std::vector<Audio*> sourcesToBePlayed;
-		std::vector<Audio*> sourcesPlayed;
-		std::queue<Audio*> sourcesToBePlayed1;
-		std::queue<Audio*> sourcesPlayed1;
+		std::queue<Audio*> sourcesToBePlayed;
 		bool initialized;
+		int channels;
 	};
 }

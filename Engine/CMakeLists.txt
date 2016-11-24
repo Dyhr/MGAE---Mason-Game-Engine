@@ -12,4 +12,4 @@ file(GLOB_RECURSE SOURCE_FILES
 include_directories(include)
 
 add_library(Mason ${SOURCE_FILES})
-target_link_libraries(Mason ${EXTRA_LIBS} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SRE_LIBRARY} ${BOX2D_LIBRARY})
+target_link_libraries(Mason ${EXTRA_LIBS} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SRE_LIBRARY} ${BOX2D_LIBRARY} ${SDL_MIXER_LIBRARIES})

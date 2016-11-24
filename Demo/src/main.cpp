@@ -17,6 +17,8 @@ void loadScene(int index)
 	case 0: {
 		engine.loadScene("data/demo1.json");
 
+		auto soundEffect = engine.scene->getGameObject(0)->addComponent<Audio>();
+
 		auto emitter = engine.scene->getGameObject(2)->addComponent<ParticleEmitter>();
 		ParticleEmitterConfig config1(8, 1, vec3(10, 5, 0), vec3(0, -20, 0));
 		config1.setFixedSize(4.0f);

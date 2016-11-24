@@ -48,6 +48,13 @@ ELSE (SRE_FOUND)
     MESSAGE( STATUS "Failed to find Simple Render Engine")
 endif(SRE_FOUND)
 
+find_package(SDL_MIXER REQUIRED)
+if (SDLMIXER_FOUND)
+    include_directories(${SDL_MIXER_INCLUDE_DIRS})
+ELSE (SDLMIXER_FOUND)
+    MESSAGE( STATUS "Failed to find SDL Mixer")
+endif(SDLMIXER_FOUND)
+
 
 add_subdirectory(Engine)
 add_subdirectory(Game)

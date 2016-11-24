@@ -23,50 +23,47 @@ AudioManager * AudioManager::getInstance()
 void AudioManager::init()
 {
 	//Set max size of sourcesToBePlayed ? ?
-	if (SDL_Init(SDL_INIT_AUDIO) < 0) 
-		return;
 	initialized = true;
+	std::cout << "AudioManager initialized" << std::endl;
 }
 
 AudioManager::AudioManager() {
+	Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096);
 }
 
 void AudioManager::cleanUp()
 {
-	SDL_CloseAudio();
+	Mix_CloseAudio();
 	initialized = false;
 }
 
 void AudioManager::step()
 {
-	if (initialized) {
-		if (sourcesToBePlayed1.size() < 1 && sourcesPlayed1.size() < 1) {
-			cleanUp();
-		}
-	}
-	else {
+	if (!initialized) {
 		init();
 	}	
-	while(sourcesToBePlayed1.size() > 0) {
-		auto audio = sourcesToBePlayed1.front();
-		audio->play();
-		sourcesToBePlayed1.pop();
-		sourcesPlayed1.push(audio);
-	}
 
-	for (Uint32 i = 0; i < sourcesPlayed1.size();) {
-		auto audio = sourcesPlayed1.front();
-		if (audio->isDone()) {
-			audio->cleanUp();
-			sourcesPlayed1.pop();
+	for (int i = 0; i < 8; i++) {
+		if (sourcesToBePlayed.empty()) break;
+		auto audio = sourcesToBePlayed.front();
+		if (audio->type == SoundType::EFFECT) {
+			auto soundEffect = Mix_LoadWAV(audio->path.c_str());
+			if (soundEffect != NULL) {
+				Mix_PlayChannel(i, soundEffect, 0);
+				sourcesToBePlayed.pop();
+			}
 		}
-		else {
-			i++;
-		}
+		else if (audio->type == SoundType::MUSIC) {
+			auto music = Mix_LoadMUS(audio->path.c_str());
+			if (music != NULL && Mix_PlayingMusic() == 0) {
+				Mix_PlayMusic(music, -1);
+				sourcesToBePlayed.pop();
+			}
+		}		
 	}
 }
 
 void AudioManager::AddAudioSource(Audio * audioComponent)
 {
-	sourcesToBePlayed1.push(audioComponent);
+	sourcesToBePlayed.push(audioComponent);
 }
