@@ -178,9 +178,13 @@ void Engine::loadScene(std::string path)
 
 		map_gameObjects[element.uniqueId] = gameObject;
 	}
-	auto audio = scene->getGameObject(0)->addComponent<Audio>();
-	audio->init("C:/Git/TeamDoesNotMatter/Demo/data/sounds/Alesis-Fusion-Acoustic-Bass-C2.wav", SoundType::EFFECT, audioManager);
-	audio->addToManager();
+	auto audio1 = scene->getGameObject(0)->addComponent<Audio>();
+	audio1->init("C:/Git/TeamDoesNotMatter/Demo/data/sounds/Alesis-Fusion-Acoustic-Bass-C2.wav", SoundType::EFFECT, audioManager);
+	audio1->playMePlease();
+
+	auto audio2 = scene->getGameObject(1)->addComponent<Audio>();
+	audio2->init("C:/Git/TeamDoesNotMatter/Demo/data/sounds/Bass-Drum-1.wav", SoundType::EFFECT, audioManager);
+	audio2->playMePlease();
 
 	//Set up parent relationships between Transform components
 	for (auto element : gameObjectDescriptors) {

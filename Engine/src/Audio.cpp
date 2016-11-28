@@ -23,7 +23,7 @@ void Audio::init(string file, SoundType type, AudioManager * manager, int loops)
 	this->type = type;
 }
 
-void Audio::addToManager() {
+void Audio::playMePlease() {
 	if (manager) {
 		manager->AddAudioSource(this);
 	}

@@ -16,15 +16,12 @@ namespace Mason {
 		void init(std::string file, SoundType type, AudioManager * manager, int loops = 0);
 		SoundType type;
 		std::string path;
-		void addToManager();
+		void playMePlease();		
 	protected:
 		Audio(GameObject *gameObject);
 		friend class GameObject;
 	private:
-		
 		int loops;
 		AudioManager *manager;
-		Mix_Music *music = NULL;
-		Mix_Chunk *soundEffect = NULL;
 	};
 }
