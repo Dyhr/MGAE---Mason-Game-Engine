@@ -158,7 +158,9 @@ namespace Mason {
 			initialSize(0),
 			finalSize(0),
 			initialColor(glm::vec4()),
-			finalColor(glm::vec4())
+			finalColor(glm::vec4()),
+			initialRotation(0),
+			finalRotation (0)
 		{
 		}
 

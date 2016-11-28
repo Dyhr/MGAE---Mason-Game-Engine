@@ -15,12 +15,20 @@ void loadScene(int index)
 	switch (index)
 	{
 	case 0: {
+		engine.loadScene("data/demo2.json");
+
+		engine.scene->getGameObject(1)->addComponent<PlayerController>();
+
+		break;
+	}
+	case 1: {
 		engine.loadScene("data/demo1.json");
 
 		auto emitter = engine.scene->getGameObject(2)->addComponent<ParticleEmitter>();
 		ParticleEmitterConfig config1(8, 1, vec3(10, 5, 0), vec3(0, -20, 0));
 		config1.setFixedSize(4.0f);
 		config1.setLERPColor(vec4(0, 1, 0, 1), vec4(0, 1, 0, 0));
+		config1.setFixedRotation(3.0f);
 		emitter->init(config1);
 		emitter->start();
 
@@ -35,6 +43,7 @@ void loadScene(int index)
 		ParticleEmitterConfig config2(15, 2, vec3(10, 10, 0), vec3(0, -10, 0));
 		config2.setSplineInterpSize(0.5f, 4.0f, splinePoints);
 		config2.setRandomColor(vec4(1, 1, 1, 1), vec4(0, 0, 0, 1));
+		config2.setLERPRotation(0.0f, 1.6f);
 		emitter->init(config2);
 		emitter->start();
 
@@ -43,6 +52,7 @@ void loadScene(int index)
 		config3.setFixedSize(1.0f);
 		config3.setFixedColor(vec4(1, 0, 0, 1));
 		config3.setSplineInterpColor(vec4(1, 0, 0, 1), vec4(0, 1, 0, 0), splinePoints);
+		config3.setRandomRotation(0.3,1.2);
 		emitter->init(config3);
 		emitter->start();
 
@@ -70,13 +80,6 @@ void loadScene(int index)
 
 		break;
 	}
-	case 1: {
-		engine.loadScene("data/demo2.json");
-
-		engine.scene->getGameObject(1)->addComponent<PlayerController>();
-
-		break;
-	}
 	default:
 		throw "Unknown demo";
 	}
@@ -95,13 +98,6 @@ void handleInput(SDL_Event event)
 }
 
 int main(int argc, char** argv) {
-
-	auto directionalLight = SRE::Light(SRE::LightType::Directional, vec3(0, 0, 0), vec3(0, 0, 1), vec3(1, 1, 1), 1000);
-	engine.sre->setLight(0, directionalLight);
-	directionalLight = SRE::Light(SRE::LightType::Directional, vec3(0, 0, 0), vec3(0, 1, 0), vec3(1, 1, 1), 1000);
-	engine.sre->setLight(1, directionalLight);
-	directionalLight = SRE::Light(SRE::LightType::Directional, vec3(0, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1), 1000);
-	engine.sre->setLight(2, directionalLight);
 
 	InputManager::getInstance()->Subscribe(handleInput);
 

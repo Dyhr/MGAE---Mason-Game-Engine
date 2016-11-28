@@ -22,6 +22,15 @@ glm::vec3 to_vec3(picojson::value v) {
 	return res;
 }
 
+glm::vec2 to_vec2(picojson::value v) {
+	glm::vec2 res;
+	auto array = v.get<picojson::array>();
+	for (int i = 0; i < 2; i++) {
+		res[i] = (float)array[i].get<double>();
+	}
+	return res;
+}
+
 
 
 std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
@@ -60,10 +69,8 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 		if (o.contains("camera")) {
 			d.camera.found = true;
 			auto m = o.get("camera");
-			if (m.contains("perspective")) d.camera.perspective = m.get("perspective").get<bool>();
-			if (m.contains("fieldOfView")) d.camera.fieldOfView = float(m.get("fieldOfView").get<double>());
-			if (m.contains("nearClip")) d.camera.nearClip = float(m.get("nearClip").get<double>());
-			if (m.contains("farClip")) d.camera.farClip = float(m.get("farClip").get<double>());
+			if (m.contains("viewportMin")) d.camera.viewportMin = to_vec2(m.get("viewportMin"));
+			if (m.contains("viewportMax")) d.camera.viewportMax = to_vec2(m.get("viewportMax"));
 		}
 
 		res.push_back(d);

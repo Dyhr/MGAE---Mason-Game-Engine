@@ -8,8 +8,16 @@
 namespace Mason {
 	class Camera : public Transform {
 	public:
-		void setPerspectiveProjection(float fieldOfView, float viewPortWidth, float viewPortHeight, float nearClip, float farClip) const;
-		void lookAt(glm::vec3 at, glm::vec3 up) const;
+
+		void setScale(glm::vec3 scale) override;
+		void setPosition(glm::vec3 position) override;
+		glm::vec3 getScale() override;
+		glm::vec3 getPosition() override;
+
+		glm::vec2 getViewportMin() const;
+		void setViewportMin(glm::vec2 viewport_min);
+		glm::vec2 getViewportMax() const;
+		void setViewportMax(glm::vec2 viewport_max);
 
 		~Camera();
 
@@ -18,12 +26,15 @@ namespace Mason {
 
 		void transformize() override;
 
+		glm::vec2 viewportMin = glm::vec2(0, 0);
+		glm::vec2 viewportMax = glm::vec2(1, 1);
+
 		SRE::Camera* cam;
 
 		friend class GameObject;
 		friend class Engine;
 
 	private:
-		void setScale(glm::vec3 scale) override {}
+		void setRotation(glm::vec3 rotation) override {}
 	};
 }

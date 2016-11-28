@@ -97,6 +97,9 @@ void ParticleEmitter::update()
 				color[3] = glm::lerp(config.minColor[3], config.maxColor[3], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				colors[i] = color;
 			}
+			if (config.rotationState == AttributeState::RANDOM) {
+				uvRotation[i] = glm::lerp(config.minRotation, config.maxRotation, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+			}
 			
 
 		}
@@ -113,6 +116,8 @@ void ParticleEmitter::update()
 		
 		glm::vec4 newColor = colors[i];
 		float newSize = sizes[i];
+
+		float newRotation = uvRotation[i];
 
 		switch (config.colorState) {
 			case FIXED:
@@ -150,8 +155,25 @@ void ParticleEmitter::update()
 				break;
 		}
 
+		switch (config.rotationState) {
+		case FIXED:
+			newRotation = config.initialRotation;
+			break;
+		case RANDOM:
+			break;
+		case LINEAR:
+			newRotation = glm::lerp(config.initialRotation, config.finalRotation, times[i] / config.lifespan);
+			break;
+		case SPLINE:
+			auto rotationMod = cubicBezier(times[i] / config.lifespan, config.splinePointsRotation);
+			newRotation = glm::lerp(config.initialRotation, config.finalRotation, rotationMod.y);
+			break;
+		}
+
+
 		colors[i] = newColor;
 		sizes[i] = newSize;
+		uvRotation[i] = newRotation;
 
 		times[i] = timeSinceBirth;
 	}
@@ -191,6 +213,7 @@ void ParticleEmitter::clear() // TODO actual garbage collection
 	colors = std::vector<glm::vec4>();
 	uvs = std::vector<glm::vec2>();
 	uvSize = std::vector<float>();
+	//uv rotation in radians -> from 0 to 2*pi
 	uvRotation = std::vector<float>();
 
 	totalParticles = 0;
@@ -222,6 +245,7 @@ void ParticleEmitter::init(ParticleEmitterConfig config)
 		velocities.push_back(glm::vec3());
 		colors.push_back(glm::vec4());
 		sizes.push_back(0.5f);
+		uvRotation.push_back(3.0f);
 		
 		//uvs.push_back(glm::vec2());
 		//uvSize.push_back(0.0f);
