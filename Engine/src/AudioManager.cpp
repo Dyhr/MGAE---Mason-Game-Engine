@@ -23,6 +23,7 @@ AudioManager * AudioManager::getInstance()
 void channelDone(int channel) {
 	std::cout << "Freeing chunk for channel: " << channel << std::endl;
 	Mix_FreeChunk(channelsPlaying[channel]);
+	channelsPlaying[channel] = nullptr;
 }
 
 void AudioManager::init()
@@ -38,8 +39,17 @@ AudioManager::AudioManager() {
 	
 }
 
+Mason::AudioManager::~AudioManager() {
+	cleanUp();
+}
+
 void AudioManager::cleanUp()
 {
+	for (int i = 0; i < channelsPlaying.size(); i++) {
+		if (channelsPlaying[i]) {
+			Mix_FreeChunk(channelsPlaying[i]);
+		}
+	}
 	Mix_CloseAudio();
 	initialized = false;
 }
