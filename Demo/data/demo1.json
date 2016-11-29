@@ -20,7 +20,11 @@
         "name": "cube"
       },
       "transform": {
-      }
+      },
+	  "audio": {
+		"path": "data/sounds/Alesis-Fusion-Acoustic-Bass-C2.wav",
+		"type": true
+	  }
     },
     {
       "uniqueId": 1,
@@ -31,7 +35,11 @@
       },
       "transform": {
         "position": [-10, 0, 0] 
-      }
+      },
+	  "audio": {
+		"path": "data/sounds/Bass-Drum-1.wav",
+		"type": true
+	  }
     },
     {
       "uniqueId": 2,

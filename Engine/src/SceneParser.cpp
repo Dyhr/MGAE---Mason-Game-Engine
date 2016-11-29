@@ -77,8 +77,8 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 		if (o.contains("audio")) {
 			d.audio.found = true;
 			auto m = o.get("audio");
-			if (o.contains("path")) d.audio.path = m.get("path").get<std::string>();
-			if (o.contains("type")) d.audio.soundEffect = m.get("type").get<bool>();
+			if (m.contains("path")) d.audio.path = m.get("path").get<std::string>();
+			if (m.contains("type")) d.audio.soundEffect = m.get("type").get<bool>();
 		}
 
 		res.push_back(d);

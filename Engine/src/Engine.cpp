@@ -182,16 +182,22 @@ void Engine::loadScene(std::string path)
 			sprite->sprite = atlas.getSprite(element.sprite.name);
 			// TODO support changing color of sprite
 		}
+		if (element.audio.found) {
+			auto audio = gameObject->addComponent<Audio>();
+			SoundType type;
+			if (element.audio.soundEffect) {
+				type = SoundType::EFFECT;
+			}
+			else {
+				type = SoundType::MUSIC;
+			}
+			audio->init(element.audio.path, type, audioManager);
+			//This is done here for testing. Should be done from scripts in a real scenario.
+			audio->playMePlease();
+		}
 
 		map_gameObjects[element.uniqueId] = gameObject;
 	}
-	auto audio1 = scene->getGameObject(0)->addComponent<Audio>();
-	audio1->init("C:/Git/TeamDoesNotMatter/Demo/data/sounds/Alesis-Fusion-Acoustic-Bass-C2.wav", SoundType::EFFECT, audioManager);
-	audio1->playMePlease();
-
-	auto audio2 = scene->getGameObject(1)->addComponent<Audio>();
-	audio2->init("C:/Git/TeamDoesNotMatter/Demo/data/sounds/Bass-Drum-1.wav", SoundType::EFFECT, audioManager);
-	audio2->playMePlease();
 
 	//Set up parent relationships between Transform components
 	for (auto element : gameObjectDescriptors) {
