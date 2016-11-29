@@ -16,6 +16,7 @@ namespace Mason {
 		void AddAudioSource(Audio* audioComponent);
 	private:
 		AudioManager();
+		~AudioManager();
 		void cleanUp();
 		void init();
 		static AudioManager* instance;

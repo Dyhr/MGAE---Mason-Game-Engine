@@ -41,6 +41,14 @@ namespace Mason {
 		int parentId = -1;
 	};
 
+	class AudioDescriptor {
+	public:
+		std::string path;
+		//SoundEffect or Music?
+		bool soundEffect;
+		bool found = false;
+	};
+
 	class GameObjectDescriptor {
 	public:
 		std::string name = "Object";
@@ -50,6 +58,7 @@ namespace Mason {
 		MeshDescriptor mesh;
 		SpriteDescriptor sprite;
 		CameraDescriptor camera;
+		AudioDescriptor audio;
 	};
 
 
