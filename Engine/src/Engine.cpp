@@ -254,8 +254,9 @@ void Engine::update(float deltaTimeSec) {
 	}
 
 	if (showDebugGUI) DebugUI();
-
+	physics->world.DrawDebugData();
 	sre->swapWindow();
+
 }
 
 void Engine::DebugUI()

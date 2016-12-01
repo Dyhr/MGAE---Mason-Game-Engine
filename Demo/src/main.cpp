@@ -19,11 +19,19 @@ void loadScene(int index)
 	{
 	case 0: {
 		engine.loadScene("data/demo2.json");
+		//mario
+		engine.scene->getGameObject(2)->addComponent<PlayerController>();
+		engine.scene->getGameObject(2)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
+		engine.scene->getGameObject(2)->addComponent<CircleCollider2D>();
 
-		engine.scene->getGameObject(1)->addComponent<PlayerController>();
-		engine.scene->getGameObject(1)->addComponent<PhysicsBody2D>();
-		engine.scene->getGameObject(1)->addComponent<CircleCollider2D>();
+		//bricks
+		engine.scene->getGameObject(3)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_kinematicBody);
+		auto b = engine.scene->getGameObject(3)->addComponent<BoxCollider2D>();
+		b->setSize(60, 60);
 
+		engine.scene->getGameObject(4)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_kinematicBody);
+		auto b2 = engine.scene->getGameObject(4)->addComponent<BoxCollider2D>();
+		b2->setSize(60, 60);
 
 		break;
 	}

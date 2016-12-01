@@ -15,6 +15,7 @@ void Camera::transformize()
 {
 	Transform::transformize();
 	cam->setWindowCoordinates(*Config::getInt("window-width") * (viewportMax.x - viewportMin.x), *Config::getInt("window-height") * (viewportMax.y - viewportMin.y));
+
 	cam->setViewTransform(matrix);
 }
 

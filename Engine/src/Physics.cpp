@@ -4,6 +4,7 @@
 #include "Mason/Transform.h"
 #include "Mason/PhysicsBody2D.hpp"
 #include "Mason/Collider2D.hpp"
+#include "Mason/SREDebugDraw.h"
 
 
 using namespace Mason;
@@ -13,6 +14,9 @@ Physics* Physics::instance = nullptr;
 
 Physics::Physics()
 {
+	auto debugDraw = new SREDebugDraw();
+	world.SetDebugDraw(debugDraw);
+	debugDraw->SetFlags(b2Draw::e_shapeBit | b2Draw::e_aabbBit);
 }
 
 Physics* Physics::getInstance()
@@ -27,10 +31,15 @@ void Physics::step(float dt)
 	for (auto body : bodies)
 	{
 		auto transform = body->getGameObject()->getComponent<Transform>();
+		
 		auto pos = body->body->GetWorldCenter();
 		if(transform)
 			transform->setPosition(glm::vec3(pos.x,pos.y,0));
+			
+		
 	}
+	world.DrawDebugData();
+	
 }
 
 void Physics::init()
@@ -48,7 +57,11 @@ void Physics::init()
 			fd.shape = collider->shape;
 			fd.density = collider->density;
 			fd.friction = collider->friction;
-			body->body->CreateFixture(&fd); //our body is a ontainer for the body we get from box2D
+			body->body->CreateFixture(&fd); //our body is a container for the body we get from box2D
 		}
 	}
+		//b2PolygonShape Mario;
+		//Mario.SetAsBox(2, 2, b2Vec2(0, 0), 0.0f);
+		
+		
 }

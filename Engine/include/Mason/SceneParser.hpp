@@ -59,6 +59,7 @@ namespace Mason {
 		SpriteDescriptor sprite;
 		CameraDescriptor camera;
 		AudioDescriptor audio;
+		
 	};
 
 
