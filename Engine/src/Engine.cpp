@@ -195,6 +195,58 @@ void Engine::loadScene(std::string path)
 			//This is done here for testing. Should be done from scripts in a real scenario.
 			audio->playMePlease();
 		}
+		if (element.particles.found) {
+			auto emitter = gameObject->addComponent<ParticleEmitter>();
+			ParticleEmitterConfig config(element.particles.rate, element.particles.lifespan, element.particles.velocity, element.particles.gravity);
+			AttributeState sizeState = config.attributeFromString(element.particles.sizeState);
+			AttributeState rotationState = config.attributeFromString(element.particles.rotationState);
+			AttributeState colorState = config.attributeFromString(element.particles.colorState);
+			switch (sizeState) {
+				case FIXED:
+					config.setFixedSize(element.particles.minSize);
+					break;
+				case RANDOM:
+					config.setRandomSize(element.particles.minSize, element.particles.maxSize);
+					break;
+				case LINEAR:
+					config.setLERPSize(element.particles.initialSize, element.particles.finalSize);
+					break;
+				case SPLINE:
+					config.setSplineInterpSize(element.particles.initialSize, element.particles.finalSize, element.particles.splinePointsSize);
+					break;
+			}
+			switch (rotationState) {
+				case FIXED:
+					config.setFixedRotation(element.particles.minRotation);
+					break;
+				case RANDOM:
+					config.setRandomRotation(element.particles.minRotation, element.particles.maxRotation);
+					break;
+				case LINEAR:
+					config.setLERPRotation(element.particles.initialRotation, element.particles.finalRotation);
+					break;
+				case SPLINE:
+					config.setSplineInterpRotation(element.particles.initialRotation, element.particles.finalRotation, element.particles.splinePointsRotation);
+					break;
+			}
+			switch (colorState) {
+				case FIXED:
+					config.setFixedColor(element.particles.minColor);
+					break;
+				case RANDOM:
+					config.setRandomColor(element.particles.minColor, element.particles.maxColor);
+					break;
+				case LINEAR:
+					config.setLERPColor(element.particles.initialColor, element.particles.finalColor);
+					break;
+				case SPLINE:
+					config.setSplineInterpColor(element.particles.initialColor, element.particles.finalColor, element.particles.splinePointsColor);
+					break;
+			}
+			emitter->init(config);
+			//This is done here for testing. Could be done from scripts in a real scenario.
+			emitter->start();
+		}
 
 		map_gameObjects[element.uniqueId] = gameObject;
 	}

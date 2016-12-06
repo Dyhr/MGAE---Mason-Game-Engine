@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <glm/glm.hpp>
+#include "Mason/ParticleEmitter.hpp"
 
 
 namespace Mason {
@@ -17,6 +18,32 @@ namespace Mason {
 	{
 	public:
 		bool found = false;
+		std::string texturePath;
+		float rate;
+		float lifespan;
+		glm::vec3 velocity;
+		glm::vec3 gravity;
+		//Used for random
+		float minSize;
+		float maxSize;
+		float minRotation;
+		float maxRotation;
+		glm::vec4 minColor;
+		glm::vec4 maxColor;
+		//Used for interpolation
+		float initialSize;
+		float finalSize;
+		glm::vec4 initialColor;
+		glm::vec4 finalColor;
+		float initialRotation;
+		float finalRotation;
+
+		std::string rotationState;
+		std::string sizeState;
+		std::string colorState;
+		std::vector<glm::vec2> splinePointsSize;
+		std::vector<glm::vec2> splinePointsColor;
+		std::vector<glm::vec2> splinePointsRotation;
 	};
 
 	class MeshDescriptor {
@@ -59,7 +86,7 @@ namespace Mason {
 		SpriteDescriptor sprite;
 		CameraDescriptor camera;
 		AudioDescriptor audio;
-		
+		ParticleDescriptor particles;
 	};
 
 

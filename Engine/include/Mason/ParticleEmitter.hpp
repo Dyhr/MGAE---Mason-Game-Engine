@@ -46,6 +46,13 @@ namespace Mason {
 		AttributeState colorState;
 		AttributeState sizeState;
 		AttributeState rotationState;
+		AttributeState attributeFromString(std::string str) {
+			if (str == "fixed") return AttributeState::FIXED;
+			if (str == "random") return AttributeState::RANDOM;
+			if (str == "linear") return AttributeState::LINEAR;
+			if (str == "spline") return AttributeState::SPLINE;
+			return AttributeState::FIXED;
+		}
 		std::vector<glm::vec2> normalize(std::vector<glm::vec2>  input) {
 
 			auto minX = input[0].x;

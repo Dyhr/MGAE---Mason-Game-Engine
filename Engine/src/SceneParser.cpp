@@ -61,24 +61,77 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 
 		if (o.contains("sprite")) {
 			d.sprite.found = true;
-			auto m = o.get("sprite");
-			if (m.contains("name")) d.sprite.name = m.get("name").get<std::string>();
-			if (m.contains("color")) d.sprite.color = to_vec4(m.get("color"));
+			auto s = o.get("sprite");
+			if (s.contains("name")) d.sprite.name = s.get("name").get<std::string>();
+			if (s.contains("color")) d.sprite.color = to_vec4(s.get("color"));
 		}
 
 		if (o.contains("camera")) {
 			d.camera.found = true;
-			auto m = o.get("camera");
-			if (m.contains("viewportMin")) d.camera.viewportMin = to_vec2(m.get("viewportMin"));
-			if (m.contains("viewportMax")) d.camera.viewportMax = to_vec2(m.get("viewportMax"));
+			auto c = o.get("camera");
+			if (c.contains("viewportMin")) d.camera.viewportMin = to_vec2(c.get("viewportMin"));
+			if (c.contains("viewportMax")) d.camera.viewportMax = to_vec2(c.get("viewportMax"));
 		}
 
-		//TODO audio components
 		if (o.contains("audio")) {
 			d.audio.found = true;
-			auto m = o.get("audio");
-			if (m.contains("path")) d.audio.path = m.get("path").get<std::string>();
-			if (m.contains("type")) d.audio.soundEffect = m.get("type").get<bool>();
+			auto a = o.get("audio");
+			if (a.contains("path")) d.audio.path = a.get("path").get<std::string>();
+			if (a.contains("type")) d.audio.soundEffect = a.get("type").get<bool>();
+		}
+
+		if (o.contains("particles")) {
+			d.particles.found = true;
+			auto p = o.get("particles");
+			if (p.contains("texturePath")) d.particles.texturePath = p.get("texturePath").get<std::string>();
+			if (p.contains("rate")) d.particles.rate = float(p.get("rate").get<double>());
+			if (p.contains("lifespan")) d.particles.lifespan = float(p.get("lifespan").get<double>());
+			if (p.contains("velocity")) d.particles.velocity = to_vec3(p.get("velocity"));
+			if (p.contains("gravity")) d.particles.gravity = to_vec3(p.get("gravity"));
+			if (p.contains("size")) d.particles.minSize = float(p.get("size").get<double>());
+			if (p.contains("minSize")) d.particles.minSize = float(p.get("minSize").get<double>());
+			if (p.contains("maxSize")) d.particles.maxSize = float(p.get("maxSize").get<double>());
+			if (p.contains("rotation")) d.particles.minRotation = float(p.get("rotation").get<double>());
+			if (p.contains("minRotation")) d.particles.minRotation = float(p.get("minRotation").get<double>());
+			if (p.contains("maxRotation")) d.particles.minRotation = float(p.get("maxRotation").get<double>());
+			if (p.contains("color")) d.particles.minColor = to_vec4(p.get("color"));
+			if (p.contains("minColor")) d.particles.minColor = to_vec4(p.get("minColor"));			
+			if (p.contains("maxColor")) d.particles.maxColor = to_vec4(p.get("maxColor"));
+			if (p.contains("initialSize")) d.particles.initialSize = float(p.get("initialSize").get<double>());
+			if (p.contains("finalSize")) d.particles.finalSize = float(p.get("finalSize").get<double>());
+			if (p.contains("initialRotation")) d.particles.initialRotation = float(p.get("initialRotation").get<double>());
+			if (p.contains("finalRotation")) d.particles.finalRotation = float(p.get("finalRotation").get<double>());
+			if (p.contains("initialSize")) d.particles.initialSize = float(p.get("initialSize").get<double>());
+			if (p.contains("initialColor")) d.particles.initialColor = to_vec4(p.get("initialColor"));			
+			if (p.contains("finalColor")) d.particles.finalColor = to_vec4(p.get("finalColor"));
+			if (p.contains("rotationState")) d.particles.rotationState = p.get("rotationState").get<std::string>();
+			if (p.contains("sizeState")) d.particles.sizeState = p.get("sizeState").get<std::string>();
+			if (p.contains("colorState")) d.particles.colorState = p.get("colorState").get<std::string>();
+			if (p.contains("splinePointsSize")) {
+				std::vector<glm::vec2> points;
+				auto arr = p.get("splinePointsSize").get<picojson::array>();
+				for (int i = 0; i < arr.size(); i++) {
+					points.push_back(to_vec2(arr[i]));
+				}
+				d.particles.splinePointsSize = points;
+			}
+			if (p.contains("splinePointsColor")) {
+				std::vector<glm::vec2> points;
+				auto arr = p.get("splinePointsColor").get<picojson::array>();
+				for (int i = 0; i < arr.size(); i++) {
+					points.push_back(to_vec2(arr[i]));
+				}
+				d.particles.splinePointsColor = points;
+				
+			}
+			if (p.contains("splinePointsRotation")) {
+				std::vector<glm::vec2> points;
+				auto arr = p.get("splinePointsRotation").get<picojson::array>();
+				for (int i = 0; i < arr.size(); i++) {
+					points.push_back(to_vec2(arr[i]));
+				}
+				d.particles.splinePointsRotation = points;
+			}
 		}
 
 		res.push_back(d);
