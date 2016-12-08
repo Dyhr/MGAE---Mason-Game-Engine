@@ -86,7 +86,9 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 			if (p.contains("texturePath")) d.particles.texturePath = p.get("texturePath").get<std::string>();
 			if (p.contains("rate")) d.particles.rate = float(p.get("rate").get<double>());
 			if (p.contains("lifespan")) d.particles.lifespan = float(p.get("lifespan").get<double>());
-			if (p.contains("velocity")) d.particles.velocity = to_vec3(p.get("velocity"));
+			if (p.contains("velocity")) d.particles.velocity = to_vec3(p.get("velocity"));			
+			if (p.contains("minVelocity")) d.particles.minVelocity = to_vec3(p.get("minVelocity"));
+			if (p.contains("maxVelocity")) d.particles.maxVelocity = to_vec3(p.get("maxVelocity"));
 			if (p.contains("gravity")) d.particles.gravity = to_vec3(p.get("gravity"));
 			if (p.contains("size")) d.particles.minSize = float(p.get("size").get<double>());
 			if (p.contains("minSize")) d.particles.minSize = float(p.get("minSize").get<double>());
@@ -104,6 +106,7 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 			if (p.contains("initialSize")) d.particles.initialSize = float(p.get("initialSize").get<double>());
 			if (p.contains("initialColor")) d.particles.initialColor = to_vec4(p.get("initialColor"));			
 			if (p.contains("finalColor")) d.particles.finalColor = to_vec4(p.get("finalColor"));
+			if (p.contains("velocityState")) d.particles.velocityState = p.get("velocityState").get<std::string>();
 			if (p.contains("rotationState")) d.particles.rotationState = p.get("rotationState").get<std::string>();
 			if (p.contains("sizeState")) d.particles.sizeState = p.get("sizeState").get<std::string>();
 			if (p.contains("colorState")) d.particles.colorState = p.get("colorState").get<std::string>();

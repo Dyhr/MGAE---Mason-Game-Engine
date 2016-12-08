@@ -14,22 +14,6 @@
 
 using namespace Mason;
 
-std::vector<glm::vec3> ParticleEmitter::positions = std::vector<glm::vec3>();
-std::vector<float> ParticleEmitter::sizes = std::vector<float>();
-std::vector<glm::vec4> ParticleEmitter::colors = std::vector<glm::vec4>();
-std::vector<glm::vec2> ParticleEmitter::uvs = std::vector<glm::vec2>();
-std::vector<float> ParticleEmitter::uvSize = std::vector<float>();
-std::vector<float> ParticleEmitter::uvRotation = std::vector<float>();
-
-int ParticleEmitter::totalParticles = 0;
-
-std::vector<float> ParticleEmitter::birthTimes = std::vector<float>();
-std::vector<float> ParticleEmitter::times = std::vector<float>();
-std::vector<glm::vec3> ParticleEmitter::velocities = std::vector<glm::vec3>();
-
-SRE::ParticleMesh* ParticleEmitter::mesh = nullptr;
-SRE::Shader* ParticleEmitter::shader = nullptr;
-
 glm::vec2 ParticleEmitter::cubicBezier(float t, std::vector<glm::vec2> splinePoints)
 {
 	if (splinePoints.size() == 1) {
@@ -67,7 +51,6 @@ void ParticleEmitter::update()
 		if(birthTimes[i] < 0)
 		{
 			positions[i] = position;
-			velocities[i] = config.velocity;
 			birthTimes[i] = timeSinceStart;
 			times[i] = 0.0f;
 			if (config.sizeState == AttributeState::RANDOM) {
@@ -84,8 +67,16 @@ void ParticleEmitter::update()
 			if (config.rotationState == AttributeState::RANDOM) {
 				uvRotation[i] = glm::lerp(config.minRotation, config.maxRotation, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 			}
-			
-
+			if (config.velocityState == AttributeState::RANDOM) {
+				glm::vec3 velocity;
+				velocity[0] = glm::lerp(config.minVelocity[0], config.maxVelocity[0], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				velocity[1] = glm::lerp(config.minVelocity[1], config.maxVelocity[1], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				velocity[2] = glm::lerp(config.minVelocity[2], config.maxVelocity[2], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				velocities[i] = velocity;
+			}
+			else {
+				velocities[i] = config.velocity;
+			}
 		}
 
 		float timeSinceBirth = timeSinceStart - birthTimes[i];
@@ -153,12 +144,9 @@ void ParticleEmitter::update()
 			newRotation = glm::lerp(config.initialRotation, config.finalRotation, rotationMod.y);
 			break;
 		}
-
-
 		colors[i] = newColor;
 		sizes[i] = newSize;
 		uvRotation[i] = newRotation;
-
 		times[i] = timeSinceBirth;
 	}
 }
@@ -179,14 +167,19 @@ bool ParticleEmitter::running()
 	return startTime >= 0.0f;
 }
 
-void ParticleEmitter::render(SRE::Texture * tex) {
+void ParticleEmitter::render() {
 	if (shader == nullptr)
 		shader = SRE::Shader::getStandardParticles();
 	if (mesh == nullptr)
 		mesh = new SRE::ParticleMesh(positions, colors, uvs, uvSize, uvRotation, sizes);
-
 	mesh->update(positions, colors, uvs, uvSize, uvRotation, sizes);
-	shader->set("tex", tex);
+	if (config.tex) {
+		shader->set("tex", config.tex);
+	}
+	else {
+		shader->set("tex", SRE::Texture::getSphereTexture());
+	}
+	
 	SRE::SimpleRenderEngine::instance->draw(mesh, glm::mat4(1), shader);
 }
 
@@ -216,6 +209,7 @@ void ParticleEmitter::init(ParticleEmitterConfig config)
 {
 	this->config = config;
 	maxParticles = int(ceil(config.lifespan * config.rate));
+	std::cout << maxParticles << std::endl;
 	numParticles = 0;
 	startTime = -1.0f;
 

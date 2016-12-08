@@ -10,91 +10,112 @@
       },
       "transform":
       {
-        "position": [0, 10, -20] 
+        "position": [100, 0, 0] 
       } 
     },
     {
       "uniqueId": 0,
-      "name": "Car",
-      "mesh": {
-        "name": "cube"
-      },
+      "name": "brick_0",
+      "sprite": {
+		"name": "brick"
+	  },
       "transform": {
+		"position": [0, 0, 0]
       },
 	  "audio": {
 		"path": "data/sounds/Alesis-Fusion-Acoustic-Bass-C2.wav",
 		"type": true
+	  },
+	  "particles": {
+		"texturePath": "data/dice.png",
+		"rate": 1,
+		"lifespan": 10,
+		"velocity": [50, 50, 0],
+		"gravity": [0, -10, 0],
+		"sizeState": "linear",
+		"initialSize": 0.1,
+		"finalSize": 1,
+		"colorState": "random",
+		"minColor": [0, 0, 0, 1],
+		"maxColor": [1, 1, 1, 1],
+		"rotationState": "fixed",
+		"rotation": 0
 	  }
     },
-    {
+	{
       "uniqueId": 1,
-      "name": "Particle",
-      "mesh": {
-        "name": "cube",
-        "color":  [ 1, 0.5, 0.5, 1] 
-      },
+      "name": "brick_1",
+      "sprite": {
+		"name": "brick"
+	  },
       "transform": {
-        "position": [-10, 0, 0] 
+		"position": [100, 0, 0]
       },
-	  "audio": {
-		"path": "data/sounds/Bass-Drum-1.wav",
-		"type": true
+	  "particles": {
+		"rate": 60,
+		"lifespan": 0.5,
+		"velocityState": "random",
+		"minVelocity": [-20, 300, 0],
+		"maxVelocity": [20, 300, 0],
+		"gravity": [0, 0, 0],
+		"sizeState": "linear",
+		"initialSize": 0.3,
+		"finalSize": 0.7,
+		"colorState": "linear",
+		"initialColor": [1, 1, 0, 1],
+		"finalColor": [1, 0, 0, 1],
+		"rotationState": "fixed",
+		"rotation": 0
 	  }
     },
-    {
+	{
       "uniqueId": 2,
-      "name": "Particle",
-      "mesh": {
-        "name": "cube",
-        "color":  [ 0.5, 1, 0.5, 1]
-      },
+      "name": "brick_2",
+      "sprite": {
+		"name": "brick"
+	  },
       "transform": {
-        "position": [-10, 0, -5] 
-      }
+		"position": [200, 0, 0]
+      },
+	  "particles": {
+		"texturePath": "data/raindrop.png",
+		"rate": 10,
+		"lifespan": 10,
+		"velocityState": "random",
+		"minVelocity": [-20, -15, 0],
+		"maxVelocity": [20, -15, 0],		
+		"gravity": [0, -9.81, 0],
+		"sizeState": "fixed",
+		"size": 0.25,
+		"colorState": "fixed",
+		"color": [1, 1, 1, 1],
+		"rotationState": "fixed",
+		"rotation": 0
+	  }
     },
-    {
+	{
       "uniqueId": 3,
-      "name": "Particle",
-      "mesh": {
-        "name": "cube",
-        "color":  [ 0.5, 0.5, 1, 1]
-      },
+      "name": "brick_3",
+      "sprite": {
+		"name": "brick"
+	  },
       "transform": {
-        "position": [-10, 0, 5] 
-      }
-    },
-    {
-      "uniqueId": 4,
-      "name": "Particle",
-      "mesh": {
-        "name": "cube",
-        "color":  [ 1, 0.5, 1, 1] 
+		"position": [-100, 0, 0]
       },
-      "transform": {
-        "position": [10, 0, 0] 
-      }
-    },
-    {
-      "uniqueId": 5,
-      "name": "Particle",
-      "mesh": {
-        "name": "cube",
-        "color":  [ 1, 1, 0.5, 1]
-      },
-      "transform": {
-        "position": [10, 0, -5] 
-      }
-    },
-    {
-      "uniqueId": 6,
-      "name": "Particle",
-      "mesh": {
-        "name": "cube",
-        "color":  [ 0.5, 1, 1, 1]
-      },
-      "transform": {
-        "position": [10, 0, 5] 
-      }
+	  "particles": {
+		"rate": 100,
+		"lifespan": 10,
+		"velocityState": "random",
+		"minVelocity": [-25, 50, 0],
+		"maxVelocity": [25, 50, 0],		
+		"gravity": [0, -9.81, 0],
+		"sizeState": "fixed",
+		"size": 0.25,
+		"colorState": "fixed",
+		"color": [0, 1, 1, 1],
+		"rotationState": "fixed",
+		"rotation": 0
+	  }
     }
   ]
 }

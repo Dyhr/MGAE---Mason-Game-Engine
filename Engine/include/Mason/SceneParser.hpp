@@ -18,7 +18,7 @@ namespace Mason {
 	{
 	public:
 		bool found = false;
-		std::string texturePath;
+		std::string texturePath = "";
 		float rate;
 		float lifespan;
 		glm::vec3 velocity;
@@ -28,6 +28,8 @@ namespace Mason {
 		float maxSize;
 		float minRotation;
 		float maxRotation;
+		glm::vec3 minVelocity;
+		glm::vec3 maxVelocity;
 		glm::vec4 minColor;
 		glm::vec4 maxColor;
 		//Used for interpolation
@@ -38,6 +40,7 @@ namespace Mason {
 		float initialRotation;
 		float finalRotation;
 
+		std::string velocityState;
 		std::string rotationState;
 		std::string sizeState;
 		std::string colorState;

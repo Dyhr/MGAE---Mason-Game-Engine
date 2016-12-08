@@ -17,7 +17,7 @@ void loadScene(int index)
 {
 	switch (index)
 	{
-	case 0: {
+	case 1: {
 		engine.loadScene("data/demo2.json");
 		//mario
 		engine.scene->getGameObject(2)->addComponent<PlayerController>();
@@ -36,7 +36,7 @@ void loadScene(int index)
 
 		break;
 	}
-	case 1: {
+	case 0: {
 		engine.loadScene("data/demo1.json");
 		break;  
 	}

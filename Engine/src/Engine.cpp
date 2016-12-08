@@ -125,9 +125,14 @@ void Engine::start() {
 
 void Engine::loadScene(std::string path)
 {
+	//Necessary?
+	for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
+		if (particleEmitter) {
+			particleEmitter->clear();
+		}
+	}
 	delete scene;
 	scene = new Scene();
-	ParticleEmitter::clear();
 
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 
@@ -139,13 +144,10 @@ void Engine::loadScene(std::string path)
 	auto planeMesh = SRE::Mesh::createQuad();
 	auto sphereMesh = SRE::Mesh::createSphere();
 	for (auto element : gameObjectDescriptors) {
-
 		auto gameObject = scene->addGameObject(element.name);
-
 		if (element.camera.found)
 		{
 			auto camera = gameObject->addComponent<Camera>();
-
 			camera->setPosition(element.transform.position);
 			camera->setScale(element.transform.scale);
 			camera->setViewportMin(element.camera.viewportMin);
@@ -201,6 +203,14 @@ void Engine::loadScene(std::string path)
 			AttributeState sizeState = config.attributeFromString(element.particles.sizeState);
 			AttributeState rotationState = config.attributeFromString(element.particles.rotationState);
 			AttributeState colorState = config.attributeFromString(element.particles.colorState);
+			AttributeState velocityState = config.attributeFromString(element.particles.velocityState);
+			switch (velocityState) {
+				case RANDOM:
+					config.setRandomVelocity(element.particles.minVelocity, element.particles.maxVelocity);
+					break;
+				default:
+					break;
+			}
 			switch (sizeState) {
 				case FIXED:
 					config.setFixedSize(element.particles.minSize);
@@ -243,6 +253,7 @@ void Engine::loadScene(std::string path)
 					config.setSplineInterpColor(element.particles.initialColor, element.particles.finalColor, element.particles.splinePointsColor);
 					break;
 			}
+			if (element.particles.texturePath != "") config.setTexture(SRE::Texture::createFromFile(element.particles.texturePath.c_str(), false));
 			emitter->init(config);
 			//This is done here for testing. Could be done from scripts in a real scenario.
 			emitter->start();
@@ -302,7 +313,11 @@ void Engine::update(float deltaTimeSec) {
 		}
 
 		// render particle emitters
-		ParticleEmitter::render(tex);
+		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
+			if (particleEmitter) {
+				particleEmitter->render();
+			}
+		}
 	}
 
 	if (showDebugGUI) DebugUI();

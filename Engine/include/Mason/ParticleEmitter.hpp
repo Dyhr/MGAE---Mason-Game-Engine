@@ -17,6 +17,7 @@ namespace Mason {
 
 	struct ParticleEmitterConfig
 	{
+		SRE::Texture *tex = nullptr;
 		float rate;
 		float lifespan;
 
@@ -30,6 +31,8 @@ namespace Mason {
 		float maxRotation;
 		glm::vec4 minColor;
 		glm::vec4 maxColor;
+		glm::vec3 minVelocity;
+		glm::vec3 maxVelocity;
 
 		//Used for interpolation
 		float initialSize;
@@ -46,6 +49,7 @@ namespace Mason {
 		AttributeState colorState;
 		AttributeState sizeState;
 		AttributeState rotationState;
+		AttributeState velocityState;
 		AttributeState attributeFromString(std::string str) {
 			if (str == "fixed") return AttributeState::FIXED;
 			if (str == "random") return AttributeState::RANDOM;
@@ -78,6 +82,9 @@ namespace Mason {
 			}
 			return input;
 		}
+		void setTexture(SRE::Texture *_tex) {
+			tex = _tex;
+		}
 		void setRate(float _rate) {
 			rate = _rate;
 		}
@@ -89,6 +96,11 @@ namespace Mason {
 		}
 		void setGravity(glm::vec3 _gravity) {
 			gravity = _gravity;
+		}
+		void setRandomVelocity(glm::vec3 minVel, glm::vec3 maxVel) {
+			minVelocity = minVel;
+			maxVelocity = maxVel;
+			velocityState = RANDOM;
 		}
 		//SIZE SETTERS
 		void setFixedSize(float size) {
@@ -182,8 +194,8 @@ namespace Mason {
 
 	class ParticleEmitter : public Component {
 	public:
-		static void render(SRE::Texture * tex);
-		static void clear();
+		void render();
+		void clear();
 
 		~ParticleEmitter();
 
@@ -193,22 +205,21 @@ namespace Mason {
 		void stop();
 		bool running();
 	protected:
-		static SRE::ParticleMesh* mesh;
-		static SRE::Shader* shader;
+		SRE::ParticleMesh* mesh = nullptr;
+		SRE::Shader* shader = nullptr;
 
-		static std::vector<glm::vec3> positions;
-		static std::vector<float> sizes;
-		static std::vector<glm::vec4> colors;
-		static std::vector<glm::vec2> uvs;
-		static std::vector<float> uvSize;
-		static std::vector<float> uvRotation;
-		static int totalParticles;
+		std::vector<glm::vec3> positions = std::vector<glm::vec3>();
+		std::vector<float> sizes = std::vector<float>();
+		std::vector<glm::vec4> colors = std::vector<glm::vec4>();
+		std::vector<glm::vec2> uvs = std::vector<glm::vec2>();
+		std::vector<float> uvSize = std::vector<float>();
+		std::vector<float> uvRotation = std::vector<float>();
+		int totalParticles = 0;
+		std::vector<float> birthTimes = std::vector<float>();
+		std::vector<float> times = std::vector<float>();
+		std::vector<glm::vec3> velocities = std::vector<glm::vec3>();
 
-		static std::vector<float> birthTimes;
-		static std::vector<float> times;
-		static std::vector<glm::vec3> velocities;
-
-		static glm::vec2 cubicBezier(float t, std::vector<glm::vec2> splinePoints);
+		glm::vec2 cubicBezier(float t, std::vector<glm::vec2> splinePoints);
 
 		ParticleEmitter(GameObject *gameObject);
 
