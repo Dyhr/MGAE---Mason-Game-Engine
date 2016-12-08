@@ -5,7 +5,7 @@
 #include "Mason/PhysicsBody2D.hpp"
 #include "Mason/Collider2D.hpp"
 #include "Mason/SREDebugDraw.h"
-
+#include "Mason\CollisionListener.h"
 
 using namespace Mason;
 
@@ -14,6 +14,8 @@ Physics* Physics::instance = nullptr;
 
 Physics::Physics()
 {
+	auto collisionL = new CollisionListener();
+	world.SetContactListener(collisionL);
 	auto debugDraw = new SREDebugDraw();
 	world.SetDebugDraw(debugDraw);
 	debugDraw->SetFlags(b2Draw::e_shapeBit | b2Draw::e_aabbBit);
@@ -57,7 +59,7 @@ void Physics::init()
 			fd.shape = collider->shape;
 			fd.density = collider->density;
 			fd.friction = collider->friction;
-			body->body->CreateFixture(&fd); //our body is a container for the body we get from box2D
+			body->body->CreateFixture(&fd)->SetUserData((void*)collider->getGameObject()); //our body is a container for the body we get from box2D
 		}
 	}
 		//b2PolygonShape Mario;
