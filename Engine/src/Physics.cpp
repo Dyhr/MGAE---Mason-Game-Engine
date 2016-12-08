@@ -62,8 +62,6 @@ void Physics::init()
 			body->body->CreateFixture(&fd)->SetUserData((void*)collider->getGameObject()); //our body is a container for the body we get from box2D
 		}
 	}
-		//b2PolygonShape Mario;
-		//Mario.SetAsBox(2, 2, b2Vec2(0, 0), 0.0f);
 		
 		
 }
