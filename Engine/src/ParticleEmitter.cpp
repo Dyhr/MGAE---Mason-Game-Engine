@@ -8,6 +8,7 @@
 #include <iostream>
 #include "Mason/Transform.h"
 #include "Mason/GameObject.hpp"
+#include <math.h>
 #include <time.h>
 #include <random>
 #include <glm/gtx/compatibility.hpp>
@@ -27,10 +28,7 @@ glm::vec2 ParticleEmitter::cubicBezier(float t, std::vector<glm::vec2> splinePoi
 	return cubicBezier(t, deeper);
 }
 
-ParticleEmitter::ParticleEmitter(GameObject * gameObject) : Component(gameObject) {
-}
-
-void ParticleEmitter::update()
+void Mason::ParticleEmitter::updateModel(int iterations)
 {
 	if (!running()) return;
 
@@ -40,20 +38,38 @@ void ParticleEmitter::update()
 	float timeSinceStart = currenttime - startTime;
 
 	numParticles = int(ceil(timeSinceStart * config.rate));
-	
+
 	if (numParticles > maxParticles) numParticles = maxParticles;
 	//std::cout << pos << ", " << numParticles << std::endl;
 
-	for (int i = pos; i < pos+numParticles; i++) {
-		if (timeSinceStart - birthTimes[i] >= config.lifespan) {
-			birthTimes[i] = times[i] = -1.0f;
+	for (int i = pos; i < pos + numParticles; i++) {
+
+		if (birthTimes[i] != -1 && timeSinceStart - birthTimes[i] >= config.lifespan) {
+			//birthTimes[i] = times[i] = -1.0f;
+
+			age[i] = fmod((timeSinceStart - birthTimes[i] - config.lifespan), config.lifespan);
+			birthTimes[i] = timeSinceStart + age[i];
+			
+			if (config.velocityState == AttributeState::RANDOM) {
+				glm::vec3 velocity;
+				velocity[0] = glm::lerp(config.minVelocity[0], config.maxVelocity[0], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				velocity[1] = glm::lerp(config.minVelocity[1], config.maxVelocity[1], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				velocity[2] = glm::lerp(config.minVelocity[2], config.maxVelocity[2], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+				velocities[i] = velocity;
+			}
+			else {
+				velocities[i] = config.velocity;
+			}
+			positions[i] = 0.5f*config.gravity*age[i]*age[i] + velocities[i]*age[i] + position;			
 			colors[i] = glm::vec4();
 		}
-		if(birthTimes[i] < 0)
+
+		if (birthTimes[i] < 0)
 		{
 			positions[i] = position;
 			birthTimes[i] = timeSinceStart;
-			times[i] = 0.0f;
+			age[i] = 0.0f;
+
 			if (config.sizeState == AttributeState::RANDOM) {
 				sizes[i] = glm::lerp(config.minSize, config.maxSize, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 			}
@@ -80,7 +96,7 @@ void ParticleEmitter::update()
 			}
 		}
 		float timeSinceBirth = timeSinceStart - birthTimes[i];
-		float timeSinceUpdate = timeSinceBirth - times[i];
+		float timeSinceUpdate = timeSinceBirth - age[i];
 
 		auto p0 = positions[i];
 		auto v0 = velocities[i];
@@ -88,46 +104,46 @@ void ParticleEmitter::update()
 		auto dt = timeSinceUpdate;
 		positions[i] = 0.5f*config.gravity*dt*dt + v0*dt + p0;
 		velocities[i] = config.gravity*dt + v0;
-		
+
 		glm::vec4 newColor = colors[i];
 		float newSize = sizes[i];
 
 		float newRotation = uvRotation[i];
 
 		switch (config.colorState) {
-			case FIXED:
-				newColor = config.initialColor;
-				break;
-			case RANDOM:
-				break;
-			case LINEAR:
-				newColor[0] = glm::lerp(config.initialColor[0], config.finalColor[0], times[i] / config.lifespan);
-				newColor[1] = glm::lerp(config.initialColor[1], config.finalColor[1], times[i] / config.lifespan);
-				newColor[2] = glm::lerp(config.initialColor[2], config.finalColor[2], times[i] / config.lifespan);
-				newColor[3] = glm::lerp(config.initialColor[3], config.finalColor[3], times[i] / config.lifespan);
-				break;
-			case SPLINE:
-				auto colorMod = cubicBezier(times[i] / config.lifespan, config.splinePointsColor);
-				newColor[0] = glm::lerp(config.initialColor[0], config.finalColor[0], colorMod.y);
-				newColor[1] = glm::lerp(config.initialColor[1], config.finalColor[1], colorMod.y);
-				newColor[2] = glm::lerp(config.initialColor[2], config.finalColor[2], colorMod.y);
-				newColor[3] = glm::lerp(config.initialColor[3], config.finalColor[3], colorMod.y);
-				break;
+		case FIXED:
+			newColor = config.initialColor;
+			break;
+		case RANDOM:
+			break;
+		case LINEAR:
+			newColor[0] = glm::lerp(config.initialColor[0], config.finalColor[0], age[i] / config.lifespan);
+			newColor[1] = glm::lerp(config.initialColor[1], config.finalColor[1], age[i] / config.lifespan);
+			newColor[2] = glm::lerp(config.initialColor[2], config.finalColor[2], age[i] / config.lifespan);
+			newColor[3] = glm::lerp(config.initialColor[3], config.finalColor[3], age[i] / config.lifespan);
+			break;
+		case SPLINE:
+			auto colorMod = cubicBezier(age[i] / config.lifespan, config.splinePointsColor);
+			newColor[0] = glm::lerp(config.initialColor[0], config.finalColor[0], colorMod.y);
+			newColor[1] = glm::lerp(config.initialColor[1], config.finalColor[1], colorMod.y);
+			newColor[2] = glm::lerp(config.initialColor[2], config.finalColor[2], colorMod.y);
+			newColor[3] = glm::lerp(config.initialColor[3], config.finalColor[3], colorMod.y);
+			break;
 		}
 
 		switch (config.sizeState) {
-			case FIXED:
-				newSize = config.initialSize;
-				break;
-			case RANDOM:
-				break;
-			case LINEAR:
-				newSize = glm::lerp(config.initialSize, config.finalSize, times[i]/config.lifespan);
-				break;
-			case SPLINE:
-				auto sizeMod = cubicBezier(times[i] / config.lifespan, config.splinePointsSize);
-				newSize = glm::lerp(config.initialSize, config.finalSize, sizeMod.y);
-				break;
+		case FIXED:
+			newSize = config.initialSize;
+			break;
+		case RANDOM:
+			break;
+		case LINEAR:
+			newSize = glm::lerp(config.initialSize, config.finalSize, age[i] / config.lifespan);
+			break;
+		case SPLINE:
+			auto sizeMod = cubicBezier(age[i] / config.lifespan, config.splinePointsSize);
+			newSize = glm::lerp(config.initialSize, config.finalSize, sizeMod.y);
+			break;
 		}
 
 		switch (config.rotationState) {
@@ -137,18 +153,27 @@ void ParticleEmitter::update()
 		case RANDOM:
 			break;
 		case LINEAR:
-			newRotation = glm::lerp(config.initialRotation, config.finalRotation, times[i] / config.lifespan);
+			newRotation = glm::lerp(config.initialRotation, config.finalRotation, age[i] / config.lifespan);
 			break;
 		case SPLINE:
-			auto rotationMod = cubicBezier(times[i] / config.lifespan, config.splinePointsRotation);
+			auto rotationMod = cubicBezier(age[i] / config.lifespan, config.splinePointsRotation);
 			newRotation = glm::lerp(config.initialRotation, config.finalRotation, rotationMod.y);
 			break;
 		}
 		colors[i] = newColor;
 		sizes[i] = newSize;
 		uvRotation[i] = newRotation;
-		times[i] = timeSinceBirth;
+		age[i] = timeSinceBirth;
+		std::cout << position.y << ", " << positions[i].y << std::endl;
 	}
+}
+
+ParticleEmitter::ParticleEmitter(GameObject * gameObject) : Component(gameObject) {
+}
+
+void ParticleEmitter::update(float deltaTimeSec)
+{
+	updateModel(1);
 }
 
 void ParticleEmitter::start()
@@ -196,7 +221,7 @@ void ParticleEmitter::clear() // TODO actual garbage collection
 	totalParticles = 0;
 
 	birthTimes = std::vector<float>();
-	times = std::vector<float>();
+	age = std::vector<float>();
 	velocities = std::vector<glm::vec3>();
 }
 
@@ -218,7 +243,7 @@ void ParticleEmitter::init(ParticleEmitterConfig config)
 	{
 		totalParticles++;
 		birthTimes.push_back(-1.0f);
-		times.push_back(-1.0f);
+		age.push_back(-1.0f);
 		positions.push_back(glm::vec3());
 		velocities.push_back(glm::vec3());
 		colors.push_back(glm::vec4());

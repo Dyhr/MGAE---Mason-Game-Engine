@@ -286,7 +286,7 @@ void Engine::update(float deltaTimeSec) {
 		// update particle emitters
 		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
 			if (particleEmitter) {
-				particleEmitter->update();
+				particleEmitter->update(deltaTimeSec);
 			}
 		}
 
@@ -316,7 +316,7 @@ void Engine::update(float deltaTimeSec) {
 
 		// render particle emitters
 		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
-			if (particleEmitter) {
+			if (particleEmitter) {				
 				particleEmitter->render();
 			}
 		}
