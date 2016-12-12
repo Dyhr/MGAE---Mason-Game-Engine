@@ -20,7 +20,9 @@ public:
 		Scene sc;
 		//bool removeMario = sc.removeGameObject((std::shared_ptr<GameObject>)other);
 		counter++;
-		std::cout << counter;
+		std::cout << counter << std::endl;
+		//auto tr = other->getTransform();
+		//tr->setScale(glm::vec3(1.5,1.5,1));
 	}
 	/*void OnCollisionExit(GameObject* other) override
 	{

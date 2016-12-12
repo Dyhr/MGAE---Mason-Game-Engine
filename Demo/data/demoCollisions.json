@@ -33,7 +33,7 @@
         "name": "mario_0"
       },
       "transform": {
-	   "position":  [ 0, 20, 0 ]
+	   "position":  [ 0, 80, 0 ]
       }
     },
     {
@@ -103,7 +103,7 @@
         "name": "mario_0"
       },
       "transform": {
-	   "position":  [ -20, 80, 0 ]
+	   "position":  [ -20, 150, 0 ]
       }
     },
     {
@@ -113,7 +113,7 @@
         "name": "mario_0"
       },
       "transform": {
-	   "position":  [ -40, 160, 0 ]
+	   "position":  [ -40, 260, 0 ]
       }
     }
 	,
@@ -124,7 +124,7 @@
         "name": "mario_0"
       },
       "transform": {
-	   "position":  [ -60, 260, 0 ]
+	   "position":  [ -60, 360, 0 ]
       }
     }
 	,
@@ -135,7 +135,7 @@
         "name": "mario_0"
       },
       "transform": {
-	   "position":  [ -80, 360, 0 ]
+	   "position":  [ -80, 420, 0 ]
       }
     }
   ]
