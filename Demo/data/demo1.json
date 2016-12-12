@@ -14,35 +14,6 @@
       } 
     },
     {
-      "uniqueId": 0,
-      "name": "brick_0",
-      "sprite": {
-		"name": "brick"
-	  },
-      "transform": {
-		"position": [0, 0, 0]
-      },
-	  "audio": {
-		"path": "data/sounds/Alesis-Fusion-Acoustic-Bass-C2.wav",
-		"type": true
-	  },
-	  "particles": {
-		"texturePath": "data/dice.png",
-		"rate": 1,
-		"lifespan": 10,
-		"velocity": [50, 50, 0],
-		"gravity": [0, -10, 0],
-		"sizeState": "linear",
-		"initialSize": 0.1,
-		"finalSize": 1,
-		"colorState": "random",
-		"minColor": [0, 0, 0, 1],
-		"maxColor": [1, 1, 1, 1],
-		"rotationState": "fixed",
-		"rotation": 0
-	  }
-    },
-	{
       "uniqueId": 1,
       "name": "brick_1",
       "sprite": {
@@ -52,7 +23,7 @@
 		"position": [100, 0, 0]
       },
 	  "particles": {
-		"rate": 60,
+		"rate": 30,
 		"lifespan": 0.5,
 		"velocityState": "random",
 		"minVelocity": [-20, 300, 0],
@@ -64,55 +35,6 @@
 		"colorState": "linear",
 		"initialColor": [1, 1, 0, 1],
 		"finalColor": [1, 0, 0, 1],
-		"rotationState": "fixed",
-		"rotation": 0
-	  }
-    },
-	{
-      "uniqueId": 2,
-      "name": "brick_2",
-      "sprite": {
-		"name": "brick"
-	  },
-      "transform": {
-		"position": [200, 0, 0]
-      },
-	  "particles": {
-		"texturePath": "data/raindrop.png",
-		"rate": 10,
-		"lifespan": 10,
-		"velocityState": "random",
-		"minVelocity": [-20, -15, 0],
-		"maxVelocity": [20, -15, 0],		
-		"gravity": [0, -9.81, 0],
-		"sizeState": "fixed",
-		"size": 0.25,
-		"colorState": "fixed",
-		"color": [1, 1, 1, 1],
-		"rotationState": "fixed",
-		"rotation": 0
-	  }
-    },
-	{
-      "uniqueId": 3,
-      "name": "brick_3",
-      "sprite": {
-		"name": "brick"
-	  },
-      "transform": {
-		"position": [-100, 0, 0]
-      },
-	  "particles": {
-		"rate": 100,
-		"lifespan": 10,
-		"velocityState": "random",
-		"minVelocity": [-25, 50, 0],
-		"maxVelocity": [25, 50, 0],		
-		"gravity": [0, -9.81, 0],
-		"sizeState": "fixed",
-		"size": 0.25,
-		"colorState": "fixed",
-		"color": [0, 1, 1, 1],
 		"rotationState": "fixed",
 		"rotation": 0
 	  }

@@ -113,7 +113,9 @@ void Engine::start() {
 
 		// Update the engine
 		update(deltaTimeSec);
-
+/*		if (deltaTimeSec > 1) {
+			std::cout << deltaTimeSec << std::endl;
+		}	*/	
 		int updateTimeMillis = static_cast<int>(duration_cast<milliseconds>(Clock::now() - t2).count());
 		int wait = timePerFrameMillis - updateTimeMillis;
 		if (wait > 0) {

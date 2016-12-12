@@ -40,14 +40,15 @@ void ParticleEmitter::update()
 	float timeSinceStart = currenttime - startTime;
 
 	numParticles = int(ceil(timeSinceStart * config.rate));
+	
 	if (numParticles > maxParticles) numParticles = maxParticles;
+	//std::cout << pos << ", " << numParticles << std::endl;
 
 	for (int i = pos; i < pos+numParticles; i++) {
-		if (times[i] > config.lifespan) {
+		if (timeSinceStart - birthTimes[i] >= config.lifespan) {
 			birthTimes[i] = times[i] = -1.0f;
 			colors[i] = glm::vec4();
 		}
-
 		if(birthTimes[i] < 0)
 		{
 			positions[i] = position;
@@ -78,7 +79,6 @@ void ParticleEmitter::update()
 				velocities[i] = config.velocity;
 			}
 		}
-
 		float timeSinceBirth = timeSinceStart - birthTimes[i];
 		float timeSinceUpdate = timeSinceBirth - times[i];
 
