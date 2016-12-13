@@ -20,8 +20,8 @@
 #include <SDL.h>
 #include <map>
 #include <imgui.h>
-#include "SRE/imgui_sre.hpp"
-#include "Mason/Script.hpp"
+#include <SRE/imgui_sre.hpp>
+#include <boost/filesystem.hpp>
 
 using namespace glm;
 using namespace Mason;
