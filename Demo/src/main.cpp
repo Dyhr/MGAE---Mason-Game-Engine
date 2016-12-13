@@ -99,7 +99,7 @@ void loadScene(int index) {
 }
 
 
-int numScenes = 1;
+int numScenes = 2;
 int currentScene = 0;
 
 void handleInput(SDL_Event event)
