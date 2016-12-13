@@ -22,23 +22,113 @@
        },
        "transform":
        {
-         "position": [ 0, 0, 0 ],
+         "position": [ 110, 0, 0 ],
          "scale":  [0.5, 0.5, 0.5] 
         } 
       },
     {
       "uniqueId": 0,
-      "name": "Mario",
+      "name": "Mario0",
       "sprite": {
         "name": "mario_0"
       },
       "transform": {
-	   "position":  [ 0, 80, 0 ]
+	   "position":  [ 0, 200, 0 ]
+      }
+    },
+	{
+      "uniqueId": 1,
+      "name": "Mario1",
+      "sprite": {
+        "name": "mario_0"
+      },
+      "transform": {
+	   "position":  [ -5, 300, 0 ]
+      }
+    },
+	{
+      "uniqueId": 2,
+      "name": "Mario2",
+      "sprite": {
+        "name": "mario_0"
+      },
+      "transform": {
+	   "position":  [ -10, 400, 0 ]
+      }
+    },
+	{
+      "uniqueId": 3,
+      "name": "Mario3",
+      "sprite": {
+        "name": "mario_0"
+      },
+      "transform": {
+	   "position":  [ -15, 500, 0 ]
+      }
+    },
+	{
+      "uniqueId": 4,
+      "name": "Mario4",
+      "sprite": {
+        "name": "mario_0"
+      },
+      "transform": {
+	   "position":  [ 0, 600, 0 ]
+      }
+    },
+	{
+      "uniqueId": 5,
+      "name": "Mario5",
+      "sprite": {
+        "name": "mario_0"
+      },
+      "transform": {
+	   "position":  [ 5, 650, 0 ]
+      }
+    },
+	{
+      "uniqueId": 6,
+      "name": "Mario6",
+      "sprite": {
+        "name": "mario_0"
+      },
+      "transform": {
+	   "position":  [ 5, 750, 0 ]
+      }
+    },
+	{
+      "uniqueId": 7,
+      "name": "Mario7",
+      "sprite": {
+        "name": "mario_0"
+      },
+      "transform": {
+	   "position":  [ 5, 850, 0 ]
+      }
+    },
+	{
+      "uniqueId": 8,
+      "name": "Mario8",
+      "sprite": {
+        "name": "mario_0"
+      },
+      "transform": {
+	   "position":  [ 5, 880, 0 ]
+      }
+    },
+	{
+      "uniqueId": 9,
+      "name": "Mario9",
+      "sprite": {
+        "name": "mario_0"
+      },
+      "transform": {
+	   "position":  [ 5, 900, 0 ]
       }
     },
     {
-      "uniqueId": 1,
-      "name": "Brick",
+      "uniqueId": 10,
+      "name": "Brick10",
       "sprite": {
         "name": "brick" 
       },
@@ -47,8 +137,8 @@
       }
     },
 	{
-      "uniqueId": 2,
-      "name": "Brick",
+      "uniqueId": 11,
+      "name": "Brick11",
       "sprite": {
         "name": "brick" 
       },
@@ -57,8 +147,8 @@
       }
     },
 	{
-      "uniqueId": 3,
-      "name": "Brick",
+      "uniqueId": 12,
+      "name": "Brick12",
       "sprite": {
         "name": "brick" 
       },
@@ -67,8 +157,8 @@
       }
     },
 	{
-      "uniqueId": 4,
-      "name": "Brick",
+      "uniqueId": 13,
+      "name": "Brick13",
       "sprite": {
         "name": "brick" 
       },
@@ -77,8 +167,8 @@
       }
     },
 	{
-      "uniqueId": 5,
-      "name": "Brick",
+      "uniqueId": 14,
+      "name": "Brick14",
       "sprite": {
         "name": "brick" 
       },
@@ -87,55 +177,13 @@
       }
     },
 	{
-      "uniqueId": 6,
+      "uniqueId": 20,
       "name": "green_tube",
       "sprite": {
         "name": "green_tube" 
       },
       "transform": {
         "position":  [ 0, 0, 0 ]
-      }
-    },
-    {
-      "uniqueId": 7,
-      "name": "Mario",
-      "sprite": {
-        "name": "mario_0"
-      },
-      "transform": {
-	   "position":  [ -20, 150, 0 ]
-      }
-    },
-    {
-      "uniqueId": 8,
-      "name": "Mario",
-      "sprite": {
-        "name": "mario_0"
-      },
-      "transform": {
-	   "position":  [ -40, 260, 0 ]
-      }
-    }
-	,
-    {
-      "uniqueId": 9,
-      "name": "Mario",
-      "sprite": {
-        "name": "mario_0"
-      },
-      "transform": {
-	   "position":  [ -60, 360, 0 ]
-      }
-    }
-	,
-    {
-      "uniqueId": 10,
-      "name": "Mario",
-      "sprite": {
-        "name": "mario_0"
-      },
-      "transform": {
-	   "position":  [ -80, 420, 0 ]
       }
     }
   ]

@@ -1,12 +1,15 @@
 
 #include "Mason/Script.hpp"
 #include <iostream>
+#include "Mason/SpriteRenderer.h"
 #include "Mason/Scene.hpp"
+#include "Mason/Engine.hpp"
 
 using namespace Mason;
 
 class DangerousCollisions :public Script
 {
+	bool done = false;
 protected:
 	DangerousCollisions(GameObject* gameObject) : Script(gameObject)
 	{
@@ -17,18 +20,19 @@ protected:
 public:
 	void OnCollisionEnter(GameObject* other) override
 	{
-		Scene sc;
-		//bool removeMario = sc.removeGameObject((std::shared_ptr<GameObject>)other);
-		counter++;
-		std::cout << counter << std::endl;
-		//auto tr = other->getTransform();
-		//tr->setScale(glm::vec3(1.5,1.5,1));
+		/*auto spr = other->getComponent<SpriteRenderer>()->sprite;
+		auto tex = spr->getTexture();
+		spr->setTexture();*/
+	
+			auto tr = other->getComponent<Transform>();
+			auto scale = tr->getScale();
+			tr->setScale(glm::vec3(scale.x*2, scale.y*2,scale.z));
+		
 	}
 	/*void OnCollisionExit(GameObject* other) override
 	{
 		
 	}*/
 
-	int counter = 0;
-
+	
 };

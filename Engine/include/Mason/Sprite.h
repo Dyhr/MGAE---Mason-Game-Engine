@@ -11,6 +11,8 @@ namespace Mason {
 	public:
 		Sprite(int x, int y, int width, int height, float anchorX, float anchorY, std::shared_ptr<SRE::Texture> texture);
 		void draw(glm::vec3 position) const;
+		std::shared_ptr<SRE::Texture> getTexture();
+		void setTexture(std::shared_ptr<SRE::Texture> t);
 	private:
 		std::shared_ptr<SRE::Mesh> mesh;
 		std::shared_ptr<SRE::Texture> texture;

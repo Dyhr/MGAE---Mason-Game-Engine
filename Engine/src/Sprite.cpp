@@ -33,6 +33,12 @@ Sprite::Sprite(int x, int y, int width, int height, float anchorX, float anchorY
 	this->mesh = std::make_shared<SRE::Mesh>(vertices, normals, uvs);
 }
 
+std::shared_ptr<SRE::Texture> Sprite::getTexture() {
+	return this->texture;
+}
+void Sprite::setTexture(std::shared_ptr<SRE::Texture> t) {
+	this->texture = t;
+}
 void Sprite::draw(glm::vec3 position) const
 {
 	SRE::Shader* shader = SRE::Shader::getUnlitSprite();
