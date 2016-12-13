@@ -28,7 +28,7 @@ glm::vec2 ParticleEmitter::cubicBezier(float t, std::vector<glm::vec2> splinePoi
 	return cubicBezier(t, deeper);
 }
 
-void Mason::ParticleEmitter::updateModel(int iterations)
+void Mason::ParticleEmitter::updateModel(float deltaTimeSec)
 {
 	if (!running()) return;
 
@@ -44,24 +44,9 @@ void Mason::ParticleEmitter::updateModel(int iterations)
 
 	for (int i = pos; i < pos + numParticles; i++) {
 
-		if (birthTimes[i] != -1 && timeSinceStart - birthTimes[i] >= config.lifespan) {
-			//birthTimes[i] = times[i] = -1.0f;
-
-			age[i] = fmod((timeSinceStart - birthTimes[i] - config.lifespan), config.lifespan);
-			birthTimes[i] = timeSinceStart + age[i];
-			
-			if (config.velocityState == AttributeState::RANDOM) {
-				glm::vec3 velocity;
-				velocity[0] = glm::lerp(config.minVelocity[0], config.maxVelocity[0], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
-				velocity[1] = glm::lerp(config.minVelocity[1], config.maxVelocity[1], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
-				velocity[2] = glm::lerp(config.minVelocity[2], config.maxVelocity[2], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
-				velocities[i] = velocity;
-			}
-			else {
-				velocities[i] = config.velocity;
-			}
-			positions[i] = 0.5f*config.gravity*age[i]*age[i] + velocities[i]*age[i] + position;			
-			colors[i] = glm::vec4();
+		if (age[i] + deltaTimeSec >= config.lifespan) {
+			birthTimes[i] = age[i] = -1.0f;
+			colors[i] = glm::vec4();		
 		}
 
 		if (birthTimes[i] < 0)
@@ -95,15 +80,12 @@ void Mason::ParticleEmitter::updateModel(int iterations)
 				velocities[i] = config.velocity;
 			}
 		}
-		float timeSinceBirth = timeSinceStart - birthTimes[i];
-		float timeSinceUpdate = timeSinceBirth - age[i];
 
 		auto p0 = positions[i];
 		auto v0 = velocities[i];
 
-		auto dt = timeSinceUpdate;
-		positions[i] = 0.5f*config.gravity*dt*dt + v0*dt + p0;
-		velocities[i] = config.gravity*dt + v0;
+		velocities[i] = config.gravity*deltaTimeSec + v0;
+		positions[i] = velocities[i]*deltaTimeSec + p0;		
 
 		glm::vec4 newColor = colors[i];
 		float newSize = sizes[i];
@@ -163,8 +145,7 @@ void Mason::ParticleEmitter::updateModel(int iterations)
 		colors[i] = newColor;
 		sizes[i] = newSize;
 		uvRotation[i] = newRotation;
-		age[i] = timeSinceBirth;
-		std::cout << position.y << ", " << positions[i].y << std::endl;
+		age[i] = age[i] + deltaTimeSec;
 	}
 }
 
@@ -173,7 +154,32 @@ ParticleEmitter::ParticleEmitter(GameObject * gameObject) : Component(gameObject
 
 void ParticleEmitter::update(float deltaTimeSec)
 {
-	updateModel(1);
+	//float dtInner = 1/60; // 16.67 ms ?
+	//float min_dtInner = 0.01; // 10ms
+	//int max_innerCount = 50;
+
+	//int innerCount = int(ceil(deltaTimeSec / dtInner));
+	//if (innerCount > max_innerCount) {
+	//	innerCount = max_innerCount;
+	//	dtInner = deltaTimeSec / innerCount;
+	//}
+	//if (dtInner < min_dtInner) {
+	//	dtInner = min_dtInner;
+	//	innerCount = deltaTimeSec / dtInner;
+	//}
+
+	//for (int i = 0; i<innerCount; i++) {
+	//	updateModel(dtInner);
+	//}
+
+	if (deltaTimeSec > 10) {
+		deltaTimeSec = 10;
+	}
+	int iterations = int(ceil(60 * deltaTimeSec));
+	for (int i = 0; i < iterations; i++) {
+		if (i > 1) std::cout << i << std::endl;
+		updateModel(deltaTimeSec / iterations);
+	}	
 }
 
 void ParticleEmitter::start()

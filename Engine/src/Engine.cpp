@@ -210,6 +210,9 @@ void Engine::loadScene(std::string path)
 				case RANDOM:
 					config.setRandomVelocity(element.particles.minVelocity, element.particles.maxVelocity);
 					break;
+				case FIXED:
+					config.setFixedVelocity(element.particles.velocity);					
+					break;
 				default:
 					break;
 			}

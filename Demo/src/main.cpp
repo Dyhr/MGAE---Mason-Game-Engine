@@ -69,7 +69,7 @@ void loadScene(int index) {
 	//engine.scene->getGameObject(8)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_kinematicBody);
 	//auto b6 = engine.scene->getGameObject(8)->addComponent<BoxCollider2D>();
 	//b6->setSize(55, 45);
-	engine.loadScene("data/demo1.json");
+	engine.loadScene("data/demoParticles.json");
 }
 
 
