@@ -70,6 +70,7 @@ void loadScene(int index) {
 	//auto b6 = engine.scene->getGameObject(8)->addComponent<BoxCollider2D>();
 	//b6->setSize(55, 45);
 	engine.loadScene("data/demoParticles.json");
+	engine.scene->getGameObject(0)->addComponent<PlayerController>();
 }
 
 
