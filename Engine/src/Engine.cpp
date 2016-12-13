@@ -11,6 +11,9 @@
 #include "Mason/Camera.hpp"
 #include "Mason/InputManager.h"
 #include "Mason/Script.hpp"
+#include "Mason/PhysicsBody2D.hpp"
+#include "Mason/BoxCollider2D.hpp"
+#include "Mason/CircleCollider2D.h"
 
 
 #include <chrono>
@@ -164,6 +167,20 @@ void Engine::loadScene(std::string path)
 			audio->init(element.audio.path, type, audioManager);
 			//This is done here for testing. Should be done from scripts in a real scenario.
 			audio->playMePlease();
+		}
+		if (element.physicsBody2D.found) {
+			auto physicsBody2D = gameObject->addComponent<PhysicsBody2D>();
+			physicsBody2D->body->SetType(element.physicsBody2D.type);
+		}
+		if (element.boxCollider.found) {
+			auto box = gameObject->addComponent<BoxCollider2D>();
+			box->setCenter(element.boxCollider.center.x, element.boxCollider.center.y);
+			box->setSize(element.boxCollider.width, element.boxCollider.height);
+		}
+		if (element.circleCollider.found) {
+			auto circle = gameObject->addComponent<CircleCollider2D>();
+			circle->setCenter(element.circleCollider.center.x, element.circleCollider.center.y);
+			circle->setSize(element.circleCollider.radius);
 		}
 		if (element.particles.found) {
 			auto emitter = gameObject->addComponent<ParticleEmitter>();

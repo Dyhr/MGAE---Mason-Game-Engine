@@ -4,6 +4,8 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include "Mason/ParticleEmitter.hpp"
+#include "Mason\Collider2D.hpp"
+#include "Box2D\Box2D.h"
 
 
 namespace Mason {
@@ -56,6 +58,27 @@ namespace Mason {
 		glm::vec4 color = glm::vec4(1, 1, 1, 1);
 	};
 
+	class PhysicsBodyDescriptor {
+	public:
+		bool found = false;
+		b2BodyType type;		
+	};
+
+	class BoxColliderDescriptor {
+	public:
+		bool found = false;
+		glm::vec2 center;
+		float width;
+		float height;
+	};
+
+	class CircleColliderDescriptor {
+	public:
+		bool found = false;
+		glm::vec2 center = glm::vec2(0, 0);
+		float radius = 1;
+	};
+
 	class TransformDescriptor {
 	public:
 		glm::vec3 position = glm::vec3(0, 0, 0);
@@ -82,6 +105,9 @@ namespace Mason {
 		CameraDescriptor camera;
 		AudioDescriptor audio;
 		ParticleDescriptor particles;
+		CircleColliderDescriptor circleCollider;
+		BoxColliderDescriptor boxCollider;
+		PhysicsBodyDescriptor physicsBody2D;
 	};
 
 
