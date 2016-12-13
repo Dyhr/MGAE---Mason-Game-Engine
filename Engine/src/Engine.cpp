@@ -12,14 +12,16 @@
 #include "Mason/InputManager.h"
 #include "Mason/Script.hpp"
 
+
 #include <chrono>
 #include <iostream>
+#include <map>
+
 #include <SDL_timer.h>
 #include <SRE/Shader.hpp>
 #include <SRE/SimpleRenderEngine.hpp>
 #include <glm/glm.hpp>
 #include <SDL.h>
-#include <map>
 #include <imgui.h>
 #include <SRE/imgui_sre.hpp>
 
@@ -27,10 +29,8 @@ using namespace glm;
 using namespace Mason;
 
 
-ImVec4 clear_color;
 bool show_another_window;
 int numberSprites;
-SRE::Texture* tex;
 
 Engine::Engine()
 {
@@ -74,18 +74,13 @@ Engine::Engine()
 	//GUI
 	ImGui_SRE_Init(window);
 	show_another_window = true;
-	clear_color = ImColor(114, 144, 154);
 
 	running = paused = false;
 	scene = new Scene();
-
-
-	tex = SRE::Texture::createFromFile("data/dice.PNG", false);
 }
 Engine::~Engine()
 {
 	delete scene;
-	delete tex;
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
@@ -111,9 +106,7 @@ void Engine::start() {
 
 		// Update the engine
 		update(deltaTimeSec);
-/*		if (deltaTimeSec > 1) {
-			std::cout << deltaTimeSec << std::endl;
-		}	*/	
+
 		int updateTimeMillis = static_cast<int>(duration_cast<milliseconds>(Clock::now() - t2).count());
 		int wait = timePerFrameMillis - updateTimeMillis;
 		if (wait > 0) {
@@ -288,10 +281,11 @@ void Engine::update(float deltaTimeSec) {
 				particleEmitter->render();
 			}
 		}
+
+		physics->world.DrawDebugData();
 	}
 
 	if (showDebugGUI) DebugUI();
-	physics->world.DrawDebugData();
 	sre->swapWindow();
 
 }
