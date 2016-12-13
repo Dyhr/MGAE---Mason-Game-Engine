@@ -10,6 +10,7 @@
 #include "Mason/LeakDetection.h"
 #include "Mason/Camera.hpp"
 #include "Mason/InputManager.h"
+#include "Mason/Script.hpp"
 
 #include <chrono>
 #include <iostream>
@@ -21,7 +22,6 @@
 #include <map>
 #include <imgui.h>
 #include <SRE/imgui_sre.hpp>
-#include <boost/filesystem.hpp>
 
 using namespace glm;
 using namespace Mason;

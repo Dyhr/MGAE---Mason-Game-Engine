@@ -41,11 +41,6 @@ find_package(GLM REQUIRED)
 include_directories(${GLM_INCLUDE_DIR})
 
 
-# Boost
-find_package(Boost REQUIRED)
-include_directories(${Boost_INCLUDE_DIR})
-
-
 find_package(SRE REQUIRED)
 if (SRE_FOUND)
     include_directories(${SRE_INCLUDE_DIR})

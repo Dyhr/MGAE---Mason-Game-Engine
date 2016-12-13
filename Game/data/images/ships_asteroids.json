@@ -1,0 +1,1010 @@
+[
+  {
+    "filename": "asteroid1",
+    "x": 304,
+    "y": 289,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid2",
+    "x": 68,
+    "y": 245,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid3",
+    "x": 49,
+    "y": 147,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid4",
+    "x": 329,
+    "y": 238,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid5",
+    "x": 279,
+    "y": 198,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid6",
+    "x": 147,
+    "y": 0,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid7",
+    "x": 63,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid8",
+    "x": 329,
+    "y": 187,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid9",
+    "x": 304,
+    "y": 132,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid10",
+    "x": 216,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid11",
+    "x": 119,
+    "y": 311,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid12",
+    "x": 213,
+    "y": 41,
+    "width": 32,
+    "height": 40
+  },
+  {
+    "filename": "asteroid13",
+    "x": 329,
+    "y": 17,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid14",
+    "x": 34,
+    "y": 278,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid15",
+    "x": 49,
+    "y": 0,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid16",
+    "x": 329,
+    "y": 272,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid17",
+    "x": 136,
+    "y": 278,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid18",
+    "x": 180,
+    "y": 0,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid19",
+    "x": 126,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid20",
+    "x": 255,
+    "y": 311,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid21",
+    "x": 279,
+    "y": 66,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid22",
+    "x": 171,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid23",
+    "x": 102,
+    "y": 311,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid24",
+    "x": 213,
+    "y": 123,
+    "width": 32,
+    "height": 40
+  },
+  {
+    "filename": "asteroid25",
+    "x": 238,
+    "y": 311,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid26",
+    "x": 102,
+    "y": 278,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid27",
+    "x": 49,
+    "y": 98,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid28",
+    "x": 0,
+    "y": 336,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid29",
+    "x": 246,
+    "y": 205,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid30",
+    "x": 147,
+    "y": 98,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid31",
+    "x": 45,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid32",
+    "x": 221,
+    "y": 311,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid33",
+    "x": 279,
+    "y": 33,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid34",
+    "x": 180,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid35",
+    "x": 85,
+    "y": 311,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid36",
+    "x": 246,
+    "y": 41,
+    "width": 32,
+    "height": 40
+  },
+  {
+    "filename": "asteroid37",
+    "x": 329,
+    "y": 68,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid38",
+    "x": 238,
+    "y": 245,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid39",
+    "x": 0,
+    "y": 147,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid40",
+    "x": 9,
+    "y": 336,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid41",
+    "x": 304,
+    "y": 198,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid42",
+    "x": 0,
+    "y": 196,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid43",
+    "x": 117,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid44",
+    "x": 306,
+    "y": 311,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid45",
+    "x": 211,
+    "y": 278,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid46",
+    "x": 198,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid47",
+    "x": 51,
+    "y": 311,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid48",
+    "x": 213,
+    "y": 0,
+    "width": 32,
+    "height": 40
+  },
+  {
+    "filename": "asteroid49",
+    "x": 329,
+    "y": 85,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid50",
+    "x": 170,
+    "y": 245,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid51",
+    "x": 0,
+    "y": 49,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid52",
+    "x": 198,
+    "y": 196,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid53",
+    "x": 279,
+    "y": 99,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid54",
+    "x": 66,
+    "y": 196,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid55",
+    "x": 81,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid56",
+    "x": 272,
+    "y": 311,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid57",
+    "x": 304,
+    "y": 33,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid58",
+    "x": 225,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid59",
+    "x": 34,
+    "y": 311,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid60",
+    "x": 213,
+    "y": 164,
+    "width": 32,
+    "height": 40
+  },
+  {
+    "filename": "asteroid61",
+    "x": 329,
+    "y": 51,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid62",
+    "x": 34,
+    "y": 245,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid63",
+    "x": 98,
+    "y": 49,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid64",
+    "x": 36,
+    "y": 336,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid65",
+    "x": 186,
+    "y": 278,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid66",
+    "x": 147,
+    "y": 147,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid67",
+    "x": 54,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid68",
+    "x": 204,
+    "y": 311,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid69",
+    "x": 236,
+    "y": 278,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid70",
+    "x": 162,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid71",
+    "x": 17,
+    "y": 311,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid72",
+    "x": 246,
+    "y": 0,
+    "width": 32,
+    "height": 40
+  },
+  {
+    "filename": "asteroid73",
+    "x": 329,
+    "y": 221,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid74",
+    "x": 102,
+    "y": 245,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid75",
+    "x": 0,
+    "y": 0,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid76",
+    "x": 27,
+    "y": 336,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid77",
+    "x": 279,
+    "y": 165,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid78",
+    "x": 180,
+    "y": 147,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid79",
+    "x": 135,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid80",
+    "x": 329,
+    "y": 102,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid81",
+    "x": 279,
+    "y": 264,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid82",
+    "x": 207,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid83",
+    "x": 304,
+    "y": 264,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid84",
+    "x": 213,
+    "y": 82,
+    "width": 32,
+    "height": 40
+  },
+  {
+    "filename": "asteroid85",
+    "x": 170,
+    "y": 311,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid86",
+    "x": 0,
+    "y": 278,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid87",
+    "x": 98,
+    "y": 0,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid88",
+    "x": 329,
+    "y": 289,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid89",
+    "x": 304,
+    "y": 165,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid90",
+    "x": 33,
+    "y": 196,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid91",
+    "x": 108,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid92",
+    "x": 289,
+    "y": 311,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid93",
+    "x": 304,
+    "y": 0,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid94",
+    "x": 243,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid95",
+    "x": 0,
+    "y": 311,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid96",
+    "x": 132,
+    "y": 196,
+    "width": 32,
+    "height": 40
+  },
+  {
+    "filename": "asteroid97",
+    "x": 329,
+    "y": 34,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid98",
+    "x": 204,
+    "y": 245,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid99",
+    "x": 98,
+    "y": 147,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid100",
+    "x": 198,
+    "y": 213,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid101",
+    "x": 279,
+    "y": 132,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid102",
+    "x": 180,
+    "y": 98,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid103",
+    "x": 90,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid104",
+    "x": 329,
+    "y": 153,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid105",
+    "x": 213,
+    "y": 205,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid106",
+    "x": 252,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid107",
+    "x": 153,
+    "y": 311,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid108",
+    "x": 165,
+    "y": 196,
+    "width": 32,
+    "height": 40
+  },
+  {
+    "filename": "asteroid109",
+    "x": 329,
+    "y": 136,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid110",
+    "x": 68,
+    "y": 278,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid111",
+    "x": 0,
+    "y": 98,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid112",
+    "x": 329,
+    "y": 255,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid113",
+    "x": 304,
+    "y": 231,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid114",
+    "x": 180,
+    "y": 49,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid115",
+    "x": 144,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid116",
+    "x": 329,
+    "y": 170,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid117",
+    "x": 279,
+    "y": 231,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid118",
+    "x": 153,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid119",
+    "x": 68,
+    "y": 311,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid120",
+    "x": 246,
+    "y": 82,
+    "width": 32,
+    "height": 40
+  },
+  {
+    "filename": "asteroid121",
+    "x": 187,
+    "y": 311,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid122",
+    "x": 0,
+    "y": 245,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid123",
+    "x": 98,
+    "y": 98,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid124",
+    "x": 18,
+    "y": 336,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid125",
+    "x": 304,
+    "y": 66,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid126",
+    "x": 99,
+    "y": 196,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid127",
+    "x": 99,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid128",
+    "x": 329,
+    "y": 0,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid129",
+    "x": 161,
+    "y": 278,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid130",
+    "x": 189,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid131",
+    "x": 261,
+    "y": 278,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid132",
+    "x": 246,
+    "y": 123,
+    "width": 32,
+    "height": 40
+  },
+  {
+    "filename": "asteroid133",
+    "x": 329,
+    "y": 204,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid134",
+    "x": 136,
+    "y": 245,
+    "width": 33,
+    "height": 32
+  },
+  {
+    "filename": "asteroid135",
+    "x": 49,
+    "y": 49,
+    "width": 48,
+    "height": 48
+  },
+  {
+    "filename": "asteroid136",
+    "x": 329,
+    "y": 306,
+    "width": 8,
+    "height": 16
+  },
+  {
+    "filename": "asteroid137",
+    "x": 279,
+    "y": 0,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid138",
+    "x": 147,
+    "y": 49,
+    "width": 32,
+    "height": 48
+  },
+  {
+    "filename": "asteroid139",
+    "x": 72,
+    "y": 336,
+    "width": 8,
+    "height": 13
+  },
+  {
+    "filename": "asteroid140",
+    "x": 329,
+    "y": 119,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "filename": "asteroid141",
+    "x": 304,
+    "y": 99,
+    "width": 24,
+    "height": 32
+  },
+  {
+    "filename": "asteroid142",
+    "x": 234,
+    "y": 336,
+    "width": 8,
+    "height": 8
+  },
+  {
+    "filename": "asteroid143",
+    "x": 136,
+    "y": 311,
+    "width": 16,
+    "height": 24
+  },
+  {
+    "filename": "asteroid144",
+    "x": 246,
+    "y": 164,
+    "width": 32,
+    "height": 40
+  }
+]
