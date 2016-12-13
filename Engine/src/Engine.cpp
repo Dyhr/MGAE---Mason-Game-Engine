@@ -113,7 +113,9 @@ void Engine::start() {
 
 		// Update the engine
 		update(deltaTimeSec);
-
+/*		if (deltaTimeSec > 1) {
+			std::cout << deltaTimeSec << std::endl;
+		}	*/	
 		int updateTimeMillis = static_cast<int>(duration_cast<milliseconds>(Clock::now() - t2).count());
 		int wait = timePerFrameMillis - updateTimeMillis;
 		if (wait > 0) {
@@ -208,6 +210,9 @@ void Engine::loadScene(std::string path)
 				case RANDOM:
 					config.setRandomVelocity(element.particles.minVelocity, element.particles.maxVelocity);
 					break;
+				case FIXED:
+					config.setFixedVelocity(element.particles.velocity);					
+					break;
 				default:
 					break;
 			}
@@ -284,7 +289,7 @@ void Engine::update(float deltaTimeSec) {
 		// update particle emitters
 		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
 			if (particleEmitter) {
-				particleEmitter->update();
+				particleEmitter->update(deltaTimeSec);
 			}
 		}
 
@@ -314,7 +319,7 @@ void Engine::update(float deltaTimeSec) {
 
 		// render particle emitters
 		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
-			if (particleEmitter) {
+			if (particleEmitter) {				
 				particleEmitter->render();
 			}
 		}

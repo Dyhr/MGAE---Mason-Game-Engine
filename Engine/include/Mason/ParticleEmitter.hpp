@@ -97,6 +97,10 @@ namespace Mason {
 		void setGravity(glm::vec3 _gravity) {
 			gravity = _gravity;
 		}
+		void setFixedVelocity(glm::vec3 vel) {
+			velocity = vel;
+			velocityState = FIXED;
+		}
 		void setRandomVelocity(glm::vec3 minVel, glm::vec3 maxVel) {
 			minVelocity = minVel;
 			maxVelocity = maxVel;
@@ -200,7 +204,7 @@ namespace Mason {
 		~ParticleEmitter();
 
 		void init(ParticleEmitterConfig config);
-		void update();
+		void update(float deltaTimeSec);
 		void start();
 		void stop();
 		bool running();
@@ -216,17 +220,17 @@ namespace Mason {
 		std::vector<float> uvRotation = std::vector<float>();
 		int totalParticles = 0;
 		std::vector<float> birthTimes = std::vector<float>();
-		std::vector<float> times = std::vector<float>();
+		std::vector<float> age = std::vector<float>();
 		std::vector<glm::vec3> velocities = std::vector<glm::vec3>();
 
 		glm::vec2 cubicBezier(float t, std::vector<glm::vec2> splinePoints);
-
+		void updateModel(float deltaTimeSec);
 		ParticleEmitter(GameObject *gameObject);
 
 		ParticleEmitterConfig config;
 		int numParticles, maxParticles, pos;
 		float startTime;
-
+		float lastUpdateTime = 0;
 		friend class GameObject;
 	};
 }
