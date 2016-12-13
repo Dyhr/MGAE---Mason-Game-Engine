@@ -131,7 +131,7 @@ void Engine::loadScene(std::string path)
 	auto sceneDescriptor = SceneParser::parseFile(path);
 	SDL_SetWindowTitle(window, sceneDescriptor.name.c_str());
 
-
+	std::map<std::string, SpriteAtlas> map_spriteatlas;
 	SpriteAtlas atlas("data/", "data/MarioPacked.json"); // TODO asset pipeline
 
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
