@@ -91,6 +91,11 @@ void loadScene(int index) {
 		engine.scene->getGameObject(17)->addComponent<PlayerController>();
 		t->setSize(55, 45);
 	}
+	if (index == 1) {
+		engine.loadScene("data/demoParticles.json");
+		engine.scene->getGameObject(0)->addComponent<PlayerController>();
+	}
+
 }
 
 
