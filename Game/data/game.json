@@ -1,5 +1,6 @@
 {
   "scenename": "Asteroids",
+  "imagepath": "data/images", 
   "gameobjects": [
     {
       "uniqueId": 100,

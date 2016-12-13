@@ -49,13 +49,6 @@ namespace Mason {
 		std::vector<glm::vec2> splinePointsRotation;
 	};
 
-	class MeshDescriptor {
-	public:
-		bool found = false;
-		std::string name = "";
-		glm::vec4 color = glm::vec4(1, 1, 1, 1);
-	};
-
 	class SpriteDescriptor {
 	public:
 		bool found = false;
@@ -85,7 +78,6 @@ namespace Mason {
 		int uniqueId = 0;
 
 		TransformDescriptor transform;
-		MeshDescriptor mesh;
 		SpriteDescriptor sprite;
 		CameraDescriptor camera;
 		AudioDescriptor audio;
@@ -93,9 +85,20 @@ namespace Mason {
 	};
 
 
+	class SceneDescriptor {
+	public:
+		std::string name = "Scene";
+
+		std::string imagepath = "data/images";
+		std::string soundpath = "data/sounds";
+
+		std::vector<GameObjectDescriptor> gameobjects;
+	};
+
+
 
 	class SceneParser {
 	public:
-		static std::vector<GameObjectDescriptor> parseFile(std::string filename);
+		static SceneDescriptor parseFile(std::string filename);
 	};
 }

@@ -2,7 +2,6 @@
 
 #include "Mason/SceneParser.hpp"
 #include "Mason/Transform.h"
-#include "Mason/Rendering.h"
 #include "Mason/Physics.hpp"
 #include "Mason/ParticleEmitter.hpp"
 #include "Mason/Time.hpp"
@@ -15,7 +14,6 @@
 #include <chrono>
 #include <iostream>
 #include <SDL_timer.h>
-#include <SRE/Mesh.hpp>
 #include <SRE/Shader.hpp>
 #include <SRE/SimpleRenderEngine.hpp>
 #include <glm/glm.hpp>
@@ -127,24 +125,17 @@ void Engine::start() {
 
 void Engine::loadScene(std::string path)
 {
-	//Necessary?
-	for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
-		if (particleEmitter) {
-			particleEmitter->clear();
-		}
-	}
 	delete scene;
 	scene = new Scene();
 
-	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
+	auto sceneDescriptor = SceneParser::parseFile(path);
+	SDL_SetWindowTitle(window, sceneDescriptor.name.c_str());
 
-	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile(path);
 
 	SpriteAtlas atlas("data/", "data/MarioPacked.json"); // TODO asset pipeline
-	SRE::Shader* shader = SRE::Shader::getStandard();
-	auto cubeMesh = SRE::Mesh::createCube();
-	auto planeMesh = SRE::Mesh::createQuad();
-	auto sphereMesh = SRE::Mesh::createSphere();
+
+	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
+	auto gameObjectDescriptors = sceneDescriptor.gameobjects;
 	for (auto element : gameObjectDescriptors) {
 		auto gameObject = scene->addGameObject(element.name);
 		if (element.camera.found)
@@ -160,24 +151,6 @@ void Engine::loadScene(std::string path)
 			transformComponent->setPosition(element.transform.position);
 			transformComponent->setRotation(element.transform.rotationEuler);
 			transformComponent->setScale(element.transform.scale);
-		}
-
-		if (element.mesh.found) {
-			SRE::Mesh* mesh;
-			if (element.mesh.name == "sphere")
-				mesh = sphereMesh;
-			else if (element.mesh.name == "cube")
-				mesh = cubeMesh;
-			else if (element.mesh.name == "plane")
-				mesh = planeMesh;
-			else
-				throw "Undefined mesh";
-
-			auto renderingComponent = gameObject->addComponent<Rendering>();
-
-			renderingComponent->loadMesh(std::make_shared<SRE::Mesh>(*mesh));
-			renderingComponent->loadShader(std::make_shared<SRE::Shader>(*shader));
-			renderingComponent->setColor(element.mesh.color);
 		}
 
 		if (element.sprite.found)
@@ -300,14 +273,6 @@ void Engine::update(float deltaTimeSec) {
 	for (auto & camera : scene->getAllComponent<Camera>()) {
 
 		sre->setCamera(camera->cam);
-
-		// render game object
-		for (auto & rendering : scene->getAllComponent<Rendering>()) {
-			if (rendering) {
-				rendering->draw();
-				numberSprites++;
-			}
-		}
 
 		// render sprites
 		for (auto & sprite : scene->getAllComponent<SpriteRenderer>()) {

@@ -33,12 +33,17 @@ glm::vec2 to_vec2(picojson::value v) {
 
 
 
-std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
+SceneDescriptor SceneParser::parseFile(std::string filename) {
 	std::fstream file(filename);
 	picojson::value v;
 	file >> v;
 
-	std::vector<GameObjectDescriptor> res;
+	SceneDescriptor scene;
+
+	if (v.contains("scenename")) scene.name = v.get("scenename").get<std::string>();
+	if (v.contains("imagepath")) scene.imagepath = v.get("imagepath").get<std::string>();
+	if (v.contains("soundpath")) scene.soundpath = v.get("soundpath").get<std::string>();
+
 	for (auto o : v.get("gameobjects").get<picojson::array>()) {
 		GameObjectDescriptor d;
 		if(o.contains("name")) d.name = o.get("name").get<std::string>();
@@ -50,13 +55,6 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 			if (t.contains("rotationEuler")) d.transform.rotationEuler = to_vec3(t.get("rotationEuler"));
 			if (t.contains("scale")) d.transform.scale = to_vec3(t.get("scale"));
 			if (t.contains("parentId")) d.transform.parentId = int(t.get("parentId").get<double>());
-		}
-
-		if (o.contains("mesh")) {
-			d.mesh.found = true;
-			auto m = o.get("mesh");
-			if (m.contains("name")) d.mesh.name = m.get("name").get<std::string>();
-			if (m.contains("color")) d.mesh.color = to_vec4(m.get("color"));
 		}
 
 		if (o.contains("sprite")) {
@@ -137,7 +135,7 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 			}
 		}
 
-		res.push_back(d);
+		scene.gameobjects.push_back(d);
 	}
-	return res;
+	return scene;
 }
