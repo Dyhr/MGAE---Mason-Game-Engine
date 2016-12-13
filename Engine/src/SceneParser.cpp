@@ -66,7 +66,7 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 		if (o.contains("circlecollider")) {
 			auto cc = o.get("circlecollider");
 			d.circleCollider.found = true;
-			if (cc.contains("center")) d.circleCollider.center = to_vec2(cc.get("circlecollider"));
+			if (cc.contains("center")) d.circleCollider.center = to_vec2(cc.get("center"));
 			if (cc.contains("radius")) d.circleCollider.radius = float(cc.get("radius").get<double>());
 		}
 		if (o.contains("physicsbody")) {
