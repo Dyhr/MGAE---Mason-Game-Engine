@@ -4,6 +4,8 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include <map>
+#include <Box2D/Box2D.h>
+#include "Mason/Audio.hpp"
 
 
 namespace Mason {
