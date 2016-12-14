@@ -49,7 +49,7 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 
 	for (auto o : v.get("gameobjects").get<picojson::array>()) {
 		GameObjectDescriptor d;
-		if(o.contains("name")) d.name = o.get("name").get<std::string>();
+		if (o.contains("name")) d.name = o.get("name").get<std::string>();
 		if (o.contains("uniqueId")) d.uniqueId = int(o.get("uniqueId").get<double>());
 
 		if (o.contains("transform")) {
@@ -81,13 +81,34 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 			if (a.contains("type")) d.audio.soundEffect = a.get("type").get<bool>();
 		}
 
+		if (o.contains("scripts") && o.get("scripts").is<picojson::array>()) {
+			auto scripts = o.get("scripts").get<picojson::array>();
+			for (auto s : scripts)
+			{
+				ScriptDescriptor script;
+				if (s.contains("name")) script.name = s.get("name").get<std::string>();
+				if (s.contains("properties")) {
+					for (auto prop : s.get("properties").get<picojson::array>())
+					{
+						if(s.contains(prop.get<std::string>()))
+						{
+							auto p = s.get(prop.get<std::string>());
+							if (p.is<std::string>()) script.strings[prop.get<std::string>()] = p.get<std::string>();
+							if (p.is<double>()) script.numbers[prop.get<std::string>()] = p.get<double>();
+						}
+					}
+				}
+				d.scripts.push_back(script);
+			}
+		}
+
 		if (o.contains("particles")) {
 			d.particles.found = true;
 			auto p = o.get("particles");
 			if (p.contains("texturePath")) d.particles.texturePath = p.get("texturePath").get<std::string>();
 			if (p.contains("rate")) d.particles.rate = float(p.get("rate").get<double>());
 			if (p.contains("lifespan")) d.particles.lifespan = float(p.get("lifespan").get<double>());
-			if (p.contains("velocity")) d.particles.velocity = to_vec3(p.get("velocity"));			
+			if (p.contains("velocity")) d.particles.velocity = to_vec3(p.get("velocity"));
 			if (p.contains("minVelocity")) d.particles.minVelocity = to_vec3(p.get("minVelocity"));
 			if (p.contains("maxVelocity")) d.particles.maxVelocity = to_vec3(p.get("maxVelocity"));
 			if (p.contains("gravity")) d.particles.gravity = to_vec3(p.get("gravity"));
@@ -98,14 +119,14 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 			if (p.contains("minRotation")) d.particles.minRotation = float(p.get("minRotation").get<double>());
 			if (p.contains("maxRotation")) d.particles.minRotation = float(p.get("maxRotation").get<double>());
 			if (p.contains("color")) d.particles.minColor = to_vec4(p.get("color"));
-			if (p.contains("minColor")) d.particles.minColor = to_vec4(p.get("minColor"));			
+			if (p.contains("minColor")) d.particles.minColor = to_vec4(p.get("minColor"));
 			if (p.contains("maxColor")) d.particles.maxColor = to_vec4(p.get("maxColor"));
 			if (p.contains("initialSize")) d.particles.initialSize = float(p.get("initialSize").get<double>());
 			if (p.contains("finalSize")) d.particles.finalSize = float(p.get("finalSize").get<double>());
 			if (p.contains("initialRotation")) d.particles.initialRotation = float(p.get("initialRotation").get<double>());
 			if (p.contains("finalRotation")) d.particles.finalRotation = float(p.get("finalRotation").get<double>());
 			if (p.contains("initialSize")) d.particles.initialSize = float(p.get("initialSize").get<double>());
-			if (p.contains("initialColor")) d.particles.initialColor = to_vec4(p.get("initialColor"));			
+			if (p.contains("initialColor")) d.particles.initialColor = to_vec4(p.get("initialColor"));
 			if (p.contains("finalColor")) d.particles.finalColor = to_vec4(p.get("finalColor"));
 			if (p.contains("velocityState")) d.particles.velocityState = p.get("velocityState").get<std::string>();
 			if (p.contains("rotationState")) d.particles.rotationState = p.get("rotationState").get<std::string>();
@@ -126,7 +147,7 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 					points.push_back(to_vec2(arr[i]));
 				}
 				d.particles.splinePointsColor = points;
-				
+
 			}
 			if (p.contains("splinePointsRotation")) {
 				std::vector<glm::vec2> points;

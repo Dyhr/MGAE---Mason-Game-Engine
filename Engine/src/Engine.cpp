@@ -171,6 +171,14 @@ void Engine::loadScene(std::string path)
 			//This is done here for testing. Should be done from scripts in a real scenario.
 			audio->playMePlease();
 		}
+
+		for(auto s : element.scripts)
+		{
+			auto script = gameObject->addScript(s.name);
+			script->strings = s.strings;
+			script->numbers = s.numbers;
+		}
+
 		if (element.particles.found) {
 			auto emitter = gameObject->addComponent<ParticleEmitter>();
 			ParticleEmitterConfig config(element.particles.rate, element.particles.lifespan, element.particles.velocity, element.particles.gravity);
@@ -256,7 +264,13 @@ void Engine::update(float deltaTimeSec) {
 	InputManager::getInstance()->Handle(this);
 
 	if (!paused) {
-		for (auto & script : scene->getAllComponent<Script>()) script->OnUpdate();
+		for (auto & script : scene->getAllComponent<Script>()) {
+			if (!script->started) {
+				script->started = true;
+				script->OnStart();
+			}
+			script->OnUpdate();
+		}
 
 		// update particle emitters
 		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {

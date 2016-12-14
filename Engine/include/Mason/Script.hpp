@@ -1,31 +1,33 @@
 #pragma once
-#include "Transform.h"
+
+#include "Mason/Transform.h"
 #include "Time.hpp"
 #include <SDL.h>
+#include <iostream>
+#include <map>
 
 namespace Mason {
+
 	class Script : public Component
 	{
 	public:
+
+		static std::map<std::string, Script*(*)(GameObject*)> scripts;
+
 		Script(GameObject* gameObject) :Component(gameObject)
 		{
 			this->gameobject = std::make_shared<GameObject>(*gameObject);
 			this->transform = gameObject->getComponent<Transform>();
-
-			OnAwake();
-		}
-		~Script()
-		{
-			OnDestroy();
 		}
 
 		std::shared_ptr<GameObject> gameobject;
 		std::shared_ptr<Transform> transform;
 
-		virtual void OnAwake() {}
+		std::map<std::string, std::string> strings;
+		std::map<std::string, double> numbers;
+
 		virtual void OnStart() {}
 		virtual void OnUpdate() {}
-		virtual void OnDestroy() {}
 		virtual void OnCollisionEnter(GameObject* other) {}
 		virtual void OnCollisionStay() {}
 		virtual void OnCollisionExit(GameObject* other) {}

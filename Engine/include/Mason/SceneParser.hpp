@@ -3,9 +3,7 @@
 #include <string>
 #include <vector>
 #include <glm/glm.hpp>
-#include "Mason/ParticleEmitter.hpp"
 #include <map>
-#include "SpriteAtlas.h"
 
 
 namespace Mason {
@@ -74,6 +72,14 @@ namespace Mason {
 		bool found = false;
 	};
 
+	class ScriptDescriptor {
+	public:
+		std::string name;
+		std::map<std::string, std::string> strings;
+		std::map<std::string, double> numbers;
+	};
+
+
 	class GameObjectDescriptor {
 	public:
 		std::string name = "Object";
@@ -84,6 +90,7 @@ namespace Mason {
 		CameraDescriptor camera;
 		AudioDescriptor audio;
 		ParticleDescriptor particles;
+		std::vector<ScriptDescriptor> scripts;
 	};
 
 
