@@ -98,7 +98,11 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 			d.audio.found = true;
 			auto a = o.get("audio");
 			if (a.contains("path")) d.audio.path = a.get("path").get<std::string>();
-			if (a.contains("type")) d.audio.soundEffect = a.get("type").get<bool>();
+			if (a.contains("type")) {
+				auto typeString = a.get("type").get<std::string>();
+				if (typeString == "music") d.audio.type = SoundType::MUSIC;
+					else d.audio.type = SoundType::EFFECT;
+			}
 		}
 
 		if (o.contains("particles")) {

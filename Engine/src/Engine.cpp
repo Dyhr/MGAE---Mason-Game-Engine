@@ -156,17 +156,10 @@ void Engine::loadScene(std::string path)
 			// TODO support changing color of sprite
 		}
 		if (element.audio.found) {
-			auto audio = gameObject->addComponent<Audio>();
-			SoundType type;
-			if (element.audio.soundEffect) {
-				type = SoundType::EFFECT;
-			}
-			else {
-				type = SoundType::MUSIC;
-			}
-			audio->init(element.audio.path, type, audioManager);
+			auto audio = gameObject->addComponent<Audio>();			
+			audio->init(element.audio.path, element.audio.type, audioManager);
 			//This is done here for testing. Should be done from scripts in a real scenario.
-			audio->playMePlease();
+			//audio->play();
 		}
 		if (element.physicsBody2D.found) {
 			auto physicsBody2D = gameObject->addComponent<PhysicsBody2D>();

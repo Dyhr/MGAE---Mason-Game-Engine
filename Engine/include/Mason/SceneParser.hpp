@@ -4,8 +4,9 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include "Mason/ParticleEmitter.hpp"
-#include "Mason\Collider2D.hpp"
-#include "Box2D\Box2D.h"
+#include "Mason/Collider2D.hpp"
+#include "Box2D/Box2D.h"
+#include "Audio.hpp"
 
 
 namespace Mason {
@@ -91,7 +92,7 @@ namespace Mason {
 	public:
 		std::string path;
 		//SoundEffect or Music?
-		bool soundEffect;
+		SoundType type;
 		bool found = false;
 	};
 

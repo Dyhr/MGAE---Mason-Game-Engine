@@ -92,4 +92,3 @@ void AudioManager::AddAudioSource(Audio * audioComponent)
 {
 	sourcesToBePlayed.push(audioComponent);
 }
-
