@@ -20,73 +20,139 @@
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/A.wav",
+		"path": "data/sounds/1-octave/A5.wav",
 		"type": "soundeffect"
 	  }
     },
     {
       "uniqueId": 2,
+      "name": "A#",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/A#5.wav",
+		"type": "soundeffect"
+	  }
+    },
+    {
+      "uniqueId": 3,
       "name": "B",
       "transform": {
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/B.wav",
+		"path": "data/sounds/1-octave/B5.wav",
 		"type": "soundeffect"
 	  }
-    },	
+    },			
     {
-      "uniqueId": 3,
+      "uniqueId": 4,
       "name": "C",
       "transform": {
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/C.wav",
+		"path": "data/sounds/1-octave/C5.wav",
 		"type": "soundeffect"
 	  }
     },	
     {
-      "uniqueId": 4,
+      "uniqueId": 5,
+      "name": "C#",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/C#5.wav",
+		"type": "soundeffect"
+	  }
+    },		
+    {
+      "uniqueId": 6,
       "name": "D",
       "transform": {
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/D.wav",
-		"type": "soundeffect"
-	  }
-    },
-    {
-      "uniqueId": 5,
-      "name": "E",
-      "transform": {
-		"position": [0, 0, 0]
-      },
-	  "audio": {
-		"path": "data/sounds/1-octave/E.wav",
-		"type": "soundeffect"
-	  }
-    },
-    {
-      "uniqueId": 6,
-      "name": "F",
-      "transform": {
-		"position": [0, 0, 0]
-      },
-	  "audio": {
-		"path": "data/sounds/1-octave/F.wav",
+		"path": "data/sounds/1-octave/D5.wav",
 		"type": "soundeffect"
 	  }
     },
     {
       "uniqueId": 7,
+      "name": "D#",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/D#5.wav",
+		"type": "soundeffect"
+	  }
+    },	
+    {
+      "uniqueId": 8,
+      "name": "E",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/E5.wav",
+		"type": "soundeffect"
+	  }
+    },	
+    {
+      "uniqueId": 9,
+      "name": "F",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/F5.wav",
+		"type": "soundeffect"
+	  }
+    },
+    {
+      "uniqueId": 10,
+      "name": "F#",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/F#5.wav",
+		"type": "soundeffect"
+	  }
+    },	
+    {
+      "uniqueId": 11,
       "name": "G",
       "transform": {
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/G.wav",
+		"path": "data/sounds/1-octave/G5.wav",
+		"type": "soundeffect"
+	  }
+    },
+    {
+      "uniqueId": 12,
+      "name": "G#",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/G#5.wav",
+		"type": "soundeffect"
+	  }
+    },
+    {
+      "uniqueId": 13,
+      "name": "C6",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/C6.wav",
 		"type": "soundeffect"
 	  }
     }	

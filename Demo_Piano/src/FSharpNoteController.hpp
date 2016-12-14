@@ -6,7 +6,7 @@
 
 using namespace Mason;
 
-class ENoteController : public Script {
+class FSharpNoteController : public Script {
 public:
 	void OnUpdate() override {
 
@@ -14,11 +14,11 @@ public:
 	void OnInput(SDL_Event event) override {
 		if (event.type == SDL_KEYDOWN)
 		{
-			if (event.key.keysym.sym == SDLK_d) gameObject->getComponent<Audio>()->play();
+			if (event.key.keysym.sym == SDLK_t) gameObject->getComponent<Audio>()->play();
 		}
 	}
 protected:
-	ENoteController(GameObject* gameObject) : Script(gameObject)
+	FSharpNoteController(GameObject* gameObject) : Script(gameObject)
 	{
 	}
 	friend GameObject;
