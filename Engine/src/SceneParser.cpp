@@ -33,12 +33,17 @@ glm::vec2 to_vec2(picojson::value v) {
 
 
 
-std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
+SceneDescriptor SceneParser::parseFile(std::string filename) {
 	std::fstream file(filename);
 	picojson::value v;
 	file >> v;
 
-	std::vector<GameObjectDescriptor> res;
+	SceneDescriptor scene;
+
+	if (v.contains("scenename")) scene.name = v.get("scenename").get<std::string>();
+	if (v.contains("imagepath")) scene.imagepath = v.get("imagepath").get<std::string>();
+	if (v.contains("soundpath")) scene.soundpath = v.get("soundpath").get<std::string>();
+
 	for (auto o : v.get("gameobjects").get<picojson::array>()) {
 		GameObjectDescriptor d;
 		if(o.contains("name")) d.name = o.get("name").get<std::string>();
@@ -51,12 +56,28 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 			if (t.contains("scale")) d.transform.scale = to_vec3(t.get("scale"));
 			if (t.contains("parentId")) d.transform.parentId = int(t.get("parentId").get<double>());
 		}
-
-		if (o.contains("mesh")) {
-			d.mesh.found = true;
-			auto m = o.get("mesh");
-			if (m.contains("name")) d.mesh.name = m.get("name").get<std::string>();
-			if (m.contains("color")) d.mesh.color = to_vec4(m.get("color"));
+		if (o.contains("boxcollider")) {
+			auto bc = o.get("boxcollider");
+			d.boxCollider.found = true;
+			if (bc.contains("center")) d.boxCollider.center = to_vec2(bc.get("center"));
+			if (bc.contains("width")) d.boxCollider.width = float(bc.get("width").get<double>());
+			if (bc.contains("height")) d.boxCollider.height = float(bc.get("height").get<double>());
+		}
+		if (o.contains("circlecollider")) {
+			auto cc = o.get("circlecollider");
+			d.circleCollider.found = true;
+			if (cc.contains("center")) d.circleCollider.center = to_vec2(cc.get("center"));
+			if (cc.contains("radius")) d.circleCollider.radius = float(cc.get("radius").get<double>());
+		}
+		if (o.contains("physicsbody")) {
+			auto pb = o.get("physicsbody");
+			d.physicsBody2D.found = true;
+			if (pb.contains("type")) {
+				auto typeString = pb.get("type").get<std::string>();
+				if (typeString == "static") d.physicsBody2D.type = b2BodyType::b2_staticBody;
+					else if (typeString == "dynamic") d.physicsBody2D.type = b2BodyType::b2_dynamicBody;
+					else if (typeString == "kinematic") d.physicsBody2D.type = b2BodyType::b2_kinematicBody;
+			}
 		}
 
 		if (o.contains("sprite")) {
@@ -137,7 +158,7 @@ std::vector<GameObjectDescriptor> SceneParser::parseFile(std::string filename) {
 			}
 		}
 
-		res.push_back(d);
+		scene.gameobjects.push_back(d);
 	}
-	return res;
+	return scene;
 }

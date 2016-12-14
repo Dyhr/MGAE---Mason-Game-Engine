@@ -4,6 +4,8 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include "Mason/ParticleEmitter.hpp"
+#include "Mason\Collider2D.hpp"
+#include "Box2D\Box2D.h"
 
 
 namespace Mason {
@@ -49,18 +51,32 @@ namespace Mason {
 		std::vector<glm::vec2> splinePointsRotation;
 	};
 
-	class MeshDescriptor {
+	class SpriteDescriptor {
 	public:
 		bool found = false;
 		std::string name = "";
 		glm::vec4 color = glm::vec4(1, 1, 1, 1);
 	};
 
-	class SpriteDescriptor {
+	class PhysicsBodyDescriptor {
 	public:
 		bool found = false;
-		std::string name = "";
-		glm::vec4 color = glm::vec4(1, 1, 1, 1);
+		b2BodyType type;		
+	};
+
+	class BoxColliderDescriptor {
+	public:
+		bool found = false;
+		glm::vec2 center;
+		float width;
+		float height;
+	};
+
+	class CircleColliderDescriptor {
+	public:
+		bool found = false;
+		glm::vec2 center = glm::vec2(0, 0);
+		float radius = 1;
 	};
 
 	class TransformDescriptor {
@@ -85,17 +101,30 @@ namespace Mason {
 		int uniqueId = 0;
 
 		TransformDescriptor transform;
-		MeshDescriptor mesh;
 		SpriteDescriptor sprite;
 		CameraDescriptor camera;
 		AudioDescriptor audio;
 		ParticleDescriptor particles;
+		CircleColliderDescriptor circleCollider;
+		BoxColliderDescriptor boxCollider;
+		PhysicsBodyDescriptor physicsBody2D;
+	};
+
+
+	class SceneDescriptor {
+	public:
+		std::string name = "Scene";
+
+		std::string imagepath = "data/images";
+		std::string soundpath = "data/sounds";
+
+		std::vector<GameObjectDescriptor> gameobjects;
 	};
 
 
 
 	class SceneParser {
 	public:
-		static std::vector<GameObjectDescriptor> parseFile(std::string filename);
+		static SceneDescriptor parseFile(std::string filename);
 	};
 }

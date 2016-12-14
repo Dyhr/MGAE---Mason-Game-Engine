@@ -2,7 +2,6 @@
 
 #include "Mason/SceneParser.hpp"
 #include "Mason/Transform.h"
-#include "Mason/Rendering.h"
 #include "Mason/Physics.hpp"
 #include "Mason/ParticleEmitter.hpp"
 #include "Mason/Time.hpp"
@@ -11,28 +10,30 @@
 #include "Mason/LeakDetection.h"
 #include "Mason/Camera.hpp"
 #include "Mason/InputManager.h"
+#include "Mason/Script.hpp"
+#include "Mason/PhysicsBody2D.hpp"
+#include "Mason/BoxCollider2D.hpp"
+#include "Mason/CircleCollider2D.h"
+
 
 #include <chrono>
 #include <iostream>
+#include <map>
+
 #include <SDL_timer.h>
-#include <SRE/Mesh.hpp>
 #include <SRE/Shader.hpp>
 #include <SRE/SimpleRenderEngine.hpp>
 #include <glm/glm.hpp>
 #include <SDL.h>
-#include <map>
 #include <imgui.h>
-#include "SRE/imgui_sre.hpp"
-#include "Mason/Script.hpp"
+#include <SRE/imgui_sre.hpp>
 
 using namespace glm;
 using namespace Mason;
 
 
-ImVec4 clear_color;
 bool show_another_window;
 int numberSprites;
-SRE::Texture* tex;
 
 Engine::Engine()
 {
@@ -76,18 +77,13 @@ Engine::Engine()
 	//GUI
 	ImGui_SRE_Init(window);
 	show_another_window = true;
-	clear_color = ImColor(114, 144, 154);
 
 	running = paused = false;
 	scene = new Scene();
-
-
-	tex = SRE::Texture::createFromFile("data/dice.PNG", false);
 }
 Engine::~Engine()
 {
 	delete scene;
-	delete tex;
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
@@ -113,9 +109,7 @@ void Engine::start() {
 
 		// Update the engine
 		update(deltaTimeSec);
-/*		if (deltaTimeSec > 1) {
-			std::cout << deltaTimeSec << std::endl;
-		}	*/	
+
 		int updateTimeMillis = static_cast<int>(duration_cast<milliseconds>(Clock::now() - t2).count());
 		int wait = timePerFrameMillis - updateTimeMillis;
 		if (wait > 0) {
@@ -127,24 +121,17 @@ void Engine::start() {
 
 void Engine::loadScene(std::string path)
 {
-	//Necessary?
-	for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
-		if (particleEmitter) {
-			particleEmitter->clear();
-		}
-	}
 	delete scene;
 	scene = new Scene();
 
-	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
+	auto sceneDescriptor = SceneParser::parseFile(path);
+	SDL_SetWindowTitle(window, sceneDescriptor.name.c_str());
 
-	std::vector<GameObjectDescriptor> gameObjectDescriptors = SceneParser::parseFile(path);
 
 	SpriteAtlas atlas("data/", "data/MarioPacked.json"); // TODO asset pipeline
-	SRE::Shader* shader = SRE::Shader::getStandard();
-	auto cubeMesh = SRE::Mesh::createCube();
-	auto planeMesh = SRE::Mesh::createQuad();
-	auto sphereMesh = SRE::Mesh::createSphere();
+
+	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
+	auto gameObjectDescriptors = sceneDescriptor.gameobjects;
 	for (auto element : gameObjectDescriptors) {
 		auto gameObject = scene->addGameObject(element.name);
 		if (element.camera.found)
@@ -160,24 +147,6 @@ void Engine::loadScene(std::string path)
 			transformComponent->setPosition(element.transform.position);
 			transformComponent->setRotation(element.transform.rotationEuler);
 			transformComponent->setScale(element.transform.scale);
-		}
-
-		if (element.mesh.found) {
-			SRE::Mesh* mesh;
-			if (element.mesh.name == "sphere")
-				mesh = sphereMesh;
-			else if (element.mesh.name == "cube")
-				mesh = cubeMesh;
-			else if (element.mesh.name == "plane")
-				mesh = planeMesh;
-			else
-				throw "Undefined mesh";
-
-			auto renderingComponent = gameObject->addComponent<Rendering>();
-
-			renderingComponent->loadMesh(std::make_shared<SRE::Mesh>(*mesh));
-			renderingComponent->loadShader(std::make_shared<SRE::Shader>(*shader));
-			renderingComponent->setColor(element.mesh.color);
 		}
 
 		if (element.sprite.found)
@@ -198,6 +167,20 @@ void Engine::loadScene(std::string path)
 			audio->init(element.audio.path, type, audioManager);
 			//This is done here for testing. Should be done from scripts in a real scenario.
 			audio->playMePlease();
+		}
+		if (element.physicsBody2D.found) {
+			auto physicsBody2D = gameObject->addComponent<PhysicsBody2D>();
+			physicsBody2D->body->SetType(element.physicsBody2D.type);
+		}
+		if (element.boxCollider.found) {
+			auto box = gameObject->addComponent<BoxCollider2D>();
+			box->setCenter(element.boxCollider.center.x, element.boxCollider.center.y);
+			box->setSize(element.boxCollider.width, element.boxCollider.height);
+		}
+		if (element.circleCollider.found) {
+			auto circle = gameObject->addComponent<CircleCollider2D>();
+			circle->setCenter(element.circleCollider.center.x, element.circleCollider.center.y);
+			circle->setSize(element.circleCollider.radius);
 		}
 		if (element.particles.found) {
 			auto emitter = gameObject->addComponent<ParticleEmitter>();
@@ -301,14 +284,6 @@ void Engine::update(float deltaTimeSec) {
 
 		sre->setCamera(camera->cam);
 
-		// render game object
-		for (auto & rendering : scene->getAllComponent<Rendering>()) {
-			if (rendering) {
-				rendering->draw();
-				numberSprites++;
-			}
-		}
-
 		// render sprites
 		for (auto & sprite : scene->getAllComponent<SpriteRenderer>()) {
 			if (sprite) {
@@ -323,10 +298,11 @@ void Engine::update(float deltaTimeSec) {
 				particleEmitter->render();
 			}
 		}
+
+		physics->world.DrawDebugData();
 	}
 
 	if (showDebugGUI) DebugUI();
-	physics->world.DrawDebugData();
 	sre->swapWindow();
 
 }
