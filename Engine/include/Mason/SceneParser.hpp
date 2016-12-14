@@ -3,10 +3,9 @@
 #include <string>
 #include <vector>
 #include <glm/glm.hpp>
-#include "Mason/ParticleEmitter.hpp"
-#include "Mason/Collider2D.hpp"
-#include "Box2D/Box2D.h"
-#include "Audio.hpp"
+#include <map>
+#include <Box2D/Box2D.h>
+#include "Mason/Audio.hpp"
 
 
 namespace Mason {
@@ -96,6 +95,14 @@ namespace Mason {
 		bool found = false;
 	};
 
+	class ScriptDescriptor {
+	public:
+		std::string name;
+		std::map<std::string, std::string> strings;
+		std::map<std::string, double> numbers;
+	};
+
+
 	class GameObjectDescriptor {
 	public:
 		std::string name = "Object";
@@ -106,6 +113,7 @@ namespace Mason {
 		CameraDescriptor camera;
 		AudioDescriptor audio;
 		ParticleDescriptor particles;
+		std::vector<ScriptDescriptor> scripts;
 		CircleColliderDescriptor circleCollider;
 		BoxColliderDescriptor boxCollider;
 		PhysicsBodyDescriptor physicsBody2D;
@@ -118,6 +126,8 @@ namespace Mason {
 
 		std::string imagepath = "data/images";
 		std::string soundpath = "data/sounds";
+
+		std::vector<std::string> sprites;
 
 		std::vector<GameObjectDescriptor> gameobjects;
 	};

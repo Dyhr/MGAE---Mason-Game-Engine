@@ -10,26 +10,30 @@
 namespace Mason {
 
 	class Scene;
+	class Script;
 
 	class GameObject {
 	public:
 		~GameObject();
 		GameObject(std::string name);
 
-		std::string GameObject::getName();
-		void GameObject::setName(std::string nm);
+		std::string getName() const;
+		void setName(std::string nm);
 
 		template<typename C>
 		std::shared_ptr<C> addComponent();
 
 		bool removeComponent(std::shared_ptr<Component> ptr);
 
+		std::shared_ptr<Script> addScript(std::string name);
+
 		template<typename C>
 		std::shared_ptr<C> getComponent();
 		template<typename C>
 		std::vector<std::shared_ptr<C>> getComponents();
-		std::shared_ptr<Transform> GameObject::getTransform();
-		void GameObject::setTransform(std::shared_ptr<Transform>);
+
+		std::shared_ptr<Transform> getTransform() const;
+		void setTransform(std::shared_ptr<Transform>);
 
 	private:
 		std::vector<std::shared_ptr<Component>> components;
