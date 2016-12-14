@@ -8,7 +8,9 @@ void CircleCollider2D::setCenter(float x, float y)
 	circleShape.m_p.Set(x,y);
 	
 }
-
+b2Vec2 CircleCollider2D::GetScale() {
+	return (b2Vec2(1.0, 1.0));
+}
 void CircleCollider2D::setSize(float rad)
 {
 	circleShape.m_radius = rad;

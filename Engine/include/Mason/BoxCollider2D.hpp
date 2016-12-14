@@ -8,6 +8,7 @@ namespace Mason {
 	public:
 		void setCenter(float x, float y);
 		void setSize(float width, float height);
+		b2Vec2 GetScale() override;
 	protected:
 		BoxCollider2D(GameObject* gameObject);
 		friend class GameObject;
@@ -15,5 +16,6 @@ namespace Mason {
 		b2PolygonShape polyShape;
 		b2Vec2 center;
 		b2Vec2 size;
+
 	};
 }

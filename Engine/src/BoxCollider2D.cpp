@@ -1,5 +1,6 @@
 ﻿#include "Mason/BoxCollider2D.hpp"
 
+
 using namespace Mason;
 
 void BoxCollider2D::setCenter(float x, float y)
@@ -19,4 +20,8 @@ BoxCollider2D::BoxCollider2D(GameObject* gameObject): Collider2D(gameObject)
 	shape = &polyShape;
 	setCenter(0, 0);
 	setSize(1, 1);
+}
+
+ b2Vec2 BoxCollider2D::GetScale() {
+	 return (b2Vec2(1.0, 1.0));
 }

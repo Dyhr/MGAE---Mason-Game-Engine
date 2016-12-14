@@ -28,6 +28,7 @@ SpriteAtlas::SpriteAtlas(std::string atlasJsonDataDirectory, std::string atlasJs
 	for (auto frame : frames) {
 		value coords = frame.get("frame");
 		value pivot = frame.get("pivot");
+		value pixelsperunit = frame.get("pixelsperunit");
 
 		sprites[frame.get("filename").get<std::string>()] = std::make_shared<Sprite>(
 			int(coords.get("x").get<double>()),

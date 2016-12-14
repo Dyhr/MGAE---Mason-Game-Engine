@@ -113,7 +113,7 @@ void LeakDetection::TotalPhysMem() {
 void LeakDetection::CurrentPhysMem() {
 	MEMORYSTATUSEX memInfo;
 	memInfo.dwLength = sizeof(MEMORYSTATUSEX);
-	GlobalMemoryStatusEx(&memInfo);
+	MemoryStatusEx(&memInfo);
 	DWORDLONG physMemUsed = memInfo.ullTotalPhys - memInfo.ullAvailPhys;
 }
 

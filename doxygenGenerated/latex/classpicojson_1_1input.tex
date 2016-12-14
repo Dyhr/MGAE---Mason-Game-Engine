@@ -1,0 +1,134 @@
+\hypertarget{classpicojson_1_1input}{}\section{picojson\+:\+:input$<$ Iter $>$ Class Template Reference}
+\label{classpicojson_1_1input}\index{picojson\+::input$<$ Iter $>$@{picojson\+::input$<$ Iter $>$}}
+
+
+{\ttfamily \#include $<$picojson.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpicojson_1_1input_ab1ca217622d921118707de9e9011a62f}{input} (const Iter \&first, const Iter \&last)
+\item 
+int \hyperlink{classpicojson_1_1input_a3e8ba0b09a989efa0dc583096984ea8e}{getc} ()
+\item 
+void \hyperlink{classpicojson_1_1input_a96ccc244e73b2ab87ded38c98e98d573}{ungetc} ()
+\item 
+Iter \hyperlink{classpicojson_1_1input_ab2933aa5b68e73877fd331b925f4bf40}{cur} () const
+\item 
+int \hyperlink{classpicojson_1_1input_a5852aded6d48e28542f23fe0083a51fa}{line} () const
+\item 
+void \hyperlink{classpicojson_1_1input_aa83aefe87374a5e24ab8c8e80fef4aa4}{skip\+\_\+ws} ()
+\item 
+bool \hyperlink{classpicojson_1_1input_a14c29e99d9c9aa8cdbb46178c434d663}{expect} (int expect)
+\item 
+bool \hyperlink{classpicojson_1_1input_ad15f360122daf49ddf7a2a8591fa4364}{match} (const std\+::string \&pattern)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Iter \hyperlink{classpicojson_1_1input_afb97b3422a91d0f3388527a5999c8174}{cur\+\_\+}
+\item 
+Iter \hyperlink{classpicojson_1_1input_acb4fd4c90d1b0db37bc32ccae16361ab}{end\+\_\+}
+\item 
+bool \hyperlink{classpicojson_1_1input_af07464e7d4f25b902d65d8f8ee79b8a6}{consumed\+\_\+}
+\item 
+int \hyperlink{classpicojson_1_1input_a7bbb41c7f78ffc19d3219e38c2858b74}{line\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classpicojson_1_1input_ab1ca217622d921118707de9e9011a62f}{}\label{classpicojson_1_1input_ab1ca217622d921118707de9e9011a62f} 
+\index{picojson\+::input@{picojson\+::input}!input@{input}}
+\index{input@{input}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{input()}{input()}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+\hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::\hyperlink{classpicojson_1_1input}{input} (\begin{DoxyParamCaption}\item[{const Iter \&}]{first,  }\item[{const Iter \&}]{last }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classpicojson_1_1input_ab2933aa5b68e73877fd331b925f4bf40}{}\label{classpicojson_1_1input_ab2933aa5b68e73877fd331b925f4bf40} 
+\index{picojson\+::input@{picojson\+::input}!cur@{cur}}
+\index{cur@{cur}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{cur()}{cur()}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+Iter \hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::cur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1input_a14c29e99d9c9aa8cdbb46178c434d663}{}\label{classpicojson_1_1input_a14c29e99d9c9aa8cdbb46178c434d663} 
+\index{picojson\+::input@{picojson\+::input}!expect@{expect}}
+\index{expect@{expect}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{expect()}{expect()}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+bool \hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::expect (\begin{DoxyParamCaption}\item[{int}]{expect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1input_a3e8ba0b09a989efa0dc583096984ea8e}{}\label{classpicojson_1_1input_a3e8ba0b09a989efa0dc583096984ea8e} 
+\index{picojson\+::input@{picojson\+::input}!getc@{getc}}
+\index{getc@{getc}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{getc()}{getc()}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+int \hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::getc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1input_a5852aded6d48e28542f23fe0083a51fa}{}\label{classpicojson_1_1input_a5852aded6d48e28542f23fe0083a51fa} 
+\index{picojson\+::input@{picojson\+::input}!line@{line}}
+\index{line@{line}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{line()}{line()}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+int \hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1input_ad15f360122daf49ddf7a2a8591fa4364}{}\label{classpicojson_1_1input_ad15f360122daf49ddf7a2a8591fa4364} 
+\index{picojson\+::input@{picojson\+::input}!match@{match}}
+\index{match@{match}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+bool \hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::match (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{pattern }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1input_aa83aefe87374a5e24ab8c8e80fef4aa4}{}\label{classpicojson_1_1input_aa83aefe87374a5e24ab8c8e80fef4aa4} 
+\index{picojson\+::input@{picojson\+::input}!skip\+\_\+ws@{skip\+\_\+ws}}
+\index{skip\+\_\+ws@{skip\+\_\+ws}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{skip\+\_\+ws()}{skip\_ws()}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+void \hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::skip\+\_\+ws (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1input_a96ccc244e73b2ab87ded38c98e98d573}{}\label{classpicojson_1_1input_a96ccc244e73b2ab87ded38c98e98d573} 
+\index{picojson\+::input@{picojson\+::input}!ungetc@{ungetc}}
+\index{ungetc@{ungetc}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{ungetc()}{ungetc()}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+void \hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::ungetc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classpicojson_1_1input_af07464e7d4f25b902d65d8f8ee79b8a6}{}\label{classpicojson_1_1input_af07464e7d4f25b902d65d8f8ee79b8a6} 
+\index{picojson\+::input@{picojson\+::input}!consumed\+\_\+@{consumed\+\_\+}}
+\index{consumed\+\_\+@{consumed\+\_\+}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{consumed\+\_\+}{consumed\_}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+bool \hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::consumed\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{classpicojson_1_1input_afb97b3422a91d0f3388527a5999c8174}{}\label{classpicojson_1_1input_afb97b3422a91d0f3388527a5999c8174} 
+\index{picojson\+::input@{picojson\+::input}!cur\+\_\+@{cur\+\_\+}}
+\index{cur\+\_\+@{cur\+\_\+}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{cur\+\_\+}{cur\_}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+Iter \hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::cur\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{classpicojson_1_1input_acb4fd4c90d1b0db37bc32ccae16361ab}{}\label{classpicojson_1_1input_acb4fd4c90d1b0db37bc32ccae16361ab} 
+\index{picojson\+::input@{picojson\+::input}!end\+\_\+@{end\+\_\+}}
+\index{end\+\_\+@{end\+\_\+}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{end\+\_\+}{end\_}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+Iter \hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::end\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{classpicojson_1_1input_a7bbb41c7f78ffc19d3219e38c2858b74}{}\label{classpicojson_1_1input_a7bbb41c7f78ffc19d3219e38c2858b74} 
+\index{picojson\+::input@{picojson\+::input}!line\+\_\+@{line\+\_\+}}
+\index{line\+\_\+@{line\+\_\+}!picojson\+::input@{picojson\+::input}}
+\subsubsection{\texorpdfstring{line\+\_\+}{line\_}}
+{\footnotesize\ttfamily template$<$typename Iter$>$ \\
+int \hyperlink{classpicojson_1_1input}{picojson\+::input}$<$ Iter $>$\+::line\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/include/\hyperlink{picojson_8h}{picojson.\+h}\end{DoxyCompactItemize}

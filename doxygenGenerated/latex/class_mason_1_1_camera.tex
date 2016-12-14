@@ -1,0 +1,190 @@
+\hypertarget{class_mason_1_1_camera}{}\section{Mason\+:\+:Camera Class Reference}
+\label{class_mason_1_1_camera}\index{Mason\+::\+Camera@{Mason\+::\+Camera}}
+
+
+{\ttfamily \#include $<$Camera.\+hpp$>$}
+
+Inheritance diagram for Mason\+:\+:Camera\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_mason_1_1_camera}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_mason_1_1_camera_a732501ee31e862f557bbbc8ff58631a4}{set\+Scale} (glm\+::vec3 \hyperlink{class_mason_1_1_transform_a4618b31e34a6ec8a0ee638401fc56367}{scale}) override
+\item 
+void \hyperlink{class_mason_1_1_camera_a69f184af46d081b85209040bbe814cbb}{set\+Position} (glm\+::vec3 \hyperlink{class_mason_1_1_transform_ac9e11b4ec4433a38ac1100f12c955dcb}{position}) override
+\item 
+glm\+::vec3 \hyperlink{class_mason_1_1_camera_a405b26eaaae2ab7a460dfc319a9d16ea}{get\+Scale} () override
+\item 
+glm\+::vec3 \hyperlink{class_mason_1_1_camera_a71560b8b6216a542ae1958bd91a4361d}{get\+Position} () override
+\item 
+glm\+::vec2 \hyperlink{class_mason_1_1_camera_a0d2d26d8b7b80ab508ed4f4f537614b5}{get\+Viewport\+Min} () const
+\item 
+void \hyperlink{class_mason_1_1_camera_aa630259d7e0c0124dec5c9aaf33b7160}{set\+Viewport\+Min} (glm\+::vec2 viewport\+\_\+min)
+\item 
+glm\+::vec2 \hyperlink{class_mason_1_1_camera_abe43550148e85f5a32919a3c8b8ff115}{get\+Viewport\+Max} () const
+\item 
+void \hyperlink{class_mason_1_1_camera_a1f9a7896bb617d1402e3c4738324e1ea}{set\+Viewport\+Max} (glm\+::vec2 viewport\+\_\+max)
+\item 
+\hyperlink{class_mason_1_1_camera_ad1897942d0ccf91052386388a497349f}{$\sim$\+Camera} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_mason_1_1_camera_aca4e1307d4601e7f0a711dfd94729143}{Camera} (\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$\hyperlink{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8}{game\+Object})
+\item 
+void \hyperlink{class_mason_1_1_camera_a27ff2d3ad004a49db2ae508ac6e9d3c2}{transformize} () override
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec2 \hyperlink{class_mason_1_1_camera_a87d7d4111e63ecb41bac7ea33ef270e1}{viewport\+Min} = glm\+::vec2(0, 0)
+\item 
+glm\+::vec2 \hyperlink{class_mason_1_1_camera_a8c7510e4c83e123aebbe7bb36da80de9}{viewport\+Max} = glm\+::vec2(1, 1)
+\item 
+S\+R\+E\+::\+Camera $\ast$ \hyperlink{class_mason_1_1_camera_a74f870fa866086c21f28f0a1f59254cc}{cam}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_mason_1_1_camera_a00df87c957d8f7ee0fc51f07a0542f4a}{Game\+Object}
+\item 
+class \hyperlink{class_mason_1_1_camera_a3e1914489e4bed4f9f23cdeab34a43dc}{Engine}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_mason_1_1_camera_ad1897942d0ccf91052386388a497349f}{}\label{class_mason_1_1_camera_ad1897942d0ccf91052386388a497349f} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!````~Camera@{$\sim$\+Camera}}
+\index{````~Camera@{$\sim$\+Camera}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{$\sim$\+Camera()}{~Camera()}}
+{\footnotesize\ttfamily Camera\+::$\sim$\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_mason_1_1_camera_aca4e1307d4601e7f0a711dfd94729143}{}\label{class_mason_1_1_camera_aca4e1307d4601e7f0a711dfd94729143} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{Camera()}{Camera()}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_mason_1_1_camera_a71560b8b6216a542ae1958bd91a4361d}{}\label{class_mason_1_1_camera_a71560b8b6216a542ae1958bd91a4361d} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{get\+Position()}{getPosition()}}
+{\footnotesize\ttfamily glm\+::vec3 Camera\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_mason_1_1_transform_a0b21f641e72d7b55f3a630b986d0b106}{Mason\+::\+Transform}.
+
+\hypertarget{class_mason_1_1_camera_a405b26eaaae2ab7a460dfc319a9d16ea}{}\label{class_mason_1_1_camera_a405b26eaaae2ab7a460dfc319a9d16ea} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!get\+Scale@{get\+Scale}}
+\index{get\+Scale@{get\+Scale}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{get\+Scale()}{getScale()}}
+{\footnotesize\ttfamily glm\+::vec3 Camera\+::get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_mason_1_1_transform_a24107560725b250c4c2e10ab98a6ac04}{Mason\+::\+Transform}.
+
+\hypertarget{class_mason_1_1_camera_abe43550148e85f5a32919a3c8b8ff115}{}\label{class_mason_1_1_camera_abe43550148e85f5a32919a3c8b8ff115} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!get\+Viewport\+Max@{get\+Viewport\+Max}}
+\index{get\+Viewport\+Max@{get\+Viewport\+Max}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{get\+Viewport\+Max()}{getViewportMax()}}
+{\footnotesize\ttfamily glm\+::vec2 Camera\+::get\+Viewport\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_mason_1_1_camera_a0d2d26d8b7b80ab508ed4f4f537614b5}{}\label{class_mason_1_1_camera_a0d2d26d8b7b80ab508ed4f4f537614b5} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!get\+Viewport\+Min@{get\+Viewport\+Min}}
+\index{get\+Viewport\+Min@{get\+Viewport\+Min}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{get\+Viewport\+Min()}{getViewportMin()}}
+{\footnotesize\ttfamily glm\+::vec2 Camera\+::get\+Viewport\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_mason_1_1_camera_a69f184af46d081b85209040bbe814cbb}{}\label{class_mason_1_1_camera_a69f184af46d081b85209040bbe814cbb} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{set\+Position()}{setPosition()}}
+{\footnotesize\ttfamily void Camera\+::set\+Position (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_mason_1_1_transform_a740f389e20c0190c52bcb893aeaa0490}{Mason\+::\+Transform}.
+
+\hypertarget{class_mason_1_1_camera_a732501ee31e862f557bbbc8ff58631a4}{}\label{class_mason_1_1_camera_a732501ee31e862f557bbbc8ff58631a4} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!set\+Scale@{set\+Scale}}
+\index{set\+Scale@{set\+Scale}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{set\+Scale()}{setScale()}}
+{\footnotesize\ttfamily void Camera\+::set\+Scale (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_mason_1_1_transform_a4a273ac58f45b6ee9cf2b37cf661daac}{Mason\+::\+Transform}.
+
+\hypertarget{class_mason_1_1_camera_a1f9a7896bb617d1402e3c4738324e1ea}{}\label{class_mason_1_1_camera_a1f9a7896bb617d1402e3c4738324e1ea} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!set\+Viewport\+Max@{set\+Viewport\+Max}}
+\index{set\+Viewport\+Max@{set\+Viewport\+Max}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{set\+Viewport\+Max()}{setViewportMax()}}
+{\footnotesize\ttfamily void Camera\+::set\+Viewport\+Max (\begin{DoxyParamCaption}\item[{glm\+::vec2}]{viewport\+\_\+max }\end{DoxyParamCaption})}
+
+\hypertarget{class_mason_1_1_camera_aa630259d7e0c0124dec5c9aaf33b7160}{}\label{class_mason_1_1_camera_aa630259d7e0c0124dec5c9aaf33b7160} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!set\+Viewport\+Min@{set\+Viewport\+Min}}
+\index{set\+Viewport\+Min@{set\+Viewport\+Min}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{set\+Viewport\+Min()}{setViewportMin()}}
+{\footnotesize\ttfamily void Camera\+::set\+Viewport\+Min (\begin{DoxyParamCaption}\item[{glm\+::vec2}]{viewport\+\_\+min }\end{DoxyParamCaption})}
+
+\hypertarget{class_mason_1_1_camera_a27ff2d3ad004a49db2ae508ac6e9d3c2}{}\label{class_mason_1_1_camera_a27ff2d3ad004a49db2ae508ac6e9d3c2} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!transformize@{transformize}}
+\index{transformize@{transformize}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{transformize()}{transformize()}}
+{\footnotesize\ttfamily void Camera\+::transformize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_mason_1_1_transform_a4dd61568d49044377f3312397ffdafd1}{Mason\+::\+Transform}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_mason_1_1_camera_a3e1914489e4bed4f9f23cdeab34a43dc}{}\label{class_mason_1_1_camera_a3e1914489e4bed4f9f23cdeab34a43dc} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!Engine@{Engine}}
+\index{Engine@{Engine}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{Engine}{Engine}}
+{\footnotesize\ttfamily friend class \hyperlink{class_mason_1_1_engine}{Engine}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\hypertarget{class_mason_1_1_camera_a00df87c957d8f7ee0fc51f07a0542f4a}{}\label{class_mason_1_1_camera_a00df87c957d8f7ee0fc51f07a0542f4a} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!Game\+Object@{Game\+Object}}
+\index{Game\+Object@{Game\+Object}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{Game\+Object}{GameObject}}
+{\footnotesize\ttfamily friend class \hyperlink{class_mason_1_1_game_object}{Game\+Object}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_mason_1_1_camera_a74f870fa866086c21f28f0a1f59254cc}{}\label{class_mason_1_1_camera_a74f870fa866086c21f28f0a1f59254cc} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!cam@{cam}}
+\index{cam@{cam}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{cam}{cam}}
+{\footnotesize\ttfamily S\+R\+E\+::\+Camera$\ast$ Mason\+::\+Camera\+::cam\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_mason_1_1_camera_a8c7510e4c83e123aebbe7bb36da80de9}{}\label{class_mason_1_1_camera_a8c7510e4c83e123aebbe7bb36da80de9} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!viewport\+Max@{viewport\+Max}}
+\index{viewport\+Max@{viewport\+Max}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{viewport\+Max}{viewportMax}}
+{\footnotesize\ttfamily glm\+::vec2 Mason\+::\+Camera\+::viewport\+Max = glm\+::vec2(1, 1)\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_mason_1_1_camera_a87d7d4111e63ecb41bac7ea33ef270e1}{}\label{class_mason_1_1_camera_a87d7d4111e63ecb41bac7ea33ef270e1} 
+\index{Mason\+::\+Camera@{Mason\+::\+Camera}!viewport\+Min@{viewport\+Min}}
+\index{viewport\+Min@{viewport\+Min}!Mason\+::\+Camera@{Mason\+::\+Camera}}
+\subsubsection{\texorpdfstring{viewport\+Min}{viewportMin}}
+{\footnotesize\ttfamily glm\+::vec2 Mason\+::\+Camera\+::viewport\+Min = glm\+::vec2(0, 0)\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/include/\+Mason/\hyperlink{_camera_8hpp}{Camera.\+hpp}\item 
+C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/src/\hyperlink{_camera_8cpp}{Camera.\+cpp}\end{DoxyCompactItemize}

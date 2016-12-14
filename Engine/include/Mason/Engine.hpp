@@ -13,19 +13,47 @@
 #include "Mason/Config.hpp"
 
 namespace Mason {
-
+	
+	/** @class Engine
+	* @brief Brief about the engine.
+	*
+	* description of the engine
+	*
+	* @fn void start()
+	* @brief about start, it initializes...
+	*
+	* @fn void loadScene(std::string path)
+	
+	*
+	* @fn Engine()
+	* @brief constructor
+	* description of the constructor
+	*
+	* @fn ~Engine()
+	* @brief destructor
+	* description of the destructor
+	*
+	* @file demoCollisions.json
+	*  This is the scene for the physics demo (not sure if this work)
+	*  @verbinclude demoCollisions.json
+	*/
 	class Engine {
+
 	public:
 		void start();
-
+		/**
+		* @param path json file that contains the components
+		*/
 		void loadScene(std::string path);
-
+		
 		Engine();
 		~Engine();
+		// TODO make this private once everything is implemented
+		SRE::SimpleRenderEngine* sre; /**< download the latest version of SRE on Git 
+									  * https://github.com/mortennobel/SimpleRenderEngine
+									  */
 
-		SRE::SimpleRenderEngine* sre; // TODO make this private once everything is implemented
-
-		Scene* scene;
+		Scene* scene; ///< The scene we load(brief description)
 	private:
 		void DebugUI();
 
@@ -35,7 +63,7 @@ namespace Mason {
 		AudioManager* audioManager;
 		
 		bool running, paused;
-		bool showDebugGUI;
+		bool showDebugGUI; 
 		int* windowWidth;
 		int* windowHeight;
 		SDL_Window *window;

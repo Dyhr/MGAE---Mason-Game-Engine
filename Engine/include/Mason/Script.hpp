@@ -3,6 +3,7 @@
 #include "Time.hpp"
 #include <SDL.h>
 
+
 namespace Mason {
 	class Script : public Component
 	{

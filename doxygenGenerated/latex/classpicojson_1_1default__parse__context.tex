@@ -1,0 +1,117 @@
+\hypertarget{classpicojson_1_1default__parse__context}{}\section{picojson\+:\+:default\+\_\+parse\+\_\+context Class Reference}
+\label{classpicojson_1_1default__parse__context}\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+
+
+{\ttfamily \#include $<$picojson.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpicojson_1_1default__parse__context_ad326572abe85f9d05dc23be4cf76ff3c}{default\+\_\+parse\+\_\+context} (\hyperlink{classpicojson_1_1value}{value} $\ast$out)
+\item 
+bool \hyperlink{classpicojson_1_1default__parse__context_a2d852ba1f0b115c89378fcb5f10580b5}{set\+\_\+null} ()
+\item 
+bool \hyperlink{classpicojson_1_1default__parse__context_ae1935ef455fc2bed9195426cfee5713a}{set\+\_\+bool} (bool b)
+\item 
+bool \hyperlink{classpicojson_1_1default__parse__context_a9b2046a9cb6d66aad835b84ffda20b86}{set\+\_\+number} (double f)
+\item 
+{\footnotesize template$<$typename Iter $>$ }\\bool \hyperlink{classpicojson_1_1default__parse__context_a476c7d30a5cf382b48201ec64585c2f3}{parse\+\_\+string} (\hyperlink{classpicojson_1_1input}{input}$<$ Iter $>$ \&in)
+\item 
+bool \hyperlink{classpicojson_1_1default__parse__context_a5c355f843ceacde134997f5bbbda1d23}{parse\+\_\+array\+\_\+start} ()
+\item 
+{\footnotesize template$<$typename Iter $>$ }\\bool \hyperlink{classpicojson_1_1default__parse__context_a5f65224e655633b20c1f8c5967c153bb}{parse\+\_\+array\+\_\+item} (\hyperlink{classpicojson_1_1input}{input}$<$ Iter $>$ \&in, size\+\_\+t)
+\item 
+bool \hyperlink{classpicojson_1_1default__parse__context_aa6ac46d87d620377429438675ba9fab2}{parse\+\_\+array\+\_\+stop} (size\+\_\+t)
+\item 
+bool \hyperlink{classpicojson_1_1default__parse__context_a54eba00b93ce4cdaf8b2acac4ef3e046}{parse\+\_\+object\+\_\+start} ()
+\item 
+{\footnotesize template$<$typename Iter $>$ }\\bool \hyperlink{classpicojson_1_1default__parse__context_adf71929b098e4f4b5c32222af149655a}{parse\+\_\+object\+\_\+item} (\hyperlink{classpicojson_1_1input}{input}$<$ Iter $>$ \&in, const std\+::string \&key)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpicojson_1_1value}{value} $\ast$ \hyperlink{classpicojson_1_1default__parse__context_a89547d73da32e470068649e54646ff19}{out\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classpicojson_1_1default__parse__context_ad326572abe85f9d05dc23be4cf76ff3c}{}\label{classpicojson_1_1default__parse__context_ad326572abe85f9d05dc23be4cf76ff3c} 
+\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}!default\+\_\+parse\+\_\+context@{default\+\_\+parse\+\_\+context}}
+\index{default\+\_\+parse\+\_\+context@{default\+\_\+parse\+\_\+context}!picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+\subsubsection{\texorpdfstring{default\+\_\+parse\+\_\+context()}{default\_parse\_context()}}
+{\footnotesize\ttfamily picojson\+::default\+\_\+parse\+\_\+context\+::default\+\_\+parse\+\_\+context (\begin{DoxyParamCaption}\item[{\hyperlink{classpicojson_1_1value}{value} $\ast$}]{out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classpicojson_1_1default__parse__context_a5f65224e655633b20c1f8c5967c153bb}{}\label{classpicojson_1_1default__parse__context_a5f65224e655633b20c1f8c5967c153bb} 
+\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}!parse\+\_\+array\+\_\+item@{parse\+\_\+array\+\_\+item}}
+\index{parse\+\_\+array\+\_\+item@{parse\+\_\+array\+\_\+item}!picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+\subsubsection{\texorpdfstring{parse\+\_\+array\+\_\+item()}{parse\_array\_item()}}
+{\footnotesize\ttfamily template$<$typename Iter $>$ \\
+bool picojson\+::default\+\_\+parse\+\_\+context\+::parse\+\_\+array\+\_\+item (\begin{DoxyParamCaption}\item[{\hyperlink{classpicojson_1_1input}{input}$<$ Iter $>$ \&}]{in,  }\item[{size\+\_\+t}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1default__parse__context_a5c355f843ceacde134997f5bbbda1d23}{}\label{classpicojson_1_1default__parse__context_a5c355f843ceacde134997f5bbbda1d23} 
+\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}!parse\+\_\+array\+\_\+start@{parse\+\_\+array\+\_\+start}}
+\index{parse\+\_\+array\+\_\+start@{parse\+\_\+array\+\_\+start}!picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+\subsubsection{\texorpdfstring{parse\+\_\+array\+\_\+start()}{parse\_array\_start()}}
+{\footnotesize\ttfamily bool picojson\+::default\+\_\+parse\+\_\+context\+::parse\+\_\+array\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1default__parse__context_aa6ac46d87d620377429438675ba9fab2}{}\label{classpicojson_1_1default__parse__context_aa6ac46d87d620377429438675ba9fab2} 
+\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}!parse\+\_\+array\+\_\+stop@{parse\+\_\+array\+\_\+stop}}
+\index{parse\+\_\+array\+\_\+stop@{parse\+\_\+array\+\_\+stop}!picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+\subsubsection{\texorpdfstring{parse\+\_\+array\+\_\+stop()}{parse\_array\_stop()}}
+{\footnotesize\ttfamily bool picojson\+::default\+\_\+parse\+\_\+context\+::parse\+\_\+array\+\_\+stop (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1default__parse__context_adf71929b098e4f4b5c32222af149655a}{}\label{classpicojson_1_1default__parse__context_adf71929b098e4f4b5c32222af149655a} 
+\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}!parse\+\_\+object\+\_\+item@{parse\+\_\+object\+\_\+item}}
+\index{parse\+\_\+object\+\_\+item@{parse\+\_\+object\+\_\+item}!picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+\subsubsection{\texorpdfstring{parse\+\_\+object\+\_\+item()}{parse\_object\_item()}}
+{\footnotesize\ttfamily template$<$typename Iter $>$ \\
+bool picojson\+::default\+\_\+parse\+\_\+context\+::parse\+\_\+object\+\_\+item (\begin{DoxyParamCaption}\item[{\hyperlink{classpicojson_1_1input}{input}$<$ Iter $>$ \&}]{in,  }\item[{const std\+::string \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1default__parse__context_a54eba00b93ce4cdaf8b2acac4ef3e046}{}\label{classpicojson_1_1default__parse__context_a54eba00b93ce4cdaf8b2acac4ef3e046} 
+\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}!parse\+\_\+object\+\_\+start@{parse\+\_\+object\+\_\+start}}
+\index{parse\+\_\+object\+\_\+start@{parse\+\_\+object\+\_\+start}!picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+\subsubsection{\texorpdfstring{parse\+\_\+object\+\_\+start()}{parse\_object\_start()}}
+{\footnotesize\ttfamily bool picojson\+::default\+\_\+parse\+\_\+context\+::parse\+\_\+object\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1default__parse__context_a476c7d30a5cf382b48201ec64585c2f3}{}\label{classpicojson_1_1default__parse__context_a476c7d30a5cf382b48201ec64585c2f3} 
+\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}!parse\+\_\+string@{parse\+\_\+string}}
+\index{parse\+\_\+string@{parse\+\_\+string}!picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+\subsubsection{\texorpdfstring{parse\+\_\+string()}{parse\_string()}}
+{\footnotesize\ttfamily template$<$typename Iter $>$ \\
+bool picojson\+::default\+\_\+parse\+\_\+context\+::parse\+\_\+string (\begin{DoxyParamCaption}\item[{\hyperlink{classpicojson_1_1input}{input}$<$ Iter $>$ \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1default__parse__context_ae1935ef455fc2bed9195426cfee5713a}{}\label{classpicojson_1_1default__parse__context_ae1935ef455fc2bed9195426cfee5713a} 
+\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}!set\+\_\+bool@{set\+\_\+bool}}
+\index{set\+\_\+bool@{set\+\_\+bool}!picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+\subsubsection{\texorpdfstring{set\+\_\+bool()}{set\_bool()}}
+{\footnotesize\ttfamily bool picojson\+::default\+\_\+parse\+\_\+context\+::set\+\_\+bool (\begin{DoxyParamCaption}\item[{bool}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1default__parse__context_a2d852ba1f0b115c89378fcb5f10580b5}{}\label{classpicojson_1_1default__parse__context_a2d852ba1f0b115c89378fcb5f10580b5} 
+\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}!set\+\_\+null@{set\+\_\+null}}
+\index{set\+\_\+null@{set\+\_\+null}!picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+\subsubsection{\texorpdfstring{set\+\_\+null()}{set\_null()}}
+{\footnotesize\ttfamily bool picojson\+::default\+\_\+parse\+\_\+context\+::set\+\_\+null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{classpicojson_1_1default__parse__context_a9b2046a9cb6d66aad835b84ffda20b86}{}\label{classpicojson_1_1default__parse__context_a9b2046a9cb6d66aad835b84ffda20b86} 
+\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}!set\+\_\+number@{set\+\_\+number}}
+\index{set\+\_\+number@{set\+\_\+number}!picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+\subsubsection{\texorpdfstring{set\+\_\+number()}{set\_number()}}
+{\footnotesize\ttfamily bool picojson\+::default\+\_\+parse\+\_\+context\+::set\+\_\+number (\begin{DoxyParamCaption}\item[{double}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classpicojson_1_1default__parse__context_a89547d73da32e470068649e54646ff19}{}\label{classpicojson_1_1default__parse__context_a89547d73da32e470068649e54646ff19} 
+\index{picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}!out\+\_\+@{out\+\_\+}}
+\index{out\+\_\+@{out\+\_\+}!picojson\+::default\+\_\+parse\+\_\+context@{picojson\+::default\+\_\+parse\+\_\+context}}
+\subsubsection{\texorpdfstring{out\+\_\+}{out\_}}
+{\footnotesize\ttfamily \hyperlink{classpicojson_1_1value}{value}$\ast$ picojson\+::default\+\_\+parse\+\_\+context\+::out\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/include/\hyperlink{picojson_8h}{picojson.\+h}\end{DoxyCompactItemize}

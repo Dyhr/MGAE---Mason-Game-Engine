@@ -86,9 +86,9 @@ void loadScene(int index) {
 		auto b4 = engine.scene->getGameObject(16)->addComponent<BoxCollider2D>();
 		b4->setSize(35, 40);
 		//greentube
-		//engine.scene->getGameObject(17)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_kinematicBody);
+		engine.scene->getGameObject(17)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_kinematicBody);
 		auto t = engine.scene->getGameObject(17)->addComponent<BoxCollider2D>();
-		engine.scene->getGameObject(17)->addComponent<PlayerController>();
+		//engine.scene->getGameObject(17)->addComponent<PlayerController>();
 		t->setSize(55, 45);
 	}
 	if (index == 1) {
