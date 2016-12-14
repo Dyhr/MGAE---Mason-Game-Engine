@@ -39,8 +39,6 @@ namespace Mason {
 		void draw(glm::vec3 position) const;
 		std::shared_ptr<SRE::Texture> getTexture();
 		void setTexture(std::shared_ptr<SRE::Texture> t);
-
-		int pixelsperunit = 1;
 	private:
 		
 		std::shared_ptr<SRE::Mesh> mesh;
