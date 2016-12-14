@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 #include "GameObject.hpp"
+#include <map>
+#include "Sprite.h"
 
 namespace Mason {
 	class Scene {
@@ -29,6 +31,9 @@ namespace Mason {
 
 	private:
 		std::vector<std::shared_ptr<GameObject>> gameObjects;
+		std::map<std::string, std::shared_ptr<Sprite>> sprites;
+
+		friend class Engine;
 	};
 
 	// function templates has to defined in header files
