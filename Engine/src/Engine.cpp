@@ -72,6 +72,7 @@ Engine::Engine()
 	srand(uint(time(nullptr)));
 
 	//GUI
+	showDebugGUI = false;
 	ImGui_SRE_Init(window);
 	show_another_window = true;
 
@@ -125,7 +126,12 @@ void Engine::loadScene(std::string path)
 	SDL_SetWindowTitle(window, sceneDescriptor.name.c_str());
 
 	std::map<std::string, SpriteAtlas> map_spriteatlas;
-	SpriteAtlas atlas("data/", "data/MarioPacked.json"); // TODO asset pipeline
+	for (auto atlasname : sceneDescriptor.sprites)
+	{
+		SpriteAtlas atlas(sceneDescriptor.imagepath, atlasname + ".json");
+		for (auto sprite : atlas.sprites)
+			scene->sprites[sprite.first] = sprite.second;
+	}
 
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 	auto gameObjectDescriptors = sceneDescriptor.gameobjects;
@@ -149,7 +155,7 @@ void Engine::loadScene(std::string path)
 		if (element.sprite.found)
 		{
 			auto sprite = gameObject->addComponent<SpriteRenderer>();
-			sprite->sprite = atlas.getSprite(element.sprite.name);
+			sprite->sprite = scene->sprites[element.sprite.name];
 			// TODO support changing color of sprite
 		}
 		if (element.audio.found) {

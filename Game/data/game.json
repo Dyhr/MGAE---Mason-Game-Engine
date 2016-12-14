@@ -1,6 +1,10 @@
 {
   "scenename": "Asteroids",
-  "imagepath": "data/images", 
+  "imagepath": "data/images",
+  "sprites": [
+    "ships_asteroids",
+    "ships_human_packed"
+  ],
   "gameobjects": [
     {
       "uniqueId": 100,
@@ -28,7 +32,7 @@
       "uniqueId": 0,
       "name": "Mario0",
       "sprite": {
-        "name": "mario_0"
+        "name": "asteroid1"
       },
       "transform": {
         "position": [ 0, 0, 0 ]

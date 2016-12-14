@@ -43,6 +43,9 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 	if (v.contains("scenename")) scene.name = v.get("scenename").get<std::string>();
 	if (v.contains("imagepath")) scene.imagepath = v.get("imagepath").get<std::string>();
 	if (v.contains("soundpath")) scene.soundpath = v.get("soundpath").get<std::string>();
+	if (v.contains("sprites"))
+		for (auto atlas : v.get("sprites").get<picojson::array>())
+			scene.sprites.push_back(atlas.get<std::string>());
 
 	for (auto o : v.get("gameobjects").get<picojson::array>()) {
 		GameObjectDescriptor d;

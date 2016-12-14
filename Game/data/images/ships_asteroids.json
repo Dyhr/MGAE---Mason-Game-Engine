@@ -1,1007 +1,1007 @@
 [
   {
-    "filename": "asteroid1",
+    "name": "asteroid1",
     "x": 304,
     "y": 289,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid2",
+    "name": "asteroid2",
     "x": 68,
     "y": 245,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid3",
+    "name": "asteroid3",
     "x": 49,
     "y": 147,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid4",
+    "name": "asteroid4",
     "x": 329,
     "y": 238,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid5",
+    "name": "asteroid5",
     "x": 279,
     "y": 198,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid6",
+    "name": "asteroid6",
     "x": 147,
     "y": 0,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid7",
+    "name": "asteroid7",
     "x": 63,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid8",
+    "name": "asteroid8",
     "x": 329,
     "y": 187,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid9",
+    "name": "asteroid9",
     "x": 304,
     "y": 132,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid10",
+    "name": "asteroid10",
     "x": 216,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid11",
+    "name": "asteroid11",
     "x": 119,
     "y": 311,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid12",
+    "name": "asteroid12",
     "x": 213,
     "y": 41,
     "width": 32,
     "height": 40
   },
   {
-    "filename": "asteroid13",
+    "name": "asteroid13",
     "x": 329,
     "y": 17,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid14",
+    "name": "asteroid14",
     "x": 34,
     "y": 278,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid15",
+    "name": "asteroid15",
     "x": 49,
     "y": 0,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid16",
+    "name": "asteroid16",
     "x": 329,
     "y": 272,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid17",
+    "name": "asteroid17",
     "x": 136,
     "y": 278,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid18",
+    "name": "asteroid18",
     "x": 180,
     "y": 0,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid19",
+    "name": "asteroid19",
     "x": 126,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid20",
+    "name": "asteroid20",
     "x": 255,
     "y": 311,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid21",
+    "name": "asteroid21",
     "x": 279,
     "y": 66,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid22",
+    "name": "asteroid22",
     "x": 171,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid23",
+    "name": "asteroid23",
     "x": 102,
     "y": 311,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid24",
+    "name": "asteroid24",
     "x": 213,
     "y": 123,
     "width": 32,
     "height": 40
   },
   {
-    "filename": "asteroid25",
+    "name": "asteroid25",
     "x": 238,
     "y": 311,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid26",
+    "name": "asteroid26",
     "x": 102,
     "y": 278,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid27",
+    "name": "asteroid27",
     "x": 49,
     "y": 98,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid28",
+    "name": "asteroid28",
     "x": 0,
     "y": 336,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid29",
+    "name": "asteroid29",
     "x": 246,
     "y": 205,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid30",
+    "name": "asteroid30",
     "x": 147,
     "y": 98,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid31",
+    "name": "asteroid31",
     "x": 45,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid32",
+    "name": "asteroid32",
     "x": 221,
     "y": 311,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid33",
+    "name": "asteroid33",
     "x": 279,
     "y": 33,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid34",
+    "name": "asteroid34",
     "x": 180,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid35",
+    "name": "asteroid35",
     "x": 85,
     "y": 311,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid36",
+    "name": "asteroid36",
     "x": 246,
     "y": 41,
     "width": 32,
     "height": 40
   },
   {
-    "filename": "asteroid37",
+    "name": "asteroid37",
     "x": 329,
     "y": 68,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid38",
+    "name": "asteroid38",
     "x": 238,
     "y": 245,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid39",
+    "name": "asteroid39",
     "x": 0,
     "y": 147,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid40",
+    "name": "asteroid40",
     "x": 9,
     "y": 336,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid41",
+    "name": "asteroid41",
     "x": 304,
     "y": 198,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid42",
+    "name": "asteroid42",
     "x": 0,
     "y": 196,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid43",
+    "name": "asteroid43",
     "x": 117,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid44",
+    "name": "asteroid44",
     "x": 306,
     "y": 311,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid45",
+    "name": "asteroid45",
     "x": 211,
     "y": 278,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid46",
+    "name": "asteroid46",
     "x": 198,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid47",
+    "name": "asteroid47",
     "x": 51,
     "y": 311,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid48",
+    "name": "asteroid48",
     "x": 213,
     "y": 0,
     "width": 32,
     "height": 40
   },
   {
-    "filename": "asteroid49",
+    "name": "asteroid49",
     "x": 329,
     "y": 85,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid50",
+    "name": "asteroid50",
     "x": 170,
     "y": 245,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid51",
+    "name": "asteroid51",
     "x": 0,
     "y": 49,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid52",
+    "name": "asteroid52",
     "x": 198,
     "y": 196,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid53",
+    "name": "asteroid53",
     "x": 279,
     "y": 99,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid54",
+    "name": "asteroid54",
     "x": 66,
     "y": 196,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid55",
+    "name": "asteroid55",
     "x": 81,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid56",
+    "name": "asteroid56",
     "x": 272,
     "y": 311,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid57",
+    "name": "asteroid57",
     "x": 304,
     "y": 33,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid58",
+    "name": "asteroid58",
     "x": 225,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid59",
+    "name": "asteroid59",
     "x": 34,
     "y": 311,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid60",
+    "name": "asteroid60",
     "x": 213,
     "y": 164,
     "width": 32,
     "height": 40
   },
   {
-    "filename": "asteroid61",
+    "name": "asteroid61",
     "x": 329,
     "y": 51,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid62",
+    "name": "asteroid62",
     "x": 34,
     "y": 245,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid63",
+    "name": "asteroid63",
     "x": 98,
     "y": 49,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid64",
+    "name": "asteroid64",
     "x": 36,
     "y": 336,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid65",
+    "name": "asteroid65",
     "x": 186,
     "y": 278,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid66",
+    "name": "asteroid66",
     "x": 147,
     "y": 147,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid67",
+    "name": "asteroid67",
     "x": 54,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid68",
+    "name": "asteroid68",
     "x": 204,
     "y": 311,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid69",
+    "name": "asteroid69",
     "x": 236,
     "y": 278,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid70",
+    "name": "asteroid70",
     "x": 162,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid71",
+    "name": "asteroid71",
     "x": 17,
     "y": 311,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid72",
+    "name": "asteroid72",
     "x": 246,
     "y": 0,
     "width": 32,
     "height": 40
   },
   {
-    "filename": "asteroid73",
+    "name": "asteroid73",
     "x": 329,
     "y": 221,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid74",
+    "name": "asteroid74",
     "x": 102,
     "y": 245,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid75",
+    "name": "asteroid75",
     "x": 0,
     "y": 0,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid76",
+    "name": "asteroid76",
     "x": 27,
     "y": 336,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid77",
+    "name": "asteroid77",
     "x": 279,
     "y": 165,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid78",
+    "name": "asteroid78",
     "x": 180,
     "y": 147,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid79",
+    "name": "asteroid79",
     "x": 135,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid80",
+    "name": "asteroid80",
     "x": 329,
     "y": 102,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid81",
+    "name": "asteroid81",
     "x": 279,
     "y": 264,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid82",
+    "name": "asteroid82",
     "x": 207,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid83",
+    "name": "asteroid83",
     "x": 304,
     "y": 264,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid84",
+    "name": "asteroid84",
     "x": 213,
     "y": 82,
     "width": 32,
     "height": 40
   },
   {
-    "filename": "asteroid85",
+    "name": "asteroid85",
     "x": 170,
     "y": 311,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid86",
+    "name": "asteroid86",
     "x": 0,
     "y": 278,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid87",
+    "name": "asteroid87",
     "x": 98,
     "y": 0,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid88",
+    "name": "asteroid88",
     "x": 329,
     "y": 289,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid89",
+    "name": "asteroid89",
     "x": 304,
     "y": 165,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid90",
+    "name": "asteroid90",
     "x": 33,
     "y": 196,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid91",
+    "name": "asteroid91",
     "x": 108,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid92",
+    "name": "asteroid92",
     "x": 289,
     "y": 311,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid93",
+    "name": "asteroid93",
     "x": 304,
     "y": 0,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid94",
+    "name": "asteroid94",
     "x": 243,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid95",
+    "name": "asteroid95",
     "x": 0,
     "y": 311,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid96",
+    "name": "asteroid96",
     "x": 132,
     "y": 196,
     "width": 32,
     "height": 40
   },
   {
-    "filename": "asteroid97",
+    "name": "asteroid97",
     "x": 329,
     "y": 34,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid98",
+    "name": "asteroid98",
     "x": 204,
     "y": 245,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid99",
+    "name": "asteroid99",
     "x": 98,
     "y": 147,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid100",
+    "name": "asteroid100",
     "x": 198,
     "y": 213,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid101",
+    "name": "asteroid101",
     "x": 279,
     "y": 132,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid102",
+    "name": "asteroid102",
     "x": 180,
     "y": 98,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid103",
+    "name": "asteroid103",
     "x": 90,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid104",
+    "name": "asteroid104",
     "x": 329,
     "y": 153,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid105",
+    "name": "asteroid105",
     "x": 213,
     "y": 205,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid106",
+    "name": "asteroid106",
     "x": 252,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid107",
+    "name": "asteroid107",
     "x": 153,
     "y": 311,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid108",
+    "name": "asteroid108",
     "x": 165,
     "y": 196,
     "width": 32,
     "height": 40
   },
   {
-    "filename": "asteroid109",
+    "name": "asteroid109",
     "x": 329,
     "y": 136,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid110",
+    "name": "asteroid110",
     "x": 68,
     "y": 278,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid111",
+    "name": "asteroid111",
     "x": 0,
     "y": 98,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid112",
+    "name": "asteroid112",
     "x": 329,
     "y": 255,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid113",
+    "name": "asteroid113",
     "x": 304,
     "y": 231,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid114",
+    "name": "asteroid114",
     "x": 180,
     "y": 49,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid115",
+    "name": "asteroid115",
     "x": 144,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid116",
+    "name": "asteroid116",
     "x": 329,
     "y": 170,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid117",
+    "name": "asteroid117",
     "x": 279,
     "y": 231,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid118",
+    "name": "asteroid118",
     "x": 153,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid119",
+    "name": "asteroid119",
     "x": 68,
     "y": 311,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid120",
+    "name": "asteroid120",
     "x": 246,
     "y": 82,
     "width": 32,
     "height": 40
   },
   {
-    "filename": "asteroid121",
+    "name": "asteroid121",
     "x": 187,
     "y": 311,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid122",
+    "name": "asteroid122",
     "x": 0,
     "y": 245,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid123",
+    "name": "asteroid123",
     "x": 98,
     "y": 98,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid124",
+    "name": "asteroid124",
     "x": 18,
     "y": 336,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid125",
+    "name": "asteroid125",
     "x": 304,
     "y": 66,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid126",
+    "name": "asteroid126",
     "x": 99,
     "y": 196,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid127",
+    "name": "asteroid127",
     "x": 99,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid128",
+    "name": "asteroid128",
     "x": 329,
     "y": 0,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid129",
+    "name": "asteroid129",
     "x": 161,
     "y": 278,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid130",
+    "name": "asteroid130",
     "x": 189,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid131",
+    "name": "asteroid131",
     "x": 261,
     "y": 278,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid132",
+    "name": "asteroid132",
     "x": 246,
     "y": 123,
     "width": 32,
     "height": 40
   },
   {
-    "filename": "asteroid133",
+    "name": "asteroid133",
     "x": 329,
     "y": 204,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid134",
+    "name": "asteroid134",
     "x": 136,
     "y": 245,
     "width": 33,
     "height": 32
   },
   {
-    "filename": "asteroid135",
+    "name": "asteroid135",
     "x": 49,
     "y": 49,
     "width": 48,
     "height": 48
   },
   {
-    "filename": "asteroid136",
+    "name": "asteroid136",
     "x": 329,
     "y": 306,
     "width": 8,
     "height": 16
   },
   {
-    "filename": "asteroid137",
+    "name": "asteroid137",
     "x": 279,
     "y": 0,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid138",
+    "name": "asteroid138",
     "x": 147,
     "y": 49,
     "width": 32,
     "height": 48
   },
   {
-    "filename": "asteroid139",
+    "name": "asteroid139",
     "x": 72,
     "y": 336,
     "width": 8,
     "height": 13
   },
   {
-    "filename": "asteroid140",
+    "name": "asteroid140",
     "x": 329,
     "y": 119,
     "width": 16,
     "height": 16
   },
   {
-    "filename": "asteroid141",
+    "name": "asteroid141",
     "x": 304,
     "y": 99,
     "width": 24,
     "height": 32
   },
   {
-    "filename": "asteroid142",
+    "name": "asteroid142",
     "x": 234,
     "y": 336,
     "width": 8,
     "height": 8
   },
   {
-    "filename": "asteroid143",
+    "name": "asteroid143",
     "x": 136,
     "y": 311,
     "width": 16,
     "height": 24
   },
   {
-    "filename": "asteroid144",
+    "name": "asteroid144",
     "x": 246,
     "y": 164,
     "width": 32,

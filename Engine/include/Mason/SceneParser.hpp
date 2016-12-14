@@ -4,6 +4,8 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include "Mason/ParticleEmitter.hpp"
+#include <map>
+#include "SpriteAtlas.h"
 
 
 namespace Mason {
@@ -91,6 +93,8 @@ namespace Mason {
 
 		std::string imagepath = "data/images";
 		std::string soundpath = "data/sounds";
+
+		std::vector<std::string> sprites;
 
 		std::vector<GameObjectDescriptor> gameobjects;
 	};
