@@ -6,6 +6,7 @@
 #include <iostream>
 #include <map>
 
+
 namespace Mason {
 
 	class Script : public Component

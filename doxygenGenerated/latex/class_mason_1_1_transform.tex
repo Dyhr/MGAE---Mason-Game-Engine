@@ -1,0 +1,222 @@
+\hypertarget{class_mason_1_1_transform}{}\section{Mason\+:\+:Transform Class Reference}
+\label{class_mason_1_1_transform}\index{Mason\+::\+Transform@{Mason\+::\+Transform}}
+
+
+{\ttfamily \#include $<$Transform.\+h$>$}
+
+Inheritance diagram for Mason\+:\+:Transform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_mason_1_1_transform}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_mason_1_1_transform_a740f389e20c0190c52bcb893aeaa0490}{set\+Position} (glm\+::vec3 \hyperlink{class_mason_1_1_transform_ac9e11b4ec4433a38ac1100f12c955dcb}{position})
+\item 
+virtual void \hyperlink{class_mason_1_1_transform_aacc2b668bdd1d9b978aa0edccf75144a}{set\+Rotation} (glm\+::vec3 \hyperlink{class_mason_1_1_transform_ae2f541ade79d561584619e93edb034ae}{rotation})
+\item 
+virtual void \hyperlink{class_mason_1_1_transform_a4a273ac58f45b6ee9cf2b37cf661daac}{set\+Scale} (glm\+::vec3 \hyperlink{class_mason_1_1_transform_a4618b31e34a6ec8a0ee638401fc56367}{scale})
+\item 
+virtual void \hyperlink{class_mason_1_1_transform_a6e1a6b57214a7de21595e6af8b05138b}{set\+Parent} (\hyperlink{class_mason_1_1_transform}{Transform} $\ast$\hyperlink{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8}{game\+Object})
+\item 
+virtual glm\+::vec3 \hyperlink{class_mason_1_1_transform_a0b21f641e72d7b55f3a630b986d0b106}{get\+Position} ()
+\item 
+virtual glm\+::vec3 \hyperlink{class_mason_1_1_transform_a7367502d4344eff2d88a250084ae19dc}{get\+Rotation} ()
+\item 
+virtual glm\+::vec3 \hyperlink{class_mason_1_1_transform_a24107560725b250c4c2e10ab98a6ac04}{get\+Scale} ()
+\item 
+virtual \hyperlink{class_mason_1_1_transform}{Transform} $\ast$ \hyperlink{class_mason_1_1_transform_ae3e8acbd25d7d171aff00da038f79a9a}{get\+Parent} ()
+\item 
+glm\+::mat4 \hyperlink{class_mason_1_1_transform_a8b85abc03488f58bef8bb78df77c1689}{local\+Transform} ()
+\item 
+glm\+::mat4 \hyperlink{class_mason_1_1_transform_a35e627aa09604bf3a81f4c07d28205f3}{global\+Transform} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_mason_1_1_transform_a00209266b27fa0c297551a0ce4a07017}{Transform} (\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$\hyperlink{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8}{game\+Object})
+\item 
+virtual void \hyperlink{class_mason_1_1_transform_a4dd61568d49044377f3312397ffdafd1}{transformize} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::mat4 \hyperlink{class_mason_1_1_transform_aeb64a62787375e23645da6f490763c25}{matrix}
+\item 
+glm\+::vec3 \hyperlink{class_mason_1_1_transform_ac9e11b4ec4433a38ac1100f12c955dcb}{position}
+\item 
+glm\+::vec3 \hyperlink{class_mason_1_1_transform_ae2f541ade79d561584619e93edb034ae}{rotation}
+\item 
+glm\+::vec3 \hyperlink{class_mason_1_1_transform_a4618b31e34a6ec8a0ee638401fc56367}{scale}
+\item 
+\hyperlink{class_mason_1_1_transform}{Transform} $\ast$ \hyperlink{class_mason_1_1_transform_a1e2c91adcef43bcc170803656260f9db}{parent}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_mason_1_1_transform_a00df87c957d8f7ee0fc51f07a0542f4a}{Game\+Object}
+\item 
+class \hyperlink{class_mason_1_1_transform_a33061a25b8332281d02c83e2bf1d4959}{Rendering}
+\item 
+class \hyperlink{class_mason_1_1_transform_a82b374d797a09668286ac5cf26f539f3}{Particle\+Emitter}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_mason_1_1_transform_a00209266b27fa0c297551a0ce4a07017}{}\label{class_mason_1_1_transform_a00209266b27fa0c297551a0ce4a07017} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!Transform@{Transform}}
+\index{Transform@{Transform}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{Transform()}{Transform()}}
+{\footnotesize\ttfamily Transform\+::\+Transform (\begin{DoxyParamCaption}\item[{\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_mason_1_1_transform_ae3e8acbd25d7d171aff00da038f79a9a}{}\label{class_mason_1_1_transform_ae3e8acbd25d7d171aff00da038f79a9a} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!get\+Parent@{get\+Parent}}
+\index{get\+Parent@{get\+Parent}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{get\+Parent()}{getParent()}}
+{\footnotesize\ttfamily \hyperlink{class_mason_1_1_transform}{Transform} $\ast$ Transform\+::get\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_mason_1_1_transform_a0b21f641e72d7b55f3a630b986d0b106}{}\label{class_mason_1_1_transform_a0b21f641e72d7b55f3a630b986d0b106} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{get\+Position()}{getPosition()}}
+{\footnotesize\ttfamily glm\+::vec3 Transform\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_mason_1_1_camera_a71560b8b6216a542ae1958bd91a4361d}{Mason\+::\+Camera}.
+
+\hypertarget{class_mason_1_1_transform_a7367502d4344eff2d88a250084ae19dc}{}\label{class_mason_1_1_transform_a7367502d4344eff2d88a250084ae19dc} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!get\+Rotation@{get\+Rotation}}
+\index{get\+Rotation@{get\+Rotation}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{get\+Rotation()}{getRotation()}}
+{\footnotesize\ttfamily glm\+::vec3 Transform\+::get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_mason_1_1_transform_a24107560725b250c4c2e10ab98a6ac04}{}\label{class_mason_1_1_transform_a24107560725b250c4c2e10ab98a6ac04} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!get\+Scale@{get\+Scale}}
+\index{get\+Scale@{get\+Scale}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{get\+Scale()}{getScale()}}
+{\footnotesize\ttfamily glm\+::vec3 Transform\+::get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_mason_1_1_camera_a405b26eaaae2ab7a460dfc319a9d16ea}{Mason\+::\+Camera}.
+
+\hypertarget{class_mason_1_1_transform_a35e627aa09604bf3a81f4c07d28205f3}{}\label{class_mason_1_1_transform_a35e627aa09604bf3a81f4c07d28205f3} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!global\+Transform@{global\+Transform}}
+\index{global\+Transform@{global\+Transform}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{global\+Transform()}{globalTransform()}}
+{\footnotesize\ttfamily glm\+::mat4 Transform\+::global\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_mason_1_1_transform_a8b85abc03488f58bef8bb78df77c1689}{}\label{class_mason_1_1_transform_a8b85abc03488f58bef8bb78df77c1689} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!local\+Transform@{local\+Transform}}
+\index{local\+Transform@{local\+Transform}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{local\+Transform()}{localTransform()}}
+{\footnotesize\ttfamily glm\+::mat4 Transform\+::local\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_mason_1_1_transform_a6e1a6b57214a7de21595e6af8b05138b}{}\label{class_mason_1_1_transform_a6e1a6b57214a7de21595e6af8b05138b} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!set\+Parent@{set\+Parent}}
+\index{set\+Parent@{set\+Parent}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{set\+Parent()}{setParent()}}
+{\footnotesize\ttfamily void Transform\+::set\+Parent (\begin{DoxyParamCaption}\item[{\hyperlink{class_mason_1_1_transform}{Transform} $\ast$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_mason_1_1_transform_a740f389e20c0190c52bcb893aeaa0490}{}\label{class_mason_1_1_transform_a740f389e20c0190c52bcb893aeaa0490} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{set\+Position()}{setPosition()}}
+{\footnotesize\ttfamily void Transform\+::set\+Position (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_mason_1_1_camera_a69f184af46d081b85209040bbe814cbb}{Mason\+::\+Camera}.
+
+\hypertarget{class_mason_1_1_transform_aacc2b668bdd1d9b978aa0edccf75144a}{}\label{class_mason_1_1_transform_aacc2b668bdd1d9b978aa0edccf75144a} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!set\+Rotation@{set\+Rotation}}
+\index{set\+Rotation@{set\+Rotation}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{set\+Rotation()}{setRotation()}}
+{\footnotesize\ttfamily void Transform\+::set\+Rotation (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{rotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_mason_1_1_transform_a4a273ac58f45b6ee9cf2b37cf661daac}{}\label{class_mason_1_1_transform_a4a273ac58f45b6ee9cf2b37cf661daac} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!set\+Scale@{set\+Scale}}
+\index{set\+Scale@{set\+Scale}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{set\+Scale()}{setScale()}}
+{\footnotesize\ttfamily void Transform\+::set\+Scale (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_mason_1_1_camera_a732501ee31e862f557bbbc8ff58631a4}{Mason\+::\+Camera}.
+
+\hypertarget{class_mason_1_1_transform_a4dd61568d49044377f3312397ffdafd1}{}\label{class_mason_1_1_transform_a4dd61568d49044377f3312397ffdafd1} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!transformize@{transformize}}
+\index{transformize@{transformize}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{transformize()}{transformize()}}
+{\footnotesize\ttfamily void Transform\+::transformize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_mason_1_1_camera_a27ff2d3ad004a49db2ae508ac6e9d3c2}{Mason\+::\+Camera}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_mason_1_1_transform_a00df87c957d8f7ee0fc51f07a0542f4a}{}\label{class_mason_1_1_transform_a00df87c957d8f7ee0fc51f07a0542f4a} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!Game\+Object@{Game\+Object}}
+\index{Game\+Object@{Game\+Object}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{Game\+Object}{GameObject}}
+{\footnotesize\ttfamily friend class \hyperlink{class_mason_1_1_game_object}{Game\+Object}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\hypertarget{class_mason_1_1_transform_a82b374d797a09668286ac5cf26f539f3}{}\label{class_mason_1_1_transform_a82b374d797a09668286ac5cf26f539f3} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!Particle\+Emitter@{Particle\+Emitter}}
+\index{Particle\+Emitter@{Particle\+Emitter}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{Particle\+Emitter}{ParticleEmitter}}
+{\footnotesize\ttfamily friend class \hyperlink{class_mason_1_1_particle_emitter}{Particle\+Emitter}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\hypertarget{class_mason_1_1_transform_a33061a25b8332281d02c83e2bf1d4959}{}\label{class_mason_1_1_transform_a33061a25b8332281d02c83e2bf1d4959} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!Rendering@{Rendering}}
+\index{Rendering@{Rendering}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{Rendering}{Rendering}}
+{\footnotesize\ttfamily friend class \hyperlink{class_mason_1_1_rendering}{Rendering}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_mason_1_1_transform_aeb64a62787375e23645da6f490763c25}{}\label{class_mason_1_1_transform_aeb64a62787375e23645da6f490763c25} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!matrix@{matrix}}
+\index{matrix@{matrix}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily glm\+::mat4 Mason\+::\+Transform\+::matrix\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_mason_1_1_transform_a1e2c91adcef43bcc170803656260f9db}{}\label{class_mason_1_1_transform_a1e2c91adcef43bcc170803656260f9db} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!parent@{parent}}
+\index{parent@{parent}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily \hyperlink{class_mason_1_1_transform}{Transform}$\ast$ Mason\+::\+Transform\+::parent\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_mason_1_1_transform_ac9e11b4ec4433a38ac1100f12c955dcb}{}\label{class_mason_1_1_transform_ac9e11b4ec4433a38ac1100f12c955dcb} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!position@{position}}
+\index{position@{position}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Transform\+::position\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_mason_1_1_transform_ae2f541ade79d561584619e93edb034ae}{}\label{class_mason_1_1_transform_ae2f541ade79d561584619e93edb034ae} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!rotation@{rotation}}
+\index{rotation@{rotation}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Transform\+::rotation\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_mason_1_1_transform_a4618b31e34a6ec8a0ee638401fc56367}{}\label{class_mason_1_1_transform_a4618b31e34a6ec8a0ee638401fc56367} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!scale@{scale}}
+\index{scale@{scale}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{scale}{scale}}
+{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Transform\+::scale\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/include/\+Mason/\hyperlink{_transform_8h}{Transform.\+h}\item 
+C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/src/\hyperlink{_transform_8cpp}{Transform.\+cpp}\end{DoxyCompactItemize}

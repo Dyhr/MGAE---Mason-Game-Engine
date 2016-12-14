@@ -9,9 +9,13 @@
 using namespace Mason;
 
 Sprite::Sprite(int x, int y, int width, int height, float anchorX, float anchorY, std::shared_ptr<SRE::Texture> texture) {
+	
 	this->texture = texture;
 
 	using namespace glm;
+	//scale
+	width /= this->pixelsperunit;
+	height /= this->pixelsperunit;
 
 	float dx = anchorX * width;
 	float dy = anchorY * height;

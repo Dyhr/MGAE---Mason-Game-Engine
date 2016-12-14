@@ -16,7 +16,7 @@ namespace Mason {
 		void init(std::string file, SoundType type, AudioManager * manager, int loops = 0);
 		SoundType type;
 		std::string path;
-		void playMePlease();		
+		void play();		
 	protected:
 		Audio(GameObject *gameObject);
 		friend class GameObject;
