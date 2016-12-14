@@ -1,0 +1,94 @@
+{
+  "scenename": "Piano Demo",
+  "gameobjects": [
+    {
+      "uniqueId": 100,
+      "name": "Camera",
+      "camera": {
+        "perspective": true, 
+        "fieldOfView": 60
+      },
+      "transform":
+      {
+        "position": [100, 0, 0] 
+      } 
+    },
+    {
+      "uniqueId": 1,
+      "name": "A",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/A.wav",
+		"type": "soundeffect"
+	  }
+    },
+    {
+      "uniqueId": 2,
+      "name": "B",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/B.wav",
+		"type": "soundeffect"
+	  }
+    },	
+    {
+      "uniqueId": 3,
+      "name": "C",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/C.wav",
+		"type": "soundeffect"
+	  }
+    },	
+    {
+      "uniqueId": 4,
+      "name": "D",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/D.wav",
+		"type": "soundeffect"
+	  }
+    },
+    {
+      "uniqueId": 5,
+      "name": "E",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/E.wav",
+		"type": "soundeffect"
+	  }
+    },
+    {
+      "uniqueId": 6,
+      "name": "F",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/F.wav",
+		"type": "soundeffect"
+	  }
+    },
+    {
+      "uniqueId": 7,
+      "name": "G",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/G.wav",
+		"type": "soundeffect"
+	  }
+    }	
+  ]
+}

@@ -75,6 +75,7 @@ Engine::Engine()
 	srand(uint(time(nullptr)));
 
 	//GUI
+	showDebugGUI = false;
 	ImGui_SRE_Init(window);
 	show_another_window = true;
 
@@ -127,8 +128,13 @@ void Engine::loadScene(std::string path)
 	auto sceneDescriptor = SceneParser::parseFile(path);
 	SDL_SetWindowTitle(window, sceneDescriptor.name.c_str());
 
-
-	SpriteAtlas atlas("data/", "data/MarioPacked.json"); // TODO asset pipeline
+	std::map<std::string, SpriteAtlas> map_spriteatlas;
+	for (auto atlasname : sceneDescriptor.sprites)
+	{
+		SpriteAtlas atlas(sceneDescriptor.imagepath, atlasname + ".json");
+		for (auto sprite : atlas.sprites)
+			scene->sprites[sprite.first] = sprite.second;
+	}
 
 	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 	auto gameObjectDescriptors = sceneDescriptor.gameobjects;
@@ -152,22 +158,23 @@ void Engine::loadScene(std::string path)
 		if (element.sprite.found)
 		{
 			auto sprite = gameObject->addComponent<SpriteRenderer>();
-			sprite->sprite = atlas.getSprite(element.sprite.name);
+			sprite->sprite = scene->sprites[element.sprite.name];
 			// TODO support changing color of sprite
 		}
 		if (element.audio.found) {
-			auto audio = gameObject->addComponent<Audio>();
-			SoundType type;
-			if (element.audio.soundEffect) {
-				type = SoundType::EFFECT;
-			}
-			else {
-				type = SoundType::MUSIC;
-			}
-			audio->init(element.audio.path, type, audioManager);
+			auto audio = gameObject->addComponent<Audio>();			
+			audio->init(element.audio.path, element.audio.type, audioManager);
 			//This is done here for testing. Should be done from scripts in a real scenario.
-			audio->playMePlease();
+			//audio->play();
 		}
+
+		for(auto s : element.scripts)
+		{
+			auto script = gameObject->addScript(s.name);
+			script->strings = s.strings;
+			script->numbers = s.numbers;
+		}
+
 		if (element.physicsBody2D.found) {
 			auto physicsBody2D = gameObject->addComponent<PhysicsBody2D>();
 			physicsBody2D->body->SetType(element.physicsBody2D.type);
@@ -267,7 +274,13 @@ void Engine::update(float deltaTimeSec) {
 	InputManager::getInstance()->Handle(this);
 
 	if (!paused) {
-		for (auto & script : scene->getAllComponent<Script>()) script->OnUpdate();
+		for (auto & script : scene->getAllComponent<Script>()) {
+			if (!script->started) {
+				script->started = true;
+				script->OnStart();
+			}
+			script->OnUpdate();
+		}
 
 		// update particle emitters
 		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
