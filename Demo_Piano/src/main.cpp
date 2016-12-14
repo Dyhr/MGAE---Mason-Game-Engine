@@ -22,20 +22,22 @@ Engine engine;
 
 int main(int argc, char** argv) {
 	
-	engine.loadScene("data/demoPiano.json");		
-	engine.scene->getGameObject(1)->addComponent<ANoteController>();
-	engine.scene->getGameObject(2)->addComponent<ASharpNoteController>();
-	engine.scene->getGameObject(3)->addComponent<BNoteController>();
-	engine.scene->getGameObject(4)->addComponent<CNoteController>();
-	engine.scene->getGameObject(5)->addComponent<CSharpNoteController>();
-	engine.scene->getGameObject(6)->addComponent<DNoteController>();
-	engine.scene->getGameObject(7)->addComponent<DSharpNoteController>();
-	engine.scene->getGameObject(8)->addComponent<ENoteController>();
-	engine.scene->getGameObject(9)->addComponent<FNoteController>();
-	engine.scene->getGameObject(10)->addComponent<FSharpNoteController>();
-	engine.scene->getGameObject(11)->addComponent<GNoteController>();
-	engine.scene->getGameObject(12)->addComponent<GSharpNoteController>();
-	engine.scene->getGameObject(13)->addComponent<CNextNoteController>();
+	
+	Script::scripts["a-note-controller"] =			ANoteController::Create;
+	Script::scripts["a-sharp-note-controller"] =	ASharpNoteController::Create;
+	Script::scripts["b-note-controller"] =			BNoteController::Create;
+	Script::scripts["c-note-controller"] =			CNoteController::Create;
+	Script::scripts["c-next-note-controller"] =		CNextNoteController::Create;
+	Script::scripts["c-sharp-note-controller"] =	CSharpNoteController::Create;
+	Script::scripts["d-note-controller"] =			DNoteController::Create;
+	Script::scripts["d-sharp-note-controller"] =	DSharpNoteController::Create;
+	Script::scripts["e-note-controller"] =			ENoteController::Create;
+	Script::scripts["f-note-controller"] =			FNoteController::Create;
+	Script::scripts["f-sharp-note-controller"] =	FSharpNoteController::Create;
+	Script::scripts["g-note-controller"] =			GNoteController::Create;
+	Script::scripts["g-sharp-note-controller"] =	GSharpNoteController::Create;
+
+	engine.loadScene("data/demoPiano.json");
 
 	engine.start();
 

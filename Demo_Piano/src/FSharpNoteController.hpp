@@ -8,6 +8,10 @@ using namespace Mason;
 
 class FSharpNoteController : public Script {
 public:
+	static Script* Create(GameObject* gameObject)
+	{
+		return new FSharpNoteController(gameObject);
+	}
 	void OnUpdate() override {
 
 	}

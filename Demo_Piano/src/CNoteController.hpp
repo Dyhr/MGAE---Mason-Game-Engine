@@ -8,6 +8,10 @@ using namespace Mason;
 
 class CNoteController : public Script {
 public:
+	static Script* Create(GameObject* gameObject)
+	{
+		return new CNoteController(gameObject);
+	}
 	void OnUpdate() override {
 
 	}

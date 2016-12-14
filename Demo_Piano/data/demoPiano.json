@@ -22,7 +22,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/A5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "a-note-controller"
+        }
+      ]
     },
     {
       "uniqueId": 2,
@@ -33,7 +38,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/A#5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "a-sharp-note-controller"
+        }
+      ]
     },
     {
       "uniqueId": 3,
@@ -44,7 +54,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/B5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "b-note-controller"
+        }
+      ]
     },			
     {
       "uniqueId": 4,
@@ -55,7 +70,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/C5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "c-note-controller"
+        }
+      ]
     },	
     {
       "uniqueId": 5,
@@ -66,7 +86,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/C#5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "c-sharp-note-controller"
+        }
+      ]
     },		
     {
       "uniqueId": 6,
@@ -77,7 +102,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/D5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "d-note-controller"
+        }
+      ]
     },
     {
       "uniqueId": 7,
@@ -88,7 +118,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/D#5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "d-sharp-note-controller"
+        }
+      ]
     },	
     {
       "uniqueId": 8,
@@ -99,7 +134,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/E5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "e-note-controller"
+        }
+      ]
     },	
     {
       "uniqueId": 9,
@@ -110,7 +150,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/F5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "f-note-controller"
+        }
+      ]	  
     },
     {
       "uniqueId": 10,
@@ -121,7 +166,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/F#5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "f-sharp-note-controller"
+        }
+      ]
     },	
     {
       "uniqueId": 11,
@@ -132,7 +182,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/G5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "g-note-controller"
+        }
+      ]
     },
     {
       "uniqueId": 12,
@@ -143,7 +198,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/G#5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "g-sharp-note-controller"
+        }
+      ]
     },
     {
       "uniqueId": 13,
@@ -154,7 +214,12 @@
 	  "audio": {
 		"path": "data/sounds/1-octave/C6.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "c-next-note-controller"
+        }
+      ]
     }	
   ]
 }

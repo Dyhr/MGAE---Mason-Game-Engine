@@ -8,6 +8,10 @@ using namespace Mason;
 
 class DNoteController : public Script {
 public:
+	static Script* Create(GameObject* gameObject)
+	{
+		return new DNoteController(gameObject);
+	}
 	void OnUpdate() override {
 
 	}

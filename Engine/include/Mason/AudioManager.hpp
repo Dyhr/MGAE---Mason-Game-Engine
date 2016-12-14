@@ -22,5 +22,6 @@ namespace Mason {
 		static AudioManager* instance;
 		std::queue<Audio*> sourcesToBePlayed;
 		bool initialized;
+		int maxChannels;
 	};
 }
