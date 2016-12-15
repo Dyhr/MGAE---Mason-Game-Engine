@@ -65,6 +65,7 @@ shared_ptr<GameObject> Scene::loadGameObject(GameObjectDescriptor element) {
 			loadBoxColliderComponent(box, gameObject);
 		for (auto circle : element.physicsBody2D.circleColliders)
 			loadCircleColliderComponenet(circle, gameObject);
+		gameObject->getComponent<PhysicsBody2D>()->UpdateFixtures();
 	}
 	if (element.particles.found) {
 		loadParticleComponent(element.particles, gameObject);
@@ -183,6 +184,9 @@ void Scene::loadSpriteComponent(SpriteDescriptor element, shared_ptr<GameObject>
 void Scene::loadPhysicsBodyComponent(PhysicsBodyDescriptor element, shared_ptr<GameObject> go) {
 	auto physicsBody2D = go->addComponent<PhysicsBody2D>();
 	physicsBody2D->body->SetType(element.type);
+
+	auto pos = go->getComponent<Transform>()->getPosition();
+	physicsBody2D->body->SetTransform(b2Vec2(pos.x, pos.y), 0);
 }
 
 void Scene::loadBoxColliderComponent(BoxColliderDescriptor element, shared_ptr<GameObject> go) {

@@ -44,6 +44,13 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 	if (v.contains("imagepath")) scene.imagepath = v.get("imagepath").get<std::string>();
 	if (v.contains("soundpath")) scene.soundpath = v.get("soundpath").get<std::string>();
 	if (v.contains("templatepath")) scene.templatepath = v.get("templatepath").get<std::string>();
+
+	if(v.contains("gravity"))
+	{
+		auto g = to_vec2(v.get("gravity"));
+		scene.gravity = b2Vec2(g.x, g.y);
+	}
+
 	if (v.contains("sprites"))
 		for (auto atlas : v.get("sprites").get<picojson::array>())
 			scene.sprites.push_back(atlas.get<std::string>());

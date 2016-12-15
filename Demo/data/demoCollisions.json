@@ -12,8 +12,7 @@
       "camera": {
       },
       "transform": {
-        "position": [ 100, 0, 0 ],
-        "scale": 0.5
+        "position": [ 100, 0, 0 ]
       }
     },
     {

@@ -2,7 +2,7 @@
   "scenename": "Asteroids",
   "imagepath": "data/images",
   "templatepath": "data/templates",
-  "gravity": 0,
+  "gravity": [ 0, 0 ],
 
   "sprites": [
     "ships_asteroids",

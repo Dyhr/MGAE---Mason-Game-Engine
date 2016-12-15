@@ -46,18 +46,3 @@ void Physics::step(float dt)
 	world.DrawDebugData();
 	
 }
-
-void Physics::init()
-{
-	for(auto body : bodies) {
-		auto transform = body->getGameObject()->getComponent<Transform>();
-		if(transform) {
-			auto pos = transform->getPosition();
-			body->body->SetTransform(b2Vec2(pos.x, pos.y), 0);
-		}
-
-		body->UpdateFixtures();
-	}
-		
-		
-}

@@ -90,7 +90,6 @@ Engine::~Engine()
 }
 
 void Engine::start() {
-	physics->init();
 
 	typedef std::chrono::high_resolution_clock Clock;
 	auto t1 = Clock::now();
@@ -130,6 +129,8 @@ void Engine::loadScene(std::string path)
 	scene->imagepath = sceneDescriptor.imagepath;
 	scene->soundpath = sceneDescriptor.soundpath;
 	scene->templatepath = sceneDescriptor.templatepath;
+
+	physics->world.SetGravity(sceneDescriptor.gravity);
 
 	std::map<std::string, SpriteAtlas> map_spriteatlas;
 	for (auto atlasname : sceneDescriptor.sprites)

@@ -8,7 +8,7 @@ using namespace Mason;
 
 PhysicsBody2D::~PhysicsBody2D() {
 	auto vec = &Physics::instance->bodies;
-	vec->erase(remove(vec->begin(),vec->end(),this), vec->end());
+	vec->erase(remove(vec->begin(), vec->end(), this), vec->end());
 }
 
 PhysicsBody2D::PhysicsBody2D(GameObject* gameObject) : Component(gameObject) {
@@ -18,14 +18,12 @@ PhysicsBody2D::PhysicsBody2D(GameObject* gameObject) : Component(gameObject) {
 	Physics::instance->bodies.push_back(this);
 }
 
-void PhysicsBody2D::UpdateFixtures (){
-
-
-	auto fixtures = body->GetFixtureList();
-	
-	//while (fixtures.size > 0) {
-	//	body->destroyFixture(fixtures.first());
-	//}
+void PhysicsBody2D::UpdateFixtures() {
+	auto fixture = body->GetFixtureList();
+	while (fixture) {
+		body->DestroyFixture(fixture);
+		fixture = fixture->GetNext();
+	}
 
 	auto colliders = getGameObject()->getComponents<Collider2D>();
 	for (auto collider : colliders) {
@@ -33,6 +31,6 @@ void PhysicsBody2D::UpdateFixtures (){
 		fd.shape = collider->shape;
 		fd.density = collider->density;
 		fd.friction = collider->friction;
-		body->CreateFixture(&fd)->SetUserData((void*)collider->getGameObject()); //our body is a container for the body we get from box2D
-}
+		body->CreateFixture(&fd)->SetUserData(static_cast<void*>(gameObject)); //our body is a container for the body we get from box2D
+	}
 }

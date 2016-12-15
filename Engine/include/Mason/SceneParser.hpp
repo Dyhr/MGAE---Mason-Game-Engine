@@ -130,6 +130,8 @@ namespace Mason {
 		std::vector<std::string> sprites;
 
 		std::vector<GameObjectDescriptor> gameobjects;
+
+		b2Vec2 gravity = b2Vec2(0, -10);
 	};
 
 	class SceneParser {
