@@ -18,6 +18,12 @@ protected:
 	friend GameObject;
 
 public:
+
+	static Script* Create(GameObject* gameObject)
+	{
+		return new DangerousCollisions(gameObject);
+	}
+
 	void OnCollisionEnter(GameObject* other) override
 	{
 		/*auto spr = other->getComponent<SpriteRenderer>()->sprite;

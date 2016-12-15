@@ -15,6 +15,12 @@ protected:
 	friend GameObject;
 
 public:
+
+	static Script* Create(GameObject* gameObject)
+	{
+		return new PlayerController(gameObject);
+	}
+
 	void OnUpdate() override
 	{
 		directionX = rightDown - leftDown;
