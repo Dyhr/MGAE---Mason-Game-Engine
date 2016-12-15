@@ -22,7 +22,7 @@ void CollisionListener::PreSolve(b2Contact* contact, const b2Manifold* oldManifo
 	//fixtureA->GetBody; // we can get the body with this.
 }
 
-void Mason::CollisionListener::BeginContact(b2Contact * contact)
+void CollisionListener::BeginContact(b2Contact * contact)
 {
 	auto gO = ((GameObject*)contact->GetFixtureA()->GetUserData());
 	auto g1 = ((GameObject*)contact->GetFixtureB()->GetUserData());
@@ -36,7 +36,7 @@ void Mason::CollisionListener::BeginContact(b2Contact * contact)
 		s2[i]->OnCollisionEnter(gO);
 }
 
-void Mason::CollisionListener::EndContact(b2Contact * contact)
+void CollisionListener::EndContact(b2Contact * contact)
 {
 	auto gO = ((GameObject*)contact->GetFixtureA()->GetUserData());
 	auto g1 = ((GameObject*)contact->GetFixtureB()->GetUserData());
@@ -51,6 +51,6 @@ void Mason::CollisionListener::EndContact(b2Contact * contact)
 
 
 }
-void Mason::CollisionListener::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse) {
+void CollisionListener::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse) {
 
 }

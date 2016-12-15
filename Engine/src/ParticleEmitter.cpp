@@ -23,12 +23,12 @@ glm::vec2 ParticleEmitter::cubicBezier(float t, std::vector<glm::vec2> splinePoi
 	std::vector<glm::vec2> deeper;
 
 	for (int i = 0; i < splinePoints.size() - 1; i++) {
-		deeper.push_back(glm::lerp(splinePoints[i], splinePoints[i + 1], t));
+		deeper.push_back(lerp(splinePoints[i], splinePoints[i + 1], t));
 	}
 	return cubicBezier(t, deeper);
 }
 
-void Mason::ParticleEmitter::updateModel(float deltaTimeSec)
+void ParticleEmitter::updateModel(float deltaTimeSec)
 {
 	if (!running()) return;
 
@@ -55,10 +55,10 @@ void Mason::ParticleEmitter::updateModel(float deltaTimeSec)
 			birthTimes[i] = timeSinceStart;
 			age[i] = 0.0f;
 
-			if (config.sizeState == AttributeState::RANDOM) {
+			if (config.sizeState == RANDOM) {
 				sizes[i] = glm::lerp(config.minSize, config.maxSize, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 			}
-			if (config.colorState == AttributeState::RANDOM) {
+			if (config.colorState == RANDOM) {
 				glm::vec4 color;
 				color[0] = glm::lerp(config.minColor[0], config.maxColor[0], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				color[1] = glm::lerp(config.minColor[1], config.maxColor[1], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
@@ -66,10 +66,10 @@ void Mason::ParticleEmitter::updateModel(float deltaTimeSec)
 				color[3] = glm::lerp(config.minColor[3], config.maxColor[3], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				colors[i] = color;
 			}
-			if (config.rotationState == AttributeState::RANDOM) {
+			if (config.rotationState == RANDOM) {
 				uvRotation[i] = glm::lerp(config.minRotation, config.maxRotation, static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 			}
-			if (config.velocityState == AttributeState::RANDOM) {
+			if (config.velocityState == RANDOM) {
 				glm::vec3 velocity;
 				velocity[0] = glm::lerp(config.minVelocity[0], config.maxVelocity[0], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 				velocity[1] = glm::lerp(config.minVelocity[1], config.maxVelocity[1], static_cast <float> (rand()) / static_cast <float> (RAND_MAX));

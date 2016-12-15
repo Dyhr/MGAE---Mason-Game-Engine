@@ -1,7 +1,7 @@
 {
   "scenename": "Asteroids",
   "imagepath": "data/images",
-  "templatepath": "data",
+  "templatepath": "data/templates",
   "gravity": 0,
 
   "sprites": [
@@ -32,25 +32,18 @@
     },
     {
       "uniqueId": 1,
+      "template": "player", 
       "name": "Player 1",
       "sprite": {
         "name": "sprite134"
       },
       "transform": {
         "position": [ -500, 0, 0 ]
-      },
-      "physicsbody": {
-        "type": "dynamic",
-        "circles": [
-          {
-            "center": [ 0, 0 ],
-            "radius": 8
-          }
-        ]
       }
     },
     {
       "uniqueId": 2,
+      "template": "player", 
       "name": "Player 2",
       "sprite": {
         "name": "sprite98"

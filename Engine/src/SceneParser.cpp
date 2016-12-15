@@ -43,28 +43,34 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 	if (v.contains("scenename")) scene.name = v.get("scenename").get<std::string>();
 	if (v.contains("imagepath")) scene.imagepath = v.get("imagepath").get<std::string>();
 	if (v.contains("soundpath")) scene.soundpath = v.get("soundpath").get<std::string>();
+	if (v.contains("templatepath")) scene.templatepath = v.get("templatepath").get<std::string>();
 	if (v.contains("sprites"))
 		for (auto atlas : v.get("sprites").get<picojson::array>())
 			scene.sprites.push_back(atlas.get<std::string>());
 
 	for (auto o : v.get("gameobjects").get<picojson::array>()) {
-		scene.gameobjects.push_back(parseObject(o));
+		scene.gameobjects.push_back(parseObject(o, scene.templatepath));
 	}
 	return scene;
 }
 
-GameObjectDescriptor SceneParser::parseTemplate(std::string filename)
+GameObjectDescriptor SceneParser::parseTemplate(std::string name, std::string path)
 {
-	std::fstream file(filename);
+	if (path[path.length() - 1] != '/')
+		path += '/';
+
+	std::fstream file(path + name + ".json");
 	picojson::value o;
 	file >> o;
 
-	return parseObject(o);
+	return parseObject(o, path);
 }
 
-GameObjectDescriptor SceneParser::parseObject(picojson::value o)
+GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string path)
 {
 	GameObjectDescriptor d;
+	if (o.contains("template")) d = parseTemplate(o.get("template").get<std::string>(), path);
+
 	if (o.contains("name")) d.name = o.get("name").get<std::string>();
 	if (o.contains("uniqueId")) d.uniqueId = int(o.get("uniqueId").get<double>());
 

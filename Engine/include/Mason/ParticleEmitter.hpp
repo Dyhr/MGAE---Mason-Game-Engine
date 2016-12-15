@@ -51,11 +51,11 @@ namespace Mason {
 		AttributeState rotationState;
 		AttributeState velocityState;
 		AttributeState attributeFromString(std::string str) {
-			if (str == "fixed") return AttributeState::FIXED;
-			if (str == "random") return AttributeState::RANDOM;
-			if (str == "linear") return AttributeState::LINEAR;
-			if (str == "spline") return AttributeState::SPLINE;
-			return AttributeState::FIXED;
+			if (str == "fixed") return FIXED;
+			if (str == "random") return RANDOM;
+			if (str == "linear") return LINEAR;
+			if (str == "spline") return SPLINE;
+			return FIXED;
 		}
 		std::vector<glm::vec2> normalize(std::vector<glm::vec2>  input) {
 

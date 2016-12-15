@@ -125,6 +125,7 @@ namespace Mason {
 
 		std::string imagepath = "data/images";
 		std::string soundpath = "data/sounds";
+		std::string templatepath = "data/templates";
 
 		std::vector<std::string> sprites;
 
@@ -134,8 +135,8 @@ namespace Mason {
 	class SceneParser {
 	public:
 		static SceneDescriptor parseFile(std::string filename);
-		static GameObjectDescriptor parseTemplate(std::string filename);
+		static GameObjectDescriptor parseTemplate(std::string name, std::string path);
 	private:
-		static GameObjectDescriptor parseObject(picojson::value o);
+		static GameObjectDescriptor parseObject(picojson::value o, std::string path);
 	};
 }

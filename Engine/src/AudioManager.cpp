@@ -40,7 +40,7 @@ AudioManager::AudioManager() {
 	
 }
 
-Mason::AudioManager::~AudioManager() {
+AudioManager::~AudioManager() {
 	cleanUp();
 }
 
@@ -65,7 +65,7 @@ void AudioManager::step()
 		if (sourcesToBePlayed.empty()) break;
 		if (channelsPlaying[i]) continue;
 		auto audio = sourcesToBePlayed.front();
-		if (audio->type == SoundType::EFFECT) {
+		if (audio->type == EFFECT) {
 			auto soundEffect = soundEffectMap[audio->path];
 			if (soundEffect != NULL) {
 				Mix_PlayChannel(i, soundEffect, 0);				
@@ -76,7 +76,7 @@ void AudioManager::step()
 				std::cout << "Bad Wav: " << audio->path.c_str() << std::endl;
 			}
 		}
-		else if (audio->type == SoundType::MUSIC) {
+		else if (audio->type == MUSIC) {
 			auto music = musicMap[audio->path];
 			if (music != NULL && Mix_PlayingMusic() == 0) {
 				Mix_PlayMusic(music, -1);
@@ -91,7 +91,7 @@ void AudioManager::step()
 
 void AudioManager::playAudioSource(Audio * audioComponent)
 {
-	if (audioComponent->type == SoundType::EFFECT) {
+	if (audioComponent->type == EFFECT) {
 		auto soundEffect = soundEffectMap[audioComponent->path];
 		if (soundEffect != NULL) {
 			for (int i = 0; i < maxChannels; i++) {
@@ -103,7 +103,7 @@ void AudioManager::playAudioSource(Audio * audioComponent)
 			}
 		}
 	}
-	else if (audioComponent->type == SoundType::MUSIC) {
+	else if (audioComponent->type == MUSIC) {
 		auto music = musicMap[audioComponent->path];
 		if (music != NULL && Mix_PlayingMusic() == 0) {
 			Mix_PlayMusic(music, -1);	
@@ -113,9 +113,9 @@ void AudioManager::playAudioSource(Audio * audioComponent)
 	sourcesToBePlayed.push(audioComponent);
 }
 
-bool Mason::AudioManager::loadAudioSource(Audio * audioComponent)
+bool AudioManager::loadAudioSource(Audio * audioComponent)
 {
-	if (audioComponent->type == SoundType::EFFECT) {
+	if (audioComponent->type == EFFECT) {
 		auto soundEffect = Mix_LoadWAV(audioComponent->path.c_str());
 		if (soundEffect != NULL) {
 			soundEffectMap[audioComponent->path] = soundEffect;
@@ -123,7 +123,7 @@ bool Mason::AudioManager::loadAudioSource(Audio * audioComponent)
 		}
 		return false;
 	}
-	else if (audioComponent->type == SoundType::MUSIC) {
+	else if (audioComponent->type == MUSIC) {
 		auto music = Mix_LoadMUS(audioComponent->path.c_str());
 		if (music != NULL) {
 			musicMap[audioComponent->path] = music;

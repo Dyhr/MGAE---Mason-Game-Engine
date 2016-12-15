@@ -127,6 +127,9 @@ void Engine::loadScene(std::string path)
 
 	auto sceneDescriptor = SceneParser::parseFile(path);
 	SDL_SetWindowTitle(window, sceneDescriptor.name.c_str());
+	scene->imagepath = sceneDescriptor.imagepath;
+	scene->soundpath = sceneDescriptor.soundpath;
+	scene->templatepath = sceneDescriptor.templatepath;
 
 	std::map<std::string, SpriteAtlas> map_spriteatlas;
 	for (auto atlasname : sceneDescriptor.sprites)

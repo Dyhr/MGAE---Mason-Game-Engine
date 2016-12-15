@@ -11,8 +11,9 @@ namespace Mason {
 	class Scene {
 	public:
 		Scene();
-		static std::shared_ptr<GameObject> Instantiate(GameObjectDescriptor desc);
+		static std::shared_ptr<GameObject> Instantiate(std::string name);
 		static void Destroy(std::shared_ptr<GameObject> ptr);
+
 		// Add game object
 		std::shared_ptr<GameObject> addGameObject(std::string name);
 
@@ -42,6 +43,10 @@ namespace Mason {
 		std::vector<std::shared_ptr<GameObject>> gameObjects;
 		std::map<std::string, std::shared_ptr<Sprite>> sprites;
 		std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
+
+		std::string templatepath;
+		std::string imagepath;
+		std::string soundpath;
 
 		static Scene* activeInstance;
 		

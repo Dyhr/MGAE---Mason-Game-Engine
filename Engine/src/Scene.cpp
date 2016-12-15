@@ -15,15 +15,15 @@ using namespace Mason;
 
 Scene* Scene::activeInstance = nullptr;
 
-Mason::Scene::Scene() {
+Scene::Scene() {
 	activeInstance = this;
 }
 
-std::shared_ptr<GameObject> Mason::Scene::Instantiate(GameObjectDescriptor desc) {
-	return activeInstance->loadGameObject(desc);
+shared_ptr<GameObject> Scene::Instantiate(std::string name) {
+	return activeInstance->loadGameObject(SceneParser::parseTemplate(name, activeInstance->templatepath));
 }
 
-void Mason::Scene::Destroy(std::shared_ptr<GameObject> ptr)
+void Scene::Destroy(shared_ptr<GameObject> ptr)
 {
 	activeInstance->removeGameObject(ptr);
 }
@@ -35,7 +35,7 @@ shared_ptr<GameObject> Scene::addGameObject(string name) {
 	return res;
 }
 
-std::shared_ptr<GameObject> Mason::Scene::loadGameObject(GameObjectDescriptor element) {
+shared_ptr<GameObject> Scene::loadGameObject(GameObjectDescriptor element) {
 	auto gameObject = addGameObject(element.name);
 	map_gameObjects[element.uniqueId] = gameObject;
 	if (element.camera.found)
@@ -72,7 +72,7 @@ std::shared_ptr<GameObject> Mason::Scene::loadGameObject(GameObjectDescriptor el
 	return gameObject;
 }
 
-void Mason::Scene::setParentRelationship(int childId, int parentId) {
+void Scene::setParentRelationship(int childId, int parentId) {
 	auto gameObject = map_gameObjects[childId];
 	auto parentGameObject = map_gameObjects[parentId];
 	gameObject->getComponent<Transform>()->setParent(parentGameObject->getComponent<Transform>().get());
@@ -101,7 +101,7 @@ vector<shared_ptr<GameObject>> Scene::getGameObjects() {
 	return this->gameObjects;
 }
 
-void Mason::Scene::loadCameraComponent(GameObjectDescriptor element, std::shared_ptr<GameObject> go) {
+void Scene::loadCameraComponent(GameObjectDescriptor element, shared_ptr<GameObject> go) {
 	auto camera = go->addComponent<Camera>();
 	camera->setViewportMin(element.camera.viewportMin);
 	camera->setViewportMax(element.camera.viewportMax);
@@ -109,7 +109,7 @@ void Mason::Scene::loadCameraComponent(GameObjectDescriptor element, std::shared
 	camera->setScale(element.transform.scale);
 }
 
-void Mason::Scene::loadParticleComponent(ParticleDescriptor element, std::shared_ptr<GameObject> go) {
+void Scene::loadParticleComponent(ParticleDescriptor element, shared_ptr<GameObject> go) {
 	auto emitter = go->addComponent<ParticleEmitter>();
 	ParticleEmitterConfig config(element.rate, element.lifespan, element.velocity, element.gravity);
 	AttributeState sizeState = config.attributeFromString(element.sizeState);
@@ -174,42 +174,43 @@ void Mason::Scene::loadParticleComponent(ParticleDescriptor element, std::shared
 	emitter->start();
 }
 
-void Mason::Scene::loadSpriteComponent(SpriteDescriptor element, std::shared_ptr<GameObject> go) {
+void Scene::loadSpriteComponent(SpriteDescriptor element, shared_ptr<GameObject> go) {
 	auto sprite = go->addComponent<SpriteRenderer>();
 	sprite->sprite = sprites[element.name];
 	// TODO support changing color of sprite
 }
 
-void Mason::Scene::loadPhysicsBodyComponent(PhysicsBodyDescriptor element, std::shared_ptr<GameObject> go) {
+void Scene::loadPhysicsBodyComponent(PhysicsBodyDescriptor element, shared_ptr<GameObject> go) {
 	auto physicsBody2D = go->addComponent<PhysicsBody2D>();
 	physicsBody2D->body->SetType(element.type);
 }
 
-void Mason::Scene::loadBoxColliderComponent(BoxColliderDescriptor element, std::shared_ptr<GameObject> go) {
+void Scene::loadBoxColliderComponent(BoxColliderDescriptor element, shared_ptr<GameObject> go) {
 	auto box = go->addComponent<BoxCollider2D>();
 	box->setCenter(element.center.x, element.center.y);
 	box->setSize(element.width, element.height);
 }
 
-void Mason::Scene::loadCircleColliderComponenet(CircleColliderDescriptor element, std::shared_ptr<GameObject> go) {
+void Scene::loadCircleColliderComponenet(CircleColliderDescriptor element, shared_ptr<GameObject> go) {
 	auto circle = go->addComponent<CircleCollider2D>();
 	circle->setCenter(element.center.x, element.center.y);
 	circle->setSize(element.radius);
 }
 
-void Mason::Scene::loadTransformComponent(TransformDescriptor element, std::shared_ptr<GameObject> go) {
+void Scene::loadTransformComponent(TransformDescriptor element, shared_ptr<GameObject> go) {
 	auto transformComponent = go->addComponent<Transform>();
 	transformComponent->setPosition(element.position);
 	transformComponent->setRotation(element.rotationEuler);
 	transformComponent->setScale(element.scale);
+	go->setTransform(transformComponent);
 }
 
-void Mason::Scene::loadAudioComponent(AudioDescriptor element, std::shared_ptr<GameObject> go) {
+void Scene::loadAudioComponent(AudioDescriptor element, shared_ptr<GameObject> go) {
 	auto audio = go->addComponent<Audio>();
 	audio->init(element.path, element.type, AudioManager::getInstance());
 }
 
-void Mason::Scene::loadScriptComponent(ScriptDescriptor element, std::shared_ptr<GameObject> go) {
+void Scene::loadScriptComponent(ScriptDescriptor element, shared_ptr<GameObject> go) {
 	auto script = go->addScript(element.name);
 	script->strings = element.strings;
 	script->numbers = element.numbers;
