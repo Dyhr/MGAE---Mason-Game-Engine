@@ -91,7 +91,26 @@ void AudioManager::step()
 	}
 }
 
-void AudioManager::AddAudioSource(Audio * audioComponent)
+void AudioManager::PlayAudioSource(Audio * audioComponent)
 {
+	if (audioComponent->type == SoundType::EFFECT) {
+		auto soundEffect = Mix_LoadWAV(audioComponent->path.c_str());
+		if (soundEffect != NULL) {
+			for (int i = 0; i < maxChannels; i++) {
+				if (channelsPlaying[i] == nullptr) {
+					Mix_PlayChannel(i, soundEffect, 0);
+					channelsPlaying[i] = soundEffect;
+					return;
+				}
+			}
+		}
+	}
+	else if (audioComponent->type == SoundType::MUSIC) {
+		auto music = Mix_LoadMUS(audioComponent->path.c_str());
+		if (music != NULL && Mix_PlayingMusic() == 0) {
+			Mix_PlayMusic(music, -1);	
+			return;
+		}
+	}
 	sourcesToBePlayed.push(audioComponent);
 }

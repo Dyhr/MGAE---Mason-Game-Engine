@@ -13,7 +13,7 @@ namespace Mason {
 	public:
 		static AudioManager* getInstance();
 		void step();
-		void AddAudioSource(Audio* audioComponent);
+		void PlayAudioSource(Audio* audioComponent);
 	private:
 		AudioManager();
 		~AudioManager();
