@@ -5,13 +5,21 @@
 #include "GameObject.hpp"
 #include <map>
 #include "Sprite.h"
+#include "SceneParser.hpp"
 
 namespace Mason {
 	class Scene {
 	public:
-
+		Scene();
+		static std::shared_ptr<GameObject> Instantiate(std::string name);
 		// Add game object
 		std::shared_ptr<GameObject> addGameObject(std::string name);
+
+		//Load game object from decriptor
+		void loadGameObject(GameObjectDescriptor desc);
+
+		//Setup a parent-child relationship between gameobjects
+		void setParentRelationship(int childId, int parentId);
 
 		// Remove game object
 		bool removeGameObject(std::shared_ptr<GameObject> ptr);
@@ -32,6 +40,21 @@ namespace Mason {
 	private:
 		std::vector<std::shared_ptr<GameObject>> gameObjects;
 		std::map<std::string, std::shared_ptr<Sprite>> sprites;
+		std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
+
+		static Scene* activeInstance;
+		
+		//Load components from descriptors
+		void loadCameraComponent(GameObjectDescriptor goDesc, std::shared_ptr<GameObject> go);
+		void loadParticleComponent(ParticleDescriptor particleDesc, std::shared_ptr<GameObject> go);
+		void loadSpriteComponent(SpriteDescriptor spriteDesc, std::shared_ptr<GameObject> go);
+		void loadPhysicsBodyComponent(PhysicsBodyDescriptor physicsDesc, std::shared_ptr<GameObject> go);
+		void loadBoxColliderComponent(BoxColliderDescriptor boxColliderDesc, std::shared_ptr<GameObject> go);
+		void loadCircleColliderComponenet(CircleColliderDescriptor circleColliderDesc, std::shared_ptr<GameObject> go);
+		void loadTransformComponent(TransformDescriptor transformDesc, std::shared_ptr<GameObject> go);
+		void loadAudioComponent(AudioDescriptor audioDesc, std::shared_ptr<GameObject> go);
+		void loadScriptComponent(ScriptDescriptor scriptDesc, std::shared_ptr<GameObject> go);
+
 
 		friend class Engine;
 	};

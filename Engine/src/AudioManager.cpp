@@ -58,7 +58,7 @@ void AudioManager::cleanUp()
 }
 
 void AudioManager::step()
-{
+{	
 	if (!initialized) {
 		init();
 	}	
