@@ -21,15 +21,13 @@ AudioManager * AudioManager::getInstance()
 }
 
 void channelDone(int channel) {
-	std::cout << "Freeing chunk for channel: " << channel << std::endl;
-	Mix_FreeChunk(channelsPlaying[channel]);
+	std::cout << "Freeing channel: " << channel << std::endl;	
 	channelsPlaying[channel] = nullptr;
 }
 
 void AudioManager::init()
 {
-	//Set max size of sourcesToBePlayed ? ?
-	Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096);
+	Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024);
 	Mix_ChannelFinished(channelDone);
 	initialized = true;
 	//Allocate arbitrary channels for audio. TODO base on something, such as e.g. a multiple of the number of audiocomponents in a scene?
@@ -68,7 +66,7 @@ void AudioManager::step()
 		if (channelsPlaying[i]) continue;
 		auto audio = sourcesToBePlayed.front();
 		if (audio->type == SoundType::EFFECT) {
-			auto soundEffect = Mix_LoadWAV(audio->path.c_str());
+			auto soundEffect = soundEffectMap[audio->path];
 			if (soundEffect != NULL) {
 				Mix_PlayChannel(i, soundEffect, 0);				
 				sourcesToBePlayed.pop();
@@ -79,7 +77,7 @@ void AudioManager::step()
 			}
 		}
 		else if (audio->type == SoundType::MUSIC) {
-			auto music = Mix_LoadMUS(audio->path.c_str());
+			auto music = musicMap[audio->path];
 			if (music != NULL && Mix_PlayingMusic() == 0) {
 				Mix_PlayMusic(music, -1);
 				sourcesToBePlayed.pop();
@@ -91,10 +89,10 @@ void AudioManager::step()
 	}
 }
 
-void AudioManager::PlayAudioSource(Audio * audioComponent)
+void AudioManager::playAudioSource(Audio * audioComponent)
 {
 	if (audioComponent->type == SoundType::EFFECT) {
-		auto soundEffect = Mix_LoadWAV(audioComponent->path.c_str());
+		auto soundEffect = soundEffectMap[audioComponent->path];
 		if (soundEffect != NULL) {
 			for (int i = 0; i < maxChannels; i++) {
 				if (channelsPlaying[i] == nullptr) {
@@ -106,11 +104,32 @@ void AudioManager::PlayAudioSource(Audio * audioComponent)
 		}
 	}
 	else if (audioComponent->type == SoundType::MUSIC) {
-		auto music = Mix_LoadMUS(audioComponent->path.c_str());
+		auto music = musicMap[audioComponent->path];
 		if (music != NULL && Mix_PlayingMusic() == 0) {
 			Mix_PlayMusic(music, -1);	
 			return;
 		}
 	}
 	sourcesToBePlayed.push(audioComponent);
+}
+
+bool Mason::AudioManager::loadAudioSource(Audio * audioComponent)
+{
+	if (audioComponent->type == SoundType::EFFECT) {
+		auto soundEffect = Mix_LoadWAV(audioComponent->path.c_str());
+		if (soundEffect != NULL) {
+			soundEffectMap[audioComponent->path] = soundEffect;
+			return true;
+		}
+		return false;
+	}
+	else if (audioComponent->type == SoundType::MUSIC) {
+		auto music = Mix_LoadMUS(audioComponent->path.c_str());
+		if (music != NULL) {
+			musicMap[audioComponent->path] = music;
+			return true;
+		}
+		return false; 
+	}
+	return false;
 }
