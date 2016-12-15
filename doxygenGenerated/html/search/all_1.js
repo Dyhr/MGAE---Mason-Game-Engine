@@ -5,6 +5,7 @@ var searchData=
   ['addfloat',['addFloat',['../class_mason_1_1_config.html#aa34f25a92ea33607425da418efabf47f',1,'Mason::Config']]],
   ['addgameobject',['addGameObject',['../class_mason_1_1_scene.html#afe8ac9cb371c04a0587faf06bf828ac9',1,'Mason::Scene']]],
   ['addint',['addInt',['../class_mason_1_1_config.html#af80adf2ed2290a3d714fb0407ee8fe55',1,'Mason::Config']]],
+  ['addscript',['addScript',['../class_mason_1_1_game_object.html#a2c351c8c573724821be9bb14807e65ef',1,'Mason::GameObject']]],
   ['addstring',['addString',['../class_mason_1_1_config.html#a426f9e3f5de94a89dadfb7531d3b1d39',1,'Mason::Config']]],
   ['age',['age',['../class_mason_1_1_particle_emitter.html#af8aa10f22ae7a4662b198d52c2424d3c',1,'Mason::ParticleEmitter']]],
   ['array',['array',['../classpicojson_1_1value.html#adeff4fdf7ee5675eeb7686bb89233c43',1,'picojson::value::array()'],['../namespacepicojson.html#ac1e72166adfe3d96dc58cddc7ebd536a',1,'picojson::array()']]],

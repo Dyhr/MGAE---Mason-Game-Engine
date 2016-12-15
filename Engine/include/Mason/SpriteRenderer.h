@@ -6,10 +6,10 @@
 
 namespace Mason {
 	/** @class SpriteRenderer
-	* @brief calls the draw() method of every @see Sprite.
+	* @brief calls the draw() method of every Sprite.
 	*
 	* @fn draw()
-	* @brief calls the draw() method on a specific @see Sprite providing its global transform (= position in the game world). @see Transform component
+	* @brief calls the draw() method on a specific Sprite providing its global transform (= position in the game world). @see Transform component
 	*/
 	class Transform;
 

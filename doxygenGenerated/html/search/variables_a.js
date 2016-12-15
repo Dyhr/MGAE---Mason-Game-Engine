@@ -1,7 +1,14 @@
 var searchData=
 [
-  ['name',['name',['../class_mason_1_1_mesh_descriptor.html#a75515c41cf63390da23028110fb450dd',1,'Mason::MeshDescriptor::name()'],['../class_mason_1_1_sprite_descriptor.html#a78875744bb1e7ba41d6a35ccf83ba43c',1,'Mason::SpriteDescriptor::name()'],['../class_mason_1_1_game_object_descriptor.html#aea3fddf12ef08c91e1f5e422c7521e18',1,'Mason::GameObjectDescriptor::name()']]],
-  ['number_5f',['number_',['../unionpicojson_1_1value_1_1__storage.html#a4fc799f222c28156f943a891e510e438',1,'picojson::value::_storage']]],
-  ['numbersprites',['numberSprites',['../_engine_8cpp.html#a8fccb55f373b4b64d7c382ce251e69c7',1,'Engine.cpp']]],
-  ['numparticles',['numParticles',['../class_mason_1_1_particle_emitter.html#a2df785f58db33ede9255ba835e955e11',1,'Mason::ParticleEmitter']]]
+  ['matrix',['matrix',['../class_mason_1_1_transform.html#aeb64a62787375e23645da6f490763c25',1,'Mason::Transform']]],
+  ['maxcolor',['maxColor',['../struct_mason_1_1_particle_emitter_config.html#af48c8574b50e51408c3566f862e22dbd',1,'Mason::ParticleEmitterConfig::maxColor()'],['../class_mason_1_1_particle_descriptor.html#aa755ad8771cf25c71ec868e16cff41e2',1,'Mason::ParticleDescriptor::maxColor()']]],
+  ['maxparticles',['maxParticles',['../class_mason_1_1_particle_emitter.html#a591a7ed2fc6cded5dc19b144ece7b3fb',1,'Mason::ParticleEmitter']]],
+  ['maxrotation',['maxRotation',['../struct_mason_1_1_particle_emitter_config.html#a3a7e271bae699c0998a3d9ac73f3bb6f',1,'Mason::ParticleEmitterConfig::maxRotation()'],['../class_mason_1_1_particle_descriptor.html#a9590c7ad32834d9cce9c24d530e75609',1,'Mason::ParticleDescriptor::maxRotation()']]],
+  ['maxsize',['maxSize',['../struct_mason_1_1_particle_emitter_config.html#ad8b8933ec9758ed264d1b1ccc3d24bd8',1,'Mason::ParticleEmitterConfig::maxSize()'],['../class_mason_1_1_particle_descriptor.html#a394842f237899eb5fcd3091c8dd2ba89',1,'Mason::ParticleDescriptor::maxSize()']]],
+  ['maxvelocity',['maxVelocity',['../struct_mason_1_1_particle_emitter_config.html#aa449573ac5e8ae2ef3f5110836a3091c',1,'Mason::ParticleEmitterConfig::maxVelocity()'],['../class_mason_1_1_particle_descriptor.html#afc679429239c6e9c40b5c2e75228e2c1',1,'Mason::ParticleDescriptor::maxVelocity()']]],
+  ['mesh',['mesh',['../class_mason_1_1_particle_emitter.html#ab144b5872ad3b63652f8a079069f4cd0',1,'Mason::ParticleEmitter']]],
+  ['mincolor',['minColor',['../struct_mason_1_1_particle_emitter_config.html#aa70f6e44cc9712bf59ef89e1a339726d',1,'Mason::ParticleEmitterConfig::minColor()'],['../class_mason_1_1_particle_descriptor.html#a86b3ee8f533d314ed0f0e48228144a25',1,'Mason::ParticleDescriptor::minColor()']]],
+  ['minrotation',['minRotation',['../struct_mason_1_1_particle_emitter_config.html#ae6755b96da7af8b4c469b64f0887e186',1,'Mason::ParticleEmitterConfig::minRotation()'],['../class_mason_1_1_particle_descriptor.html#a086f4988188e22f066e93529cb02608c',1,'Mason::ParticleDescriptor::minRotation()']]],
+  ['minsize',['minSize',['../struct_mason_1_1_particle_emitter_config.html#ab46ccc780e60c6b7006749058654455f',1,'Mason::ParticleEmitterConfig::minSize()'],['../class_mason_1_1_particle_descriptor.html#a5bbc1147b832c903cee0b6ebe964d8c3',1,'Mason::ParticleDescriptor::minSize()']]],
+  ['minvelocity',['minVelocity',['../struct_mason_1_1_particle_emitter_config.html#a3d8df085c0a91b61f42adc5eef888c79',1,'Mason::ParticleEmitterConfig::minVelocity()'],['../class_mason_1_1_particle_descriptor.html#a6412dbc10bc67e2e8b21faef1c050a67',1,'Mason::ParticleDescriptor::minVelocity()']]]
 ];

@@ -1,0 +1,10 @@
+<map id="Mason::GameObjectDescriptor" name="Mason::GameObjectDescriptor">
+<area shape="rect" id="node2" href="$class_mason_1_1_transform_descriptor.html" title="Mason::TransformDescriptor" alt="" coords="15,5,201,32"/>
+<area shape="rect" id="node3" href="$class_mason_1_1_audio_descriptor.html" title="Mason::AudioDescriptor" alt="" coords="27,56,189,83"/>
+<area shape="rect" id="node4" href="$class_mason_1_1_sprite_descriptor.html" title="Mason::SpriteDescriptor" alt="" coords="27,107,189,133"/>
+<area shape="rect" id="node5" href="$class_mason_1_1_box_collider_descriptor.html" title="Mason::BoxColliderDescriptor" alt="" coords="11,157,205,184"/>
+<area shape="rect" id="node6" href="$class_mason_1_1_circle_collider_descriptor.html" title="Mason::CircleColliderDescriptor" alt="" coords="6,208,210,235"/>
+<area shape="rect" id="node7" href="$class_mason_1_1_particle_descriptor.html" title="Mason::ParticleDescriptor" alt="" coords="22,259,194,285"/>
+<area shape="rect" id="node8" href="$class_mason_1_1_camera_descriptor.html" title="Mason::CameraDescriptor" alt="" coords="21,309,195,336"/>
+<area shape="rect" id="node9" href="$class_mason_1_1_physics_body_descriptor.html" title="Mason::PhysicsBodyDescriptor" alt="" coords="5,360,211,387"/>
+</map>

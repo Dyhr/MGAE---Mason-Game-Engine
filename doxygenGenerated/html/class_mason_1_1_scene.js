@@ -5,5 +5,6 @@ var class_mason_1_1_scene =
     [ "getGameObject", "class_mason_1_1_scene.html#ae13738888d4f00135fb827639f87239b", null ],
     [ "getGameObjects", "class_mason_1_1_scene.html#a045d786fa6f11ab01e190971637b15ce", null ],
     [ "getSize", "class_mason_1_1_scene.html#a97780dbb825e92c62b02623fe1e297fa", null ],
-    [ "removeGameObject", "class_mason_1_1_scene.html#aad5427fcdd330f65dc4e7b1e627afce4", null ]
+    [ "removeGameObject", "class_mason_1_1_scene.html#aad5427fcdd330f65dc4e7b1e627afce4", null ],
+    [ "Engine", "class_mason_1_1_scene.html#a3e1914489e4bed4f9f23cdeab34a43dc", null ]
 ];

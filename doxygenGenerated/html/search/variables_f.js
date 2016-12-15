@@ -1,9 +1,22 @@
 var searchData=
 [
-  ['tex',['tex',['../struct_mason_1_1_particle_emitter_config.html#a660e9a7613b158ac36bfc4ffe8b5f610',1,'Mason::ParticleEmitterConfig::tex()'],['../_engine_8cpp.html#aec0f4a52b68a666be595266cfdd5529b',1,'tex():&#160;Engine.cpp']]],
-  ['texturepath',['texturePath',['../class_mason_1_1_particle_descriptor.html#a060bb2c95075b3a19432beca816bfa76',1,'Mason::ParticleDescriptor']]],
-  ['totalparticles',['totalParticles',['../class_mason_1_1_particle_emitter.html#afc99ceabe0f61e289bc7e6d4c3b1b038',1,'Mason::ParticleEmitter']]],
-  ['transform',['transform',['../class_mason_1_1_rendering.html#adaca4d8bb739395f32fc4886653ed2f5',1,'Mason::Rendering::transform()'],['../class_mason_1_1_game_object_descriptor.html#aa22b35eef207a8451a3ad6b816ecd5ac',1,'Mason::GameObjectDescriptor::transform()'],['../class_mason_1_1_script.html#a480aa8b8f65245d51e41ceeaf9cab93a',1,'Mason::Script::transform()'],['../class_mason_1_1_sprite_renderer.html#a6f117cc02c8fc27dac5692a2127bf329',1,'Mason::SpriteRenderer::transform()']]],
-  ['type',['type',['../class_mason_1_1_audio.html#a100d9da58685f865bf03dcf44a55fb63',1,'Mason::Audio']]],
-  ['type_5f',['type_',['../classpicojson_1_1value.html#af77ae4525a20f6fce6ea9ff1c4709312',1,'picojson::value']]]
+  ['s',['s',['../structpicojson_1_1last__error__t.html#a270361f4321424bfd800c36607bf0411',1,'picojson::last_error_t']]],
+  ['scale',['scale',['../class_mason_1_1_transform_descriptor.html#a5d264880a0c22c624c996057bf59b752',1,'Mason::TransformDescriptor::scale()'],['../class_mason_1_1_transform.html#a4618b31e34a6ec8a0ee638401fc56367',1,'Mason::Transform::scale()']]],
+  ['scene',['scene',['../class_mason_1_1_engine.html#a2ec6bc225a9327484dde73bb8298ea85',1,'Mason::Engine']]],
+  ['scripts',['scripts',['../class_mason_1_1_game_object_descriptor.html#a07c8b975f3306740060a73924c6315a7',1,'Mason::GameObjectDescriptor::scripts()'],['../class_mason_1_1_script.html#ad7f94424b50f1a841d25c5efe95f3c73',1,'Mason::Script::scripts()']]],
+  ['shader',['shader',['../class_mason_1_1_particle_emitter.html#abd604dd44e85f836580c40bf8d147a2c',1,'Mason::ParticleEmitter']]],
+  ['shape',['shape',['../class_mason_1_1_collider2_d.html#a82de033fe10f7da3fd079c7ff54eaf94',1,'Mason::Collider2D']]],
+  ['show_5fanother_5fwindow',['show_another_window',['../_engine_8cpp.html#afcde3c4b88a1fd6e68f6608330fb7eac',1,'Engine.cpp']]],
+  ['sizes',['sizes',['../class_mason_1_1_particle_emitter.html#a6209f3a86719de038574edafc0eaa194',1,'Mason::ParticleEmitter']]],
+  ['sizestate',['sizeState',['../struct_mason_1_1_particle_emitter_config.html#a3f6f8e64ff56799d85b8512aa97801eb',1,'Mason::ParticleEmitterConfig::sizeState()'],['../class_mason_1_1_particle_descriptor.html#a67edecae2a5df1c28ccc2f7cdb0a615f',1,'Mason::ParticleDescriptor::sizeState()']]],
+  ['soundpath',['soundpath',['../class_mason_1_1_scene_descriptor.html#acd7e349dc63b0692c2f4912765db2cbe',1,'Mason::SceneDescriptor']]],
+  ['splinepointscolor',['splinePointsColor',['../struct_mason_1_1_particle_emitter_config.html#a66a4652dce73b58e27b8a495e2b6e0eb',1,'Mason::ParticleEmitterConfig::splinePointsColor()'],['../class_mason_1_1_particle_descriptor.html#a3a7588bd840bc8010f23bda75ec56e5d',1,'Mason::ParticleDescriptor::splinePointsColor()']]],
+  ['splinepointsrotation',['splinePointsRotation',['../struct_mason_1_1_particle_emitter_config.html#ae03fbdb37c6738eafedc10564d744e8e',1,'Mason::ParticleEmitterConfig::splinePointsRotation()'],['../class_mason_1_1_particle_descriptor.html#aad86105e768cb5cf59c26d1277ccad2e',1,'Mason::ParticleDescriptor::splinePointsRotation()']]],
+  ['splinepointssize',['splinePointsSize',['../struct_mason_1_1_particle_emitter_config.html#ae379890e2a2de9c8f4dc1a391393f41a',1,'Mason::ParticleEmitterConfig::splinePointsSize()'],['../class_mason_1_1_particle_descriptor.html#aefa11cd147ec20d3084c661245abb49c',1,'Mason::ParticleDescriptor::splinePointsSize()']]],
+  ['sprite',['sprite',['../class_mason_1_1_game_object_descriptor.html#aa7e89568fa330d9337093a73b63f2d3e',1,'Mason::GameObjectDescriptor::sprite()'],['../class_mason_1_1_sprite_renderer.html#a17a9d82d45d7ae1058542e5c939122c6',1,'Mason::SpriteRenderer::sprite()']]],
+  ['sprites',['sprites',['../class_mason_1_1_scene_descriptor.html#a0037cbfd772bbacb81017de405276475',1,'Mason::SceneDescriptor']]],
+  ['sre',['sre',['../class_mason_1_1_engine.html#a8b5ac2d43f0b366ff51c0908fe581f17',1,'Mason::Engine']]],
+  ['starttime',['startTime',['../class_mason_1_1_particle_emitter.html#a46d4d3d2871daba6f320dfbc1f89ace1',1,'Mason::ParticleEmitter']]],
+  ['string_5f',['string_',['../unionpicojson_1_1value_1_1__storage.html#a9ec5aa5b86bbef81b15697c936f58736',1,'picojson::value::_storage']]],
+  ['strings',['strings',['../class_mason_1_1_script_descriptor.html#a426d001b44ece88ba6b465b0505724c4',1,'Mason::ScriptDescriptor::strings()'],['../class_mason_1_1_script.html#a96f691d0ccd8db2e3e95824e8579cc42',1,'Mason::Script::strings()']]]
 ];

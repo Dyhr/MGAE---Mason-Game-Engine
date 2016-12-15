@@ -1,0 +1,5 @@
+<map id="Mason::CircleCollider2D" name="Mason::CircleCollider2D">
+<area shape="rect" id="node2" href="$class_mason_1_1_collider2_d.html" title="Mason::Collider2D" alt="" coords="22,171,150,197"/>
+<area shape="rect" id="node3" href="$class_mason_1_1_component.html" title="Mason::Component" alt="" coords="19,95,153,121"/>
+<area shape="rect" id="node4" href="$class_mason_1_1_game_object.html" title="Mason::GameObject" alt="" coords="15,5,157,32"/>
+</map>

@@ -1,6 +1,6 @@
 #include "Mason/SREDebugDraw.h"
 #include "SRE/Shader.hpp"
-
+using namespace Mason;
 SREDebugDraw::SREDebugDraw() {
 
 }
