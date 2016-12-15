@@ -29,10 +29,10 @@ void Mason::Scene::Destroy(std::shared_ptr<GameObject> ptr)
 }
 
 shared_ptr<GameObject> Scene::addGameObject(string name) {
-    GameObject * go = new GameObject(name);
-    auto res = shared_ptr<GameObject>(go);
+	GameObject * go = new GameObject(name);
+	auto res = shared_ptr<GameObject>(go);
 	this->gameObjects.push_back(res);
-    return res;
+	return res;
 }
 
 std::shared_ptr<GameObject> Mason::Scene::loadGameObject(GameObjectDescriptor element) {
@@ -48,7 +48,7 @@ std::shared_ptr<GameObject> Mason::Scene::loadGameObject(GameObjectDescriptor el
 
 	if (element.sprite.found)
 	{
-		loadSpriteComponent(element.sprite, gameObject);		
+		loadSpriteComponent(element.sprite, gameObject);
 	}
 	if (element.audio.found) {
 		loadAudioComponent(element.audio, gameObject);
@@ -61,15 +61,13 @@ std::shared_ptr<GameObject> Mason::Scene::loadGameObject(GameObjectDescriptor el
 
 	if (element.physicsBody2D.found) {
 		loadPhysicsBodyComponent(element.physicsBody2D, gameObject);
-	}
-	if (element.boxCollider.found) {
-		loadBoxColliderComponent(element.boxCollider, gameObject);
-	}
-	if (element.circleCollider.found) {
-		loadCircleColliderComponenet(element.circleCollider, gameObject);
+		for (auto box : element.physicsBody2D.boxColliders)
+			loadBoxColliderComponent(box, gameObject);
+		for (auto circle : element.physicsBody2D.circleColliders)
+			loadCircleColliderComponenet(circle, gameObject);
 	}
 	if (element.particles.found) {
-		loadParticleComponent(element.particles, gameObject);		
+		loadParticleComponent(element.particles, gameObject);
 	}
 	return gameObject;
 }
@@ -81,22 +79,22 @@ void Mason::Scene::setParentRelationship(int childId, int parentId) {
 }
 
 bool Scene::removeGameObject(shared_ptr<GameObject> ptr) {
-    for (auto iter = this->gameObjects.begin();iter != this->gameObjects.end(); iter++){
-        if (*iter == ptr){
+	for (auto iter = this->gameObjects.begin(); iter != this->gameObjects.end(); iter++) {
+		if (*iter == ptr) {
 			this->gameObjects.erase(iter);
-            return true;
-        }
-    }
-    // not found
-    return false;
+			return true;
+		}
+	}
+	// not found
+	return false;
 }
 
 int Scene::getSize() {
-    return (int) this->gameObjects.size();
+	return (int) this->gameObjects.size();
 }
 
 shared_ptr<GameObject> Scene::getGameObject(int index) {
-    return this->gameObjects.at(index);
+	return this->gameObjects.at(index);
 }
 
 vector<shared_ptr<GameObject>> Scene::getGameObjects() {

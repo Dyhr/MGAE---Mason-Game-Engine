@@ -1,10 +1,14 @@
 {
   "scenename": "Asteroids",
   "imagepath": "data/images",
+  "templatepath": "data",
+  "gravity": 0,
+
   "sprites": [
     "ships_asteroids",
     "ships_human_packed"
   ],
+
   "gameobjects": [
     {
       "uniqueId": 101,
@@ -34,6 +38,15 @@
       },
       "transform": {
         "position": [ -500, 0, 0 ]
+      },
+      "physicsbody": {
+        "type": "dynamic",
+        "circles": [
+          {
+            "center": [ 0, 0 ],
+            "radius": 8
+          }
+        ]
       }
     },
     {
@@ -52,7 +65,7 @@
       "scripts": [
         {
           "name": "asteroid-spawner",
-          "properties": ["amount"], 
+          "properties": [ "amount" ],
           "amount": 1
         }
       ]

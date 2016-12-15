@@ -48,7 +48,7 @@ public:
 
 	void OnStart() override
 	{
-		auto desc = SceneParser::parseObjectFromJSON("data/asteroid.json");
+		auto desc = SceneParser::parseTemplate("data/asteroid.json");
 		auto name = desc.name;
 		auto id = desc.uniqueId;
 		for (int i = 0; i < numbers["amount"]; i++) {			

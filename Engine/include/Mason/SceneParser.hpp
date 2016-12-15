@@ -6,6 +6,7 @@
 #include <map>
 #include <Box2D/Box2D.h>
 #include "Mason/Audio.hpp"
+#include "picojson.h"
 
 
 namespace Mason {
@@ -58,25 +59,25 @@ namespace Mason {
 		glm::vec4 color = glm::vec4(1, 1, 1, 1);
 	};
 
-	class PhysicsBodyDescriptor {
-	public:
-		bool found = false;
-		b2BodyType type;		
-	};
-
 	class BoxColliderDescriptor {
 	public:
-		bool found = false;
-		glm::vec2 center;
-		float width;
-		float height;
+		glm::vec2 center = glm::vec2(0, 0);
+		float width = 1;
+		float height = 1;
 	};
 
 	class CircleColliderDescriptor {
 	public:
-		bool found = false;
 		glm::vec2 center = glm::vec2(0, 0);
 		float radius = 1;
+	};
+
+	class PhysicsBodyDescriptor {
+	public:
+		bool found = false;
+		b2BodyType type;
+		std::vector<BoxColliderDescriptor> boxColliders;
+		std::vector<CircleColliderDescriptor> circleColliders;
 	};
 
 	class TransformDescriptor {
@@ -114,8 +115,6 @@ namespace Mason {
 		AudioDescriptor audio;
 		ParticleDescriptor particles;
 		std::vector<ScriptDescriptor> scripts;
-		CircleColliderDescriptor circleCollider;
-		BoxColliderDescriptor boxCollider;
 		PhysicsBodyDescriptor physicsBody2D;
 	};
 
@@ -135,6 +134,8 @@ namespace Mason {
 	class SceneParser {
 	public:
 		static SceneDescriptor parseFile(std::string filename);
-		static GameObjectDescriptor parseObjectFromJSON(std::string filename);
+		static GameObjectDescriptor parseTemplate(std::string filename);
+	private:
+		static GameObjectDescriptor parseObject(picojson::value o);
 	};
 }
