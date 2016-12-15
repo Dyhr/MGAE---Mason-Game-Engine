@@ -200,7 +200,7 @@ void Scene::loadCircleColliderComponenet(CircleColliderDescriptor element, share
 void Scene::loadTransformComponent(TransformDescriptor element, shared_ptr<GameObject> go) {
 	auto transformComponent = go->addComponent<Transform>();
 	transformComponent->setPosition(element.position);
-	transformComponent->setRotation(element.rotationEuler);
+	transformComponent->setRotation(element.rotation);
 	transformComponent->setScale(element.scale);
 	go->setTransform(transformComponent);
 }

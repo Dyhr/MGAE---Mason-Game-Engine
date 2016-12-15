@@ -12,7 +12,7 @@
   "gameobjects": [
     {
       "uniqueId": 101,
-      "name": "Camera ",
+      "name": "Camera 1",
       "camera": {
         "viewportMax": [ 0.5, 1 ]
       },
@@ -38,7 +38,8 @@
         "name": "sprite134"
       },
       "transform": {
-        "position": [ -500, 0, 0 ]
+        "position": [ -500, 0, 0 ],
+        "rotation":  -90 
       }
     },
     {
@@ -49,7 +50,8 @@
         "name": "sprite98"
       },
       "transform": {
-        "position": [ 500, 0, 0 ]
+        "position": [ 500, 0, 0 ],
+        "rotation":  90
       }
     },
     {
@@ -58,8 +60,10 @@
       "scripts": [
         {
           "name": "asteroid-spawner",
-          "properties": [ "amount" ],
-          "amount": 1
+          "properties": [ "amount", "rangeX", "rangeY" ],
+          "amount": 200,
+          "rangeX": 1000,
+          "rangeY": 1000 
         }
       ]
     }

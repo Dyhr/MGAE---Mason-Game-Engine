@@ -8,16 +8,16 @@ namespace Mason {
 	public:
 
 		virtual void setPosition(glm::vec3 position);
-		virtual void setRotation(glm::vec3 rotation);
-		virtual void setScale(glm::vec3 scale);
+		virtual void setRotation(float rotation);
+		virtual void setScale(float scale);
 		virtual void setParent(Transform *gameObject);
 
 		virtual glm::vec3 getPosition();
-		virtual glm::vec3 getRotation();
-		virtual glm::vec3 getScale();
+		virtual float getRotation();
+		virtual float getScale();
 		virtual Transform* getParent();
 
-		glm::mat4 localTransform();
+		glm::mat4 localTransform() const;
 		glm::mat4 globalTransform();
 	protected:
 		Transform(GameObject *gameObject);
@@ -26,8 +26,8 @@ namespace Mason {
 
 		glm::mat4 matrix;
 		glm::vec3 position;
-		glm::vec3 rotation;
-		glm::vec3 scale;
+		float rotation;
+		float scale;
 		Transform* parent;
 
 

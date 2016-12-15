@@ -32,7 +32,7 @@ public:
 	
 			auto tr = other->getComponent<Transform>();
 			auto scale = tr->getScale();
-			tr->setScale(glm::vec3(scale.x*2, scale.y*2,scale.z));
+			tr->setScale(scale*2);
 			other->getComponent<CircleCollider2D>()->setScale(4);
 		
 	}

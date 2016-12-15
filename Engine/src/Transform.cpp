@@ -10,16 +10,16 @@ using namespace Mason;
 
 Transform::Transform(GameObject *gameObject):Component(gameObject) {
 	this->position = glm::vec3(0, 0, 0);
-	this->rotation = glm::vec3(0, 0, 0);
-	this->scale = glm::vec3(1, 1, 1);
+	this->rotation = 0;
+	this->scale = 1;
 	this->parent = nullptr;
 }
 
 void Transform::transformize()
 {
 	auto translateMat = translate(glm::mat4(1), position);
-	auto rotateMat = glm::eulerAngleYXZ(glm::radians(rotation.y), glm::radians(rotation.x), glm::radians(rotation.z));
-	auto scaleMat = glm::scale(glm::mat4(1), scale);
+	auto rotateMat = glm::eulerAngleYXZ(0.0f, 0.0f, glm::radians(rotation));
+	auto scaleMat = glm::scale(glm::mat4(1), glm::vec3(scale, scale, 1));
 	matrix = translateMat * rotateMat * scaleMat;
 }
 
@@ -31,16 +31,16 @@ void Transform::setPosition(glm::vec3 position) {
 	transformize();
 }
 
-void Transform::setRotation(glm::vec3 rotation) {
+void Transform::setRotation(float rotation) {
 	auto body = gameObject->getComponent<PhysicsBody2D>();
 	if (body != nullptr)
-		body->body->SetTransform(body->body->GetWorldCenter(), rotation.z);
+		body->body->SetTransform(body->body->GetWorldCenter(), rotation);
 	this->rotation = rotation;
 	transformize();
 }
 
 
-void Transform::setScale(glm::vec3 scale) {
+void Transform::setScale(float scale) {
 	this->scale = scale;
 	transformize();
 }
@@ -52,19 +52,19 @@ glm::vec3 Transform::getPosition() {
 	return this->position;
 }
 
-glm::vec3 Transform::getRotation() {
+float Transform::getRotation() {
 	return this->rotation;
 }
-glm::vec3 Transform::getScale() {
+float Transform::getScale() {
 	return this->scale;
 }
 Transform* Transform::getParent() {
 	return this->parent;
 }
 
-glm::mat4 Transform::localTransform() {
+glm::mat4 Transform::localTransform() const
+{
 	return matrix;
-
 }
 
 glm::mat4 Transform::globalTransform() {

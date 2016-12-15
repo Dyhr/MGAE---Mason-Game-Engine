@@ -23,9 +23,9 @@ protected:
 	}
 
 	friend GameObject;
-private: 
+private:
 	glm::vec3 GetRandomPosition(glm::vec2 min, glm::vec2 max) {
-		
+
 		return glm::vec3(randf(min.x, max.x), randf(min.y, max.y), 0);
 	}
 
@@ -50,7 +50,11 @@ public:
 	{
 		for (int i = 0; i < numbers["amount"]; i++) {
 			auto asteroid = Scene::Instantiate("asteroid");
-			asteroid->getTransform()->setPosition(glm::vec3(randf(-600, -600), randf(-100, 100), 0));
+			asteroid->getTransform()->setPosition(glm::vec3(
+				randf(-numbers["rangeX"], numbers["rangeX"]),
+				randf(-numbers["rangeY"], numbers["rangeY"]),
+				0));
+			asteroid->getTransform()->setRotation(randf(0,360));
 			asteroids.push_back(asteroid);
 		}
 		std::cout << "Asteroid spawned: " << numbers["amount"] << std::endl;
