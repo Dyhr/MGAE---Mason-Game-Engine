@@ -1,5 +1,8 @@
 #include "Mason/CircleCollider2D.h"
 
+#include "Mason/GameObject.hpp"
+#include "Mason/PhysicsBody2D.hpp"
+
 using namespace Mason;
 
 void CircleCollider2D::setCenter(float x, float y)
@@ -8,8 +11,13 @@ void CircleCollider2D::setCenter(float x, float y)
 	circleShape.m_p.Set(x,y);
 	
 }
-b2Vec2 CircleCollider2D::GetScale() {
-	return (b2Vec2(1.0, 1.0));
+void CircleCollider2D::setScale(float scale) {
+	Collider2D::setScale(scale);
+
+	setSize(scale);
+	auto body = gameObject->getComponent<PhysicsBody2D>();
+	if (body != nullptr)
+		body->UpdateFixtures();
 }
 void CircleCollider2D::setSize(float rad)
 {

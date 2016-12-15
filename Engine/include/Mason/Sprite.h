@@ -32,7 +32,7 @@ namespace Mason {
 		/** @brief why is it const ?
 		*sets the texture in a SRE shader and calls the SRE draw(), providing the mesh, the position given by the SpriteRenderer and the shader. @see SRE
 		*/
-		void draw(glm::vec3 position) const;
+		void draw(glm::mat4 matrix) const;
 		
 		/** @return SRE texture that stores colors, shadows, geometry data and others @see SRE
 		*/

@@ -11,7 +11,6 @@ SpriteRenderer::SpriteRenderer(GameObject *gameObject):Component(gameObject) {
 
 void SpriteRenderer::draw() {
 	if (sprite) {
-		auto position = glm::vec3(transform->globalTransform()[3]);
-		sprite->draw(position);
+		sprite->draw(transform->globalTransform());
 	}
 }

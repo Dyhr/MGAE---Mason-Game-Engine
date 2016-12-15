@@ -33,6 +33,7 @@ public:
 			auto tr = other->getComponent<Transform>();
 			auto scale = tr->getScale();
 			tr->setScale(glm::vec3(scale.x*2, scale.y*2,scale.z));
+			other->getComponent<CircleCollider2D>()->setScale(4);
 		
 	}
 	/*void OnCollisionExit(GameObject* other) override

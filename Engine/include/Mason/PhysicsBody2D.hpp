@@ -11,6 +11,10 @@ namespace Mason {
 
 	protected:
 		PhysicsBody2D(GameObject* gameObject);
+		void UpdateFixtures();
 		friend class GameObject;
+		friend class Physics;
+		friend class CircleCollider2D;
+		friend class BoxCollider2D;
 	};
 }
