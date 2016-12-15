@@ -54,11 +54,10 @@ public:
 		for (int i = 0; i < numbers["amount"]; i++) {			
 			desc.name = name + " " + std::to_string(i);
 			desc.uniqueId = id + i;
-			desc.transform.position.x = randf(-700, -500);
+			desc.transform.position.x = randf(-600, -600);
 			desc.transform.position.y = randf(-100, 100);
 			asteroids.push_back(Scene::Instantiate(desc));
 		}
 		std::cout << "Asteroid spawned: " << numbers["amount"] << std::endl;
 	}
-
 };

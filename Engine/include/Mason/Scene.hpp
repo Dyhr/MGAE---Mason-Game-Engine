@@ -12,6 +12,7 @@ namespace Mason {
 	public:
 		Scene();
 		static std::shared_ptr<GameObject> Instantiate(GameObjectDescriptor desc);
+		static void Destroy(std::shared_ptr<GameObject> ptr);
 		// Add game object
 		std::shared_ptr<GameObject> addGameObject(std::string name);
 

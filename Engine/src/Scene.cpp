@@ -23,6 +23,11 @@ std::shared_ptr<GameObject> Mason::Scene::Instantiate(GameObjectDescriptor desc)
 	return activeInstance->loadGameObject(desc);
 }
 
+void Mason::Scene::Destroy(std::shared_ptr<GameObject> ptr)
+{
+	activeInstance->removeGameObject(ptr);
+}
+
 shared_ptr<GameObject> Scene::addGameObject(string name) {
     GameObject * go = new GameObject(name);
     auto res = shared_ptr<GameObject>(go);
