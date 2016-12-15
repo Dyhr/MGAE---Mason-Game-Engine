@@ -16,3 +16,27 @@ Below is a simplified class diagram of our current engine.
 ## Future Work
 
 ## Work Distribution
+
++ Bjørn
+  - Base Particle System
+  - Spline Curves for the Particle System
+  - Audio
+  - Scene Parser
+  - Component System
+  - Overall Engine Strucure
+  - Audio and Particle Demo
++ Carol
+  - Box2D Physics
+  - Sprite Renderer
+  - Transforms
+  - Debug GUI
+  - Physics Demo
++ Rasmus
+  - Scene Parser
+  - Base Particle System
+  - Scripts
+  - Time Management
+  - Input Management
+  - Split Screen
+  - Overall Engine Strucure
+  - Asteroids Game
