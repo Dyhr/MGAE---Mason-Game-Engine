@@ -105,10 +105,10 @@ vector<shared_ptr<GameObject>> Scene::getGameObjects() {
 
 void Mason::Scene::loadCameraComponent(GameObjectDescriptor element, std::shared_ptr<GameObject> go) {
 	auto camera = go->addComponent<Camera>();
-	camera->setPosition(element.transform.position);
-	camera->setScale(element.transform.scale);
 	camera->setViewportMin(element.camera.viewportMin);
 	camera->setViewportMax(element.camera.viewportMax);
+	camera->setPosition(element.transform.position);
+	camera->setScale(element.transform.scale);
 }
 
 void Mason::Scene::loadParticleComponent(ParticleDescriptor element, std::shared_ptr<GameObject> go) {

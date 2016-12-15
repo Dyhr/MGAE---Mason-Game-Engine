@@ -46,6 +46,7 @@ namespace Mason {
 		friend class Engine;
 
 	private:
+		glm::vec3 offset() const;
 		void setRotation(glm::vec3 rotation) override {}
 	};
 }
