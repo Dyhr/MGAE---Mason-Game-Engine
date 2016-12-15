@@ -1,12 +1,15 @@
 {
   "scenename": "DemoCollisions",
+  "imagepath": "data",
+  "sprites": [
+    "MarioPacked"
+  ],
   "gameobjects": [
  
     {
        "uniqueId": 100,
         "name": "Camera",
         "camera": {
-         "viewportMin":  [0.5,0] 
         },
         "transform":
         {
@@ -14,18 +17,6 @@
          "scale":  [0.5, 0.5, 0.5] 
        } 
      },
-     {
-       "uniqueId": 101,
-       "name": "Camera 2",
-       "camera": {
-         "viewportMax":  [0.5,1] 
-       },
-       "transform":
-       {
-         "position": [ 110, 0, 0 ],
-         "scale":  [0.5, 0.5, 0.5] 
-        } 
-      },
     {
       "uniqueId": 0,
       "name": "Mario0",
@@ -33,9 +24,22 @@
         "name": "mario_0"
       },
       "transform": {
-	   "position":  [ 0, 200, 0 ]
-      }
-    },
+        "position": [ 0, 200, 0 ]
+      },
+	  "physicsbody":{
+	   "type": "dynamic"
+	  },
+	  "circlecollider":{
+	   "center": [0,0],
+	   "radius": 8
+	  },
+	  "boxcollider":{
+	   "center": [0,-28],
+	   "height": 16,
+	   "width": 26
+	  }
+	 },
+	  
 	{
       "uniqueId": 1,
       "name": "Mario1",
@@ -44,7 +48,19 @@
       },
       "transform": {
 	   "position":  [ -5, 300, 0 ]
-      }
+      },
+	  "physicsbody":{
+	   "type": "dynamic"
+	  },
+	  "circlecollider":{
+	   "center": [0,0],
+	   "radius": 8
+	  },
+	  "boxcollider":{
+	   "center": [0,-28],
+	   "height": 16,
+	   "width": 26
+	  }
     },
 	{
       "uniqueId": 2,
@@ -54,8 +70,21 @@
       },
       "transform": {
 	   "position":  [ -10, 400, 0 ]
-      }
-    },
+      },
+	  "physicsbody":{
+	   "type": "dynamic"
+	  },
+	  "circlecollider":{
+	   "center": [0,0],
+	   "radius": 8
+	  },
+	  "boxcollider":{
+	   "center": [0,-28],
+	   "height": 16,
+	   "width": 26
+	   }
+	  },
+	  
 	{
       "uniqueId": 3,
       "name": "Mario3",
@@ -64,8 +93,21 @@
       },
       "transform": {
 	   "position":  [ -15, 500, 0 ]
-      }
-    },
+      },
+	  "physicsbody":{
+	   "type": "dynamic"
+	  },
+	  "circlecollider":{
+	   "center": [0,0],
+	   "radius": 8
+	  },
+	  "boxcollider":{
+	   "center": [0,-28],
+	   "height": 16,
+	   "width": 26
+	   }
+	  },
+	  
 	{
       "uniqueId": 4,
       "name": "Mario4",
@@ -74,8 +116,21 @@
       },
       "transform": {
 	   "position":  [ 0, 600, 0 ]
-      }
-    },
+      },
+	  "physicsbody":{
+	   "type": "dynamic"
+	  },
+	  "circlecollider":{
+	   "center": [0,0],
+	   "radius": 8
+	  },
+	  "boxcollider":{
+	   "center": [0,-28],
+	   "height": 16,
+	   "width": 26
+	   }
+	  },
+	  
 	{
       "uniqueId": 5,
       "name": "Mario5",
@@ -84,8 +139,21 @@
       },
       "transform": {
 	   "position":  [ 5, 650, 0 ]
-      }
-    },
+      },
+	  "physicsbody":{
+	   "type": "dynamic"
+	  },
+	  "circlecollider":{
+	   "center": [0,0],
+	   "radius": 8
+	  },
+	  "boxcollider":{
+	   "center": [0,-28],
+	   "height": 16,
+	   "width": 26
+	   }
+	  },
+	  
 	{
       "uniqueId": 6,
       "name": "Mario6",
@@ -94,8 +162,21 @@
       },
       "transform": {
 	   "position":  [ 5, 750, 0 ]
-      }
-    },
+      },
+	  "physicsbody":{
+	   "type": "dynamic"
+	  },
+	  "circlecollider":{
+	   "center": [0,0],
+	   "radius": 8
+	  },
+	  "boxcollider":{
+	   "center": [0,-28],
+	   "height": 16,
+	   "width": 26
+	   }
+	  },
+	  
 	{
       "uniqueId": 7,
       "name": "Mario7",
@@ -104,8 +185,21 @@
       },
       "transform": {
 	   "position":  [ 5, 850, 0 ]
-      }
-    },
+      },
+	  "physicsbody":{
+	   "type": "dynamic"
+	  },
+	  "circlecollider":{
+	   "center": [0,0],
+	   "radius": 8
+	  },
+	  "boxcollider":{
+	   "center": [0,-28],
+	   "height": 16,
+	   "width": 26
+	   }
+	  },
+	  
 	{
       "uniqueId": 8,
       "name": "Mario8",
@@ -114,8 +208,21 @@
       },
       "transform": {
 	   "position":  [ 5, 880, 0 ]
-      }
-    },
+      },
+	  "physicsbody":{
+	   "type": "dynamic"
+	  },
+	  "circlecollider":{
+	   "center": [0,0],
+	   "radius": 8
+	  },
+	  "boxcollider":{
+	   "center": [0,-28],
+	   "height": 16,
+	   "width": 26
+	   }
+	  },
+	  
 	{
       "uniqueId": 9,
       "name": "Mario9",
@@ -124,8 +231,21 @@
       },
       "transform": {
 	   "position":  [ 5, 900, 0 ]
-      }
-    },
+      },
+	  "physicsbody":{
+	   "type": "dynamic"
+	  },
+	  "circlecollider":{
+	   "center": [0,0],
+	   "radius": 8
+	  },
+	  "boxcollider":{
+	   "center": [0,-28],
+	   "height": 16,
+	   "width": 26
+	   }
+	  },
+	  
     {
       "uniqueId": 10,
       "name": "Brick10",
@@ -134,7 +254,20 @@
       },
       "transform": {
         "position":  [ 0, -60, 0 ]
-      }
+      },
+	  "physicsbody":{
+	   "type": "kinematic"
+	  },
+	  "boxcollider":{
+	   "center": [0,0],
+	   "height": 32,
+	   "width": 32
+	   },
+	   "scripts":[
+        {
+		"name": "dangerous-collisions"
+		}
+		]
     },
 	{
       "uniqueId": 11,
@@ -144,7 +277,20 @@
       },
       "transform": {
         "position":  [ 40, -60, 0 ]
-      }
+      },
+	  "physicsbody":{
+	   "type": "kinematic"
+	  },
+	  "boxcollider":{
+	   "center": [0,0],
+	   "height": 32,
+	   "width": 32
+	   },
+	   "scripts":[
+        {
+		"name": "dangerous-collisions"
+		}
+		]
     },
 	{
       "uniqueId": 12,
@@ -154,7 +300,20 @@
       },
       "transform": {
         "position":  [ 80, -60, 0 ]
-      }
+      },
+	  "physicsbody":{
+	   "type": "kinematic"
+	  },
+	  "boxcollider":{
+	   "center": [0,0],
+	   "height": 32,
+	   "width": 32
+	   },
+	   "scripts":[
+        {
+		"name": "dangerous-collisions"
+		}
+		]
     },
 	{
       "uniqueId": 13,
@@ -164,7 +323,20 @@
       },
       "transform": {
         "position":  [ -40, -60, 0 ]
-      }
+      },
+	  "physicsbody":{
+	   "type": "kinematic"
+	  },
+	  "boxcollider":{
+	   "center": [0,0],
+	   "height": 32,
+	   "width": 32
+	   },
+	   "scripts":[
+        {
+		"name": "dangerous-collisions"
+		}
+		]
     },
 	{
       "uniqueId": 14,
@@ -174,7 +346,20 @@
       },
       "transform": {
         "position":  [ -80, -60, 0 ]
-      }
+      },
+	  "physicsbody":{
+	   "type": "kinematic"
+	  },
+	  "boxcollider":{
+	   "center": [0,0],
+	   "height": 32,
+	   "width": 32
+	   },
+	   "scripts":[
+        {
+		"name": "dangerous-collisions"
+		}
+		]
     },
 	{
       "uniqueId": 20,
@@ -184,7 +369,21 @@
       },
       "transform": {
         "position":  [ 0, 0, 0 ]
-      }
+      },
+	  "physicsbody":{
+	   "type": "kinematic"
+	  },
+	  "boxcollider":{
+	   "center": [0,0],
+	   "height": 55,
+	   "width": 45
+	   },
+	   "scripts":[
+        {
+		"name": "player-controller"
+		}
+		]
+    
     }
   ]
 }

@@ -34,5 +34,6 @@ namespace Mason {
 		friend class GameObject;
 		friend class Rendering;
 		friend class ParticleEmitter;
+		friend class Physics;
 	};
 }

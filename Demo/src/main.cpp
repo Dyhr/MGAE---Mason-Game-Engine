@@ -10,54 +10,9 @@
 using namespace glm;
 using namespace Mason;
 
-
-Engine engine;
-
-void loadScene(int index) {
-
-	if (index == 0) {
-		engine.loadScene("data/demoCollisions.json");
 		//marios
-
-		engine.scene->getGameObject(2)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
-		auto m0 = engine.scene->getGameObject(2)->addComponent<CircleCollider2D>();
-		m0->setSize(18);
-
-		engine.scene->getGameObject(3)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
-		auto m1 = engine.scene->getGameObject(3)->addComponent<CircleCollider2D>();
-		m1->setSize(18);
-
-		engine.scene->getGameObject(4)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
-		auto m2 = engine.scene->getGameObject(4)->addComponent<CircleCollider2D>();
-		m2->setSize(18);
-
-		engine.scene->getGameObject(5)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
-		auto m3 = engine.scene->getGameObject(5)->addComponent<CircleCollider2D>();
-		m3->setSize(18);
-
-		engine.scene->getGameObject(6)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
-		auto m4 = engine.scene->getGameObject(6)->addComponent<CircleCollider2D>();
-		m4->setSize(18);
-
-		engine.scene->getGameObject(7)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
-		auto m5 = engine.scene->getGameObject(7)->addComponent<CircleCollider2D>();
-		m5->setSize(18);
-
-		engine.scene->getGameObject(8)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
-		auto m6 = engine.scene->getGameObject(8)->addComponent<CircleCollider2D>();
-		m6->setSize(18);
-
-		engine.scene->getGameObject(9)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
-		auto m7 = engine.scene->getGameObject(9)->addComponent<CircleCollider2D>();
-		m7->setSize(18);
-
-		engine.scene->getGameObject(10)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
-		auto m8 = engine.scene->getGameObject(10)->addComponent<CircleCollider2D>();
-		m8->setSize(18);
-
-		engine.scene->getGameObject(11)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
-		auto m9 = engine.scene->getGameObject(11)->addComponent<CircleCollider2D>();
-		m9->setSize(18);
+/*
+		
 
 
 		//bricks
@@ -90,32 +45,19 @@ void loadScene(int index) {
 		auto t = engine.scene->getGameObject(17)->addComponent<BoxCollider2D>();
 		//engine.scene->getGameObject(17)->addComponent<PlayerController>();
 		t->setSize(55, 45);
-	}
-	if (index == 1) {
-		engine.loadScene("data/demoParticles.json");
-		engine.scene->getGameObject(0)->addComponent<PlayerController>();
-	}
+		*/
+	
 
-}
-
-
-int numScenes = 2;
-int currentScene = 0;
-
-void handleInput(SDL_Event event)
-{
-	if (event.type == SDL_KEYDOWN && char(event.key.keysym.sym) == ' ') {
-		currentScene = (currentScene + 1) % numScenes;
-		loadScene(currentScene);
-	}
-}
 
 int main(int argc, char** argv) {
 
-	InputManager::getInstance()->Subscribe(handleInput);
+	Engine e;
 
-	loadScene(currentScene);
-	engine.start();
+	Script::scripts["dangerous-collisions"] = DangerousCollisions::Create;
+	Script::scripts["player-controller"] = PlayerController::Create;
+
+	e.loadScene("data/demoCollisions.json");
+	e.start();
 
 	return 0;
 }

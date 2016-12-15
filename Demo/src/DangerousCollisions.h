@@ -18,6 +18,12 @@ protected:
 	friend GameObject;
 
 public:
+
+	static Script* Create(GameObject* gameObject)
+	{
+		return new DangerousCollisions(gameObject);
+	}
+
 	void OnCollisionEnter(GameObject* other) override
 	{
 		/*auto spr = other->getComponent<SpriteRenderer>()->sprite;
@@ -27,6 +33,7 @@ public:
 			auto tr = other->getComponent<Transform>();
 			auto scale = tr->getScale();
 			tr->setScale(glm::vec3(scale.x*2, scale.y*2,scale.z));
+			other->getComponent<CircleCollider2D>()->setScale(4);
 		
 	}
 	/*void OnCollisionExit(GameObject* other) override
