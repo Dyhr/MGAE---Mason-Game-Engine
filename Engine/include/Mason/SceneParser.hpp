@@ -132,10 +132,9 @@ namespace Mason {
 		std::vector<GameObjectDescriptor> gameobjects;
 	};
 
-
-
 	class SceneParser {
 	public:
 		static SceneDescriptor parseFile(std::string filename);
+		static GameObjectDescriptor parseObjectFromJSON(std::string filename);
 	};
 }

@@ -1,0 +1,26 @@
+{
+      "uniqueId": 5000,
+      "name": "Asteroid",
+      "sprite": {
+        "name": "sprite142"
+      },
+      "transform": {
+        "position": [ -600, 0, 0 ]
+      },
+	  "particles": {
+		"rate": 60,
+		"lifespan": 0.5,
+		"velocityState": "random",
+		"minVelocity": [-20, 300, 0],
+		"maxVelocity": [20, 300, 0],
+		"gravity": [0, 0, 0],
+		"sizeState": "linear",
+		"initialSize": 0.3,
+		"finalSize": 0.7,
+		"colorState": "linear",
+		"initialColor": [1, 1, 0, 1],
+		"finalColor": [1, 0, 0, 1],
+		"rotationState": "fixed",
+		"rotation": 0
+	  }
+}

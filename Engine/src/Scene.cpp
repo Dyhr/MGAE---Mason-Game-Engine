@@ -19,10 +19,8 @@ Mason::Scene::Scene() {
 	activeInstance = this;
 }
 
-std::shared_ptr<GameObject> Mason::Scene::Instantiate(std::string name) {
-	auto go = std::make_shared<GameObject>(name);
-	activeInstance->gameObjects.push_back(go);
-	return go;
+std::shared_ptr<GameObject> Mason::Scene::Instantiate(GameObjectDescriptor desc) {
+	return activeInstance->loadGameObject(desc);
 }
 
 shared_ptr<GameObject> Scene::addGameObject(string name) {
@@ -32,7 +30,7 @@ shared_ptr<GameObject> Scene::addGameObject(string name) {
     return res;
 }
 
-void Mason::Scene::loadGameObject(GameObjectDescriptor element) {
+std::shared_ptr<GameObject> Mason::Scene::loadGameObject(GameObjectDescriptor element) {
 	auto gameObject = addGameObject(element.name);
 	map_gameObjects[element.uniqueId] = gameObject;
 	if (element.camera.found)
@@ -68,6 +66,7 @@ void Mason::Scene::loadGameObject(GameObjectDescriptor element) {
 	if (element.particles.found) {
 		loadParticleComponent(element.particles, gameObject);		
 	}
+	return gameObject;
 }
 
 void Mason::Scene::setParentRelationship(int childId, int parentId) {

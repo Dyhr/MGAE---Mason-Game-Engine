@@ -7,7 +7,9 @@
 #include <glm/glm.hpp>
 #include <memory>
 #include <random>
+#include <vector>
 #include <time.h>
+#include "Mason/SceneParser.hpp"
 
 #include <iostream>
 
@@ -31,6 +33,8 @@ private:
 		srand(time(nullptr));
 		return min + static_cast <float> (rand()) / static_cast <float> (RAND_MAX/(max-min));
 	}
+
+	std::vector<std::shared_ptr<GameObject>> asteroids;
 public:
 	static Script* Create(GameObject* gameObject)
 	{
@@ -40,7 +44,8 @@ public:
 	void OnStart() override
 	{
 		for (int i = 0; i < numbers["amount"]; i++) {
-			auto go = Scene::Instantiate("Asteroid " + i);
+			auto desc = SceneParser::parseObjectFromJSON("data/asteroid.json");
+			asteroids.push_back(Scene::Instantiate(desc));
 		}
 		std::cout << "Asteroid spawned: " << numbers["amount"] << std::endl;
 	}

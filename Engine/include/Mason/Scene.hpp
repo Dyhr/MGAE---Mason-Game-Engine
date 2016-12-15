@@ -11,12 +11,12 @@ namespace Mason {
 	class Scene {
 	public:
 		Scene();
-		static std::shared_ptr<GameObject> Instantiate(std::string name);
+		static std::shared_ptr<GameObject> Instantiate(GameObjectDescriptor desc);
 		// Add game object
 		std::shared_ptr<GameObject> addGameObject(std::string name);
 
 		//Load game object from decriptor
-		void loadGameObject(GameObjectDescriptor desc);
+		std::shared_ptr<GameObject> loadGameObject(GameObjectDescriptor desc);
 
 		//Setup a parent-child relationship between gameobjects
 		void setParentRelationship(int childId, int parentId);
