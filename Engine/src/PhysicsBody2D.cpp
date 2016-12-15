@@ -23,9 +23,9 @@ void PhysicsBody2D::UpdateFixtures (){
 
 	auto fixtures = body->GetFixtureList();
 	
-	while (fixtures.size > 0) {
-		body->destroyFixture(fixtures.first());
-	}
+	//while (fixtures.size > 0) {
+	//	body->destroyFixture(fixtures.first());
+	//}
 
 	auto colliders = getGameObject()->getComponents<Collider2D>();
 	for (auto collider : colliders) {

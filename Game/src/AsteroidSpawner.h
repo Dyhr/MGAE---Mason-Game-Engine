@@ -30,9 +30,14 @@ private:
 	}
 
 	float randf(float min, float max) {
-		srand(time(nullptr));
-		return min + static_cast <float> (rand()) / static_cast <float> (RAND_MAX/(max-min));
+		if (!randomSeeded) {
+			srand(time(nullptr));
+			randomSeeded = true;
+		}
+		auto res = min + static_cast <float> (rand()) / static_cast <float> (RAND_MAX / (max - min));
+		return res;
 	}
+	bool randomSeeded = false;
 
 	std::vector<std::shared_ptr<GameObject>> asteroids;
 public:
@@ -43,8 +48,14 @@ public:
 
 	void OnStart() override
 	{
-		for (int i = 0; i < numbers["amount"]; i++) {
-			auto desc = SceneParser::parseObjectFromJSON("data/asteroid.json");
+		auto desc = SceneParser::parseObjectFromJSON("data/asteroid.json");
+		auto name = desc.name;
+		auto id = desc.uniqueId;
+		for (int i = 0; i < numbers["amount"]; i++) {			
+			desc.name = name + " " + std::to_string(i);
+			desc.uniqueId = id + i;
+			desc.transform.position.x = randf(-700, -500);
+			desc.transform.position.y = randf(-100, 100);
 			asteroids.push_back(Scene::Instantiate(desc));
 		}
 		std::cout << "Asteroid spawned: " << numbers["amount"] << std::endl;
