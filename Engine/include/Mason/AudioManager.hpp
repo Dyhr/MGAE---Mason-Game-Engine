@@ -13,7 +13,7 @@ namespace Mason {
 	public:
 		static AudioManager* getInstance();
 		void step();
-		void AddAudioSource(Audio* audioComponent);
+		void PlayAudioSource(Audio* audioComponent);
 	private:
 		AudioManager();
 		~AudioManager();
@@ -22,5 +22,6 @@ namespace Mason {
 		static AudioManager* instance;
 		std::queue<Audio*> sourcesToBePlayed;
 		bool initialized;
+		int maxChannels;
 	};
 }

@@ -10,15 +10,8 @@
 using namespace glm;
 using namespace Mason;
 
-
-Engine engine;
-
-void loadScene(int index) {
-
-	if (index == 0) {
-		engine.loadScene("data/demoCollisions.json");
 		//marios
-
+/*
 		engine.scene->getGameObject(2)->addComponent<PhysicsBody2D>()->body->SetType(b2BodyType::b2_dynamicBody);
 		auto m0 = engine.scene->getGameObject(2)->addComponent<CircleCollider2D>();
 		m0->setSize(18);
@@ -90,32 +83,19 @@ void loadScene(int index) {
 		auto t = engine.scene->getGameObject(17)->addComponent<BoxCollider2D>();
 		//engine.scene->getGameObject(17)->addComponent<PlayerController>();
 		t->setSize(55, 45);
-	}
-	if (index == 1) {
-		engine.loadScene("data/demoParticles.json");
-		engine.scene->getGameObject(0)->addComponent<PlayerController>();
-	}
+		*/
+	
 
-}
-
-
-int numScenes = 2;
-int currentScene = 0;
-
-void handleInput(SDL_Event event)
-{
-	if (event.type == SDL_KEYDOWN && char(event.key.keysym.sym) == ' ') {
-		currentScene = (currentScene + 1) % numScenes;
-		loadScene(currentScene);
-	}
-}
 
 int main(int argc, char** argv) {
 
-	InputManager::getInstance()->Subscribe(handleInput);
+	Engine e;
 
-	loadScene(currentScene);
-	engine.start();
+	Script::scripts["dangerous-collisions"] = DangerousCollisions::Create;
+	Script::scripts["player-controller"] = PlayerController::Create;
+
+	e.loadScene("data/demoCollisions.json");
+	e.start();
 
 	return 0;
 }

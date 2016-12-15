@@ -21,6 +21,6 @@ void Audio::init(string file, SoundType type, AudioManager * manager, int loops)
 
 void Audio::play() {
 	if (manager) {
-		manager->AddAudioSource(this);
+		manager->PlayAudioSource(this);
 	}
 }
