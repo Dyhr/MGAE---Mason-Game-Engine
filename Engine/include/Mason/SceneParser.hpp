@@ -83,8 +83,8 @@ namespace Mason {
 	class TransformDescriptor {
 	public:
 		glm::vec3 position = glm::vec3(0, 0, 0);
-		glm::vec3 rotationEuler = glm::vec3(0, 0, 0);
-		glm::vec3 scale = glm::vec3(1, 1, 1);
+		float rotation = 0.0f;
+		float scale = 1.0f;
 		int parentId = -1;
 	};
 
@@ -133,9 +133,12 @@ namespace Mason {
 	};
 
 	class SceneParser {
-	public:
+	protected:
 		static SceneDescriptor parseFile(std::string filename);
 		static GameObjectDescriptor parseTemplate(std::string name, std::string path);
+
+		friend class Engine;
+		friend class Scene;
 	private:
 		static GameObjectDescriptor parseObject(picojson::value o, std::string path);
 	};

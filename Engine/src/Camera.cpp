@@ -27,9 +27,9 @@ glm::vec3 Camera::offset() const
 		0);
 }
 
-void Camera::setScale(glm::vec3 scale)
+void Camera::setScale(float scale)
 {
-	Transform::setScale(glm::vec3(1 / scale.x, 1 / scale.y, 1 / scale.z));
+	Transform::setScale(1 / scale);
 }
 
 void Camera::setPosition(glm::vec3 position)
@@ -37,9 +37,9 @@ void Camera::setPosition(glm::vec3 position)
 	Transform::setPosition(-position + offset());
 }
 
-glm::vec3 Camera::getScale()
+float Camera::getScale()
 {
-	return glm::vec3(1 / scale.x, 1 / scale.y, 1 / scale.z);
+	return 1 / scale;
 }
 
 glm::vec3 Camera::getPosition()

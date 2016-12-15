@@ -77,8 +77,8 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 	if (o.contains("transform")) {
 		auto t = o.get("transform");
 		if (t.contains("position")) d.transform.position = to_vec3(t.get("position"));
-		if (t.contains("rotationEuler")) d.transform.rotationEuler = to_vec3(t.get("rotationEuler"));
-		if (t.contains("scale")) d.transform.scale = to_vec3(t.get("scale"));
+		if (t.contains("rotation")) d.transform.rotation = float(t.get("rotation").get<double>());
+		if (t.contains("scale")) d.transform.scale = float(t.get("scale").get<double>());
 		if (t.contains("parentId")) d.transform.parentId = int(t.get("parentId").get<double>());
 	}
 	if (o.contains("physicsbody")) {

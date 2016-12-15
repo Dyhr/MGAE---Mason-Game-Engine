@@ -37,7 +37,7 @@ void Physics::step(float dt)
 		auto angle = body->body->GetAngle() * (180/M_PI);
 		if (transform) {
 			transform->position = glm::vec3(pos.x, pos.y, 0);
-			transform->rotation = glm::vec3(0, 0, angle);
+			transform->rotation = angle;
 			transform->transformize();
 		}
 			

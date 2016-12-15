@@ -13,9 +13,9 @@ namespace Mason {
 	class Camera : public Transform {
 	public:
 
-		void setScale(glm::vec3 scale) override;
+		void setScale(float scale) override;
 		void setPosition(glm::vec3 position) override;
-		glm::vec3 getScale() override;
+		float getScale() override;
 		glm::vec3 getPosition() override;
 
 		glm::vec2 getViewportMin() const;
@@ -47,6 +47,6 @@ namespace Mason {
 
 	private:
 		glm::vec3 offset() const;
-		void setRotation(glm::vec3 rotation) override {}
+		void setRotation(float rotation) override {}
 	};
 }
