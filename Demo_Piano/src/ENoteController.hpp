@@ -8,13 +8,17 @@ using namespace Mason;
 
 class ENoteController : public Script {
 public:
+	static Script* Create(GameObject* gameObject)
+	{
+		return new ENoteController(gameObject);
+	}
 	void OnUpdate() override {
 
 	}
 	void OnInput(SDL_Event event) override {
 		if (event.type == SDL_KEYDOWN)
 		{
-			if (event.key.keysym.sym == SDLK_e) gameObject->getComponent<Audio>()->play();
+			if (event.key.keysym.sym == SDLK_d) gameObject->getComponent<Audio>()->play();
 		}
 	}
 protected:

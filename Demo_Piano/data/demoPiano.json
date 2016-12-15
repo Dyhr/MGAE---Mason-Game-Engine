@@ -20,75 +20,206 @@
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/A.wav",
+		"path": "data/sounds/1-octave/A5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "a-note-controller"
+        }
+      ]
     },
     {
       "uniqueId": 2,
+      "name": "A#",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/A#5.wav",
+		"type": "soundeffect"
+	  },
+	  "scripts": [
+        {
+          "name": "a-sharp-note-controller"
+        }
+      ]
+    },
+    {
+      "uniqueId": 3,
       "name": "B",
       "transform": {
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/B.wav",
+		"path": "data/sounds/1-octave/B5.wav",
 		"type": "soundeffect"
-	  }
-    },	
+	  },
+	  "scripts": [
+        {
+          "name": "b-note-controller"
+        }
+      ]
+    },			
     {
-      "uniqueId": 3,
+      "uniqueId": 4,
       "name": "C",
       "transform": {
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/C.wav",
+		"path": "data/sounds/1-octave/C5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "c-note-controller"
+        }
+      ]
     },	
     {
-      "uniqueId": 4,
+      "uniqueId": 5,
+      "name": "C#",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/C#5.wav",
+		"type": "soundeffect"
+	  },
+	  "scripts": [
+        {
+          "name": "c-sharp-note-controller"
+        }
+      ]
+    },		
+    {
+      "uniqueId": 6,
       "name": "D",
       "transform": {
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/D.wav",
+		"path": "data/sounds/1-octave/D5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "d-note-controller"
+        }
+      ]
     },
     {
-      "uniqueId": 5,
+      "uniqueId": 7,
+      "name": "D#",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/D#5.wav",
+		"type": "soundeffect"
+	  },
+	  "scripts": [
+        {
+          "name": "d-sharp-note-controller"
+        }
+      ]
+    },	
+    {
+      "uniqueId": 8,
       "name": "E",
       "transform": {
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/E.wav",
+		"path": "data/sounds/1-octave/E5.wav",
 		"type": "soundeffect"
-	  }
-    },
+	  },
+	  "scripts": [
+        {
+          "name": "e-note-controller"
+        }
+      ]
+    },	
     {
-      "uniqueId": 6,
+      "uniqueId": 9,
       "name": "F",
       "transform": {
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/F.wav",
+		"path": "data/sounds/1-octave/F5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "f-note-controller"
+        }
+      ]	  
     },
     {
-      "uniqueId": 7,
+      "uniqueId": 10,
+      "name": "F#",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/F#5.wav",
+		"type": "soundeffect"
+	  },
+	  "scripts": [
+        {
+          "name": "f-sharp-note-controller"
+        }
+      ]
+    },	
+    {
+      "uniqueId": 11,
       "name": "G",
       "transform": {
 		"position": [0, 0, 0]
       },
 	  "audio": {
-		"path": "data/sounds/1-octave/G.wav",
+		"path": "data/sounds/1-octave/G5.wav",
 		"type": "soundeffect"
-	  }
+	  },
+	  "scripts": [
+        {
+          "name": "g-note-controller"
+        }
+      ]
+    },
+    {
+      "uniqueId": 12,
+      "name": "G#",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/G#5.wav",
+		"type": "soundeffect"
+	  },
+	  "scripts": [
+        {
+          "name": "g-sharp-note-controller"
+        }
+      ]
+    },
+    {
+      "uniqueId": 13,
+      "name": "C6",
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "audio": {
+		"path": "data/sounds/1-octave/C6.wav",
+		"type": "soundeffect"
+	  },
+	  "scripts": [
+        {
+          "name": "c-next-note-controller"
+        }
+      ]
     }	
   ]
 }

@@ -6,11 +6,11 @@
 
 using namespace Mason;
 
-class DNoteController : public Script {
+class CNextNoteController : public Script {
 public:
 	static Script* Create(GameObject* gameObject)
 	{
-		return new DNoteController(gameObject);
+		return new CNextNoteController(gameObject);
 	}
 	void OnUpdate() override {
 
@@ -18,11 +18,11 @@ public:
 	void OnInput(SDL_Event event) override {
 		if (event.type == SDL_KEYDOWN)
 		{
-			if (event.key.keysym.sym == SDLK_s) gameObject->getComponent<Audio>()->play();
+			if (event.key.keysym.sym == SDLK_k) gameObject->getComponent<Audio>()->play();
 		}
 	}
 protected:
-	DNoteController(GameObject* gameObject) : Script(gameObject)
+	CNextNoteController(GameObject* gameObject) : Script(gameObject)
 	{
 	}
 	friend GameObject;

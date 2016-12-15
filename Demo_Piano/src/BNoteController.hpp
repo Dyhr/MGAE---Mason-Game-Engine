@@ -8,13 +8,17 @@ using namespace Mason;
 
 class BNoteController : public Script {
 public:
+	static Script* Create(GameObject* gameObject)
+	{
+		return new BNoteController(gameObject);
+	}
 	void OnUpdate() override {
 
 	}
 	void OnInput(SDL_Event event) override {
 		if (event.type == SDL_KEYDOWN)
 		{
-			if (event.key.keysym.sym == SDLK_b) gameObject->getComponent<Audio>()->play();
+			if (event.key.keysym.sym == SDLK_j) gameObject->getComponent<Audio>()->play();
 		}
 	}
 protected:
