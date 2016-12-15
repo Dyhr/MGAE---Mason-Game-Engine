@@ -5,8 +5,10 @@ var searchData=
   ['body',['body',['../class_mason_1_1_physics_body2_d.html#abd02e269a86d5b760966a33eefa918d9',1,'Mason::PhysicsBody2D']]],
   ['boolean_5f',['boolean_',['../unionpicojson_1_1value_1_1__storage.html#a612a1a8ceb65bdd2e8f09eb33074ba0b',1,'picojson::value::_storage']]],
   ['boolean_5ftype',['boolean_type',['../namespacepicojson.html#acbcfb4072b62a8a097a2aaf7a8f8cc02ae04a93ebe65786d1f8687430242df802',1,'picojson']]],
+  ['boxcollider',['boxCollider',['../class_mason_1_1_game_object_descriptor.html#a81952b9b181c5731b74971fb6510c838',1,'Mason::GameObjectDescriptor']]],
   ['boxcollider2d',['BoxCollider2D',['../class_mason_1_1_box_collider2_d.html',1,'Mason']]],
   ['boxcollider2d',['BoxCollider2D',['../class_mason_1_1_box_collider2_d.html#ab74dd3e9b390bd7580e0137503000ac1',1,'Mason::BoxCollider2D']]],
   ['boxcollider2d_2ecpp',['BoxCollider2D.cpp',['../_box_collider2_d_8cpp.html',1,'']]],
-  ['boxcollider2d_2ehpp',['BoxCollider2D.hpp',['../_box_collider2_d_8hpp.html',1,'']]]
+  ['boxcollider2d_2ehpp',['BoxCollider2D.hpp',['../_box_collider2_d_8hpp.html',1,'']]],
+  ['boxcolliderdescriptor',['BoxColliderDescriptor',['../class_mason_1_1_box_collider_descriptor.html',1,'Mason']]]
 ];

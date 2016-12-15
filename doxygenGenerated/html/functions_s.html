@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mason: Class Members</title>
+<title>Game Engine: Class Members</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,9 +28,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mason
+   <div id="projectname">Game Engine
    </div>
-   <div id="projectbrief">Game Engine 2D</div>
+   <div id="projectbrief">Mason</div>
   </td>
  </tr>
  </tbody>
@@ -99,8 +99,12 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <li>Script()
 : <a class="el" href="class_mason_1_1_script.html#a11d07693e51f3e22894784a6ae7a761d">Mason::Script</a>
 </li>
+<li>scripts
+: <a class="el" href="class_mason_1_1_game_object_descriptor.html#a07c8b975f3306740060a73924c6315a7">Mason::GameObjectDescriptor</a>
+, <a class="el" href="class_mason_1_1_script.html#ad7f94424b50f1a841d25c5efe95f3c73">Mason::Script</a>
+</li>
 <li>serialize()
-: <a class="el" href="classpicojson_1_1value.html#ad5fa91c040826e85855678db9258238d">picojson::value</a>
+: <a class="el" href="classpicojson_1_1value.html#a23664084ed4a8ecbfda901484de34bbc">picojson::value</a>
 </li>
 <li>set()
 : <a class="el" href="classpicojson_1_1value.html#a5349fff183e52146f2835d7fa0a10358">picojson::value</a>
@@ -123,9 +127,6 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <li>setCenter()
 : <a class="el" href="class_mason_1_1_box_collider2_d.html#aa2c5bb9d3f7e0c64f8784dce237676b4">Mason::BoxCollider2D</a>
 , <a class="el" href="class_mason_1_1_circle_collider2_d.html#aa0e943bbb6fb5b9f33110959a845ed76">Mason::CircleCollider2D</a>
-</li>
-<li>setColor()
-: <a class="el" href="class_mason_1_1_rendering.html#aa8a7db1f0f25ac88cc6584a2a5b814ed">Mason::Rendering</a>
 </li>
 <li>setFixedColor()
 : <a class="el" href="struct_mason_1_1_particle_emitter_config.html#ae4aa09d5feb556808fba6c23167d9d78">Mason::ParticleEmitterConfig</a>
@@ -153,6 +154,9 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 </li>
 <li>setLifespan()
 : <a class="el" href="struct_mason_1_1_particle_emitter_config.html#afe91ca5c2d60e5567fe589367b4fd3ef">Mason::ParticleEmitterConfig</a>
+</li>
+<li>setName()
+: <a class="el" href="class_mason_1_1_game_object.html#af478034e4602956fc936ee4fbe05d107">Mason::GameObject</a>
 </li>
 <li>setParent()
 : <a class="el" href="class_mason_1_1_transform.html#a6e1a6b57214a7de21595e6af8b05138b">Mason::Transform</a>
@@ -200,6 +204,9 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 : <a class="el" href="struct_mason_1_1_particle_emitter_config.html#a92978f0e01ba1078889a3f288ff0c02b">Mason::ParticleEmitterConfig</a>
 , <a class="el" href="class_mason_1_1_sprite.html#a0331c6ca9aeb29be568485209cabcf06">Mason::Sprite</a>
 </li>
+<li>setTransform()
+: <a class="el" href="class_mason_1_1_game_object.html#a354c553749dffb59fbe763f4bf26341d">Mason::GameObject</a>
+</li>
 <li>setVelocity()
 : <a class="el" href="struct_mason_1_1_particle_emitter_config.html#ae5eafd4808934831fb271304c24b6af7">Mason::ParticleEmitterConfig</a>
 </li>
@@ -211,7 +218,6 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 </li>
 <li>shader
 : <a class="el" href="class_mason_1_1_particle_emitter.html#abd604dd44e85f836580c40bf8d147a2c">Mason::ParticleEmitter</a>
-, <a class="el" href="class_mason_1_1_rendering.html#a32477a9cf3115210280e47e9172ca407">Mason::Rendering</a>
 </li>
 <li>shape
 : <a class="el" href="class_mason_1_1_collider2_d.html#a82de033fe10f7da3fd079c7ff54eaf94">Mason::Collider2D</a>
@@ -226,8 +232,8 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <li>skip_ws()
 : <a class="el" href="classpicojson_1_1input.html#aa83aefe87374a5e24ab8c8e80fef4aa4">picojson::input&lt; Iter &gt;</a>
 </li>
-<li>soundEffect
-: <a class="el" href="class_mason_1_1_audio_descriptor.html#a860c5957f7c0d3967399f05eb4555554">Mason::AudioDescriptor</a>
+<li>soundpath
+: <a class="el" href="class_mason_1_1_scene_descriptor.html#acd7e349dc63b0692c2f4912765db2cbe">Mason::SceneDescriptor</a>
 </li>
 <li>splinePointsColor
 : <a class="el" href="class_mason_1_1_particle_descriptor.html#a3a7588bd840bc8010f23bda75ec56e5d">Mason::ParticleDescriptor</a>
@@ -256,11 +262,14 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <li>SpriteRenderer()
 : <a class="el" href="class_mason_1_1_sprite_renderer.html#a82f81ad1b56677f6194d91956b213add">Mason::SpriteRenderer</a>
 </li>
+<li>sprites
+: <a class="el" href="class_mason_1_1_scene_descriptor.html#a0037cbfd772bbacb81017de405276475">Mason::SceneDescriptor</a>
+</li>
 <li>sre
 : <a class="el" href="class_mason_1_1_engine.html#a8b5ac2d43f0b366ff51c0908fe581f17">Mason::Engine</a>
 </li>
-<li>SREDebugDraw()
-: <a class="el" href="class_s_r_e_debug_draw.html#a6b4f4f7d72bb85ea3bfecd282786693a">SREDebugDraw</a>
+<li>SREDebugDraw::SREDebugDraw()
+: <a class="el" href="class_mason_1_1_s_r_e_debug_draw.html#ac95adf7a5ca2538a69cca69e694dbc58">Mason::SREDebugDraw</a>
 </li>
 <li>start()
 : <a class="el" href="class_mason_1_1_engine.html#a4d8066dd213a03f5420d1bf60f150ca7">Mason::Engine</a>
@@ -278,6 +287,10 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 </li>
 <li>string_
 : <a class="el" href="unionpicojson_1_1value_1_1__storage.html#a9ec5aa5b86bbef81b15697c936f58736">picojson::value::_storage</a>
+</li>
+<li>strings
+: <a class="el" href="class_mason_1_1_script.html#a96f691d0ccd8db2e3e95824e8579cc42">Mason::Script</a>
+, <a class="el" href="class_mason_1_1_script_descriptor.html#a426d001b44ece88ba6b465b0505724c4">Mason::ScriptDescriptor</a>
 </li>
 <li>Subscribe()
 : <a class="el" href="class_mason_1_1_input_manager.html#a14e32a051270da528c2c88674d8b5d22">Mason::InputManager</a>

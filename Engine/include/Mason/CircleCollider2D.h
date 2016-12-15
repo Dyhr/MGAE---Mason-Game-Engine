@@ -8,7 +8,7 @@ namespace Mason {
 	public:
 		void setCenter(float x, float y);
 		void setSize(float rad);
-		b2Vec2 GetScale() override;
+		void setScale(float scale) override;
 	protected:
 		CircleCollider2D(GameObject* gameObject);
 		friend class GameObject;

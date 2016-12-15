@@ -136,133 +136,15 @@ void Engine::loadScene(std::string path)
 			scene->sprites[sprite.first] = sprite.second;
 	}
 
-	std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
 	auto gameObjectDescriptors = sceneDescriptor.gameobjects;
 	for (auto element : gameObjectDescriptors) {
-		auto gameObject = scene->addGameObject(element.name);
-		if (element.camera.found)
-		{
-			auto camera = gameObject->addComponent<Camera>();
-			camera->setPosition(element.transform.position);
-			camera->setScale(element.transform.scale);
-			camera->setViewportMin(element.camera.viewportMin);
-			camera->setViewportMax(element.camera.viewportMax);
-		}
-		else {
-			auto transformComponent = gameObject->addComponent<Transform>();
-			transformComponent->setPosition(element.transform.position);
-			transformComponent->setRotation(element.transform.rotationEuler);
-			transformComponent->setScale(element.transform.scale);
-		}
-
-		if (element.sprite.found)
-		{
-			auto sprite = gameObject->addComponent<SpriteRenderer>();
-			sprite->sprite = scene->sprites[element.sprite.name];
-			// TODO support changing color of sprite
-		}
-		if (element.audio.found) {
-			auto audio = gameObject->addComponent<Audio>();			
-			audio->init(element.audio.path, element.audio.type, audioManager);
-			//This is done here for testing. Should be done from scripts in a real scenario.
-			//audio->play();
-		}
-
-		for(auto s : element.scripts)
-		{
-			auto script = gameObject->addScript(s.name);
-			script->strings = s.strings;
-			script->numbers = s.numbers;
-		}
-
-		if (element.physicsBody2D.found) {
-			auto physicsBody2D = gameObject->addComponent<PhysicsBody2D>();
-			physicsBody2D->body->SetType(element.physicsBody2D.type);
-		}
-		if (element.boxCollider.found) {
-			auto box = gameObject->addComponent<BoxCollider2D>();
-			box->setCenter(element.boxCollider.center.x, element.boxCollider.center.y);
-			box->setSize(element.boxCollider.width, element.boxCollider.height);
-		}
-		if (element.circleCollider.found) {
-			auto circle = gameObject->addComponent<CircleCollider2D>();
-			circle->setCenter(element.circleCollider.center.x, element.circleCollider.center.y);
-			circle->setSize(element.circleCollider.radius);
-		}
-		if (element.particles.found) {
-			auto emitter = gameObject->addComponent<ParticleEmitter>();
-			ParticleEmitterConfig config(element.particles.rate, element.particles.lifespan, element.particles.velocity, element.particles.gravity);
-			AttributeState sizeState = config.attributeFromString(element.particles.sizeState);
-			AttributeState rotationState = config.attributeFromString(element.particles.rotationState);
-			AttributeState colorState = config.attributeFromString(element.particles.colorState);
-			AttributeState velocityState = config.attributeFromString(element.particles.velocityState);
-			switch (velocityState) {
-				case RANDOM:
-					config.setRandomVelocity(element.particles.minVelocity, element.particles.maxVelocity);
-					break;
-				case FIXED:
-					config.setFixedVelocity(element.particles.velocity);					
-					break;
-				default:
-					break;
-			}
-			switch (sizeState) {
-				case FIXED:
-					config.setFixedSize(element.particles.minSize);
-					break;
-				case RANDOM:
-					config.setRandomSize(element.particles.minSize, element.particles.maxSize);
-					break;
-				case LINEAR:
-					config.setLERPSize(element.particles.initialSize, element.particles.finalSize);
-					break;
-				case SPLINE:
-					config.setSplineInterpSize(element.particles.initialSize, element.particles.finalSize, element.particles.splinePointsSize);
-					break;
-			}
-			switch (rotationState) {
-				case FIXED:
-					config.setFixedRotation(element.particles.minRotation);
-					break;
-				case RANDOM:
-					config.setRandomRotation(element.particles.minRotation, element.particles.maxRotation);
-					break;
-				case LINEAR:
-					config.setLERPRotation(element.particles.initialRotation, element.particles.finalRotation);
-					break;
-				case SPLINE:
-					config.setSplineInterpRotation(element.particles.initialRotation, element.particles.finalRotation, element.particles.splinePointsRotation);
-					break;
-			}
-			switch (colorState) {
-				case FIXED:
-					config.setFixedColor(element.particles.minColor);
-					break;
-				case RANDOM:
-					config.setRandomColor(element.particles.minColor, element.particles.maxColor);
-					break;
-				case LINEAR:
-					config.setLERPColor(element.particles.initialColor, element.particles.finalColor);
-					break;
-				case SPLINE:
-					config.setSplineInterpColor(element.particles.initialColor, element.particles.finalColor, element.particles.splinePointsColor);
-					break;
-			}
-			if (element.particles.texturePath != "") config.setTexture(SRE::Texture::createFromFile(element.particles.texturePath.c_str(), false));
-			emitter->init(config);
-			//This is done here for testing. Could be done from scripts in a real scenario.
-			emitter->start();
-		}
-
-		map_gameObjects[element.uniqueId] = gameObject;
+		scene->loadGameObject(element);
 	}
 
 	//Set up parent relationships between Transform components
 	for (auto element : gameObjectDescriptors) {
 		if (element.transform.parentId != -1) {
-			auto gameObject = map_gameObjects[element.uniqueId];
-			auto parentGameObject = map_gameObjects[element.transform.parentId];
-			gameObject->getComponent<Transform>()->setParent(parentGameObject->getComponent<Transform>().get());
+			scene->setParentRelationship(element.uniqueId, element.transform.parentId);			
 		}
 	}
 }

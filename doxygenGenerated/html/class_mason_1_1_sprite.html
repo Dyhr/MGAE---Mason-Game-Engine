@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mason: Mason::Sprite Class Reference</title>
+<title>Game Engine: Mason::Sprite Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,9 +28,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mason
+   <div id="projectname">Game Engine
    </div>
-   <div id="projectbrief">Game Engine 2D</div>
+   <div id="projectbrief">Mason</div>
   </td>
  </tr>
  </tbody>
@@ -89,25 +89,35 @@ $(document).ready(function(){initNavTree('class_mason_1_1_sprite.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>rectangular images rendered at a specific position. A mesh contains the width and height of the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a>. The image of the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> is loaded as a SRE Texture. This Texture is assigned to the SRE shader  
+ <a href="class_mason_1_1_sprite.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_sprite_8h_source.html">Sprite.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a40dbab8285c1d3bdc95dfe1806736402"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_sprite.html#a40dbab8285c1d3bdc95dfe1806736402">Sprite</a> (int x, int y, int width, int height, float anchorX, float anchorY, std::shared_ptr&lt; SRE::Texture &gt; texture)</td></tr>
+<tr class="memdesc:a40dbab8285c1d3bdc95dfe1806736402"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> constructor Sets up the mesh to be rendered (with vertices defined in windows coordinates, normals (not used in 2D graphics) and UVs with the normalize texture coordinates)  <a href="#a40dbab8285c1d3bdc95dfe1806736402">More...</a><br /></td></tr>
 <tr class="separator:a40dbab8285c1d3bdc95dfe1806736402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6229a8bef359a9023f6510978bd95b0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_sprite.html#a6229a8bef359a9023f6510978bd95b0b">draw</a> (glm::vec3 position) const</td></tr>
+<tr class="memdesc:a6229a8bef359a9023f6510978bd95b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">why is it const ? sets the texture in a SRE shader and calls the SRE <a class="el" href="class_mason_1_1_sprite.html#a6229a8bef359a9023f6510978bd95b0b" title="why is it const ? sets the texture in a SRE shader and calls the SRE draw(), providing the mesh...">draw()</a>, providing the mesh, the position given by the <a class="el" href="class_mason_1_1_sprite_renderer.html" title="calls the draw() method of every Sprite. ">SpriteRenderer</a> and the shader.  <a href="#a6229a8bef359a9023f6510978bd95b0b">More...</a><br /></td></tr>
 <tr class="separator:a6229a8bef359a9023f6510978bd95b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a712bae6921e612c77150a2741a0be7b1"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; SRE::Texture &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_sprite.html#a712bae6921e612c77150a2741a0be7b1">getTexture</a> ()</td></tr>
 <tr class="separator:a712bae6921e612c77150a2741a0be7b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0331c6ca9aeb29be568485209cabcf06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_sprite.html#a0331c6ca9aeb29be568485209cabcf06">setTexture</a> (std::shared_ptr&lt; SRE::Texture &gt; t)</td></tr>
+<tr class="memdesc:a0331c6ca9aeb29be568485209cabcf06"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the texture of the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a>  <a href="#a0331c6ca9aeb29be568485209cabcf06">More...</a><br /></td></tr>
 <tr class="separator:a0331c6ca9aeb29be568485209cabcf06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5d5ba8a72349d94bbe9190efcb9715cc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_sprite.html#a5d5ba8a72349d94bbe9190efcb9715cc">pixelsperunit</a> = 1</td></tr>
+<tr class="memdesc:a5d5ba8a72349d94bbe9190efcb9715cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the moment used as a global variable. Same value for every <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a>.  <a href="#a5d5ba8a72349d94bbe9190efcb9715cc">More...</a><br /></td></tr>
 <tr class="separator:a5d5ba8a72349d94bbe9190efcb9715cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>rectangular images rendered at a specific position. A mesh contains the width and height of the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a>. The image of the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> is loaded as a SRE Texture. This Texture is assigned to the SRE shader </p>
+<dl class="section see"><dt>See also</dt><dd>SRE. </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a40dbab8285c1d3bdc95dfe1806736402"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40dbab8285c1d3bdc95dfe1806736402">&sect;&nbsp;</a></span>Sprite()</h2>
 
@@ -164,6 +174,21 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> constructor Sets up the mesh to be rendered (with vertices defined in windows coordinates, normals (not used in 2D graphics) and UVs with the normalize texture coordinates) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x coordenate of the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> </td></tr>
+    <tr><td class="paramname">y</td><td>y coordenate of the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> </td></tr>
+    <tr><td class="paramname">witdh</td><td>witdh of the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a>. Used to make it fit in a mesh with its dimesions. </td></tr>
+    <tr><td class="paramname">height</td><td>height of the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a>. Used to make it fit in a mesh with its dimesions. </td></tr>
+    <tr><td class="paramname">anchorX</td><td>x coordenate of the pivot point situation on the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> </td></tr>
+    <tr><td class="paramname">anchorY</td><td>y coordenate of the pivot point situation on the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> </td></tr>
+    <tr><td class="paramname">texture</td><td>image uploaded to the GPU for 2D graphics. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>SRE (also supports 3D graphics) </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -183,6 +208,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>why is it const ? sets the texture in a SRE shader and calls the SRE <a class="el" href="class_mason_1_1_sprite.html#a6229a8bef359a9023f6510978bd95b0b" title="why is it const ? sets the texture in a SRE shader and calls the SRE draw(), providing the mesh...">draw()</a>, providing the mesh, the position given by the <a class="el" href="class_mason_1_1_sprite_renderer.html" title="calls the draw() method of every Sprite. ">SpriteRenderer</a> and the shader. </p>
+<dl class="section see"><dt>See also</dt><dd>SRE </dd></dl>
+
 </div>
 </div>
 <a id="a712bae6921e612c77150a2741a0be7b1"></a>
@@ -199,6 +227,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>SRE texture that stores colors, shadows, geometry data and others </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>SRE </dd></dl>
 
 </div>
 </div>
@@ -218,6 +248,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>sets the texture of the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> </p>
+<dl class="section see"><dt>See also</dt><dd>SRE </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -233,11 +266,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>For the moment used as a global variable. Same value for every <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a>. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Carol/Documents/GitHub/TeamDoesNotMatter/Engine/include/Mason/<a class="el" href="_sprite_8h_source.html">Sprite.h</a></li>
-<li>C:/Users/Carol/Documents/GitHub/TeamDoesNotMatter/Engine/src/<a class="el" href="_sprite_8cpp.html">Sprite.cpp</a></li>
+<li>include/Mason/<a class="el" href="_sprite_8h_source.html">Sprite.h</a></li>
+<li>src/<a class="el" href="_sprite_8cpp.html">Sprite.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

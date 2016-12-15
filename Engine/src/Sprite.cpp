@@ -43,9 +43,9 @@ std::shared_ptr<SRE::Texture> Sprite::getTexture() {
 void Sprite::setTexture(std::shared_ptr<SRE::Texture> t) {
 	this->texture = t;
 }
-void Sprite::draw(glm::vec3 position) const
+void Sprite::draw(glm::mat4 matrix) const
 {
 	SRE::Shader* shader = SRE::Shader::getUnlitSprite();
 	shader->set("tex", texture.get());
-	SRE::SimpleRenderEngine::instance->draw(mesh.get(), translate(glm::mat4(1), position), shader);
+	SRE::SimpleRenderEngine::instance->draw(mesh.get(), matrix, shader);
 }

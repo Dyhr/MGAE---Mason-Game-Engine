@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mason: Mason::SpriteAtlas Class Reference</title>
+<title>Game Engine: Mason::SpriteAtlas Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,9 +28,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mason
+   <div id="projectname">Game Engine
    </div>
-   <div id="projectbrief">Game Engine 2D</div>
+   <div id="projectbrief">Mason</div>
   </td>
  </tr>
  </tbody>
@@ -82,22 +82,35 @@ $(document).ready(function(){initNavTree('class_mason_1_1_sprite_atlas.html','')
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_mason_1_1_sprite_atlas-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Mason::SpriteAtlas Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Manage different sprites packed in a single texture (spritesheet).  
+ <a href="class_mason_1_1_sprite_atlas.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_sprite_atlas_8h_source.html">SpriteAtlas.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7740eb98380f42a0d5b787d44114be8f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_sprite_atlas.html#a7740eb98380f42a0d5b787d44114be8f">SpriteAtlas</a> (std::string atlasJsonDataDirectory, std::string atlasJsonDataFile)</td></tr>
+<tr class="memdesc:a7740eb98380f42a0d5b787d44114be8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to work with a specific <a class="el" href="class_mason_1_1_sprite_atlas.html" title="Manage different sprites packed in a single texture (spritesheet). ">SpriteAtlas</a>.  <a href="#a7740eb98380f42a0d5b787d44114be8f">More...</a><br /></td></tr>
 <tr class="separator:a7740eb98380f42a0d5b787d44114be8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05b230664b024ef23726bfa509da6a40"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mason_1_1_sprite.html">Sprite</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_sprite_atlas.html#a05b230664b024ef23726bfa509da6a40">getSprite</a> (std::string name)</td></tr>
+<tr class="memdesc:a05b230664b024ef23726bfa509da6a40"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a specific sprite from the <a class="el" href="class_mason_1_1_sprite_atlas.html" title="Manage different sprites packed in a single texture (spritesheet). ">SpriteAtlas</a>  <a href="#a05b230664b024ef23726bfa509da6a40">More...</a><br /></td></tr>
 <tr class="separator:a05b230664b024ef23726bfa509da6a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a3e1914489e4bed4f9f23cdeab34a43dc"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_sprite_atlas.html#a3e1914489e4bed4f9f23cdeab34a43dc">Engine</a></td></tr>
+<tr class="separator:a3e1914489e4bed4f9f23cdeab34a43dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manage different sprites packed in a single texture (spritesheet). </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7740eb98380f42a0d5b787d44114be8f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7740eb98380f42a0d5b787d44114be8f">&sect;&nbsp;</a></span>SpriteAtlas()</h2>
 
@@ -124,6 +137,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructor to work with a specific <a class="el" href="class_mason_1_1_sprite_atlas.html" title="Manage different sprites packed in a single texture (spritesheet). ">SpriteAtlas</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atlasJsonDataDirectory</td><td>path to the directory where the JSON file with the info of the sprites is </td></tr>
+    <tr><td class="paramname">atlasJsonDataFile</td><td>name of the JSON file with the info of the sprites </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_mason_1_1_sprite_atlas_a7740eb98380f42a0d5b787d44114be8f_cgraph.png" border="0" usemap="#class_mason_1_1_sprite_atlas_a7740eb98380f42a0d5b787d44114be8f_cgraph" alt=""/></div>
+<!-- MAP 0 -->
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -143,11 +171,43 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>get a specific sprite from the <a class="el" href="class_mason_1_1_sprite_atlas.html" title="Manage different sprites packed in a single texture (spritesheet). ">SpriteAtlas</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>unique name that identifies the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a pointer to the <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a3e1914489e4bed4f9f23cdeab34a43dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e1914489e4bed4f9f23cdeab34a43dc">&sect;&nbsp;</a></span>Engine</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_mason_1_1_engine.html">Engine</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Carol/Documents/GitHub/TeamDoesNotMatter/Engine/include/Mason/<a class="el" href="_sprite_atlas_8h_source.html">SpriteAtlas.h</a></li>
-<li>C:/Users/Carol/Documents/GitHub/TeamDoesNotMatter/Engine/src/<a class="el" href="_sprite_atlas_8cpp.html">SpriteAtlas.cpp</a></li>
+<li>include/Mason/<a class="el" href="_sprite_atlas_8h_source.html">SpriteAtlas.h</a></li>
+<li>src/<a class="el" href="_sprite_atlas_8cpp.html">SpriteAtlas.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,9 +1,8 @@
-\hypertarget{_engine_8cpp}{}\section{C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/src/\+Engine.cpp File Reference}
-\label{_engine_8cpp}\index{C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/src/\+Engine.\+cpp@{C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/src/\+Engine.\+cpp}}
+\hypertarget{_engine_8cpp}{}\section{src/\+Engine.cpp File Reference}
+\label{_engine_8cpp}\index{src/\+Engine.\+cpp@{src/\+Engine.\+cpp}}
 {\ttfamily \#include \char`\"{}Mason/\+Engine.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Mason/\+Scene\+Parser.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Mason/\+Transform.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Mason/\+Rendering.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Mason/\+Physics.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Mason/\+Particle\+Emitter.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Mason/\+Time.\+hpp\char`\"{}}\newline
@@ -12,38 +11,32 @@
 {\ttfamily \#include \char`\"{}Mason/\+Leak\+Detection.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Mason/\+Camera.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Mason/\+Input\+Manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Mason/\+Script.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Mason/\+Physics\+Body2\+D.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Mason/\+Box\+Collider2\+D.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Mason/\+Circle\+Collider2\+D.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$chrono$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
 {\ttfamily \#include $<$S\+D\+L\+\_\+timer.\+h$>$}\newline
-{\ttfamily \#include $<$S\+R\+E/\+Mesh.\+hpp$>$}\newline
 {\ttfamily \#include $<$S\+R\+E/\+Shader.\+hpp$>$}\newline
 {\ttfamily \#include $<$S\+R\+E/\+Simple\+Render\+Engine.\+hpp$>$}\newline
 {\ttfamily \#include $<$glm/glm.\+hpp$>$}\newline
 {\ttfamily \#include $<$S\+D\+L.\+h$>$}\newline
-{\ttfamily \#include $<$map$>$}\newline
 {\ttfamily \#include $<$imgui.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}S\+R\+E/imgui\+\_\+sre.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Mason/\+Script.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$S\+R\+E/imgui\+\_\+sre.\+hpp$>$}\newline
+Include dependency graph for Engine.\+cpp\+:
+% FIG 0
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
-\item 
-Im\+Vec4 \hyperlink{_engine_8cpp_a38bbcd37207e7333e691e9427bacac15}{clear\+\_\+color}
 \item 
 bool \hyperlink{_engine_8cpp_afcde3c4b88a1fd6e68f6608330fb7eac}{show\+\_\+another\+\_\+window}
 \item 
 int \hyperlink{_engine_8cpp_a8fccb55f373b4b64d7c382ce251e69c7}{number\+Sprites}
-\item 
-S\+R\+E\+::\+Texture $\ast$ \hyperlink{_engine_8cpp_aec0f4a52b68a666be595266cfdd5529b}{tex}
 \end{DoxyCompactItemize}
 
 
 \subsection{Variable Documentation}
-\hypertarget{_engine_8cpp_a38bbcd37207e7333e691e9427bacac15}{}\label{_engine_8cpp_a38bbcd37207e7333e691e9427bacac15} 
-\index{Engine.\+cpp@{Engine.\+cpp}!clear\+\_\+color@{clear\+\_\+color}}
-\index{clear\+\_\+color@{clear\+\_\+color}!Engine.\+cpp@{Engine.\+cpp}}
-\subsubsection{\texorpdfstring{clear\+\_\+color}{clear\_color}}
-{\footnotesize\ttfamily Im\+Vec4 clear\+\_\+color}
-
 \hypertarget{_engine_8cpp_a8fccb55f373b4b64d7c382ce251e69c7}{}\label{_engine_8cpp_a8fccb55f373b4b64d7c382ce251e69c7} 
 \index{Engine.\+cpp@{Engine.\+cpp}!number\+Sprites@{number\+Sprites}}
 \index{number\+Sprites@{number\+Sprites}!Engine.\+cpp@{Engine.\+cpp}}
@@ -55,10 +48,4 @@ S\+R\+E\+::\+Texture $\ast$ \hyperlink{_engine_8cpp_aec0f4a52b68a666be595266cfdd
 \index{show\+\_\+another\+\_\+window@{show\+\_\+another\+\_\+window}!Engine.\+cpp@{Engine.\+cpp}}
 \subsubsection{\texorpdfstring{show\+\_\+another\+\_\+window}{show\_another\_window}}
 {\footnotesize\ttfamily bool show\+\_\+another\+\_\+window}
-
-\hypertarget{_engine_8cpp_aec0f4a52b68a666be595266cfdd5529b}{}\label{_engine_8cpp_aec0f4a52b68a666be595266cfdd5529b} 
-\index{Engine.\+cpp@{Engine.\+cpp}!tex@{tex}}
-\index{tex@{tex}!Engine.\+cpp@{Engine.\+cpp}}
-\subsubsection{\texorpdfstring{tex}{tex}}
-{\footnotesize\ttfamily S\+R\+E\+::\+Texture$\ast$ tex}
 

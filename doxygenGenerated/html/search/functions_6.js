@@ -13,7 +13,7 @@ var searchData=
   ['getgameobjects',['getGameObjects',['../class_mason_1_1_scene.html#a045d786fa6f11ab01e190971637b15ce',1,'Mason::Scene']]],
   ['getinstance',['getInstance',['../class_mason_1_1_audio_manager.html#a77de22887544ce37ae13d7c4d5cf7a79',1,'Mason::AudioManager::getInstance()'],['../class_mason_1_1_input_manager.html#a4d4852e7a0451fe53d9c116d8c3100d8',1,'Mason::InputManager::getInstance()'],['../class_mason_1_1_physics.html#aba5aeb438d394e23ebd74bdc4aa716c2',1,'Mason::Physics::getInstance()']]],
   ['getint',['getInt',['../class_mason_1_1_config.html#aafb3b1eb520c81f3002d4aa78e400ea0',1,'Mason::Config']]],
-  ['getname',['getName',['../class_mason_1_1_game_object.html#a4b858c3219a8f08b823a4266945fd724',1,'Mason::GameObject']]],
+  ['getname',['getName',['../class_mason_1_1_game_object.html#a7b5b5ca6b3754cdfb175cd1938c77f10',1,'Mason::GameObject']]],
   ['getparent',['getParent',['../class_mason_1_1_transform.html#ae3e8acbd25d7d171aff00da038f79a9a',1,'Mason::Transform']]],
   ['getposition',['getPosition',['../class_mason_1_1_camera.html#a71560b8b6216a542ae1958bd91a4361d',1,'Mason::Camera::getPosition()'],['../class_mason_1_1_transform.html#a0b21f641e72d7b55f3a630b986d0b106',1,'Mason::Transform::getPosition()']]],
   ['getrotation',['getRotation',['../class_mason_1_1_transform.html#a7367502d4344eff2d88a250084ae19dc',1,'Mason::Transform']]],
@@ -23,10 +23,8 @@ var searchData=
   ['getstring',['getString',['../class_mason_1_1_config.html#abc367cc6194d049807fab3ff684996e3',1,'Mason::Config']]],
   ['gettexture',['getTexture',['../class_mason_1_1_sprite.html#a712bae6921e612c77150a2741a0be7b1',1,'Mason::Sprite']]],
   ['gettime',['getTime',['../class_mason_1_1_time.html#ad6773c7a2339b463fc7ea14e31315c89',1,'Mason::Time']]],
-  ['gettransform',['getTransform',['../class_mason_1_1_game_object.html#a0c6b2e4785181f1ab8684fc4af3f170d',1,'Mason::GameObject']]],
+  ['gettransform',['getTransform',['../class_mason_1_1_game_object.html#af1eeaf1920ea84b369cfa9bfd69754df',1,'Mason::GameObject']]],
   ['getviewportmax',['getViewportMax',['../class_mason_1_1_camera.html#abe43550148e85f5a32919a3c8b8ff115',1,'Mason::Camera']]],
   ['getviewportmin',['getViewportMin',['../class_mason_1_1_camera.html#a0d2d26d8b7b80ab508ed4f4f537614b5',1,'Mason::Camera']]],
-  ['globaltransform',['globalTransform',['../class_mason_1_1_transform.html#a35e627aa09604bf3a81f4c07d28205f3',1,'Mason::Transform']]],
-  ['setname',['setName',['../class_mason_1_1_game_object.html#ad4e182d7070d243ccbe239459460c36e',1,'Mason::GameObject']]],
-  ['settransform',['setTransform',['../class_mason_1_1_game_object.html#a2e0211a7054aa98fd9abec583056e778',1,'Mason::GameObject']]]
+  ['globaltransform',['globalTransform',['../class_mason_1_1_transform.html#a35e627aa09604bf3a81f4c07d28205f3',1,'Mason::Transform']]]
 ];

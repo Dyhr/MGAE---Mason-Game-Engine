@@ -2,16 +2,29 @@
 \label{class_mason_1_1_sprite_atlas}\index{Mason\+::\+Sprite\+Atlas@{Mason\+::\+Sprite\+Atlas}}
 
 
+Manage different sprites packed in a single texture (spritesheet).  
+
+
+
+
 {\ttfamily \#include $<$Sprite\+Atlas.\+h$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_mason_1_1_sprite_atlas_a7740eb98380f42a0d5b787d44114be8f}{Sprite\+Atlas} (std\+::string atlas\+Json\+Data\+Directory, std\+::string atlas\+Json\+Data\+File)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor to work with a specific \hyperlink{class_mason_1_1_sprite_atlas}{Sprite\+Atlas}. \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_sprite}{Sprite} $>$ \hyperlink{class_mason_1_1_sprite_atlas_a05b230664b024ef23726bfa509da6a40}{get\+Sprite} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em get a specific sprite from the \hyperlink{class_mason_1_1_sprite_atlas}{Sprite\+Atlas} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_mason_1_1_sprite_atlas_a3e1914489e4bed4f9f23cdeab34a43dc}{Engine}
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Manage different sprites packed in a single texture (spritesheet). 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_mason_1_1_sprite_atlas_a7740eb98380f42a0d5b787d44114be8f}{}\label{class_mason_1_1_sprite_atlas_a7740eb98380f42a0d5b787d44114be8f} 
@@ -20,6 +33,19 @@ std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_sprite}{Sprite} $>$ \hyperl
 \subsubsection{\texorpdfstring{Sprite\+Atlas()}{SpriteAtlas()}}
 {\footnotesize\ttfamily Sprite\+Atlas\+::\+Sprite\+Atlas (\begin{DoxyParamCaption}\item[{std\+::string}]{atlas\+Json\+Data\+Directory,  }\item[{std\+::string}]{atlas\+Json\+Data\+File }\end{DoxyParamCaption})}
 
+
+
+Constructor to work with a specific \hyperlink{class_mason_1_1_sprite_atlas}{Sprite\+Atlas}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em atlas\+Json\+Data\+Directory} & path to the directory where the J\+S\+ON file with the info of the sprites is \\
+\hline
+{\em atlas\+Json\+Data\+File} & name of the J\+S\+ON file with the info of the sprites \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 0
 
 
 \subsection{Member Function Documentation}
@@ -31,7 +57,28 @@ std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_sprite}{Sprite} $>$ \hyperl
 
 
 
+get a specific sprite from the \hyperlink{class_mason_1_1_sprite_atlas}{Sprite\+Atlas} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & unique name that identifies the \hyperlink{class_mason_1_1_sprite}{Sprite} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the \hyperlink{class_mason_1_1_sprite}{Sprite} 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_mason_1_1_sprite_atlas_a3e1914489e4bed4f9f23cdeab34a43dc}{}\label{class_mason_1_1_sprite_atlas_a3e1914489e4bed4f9f23cdeab34a43dc} 
+\index{Mason\+::\+Sprite\+Atlas@{Mason\+::\+Sprite\+Atlas}!Engine@{Engine}}
+\index{Engine@{Engine}!Mason\+::\+Sprite\+Atlas@{Mason\+::\+Sprite\+Atlas}}
+\subsubsection{\texorpdfstring{Engine}{Engine}}
+{\footnotesize\ttfamily friend class \hyperlink{class_mason_1_1_engine}{Engine}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/include/\+Mason/\hyperlink{_sprite_atlas_8h}{Sprite\+Atlas.\+h}\item 
-C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/src/\hyperlink{_sprite_atlas_8cpp}{Sprite\+Atlas.\+cpp}\end{DoxyCompactItemize}
+include/\+Mason/\hyperlink{_sprite_atlas_8h}{Sprite\+Atlas.\+h}\item 
+src/\hyperlink{_sprite_atlas_8cpp}{Sprite\+Atlas.\+cpp}\end{DoxyCompactItemize}

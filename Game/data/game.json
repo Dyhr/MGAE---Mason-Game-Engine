@@ -53,7 +53,7 @@
         {
           "name": "asteroid-spawner",
           "properties": ["amount"], 
-          "amount": 10 
+          "amount": 1
         }
       ]
     }

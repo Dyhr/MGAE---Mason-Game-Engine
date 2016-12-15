@@ -11,21 +11,23 @@
 \item 
 \hyperlink{class_mason_1_1_game_object_a0737657696b478c7962c2a6c2f5b1bd8}{Game\+Object} (std\+::string name)
 \item 
-std\+::string \hyperlink{class_mason_1_1_game_object_a4b858c3219a8f08b823a4266945fd724}{Game\+Object\+::get\+Name} ()
+std\+::string \hyperlink{class_mason_1_1_game_object_a7b5b5ca6b3754cdfb175cd1938c77f10}{get\+Name} () const
 \item 
-void \hyperlink{class_mason_1_1_game_object_ad4e182d7070d243ccbe239459460c36e}{Game\+Object\+::set\+Name} (std\+::string nm)
+void \hyperlink{class_mason_1_1_game_object_af478034e4602956fc936ee4fbe05d107}{set\+Name} (std\+::string nm)
 \item 
 {\footnotesize template$<$typename C $>$ }\\std\+::shared\+\_\+ptr$<$ C $>$ \hyperlink{class_mason_1_1_game_object_a4df82cecf4dc31163f04bf01043a1ec8}{add\+Component} ()
 \item 
 bool \hyperlink{class_mason_1_1_game_object_af22f654507a0f6a5056c0d99bc6cd1b8}{remove\+Component} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_component}{Component} $>$ ptr)
 \item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_script}{Script} $>$ \hyperlink{class_mason_1_1_game_object_a2c351c8c573724821be9bb14807e65ef}{add\+Script} (std\+::string name)
+\item 
 {\footnotesize template$<$typename C $>$ }\\std\+::shared\+\_\+ptr$<$ C $>$ \hyperlink{class_mason_1_1_game_object_aa716fbc3fd56fe4f65c85d777ac62eb0}{get\+Component} ()
 \item 
 {\footnotesize template$<$typename C $>$ }\\std\+::vector$<$ std\+::shared\+\_\+ptr$<$ C $>$ $>$ \hyperlink{class_mason_1_1_game_object_a4c013ffa8f4925e42541b462490e4dca}{get\+Components} ()
 \item 
-std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_transform}{Transform} $>$ \hyperlink{class_mason_1_1_game_object_a0c6b2e4785181f1ab8684fc4af3f170d}{Game\+Object\+::get\+Transform} ()
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_transform}{Transform} $>$ \hyperlink{class_mason_1_1_game_object_af1eeaf1920ea84b369cfa9bfd69754df}{get\+Transform} () const
 \item 
-void \hyperlink{class_mason_1_1_game_object_a2e0211a7054aa98fd9abec583056e778}{Game\+Object\+::set\+Transform} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_transform}{Transform} $>$)
+void \hyperlink{class_mason_1_1_game_object_a354c553749dffb59fbe763f4bf26341d}{set\+Transform} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_transform}{Transform} $>$)
 \end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -57,29 +59,11 @@ class \hyperlink{class_mason_1_1_game_object_a032858ae1fe02d2d1170981c2af2d67c}{
 {\footnotesize\ttfamily template$<$typename C $>$ \\
 std\+::shared\+\_\+ptr$<$ C $>$ Mason\+::\+Game\+Object\+::add\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\hypertarget{class_mason_1_1_game_object_a4b858c3219a8f08b823a4266945fd724}{}\label{class_mason_1_1_game_object_a4b858c3219a8f08b823a4266945fd724} 
-\index{Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}!Game\+Object\+::get\+Name@{Game\+Object\+::get\+Name}}
-\index{Game\+Object\+::get\+Name@{Game\+Object\+::get\+Name}!Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}}
-\subsubsection{\texorpdfstring{Game\+Object\+::get\+Name()}{GameObject::getName()}}
-{\footnotesize\ttfamily std\+::string Mason\+::\+Game\+Object\+::\+Game\+Object\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\hypertarget{class_mason_1_1_game_object_a0c6b2e4785181f1ab8684fc4af3f170d}{}\label{class_mason_1_1_game_object_a0c6b2e4785181f1ab8684fc4af3f170d} 
-\index{Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}!Game\+Object\+::get\+Transform@{Game\+Object\+::get\+Transform}}
-\index{Game\+Object\+::get\+Transform@{Game\+Object\+::get\+Transform}!Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}}
-\subsubsection{\texorpdfstring{Game\+Object\+::get\+Transform()}{GameObject::getTransform()}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\hyperlink{class_mason_1_1_transform}{Transform}$>$ Mason\+::\+Game\+Object\+::\+Game\+Object\+::get\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\hypertarget{class_mason_1_1_game_object_ad4e182d7070d243ccbe239459460c36e}{}\label{class_mason_1_1_game_object_ad4e182d7070d243ccbe239459460c36e} 
-\index{Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}!Game\+Object\+::set\+Name@{Game\+Object\+::set\+Name}}
-\index{Game\+Object\+::set\+Name@{Game\+Object\+::set\+Name}!Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}}
-\subsubsection{\texorpdfstring{Game\+Object\+::set\+Name()}{GameObject::setName()}}
-{\footnotesize\ttfamily void Mason\+::\+Game\+Object\+::\+Game\+Object\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{nm }\end{DoxyParamCaption})}
-
-\hypertarget{class_mason_1_1_game_object_a2e0211a7054aa98fd9abec583056e778}{}\label{class_mason_1_1_game_object_a2e0211a7054aa98fd9abec583056e778} 
-\index{Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}!Game\+Object\+::set\+Transform@{Game\+Object\+::set\+Transform}}
-\index{Game\+Object\+::set\+Transform@{Game\+Object\+::set\+Transform}!Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}}
-\subsubsection{\texorpdfstring{Game\+Object\+::set\+Transform()}{GameObject::setTransform()}}
-{\footnotesize\ttfamily void Mason\+::\+Game\+Object\+::\+Game\+Object\+::set\+Transform (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_transform}{Transform} $>$}]{ }\end{DoxyParamCaption})}
+\hypertarget{class_mason_1_1_game_object_a2c351c8c573724821be9bb14807e65ef}{}\label{class_mason_1_1_game_object_a2c351c8c573724821be9bb14807e65ef} 
+\index{Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}!add\+Script@{add\+Script}}
+\index{add\+Script@{add\+Script}!Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}}
+\subsubsection{\texorpdfstring{add\+Script()}{addScript()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_script}{Script} $>$ Game\+Object\+::add\+Script (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
 
 \hypertarget{class_mason_1_1_game_object_aa716fbc3fd56fe4f65c85d777ac62eb0}{}\label{class_mason_1_1_game_object_aa716fbc3fd56fe4f65c85d777ac62eb0} 
 \index{Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}!get\+Component@{get\+Component}}
@@ -95,11 +79,35 @@ std\+::shared\+\_\+ptr$<$ C $>$ Mason\+::\+Game\+Object\+::get\+Component (\begi
 {\footnotesize\ttfamily template$<$typename C $>$ \\
 std\+::vector$<$ std\+::shared\+\_\+ptr$<$ C $>$ $>$ Mason\+::\+Game\+Object\+::get\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+\hypertarget{class_mason_1_1_game_object_a7b5b5ca6b3754cdfb175cd1938c77f10}{}\label{class_mason_1_1_game_object_a7b5b5ca6b3754cdfb175cd1938c77f10} 
+\index{Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily std\+::string Game\+Object\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_mason_1_1_game_object_af1eeaf1920ea84b369cfa9bfd69754df}{}\label{class_mason_1_1_game_object_af1eeaf1920ea84b369cfa9bfd69754df} 
+\index{Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}!get\+Transform@{get\+Transform}}
+\index{get\+Transform@{get\+Transform}!Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}}
+\subsubsection{\texorpdfstring{get\+Transform()}{getTransform()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_transform}{Transform} $>$ Game\+Object\+::get\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 \hypertarget{class_mason_1_1_game_object_af22f654507a0f6a5056c0d99bc6cd1b8}{}\label{class_mason_1_1_game_object_af22f654507a0f6a5056c0d99bc6cd1b8} 
 \index{Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}!remove\+Component@{remove\+Component}}
 \index{remove\+Component@{remove\+Component}!Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}}
 \subsubsection{\texorpdfstring{remove\+Component()}{removeComponent()}}
 {\footnotesize\ttfamily bool Game\+Object\+::remove\+Component (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_component}{Component} $>$}]{ptr }\end{DoxyParamCaption})}
+
+\hypertarget{class_mason_1_1_game_object_af478034e4602956fc936ee4fbe05d107}{}\label{class_mason_1_1_game_object_af478034e4602956fc936ee4fbe05d107} 
+\index{Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}}
+\subsubsection{\texorpdfstring{set\+Name()}{setName()}}
+{\footnotesize\ttfamily void Game\+Object\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{nm }\end{DoxyParamCaption})}
+
+\hypertarget{class_mason_1_1_game_object_a354c553749dffb59fbe763f4bf26341d}{}\label{class_mason_1_1_game_object_a354c553749dffb59fbe763f4bf26341d} 
+\index{Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}!set\+Transform@{set\+Transform}}
+\index{set\+Transform@{set\+Transform}!Mason\+::\+Game\+Object@{Mason\+::\+Game\+Object}}
+\subsubsection{\texorpdfstring{set\+Transform()}{setTransform()}}
+{\footnotesize\ttfamily void Game\+Object\+::set\+Transform (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_transform}{Transform} $>$}]{tr }\end{DoxyParamCaption})}
 
 
 
@@ -114,5 +122,5 @@ std\+::vector$<$ std\+::shared\+\_\+ptr$<$ C $>$ $>$ Mason\+::\+Game\+Object\+::
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/include/\+Mason/\hyperlink{_game_object_8hpp}{Game\+Object.\+hpp}\item 
-C\+:/\+Users/\+Carol/\+Documents/\+Git\+Hub/\+Team\+Does\+Not\+Matter/\+Engine/src/\hyperlink{_game_object_8cpp}{Game\+Object.\+cpp}\end{DoxyCompactItemize}
+include/\+Mason/\hyperlink{_game_object_8hpp}{Game\+Object.\+hpp}\item 
+src/\hyperlink{_game_object_8cpp}{Game\+Object.\+cpp}\end{DoxyCompactItemize}

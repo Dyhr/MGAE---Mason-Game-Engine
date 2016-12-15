@@ -1,5 +1,8 @@
 #include "Mason/Transform.h"
 
+#include "Mason/GameObject.hpp"
+#include "Mason/PhysicsBody2D.hpp"
+
 #include <glm/gtx/euler_angles.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -21,11 +24,17 @@ void Transform::transformize()
 }
 
 void Transform::setPosition(glm::vec3 position) {
+	auto body = gameObject->getComponent<PhysicsBody2D>();
+	if (body != nullptr)
+		body->body->SetTransform(b2Vec2(position.x, position.y), body->body->GetAngle());
 	this->position = position;
 	transformize();
 }
 
 void Transform::setRotation(glm::vec3 rotation) {
+	auto body = gameObject->getComponent<PhysicsBody2D>();
+	if (body != nullptr)
+		body->body->SetTransform(body->body->GetWorldCenter(), rotation.z);
 	this->rotation = rotation;
 	transformize();
 }
