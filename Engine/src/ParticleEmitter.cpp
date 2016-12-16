@@ -75,7 +75,8 @@ void ParticleEmitter::updateModel(float deltaTimeSec)
 				}
 				else {
 					velocities[i] = config.velocity;
-				}				
+				}	
+				velocities[i] = glm::vec3(gameObject->getTransform()->globalTransform() * glm::vec4(velocities[i].x, velocities[i].y, velocities[i].z, 0));
 			}			
 		}
 		else {
