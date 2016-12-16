@@ -76,7 +76,7 @@ Engine::Engine()
 	srand(uint(time(nullptr)));
 
 	//GUI
-	showDebugGUI = false;
+	showDebugGUI = showDebugPhysics = false;
 	ImGui_SRE_Init(window);
 	show_another_window = true;
 
@@ -172,7 +172,7 @@ void Engine::update(float deltaTimeSec) {
 
 		// update audio
 		audioManager->step();
-
+		 
 		// update scripts
 		for (auto & script : scene->getAllComponent<Script>()) {
 			if (!script->started) {
@@ -181,7 +181,7 @@ void Engine::update(float deltaTimeSec) {
 			}
 			script->OnUpdate();
 		}
-
+		 
 		// update particle emitters
 		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
 			if (particleEmitter) {
@@ -209,7 +209,7 @@ void Engine::update(float deltaTimeSec) {
 			}
 		}
 
-		physics->world.DrawDebugData();
+		if(showDebugPhysics) physics->world.DrawDebugData();
 	}
 
 	if (showDebugGUI) DebugUI();
@@ -226,6 +226,7 @@ void Engine::DebugUI()
 		ImGui::Text("Number of models rendered : %i", numberSprites);
 		if (ImGui::Button("Pause Game")) paused = !paused;
 		if (ImGui::Button("Memory Stats")) show_another_window = !show_another_window;
+		if (ImGui::Button("Physics Debug View")) showDebugPhysics = !showDebugPhysics;
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
 	}

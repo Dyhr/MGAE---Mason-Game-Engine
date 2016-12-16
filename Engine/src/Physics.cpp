@@ -40,9 +40,5 @@ void Physics::step(float dt)
 			transform->rotation = float(angle);
 			transform->transformize();
 		}
-			
-		
 	}
-	world.DrawDebugData();
-	
 }
