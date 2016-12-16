@@ -14,7 +14,9 @@ Camera::Camera(GameObject* gameObject) : Transform(gameObject)
 void Camera::transformize()
 {
 	Transform::transformize();
-	cam->setWindowCoordinates(*Config::getInt("window-width") * (viewportMax.x - viewportMin.x), *Config::getInt("window-height") * (viewportMax.y - viewportMin.y));
+	cam->setWindowCoordinates(
+		int(*Config::getInt("window-width") * (viewportMax.x - viewportMin.x)),
+		int(*Config::getInt("window-height") * (viewportMax.y - viewportMin.y)));
 
 	cam->setViewTransform(matrix);
 }
@@ -55,10 +57,11 @@ glm::vec2 Camera::getViewportMin() const
 void Camera::setViewportMin(glm::vec2 viewport_min)
 {
 	viewportMin = viewport_min;
-	cam->setViewport(viewportMin.x * *Config::getInt("window-width"),
-		viewportMin.y * *Config::getInt("window-height"),
-		(viewportMax.x - viewportMin.x) * *Config::getInt("window-width"),
-		(viewportMax.y - viewportMin.y) * *Config::getInt("window-height"));
+	cam->setViewport(
+		int(viewportMin.x * *Config::getInt("window-width")),
+		int(viewportMin.y * *Config::getInt("window-height")),
+		int((viewportMax.x - viewportMin.x) * *Config::getInt("window-width")),
+		int((viewportMax.y - viewportMin.y) * *Config::getInt("window-height")));
 	transformize();
 }
 
@@ -70,10 +73,11 @@ glm::vec2 Camera::getViewportMax() const
 void Camera::setViewportMax(glm::vec2 viewport_max)
 {
 	viewportMax = viewport_max;
-	cam->setViewport(viewportMin.x * *Config::getInt("window-width"),
-		viewportMin.y * *Config::getInt("window-height"),
-		(viewportMax.x - viewportMin.x) * *Config::getInt("window-width"),
-		(viewportMax.y - viewportMin.y) * *Config::getInt("window-height"));
+	cam->setViewport(
+		int(viewportMin.x * *Config::getInt("window-width")),
+		int(viewportMin.y * *Config::getInt("window-height")),
+		int((viewportMax.x - viewportMin.x) * *Config::getInt("window-width")),
+		int((viewportMax.y - viewportMin.y) * *Config::getInt("window-height")));
 	transformize();
 }
 

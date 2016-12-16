@@ -14,11 +14,11 @@ Physics* Physics::instance = nullptr;
 
 Physics::Physics()
 {
-	auto collisionL = new CollisionListener();
-	world.SetContactListener(collisionL);
+	collisionListener = std::make_shared<CollisionListener>();
+	world.SetContactListener(collisionListener.get());
 	auto debugDraw = new SREDebugDraw();
 	world.SetDebugDraw(debugDraw);
-	debugDraw->SetFlags(b2Draw::e_shapeBit | b2Draw::e_aabbBit);
+	debugDraw->SetFlags(b2Draw::e_shapeBit/* | b2Draw::e_aabbBit*/);
 }
 
 Physics* Physics::getInstance()
@@ -36,8 +36,8 @@ void Physics::step(float dt)
 		auto pos = body->body->GetWorldCenter();
 		auto angle = body->body->GetAngle() * (180/M_PI);
 		if (transform) {
-			transform->position = glm::vec3(pos.x, pos.y, 0);
-			transform->rotation = angle;
+			transform->position = glm::vec3(pos.x*phScale, pos.y*phScale, 0);
+			transform->rotation = float(angle);
 			transform->transformize();
 		}
 			
@@ -45,19 +45,4 @@ void Physics::step(float dt)
 	}
 	world.DrawDebugData();
 	
-}
-
-void Physics::init()
-{
-	for(auto body : bodies) {
-		auto transform = body->getGameObject()->getComponent<Transform>();
-		if(transform) {
-			auto pos = transform->getPosition();
-			body->body->SetTransform(b2Vec2(pos.x, pos.y), 0);
-		}
-
-		body->UpdateFixtures();
-	}
-		
-		
 }

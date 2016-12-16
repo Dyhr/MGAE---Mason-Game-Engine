@@ -44,6 +44,14 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 	if (v.contains("imagepath")) scene.imagepath = v.get("imagepath").get<std::string>();
 	if (v.contains("soundpath")) scene.soundpath = v.get("soundpath").get<std::string>();
 	if (v.contains("templatepath")) scene.templatepath = v.get("templatepath").get<std::string>();
+
+	if(v.contains("gravity"))
+	{
+		auto g = to_vec2(v.get("gravity"));
+		scene.gravity = b2Vec2(g.x, g.y);
+	}
+	if (v.contains("physicsscale")) scene.physicsScale = float(v.get("physicsscale").get<double>());
+
 	if (v.contains("sprites"))
 		for (auto atlas : v.get("sprites").get<picojson::array>())
 			scene.sprites.push_back(atlas.get<std::string>());
@@ -98,6 +106,8 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 				if (bc.contains("center")) boxCollider.center = to_vec2(bc.get("center"));
 				if (bc.contains("width")) boxCollider.width = float(bc.get("width").get<double>());
 				if (bc.contains("height")) boxCollider.height = float(bc.get("height").get<double>());
+				if (bc.contains("density")) boxCollider.density = float(bc.get("density").get<double>());
+				if (bc.contains("friction")) boxCollider.friction = float(bc.get("friction").get<double>());
 				d.physicsBody2D.boxColliders.push_back(boxCollider);
 			}
 		}
@@ -107,6 +117,8 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 				CircleColliderDescriptor circleCollider;
 				if (cc.contains("center")) circleCollider.center = to_vec2(cc.get("center"));
 				if (cc.contains("radius")) circleCollider.radius = float(cc.get("radius").get<double>());
+				if (cc.contains("density")) circleCollider.density = float(cc.get("density").get<double>());
+				if (cc.contains("friction")) circleCollider.friction = float(cc.get("friction").get<double>());
 				d.physicsBody2D.circleColliders.push_back(circleCollider);
 			}
 		}
@@ -150,7 +162,7 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 					{
 						auto p = s.get(prop.get<std::string>());
 						if (p.is<std::string>()) script.strings[prop.get<std::string>()] = p.get<std::string>();
-						if (p.is<double>()) script.numbers[prop.get<std::string>()] = p.get<double>();
+						if (p.is<double>()) script.numbers[prop.get<std::string>()] = float(p.get<double>());
 					}
 				}
 			}
@@ -191,16 +203,16 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 		if (p.contains("splinePointsSize")) {
 			std::vector<glm::vec2> points;
 			auto arr = p.get("splinePointsSize").get<picojson::array>();
-			for (int i = 0; i < arr.size(); i++) {
-				points.push_back(to_vec2(arr[i]));
+			for (auto a : arr) {
+				points.push_back(to_vec2(a));
 			}
 			d.particles.splinePointsSize = points;
 		}
 		if (p.contains("splinePointsColor")) {
 			std::vector<glm::vec2> points;
 			auto arr = p.get("splinePointsColor").get<picojson::array>();
-			for (int i = 0; i < arr.size(); i++) {
-				points.push_back(to_vec2(arr[i]));
+			for (auto a : arr) {
+				points.push_back(to_vec2(a));
 			}
 			d.particles.splinePointsColor = points;
 
@@ -208,8 +220,8 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 		if (p.contains("splinePointsRotation")) {
 			std::vector<glm::vec2> points;
 			auto arr = p.get("splinePointsRotation").get<picojson::array>();
-			for (int i = 0; i < arr.size(); i++) {
-				points.push_back(to_vec2(arr[i]));
+			for (auto a : arr) {
+				points.push_back(to_vec2(a));
 			}
 			d.particles.splinePointsRotation = points;
 		}

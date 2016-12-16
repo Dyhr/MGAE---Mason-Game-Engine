@@ -22,7 +22,7 @@ glm::vec2 ParticleEmitter::cubicBezier(float t, std::vector<glm::vec2> splinePoi
 	}
 	std::vector<glm::vec2> deeper;
 
-	for (int i = 0; i < splinePoints.size() - 1; i++) {
+	for (unsigned int i = 0; i < splinePoints.size() - 1; i++) {
 		deeper.push_back(lerp(splinePoints[i], splinePoints[i + 1], t));
 	}
 	return cubicBezier(t, deeper);

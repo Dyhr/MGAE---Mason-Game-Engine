@@ -46,7 +46,7 @@ AudioManager::~AudioManager() {
 
 void AudioManager::cleanUp()
 {
-	for (int i = 0; i < channelsPlaying.size(); i++) {
+	for (unsigned int i = 0; i < channelsPlaying.size(); i++) {
 		if (channelsPlaying[i]) {
 			Mix_FreeChunk(channelsPlaying[i]);
 		}

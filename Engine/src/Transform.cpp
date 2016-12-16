@@ -26,7 +26,7 @@ void Transform::transformize()
 void Transform::setPosition(glm::vec3 position) {
 	auto body = gameObject->getComponent<PhysicsBody2D>();
 	if (body != nullptr)
-		body->body->SetTransform(b2Vec2(position.x, position.y), body->body->GetAngle());
+		body->body->SetTransform(b2Vec2(position.x / Physics::instance->phScale, position.y / Physics::instance->phScale), body->body->GetAngle());
 	this->position = position;
 	transformize();
 }

@@ -14,6 +14,7 @@
 #include "Mason/PhysicsBody2D.hpp"
 #include "Mason/BoxCollider2D.hpp"
 #include "Mason/CircleCollider2D.h"
+#include "Mason/CollisionListener.h"
 
 
 #include <chrono>
@@ -31,7 +32,7 @@
 using namespace glm;
 using namespace Mason;
 
-
+bool loaded = false;
 bool show_another_window;
 int numberSprites;
 
@@ -90,7 +91,8 @@ Engine::~Engine()
 }
 
 void Engine::start() {
-	physics->init();
+
+	if (!loaded) std::cerr << "No scene has been loaded. Behaviour may not be as expected." << std::endl;
 
 	typedef std::chrono::high_resolution_clock Clock;
 	auto t1 = Clock::now();
@@ -131,6 +133,9 @@ void Engine::loadScene(std::string path)
 	scene->soundpath = sceneDescriptor.soundpath;
 	scene->templatepath = sceneDescriptor.templatepath;
 
+	physics->world.SetGravity(sceneDescriptor.gravity);
+	physics->phScale = sceneDescriptor.physicsScale;
+
 	std::map<std::string, SpriteAtlas> map_spriteatlas;
 	for (auto atlasname : sceneDescriptor.sprites)
 	{
@@ -150,6 +155,8 @@ void Engine::loadScene(std::string path)
 			scene->setParentRelationship(element.uniqueId, element.transform.parentId);			
 		}
 	}
+
+	loaded = true;
 }
 
 void Engine::update(float deltaTimeSec) {
@@ -159,6 +166,14 @@ void Engine::update(float deltaTimeSec) {
 	InputManager::getInstance()->Handle(this);
 
 	if (!paused) {
+		// update physics
+		physics->step(deltaTimeSec);
+		physics->collisionListener->ProcessEvents();
+
+		// update audio
+		audioManager->step();
+
+		// update scripts
 		for (auto & script : scene->getAllComponent<Script>()) {
 			if (!script->started) {
 				script->started = true;
@@ -173,9 +188,6 @@ void Engine::update(float deltaTimeSec) {
 				particleEmitter->update(deltaTimeSec);
 			}
 		}
-
-		physics->step(deltaTimeSec);
-		audioManager->step();
 	}
 
 	for (auto & camera : scene->getAllComponent<Camera>()) {

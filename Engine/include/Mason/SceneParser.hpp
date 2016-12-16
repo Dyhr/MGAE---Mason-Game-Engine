@@ -64,12 +64,18 @@ namespace Mason {
 		glm::vec2 center = glm::vec2(0, 0);
 		float width = 1;
 		float height = 1;
+
+		float density = 1;
+		float friction = 0.1f;
 	};
 
 	class CircleColliderDescriptor {
 	public:
 		glm::vec2 center = glm::vec2(0, 0);
 		float radius = 1;
+
+		float density = 1;
+		float friction = 0.1f;
 	};
 
 	class PhysicsBodyDescriptor {
@@ -100,7 +106,7 @@ namespace Mason {
 	public:
 		std::string name;
 		std::map<std::string, std::string> strings;
-		std::map<std::string, double> numbers;
+		std::map<std::string, float> numbers;
 	};
 
 
@@ -130,6 +136,9 @@ namespace Mason {
 		std::vector<std::string> sprites;
 
 		std::vector<GameObjectDescriptor> gameobjects;
+
+		b2Vec2 gravity = b2Vec2(0, -10);
+		float physicsScale = 100;
 	};
 
 	class SceneParser {

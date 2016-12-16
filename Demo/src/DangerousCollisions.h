@@ -32,7 +32,7 @@ public:
 	
 			auto tr = other->getComponent<Transform>();
 			auto scale = tr->getScale();
-			tr->setScale(scale*2);
+			tr->setScale(2);
 			other->getComponent<CircleCollider2D>()->setScale(4);
 		
 	}
