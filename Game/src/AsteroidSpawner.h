@@ -31,7 +31,7 @@ private:
 
 	float randf(float min, float max) {
 		if (!randomSeeded) {
-			srand(time(nullptr));
+			srand(int(time(nullptr)));
 			randomSeeded = true;
 		}
 		auto res = min + static_cast <float> (rand()) / static_cast <float> (RAND_MAX / (max - min));

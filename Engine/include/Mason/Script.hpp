@@ -25,7 +25,7 @@ namespace Mason {
 		std::shared_ptr<Transform> transform;
 
 		std::map<std::string, std::string> strings;
-		std::map<std::string, double> numbers;
+		std::map<std::string, float> numbers;
 
 		virtual void OnStart() {}
 		virtual void OnUpdate() {}

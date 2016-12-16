@@ -32,7 +32,7 @@
 using namespace glm;
 using namespace Mason;
 
-
+bool loaded = false;
 bool show_another_window;
 int numberSprites;
 
@@ -92,6 +92,8 @@ Engine::~Engine()
 
 void Engine::start() {
 
+	if (!loaded) std::cerr << "No scene has been loaded. Behaviour may not be as expected." << std::endl;
+
 	typedef std::chrono::high_resolution_clock Clock;
 	auto t1 = Clock::now();
 	int timePerFrameMillis = 1000 / 60;
@@ -132,6 +134,7 @@ void Engine::loadScene(std::string path)
 	scene->templatepath = sceneDescriptor.templatepath;
 
 	physics->world.SetGravity(sceneDescriptor.gravity);
+	physics->phScale = sceneDescriptor.physicsScale;
 
 	std::map<std::string, SpriteAtlas> map_spriteatlas;
 	for (auto atlasname : sceneDescriptor.sprites)
@@ -152,6 +155,8 @@ void Engine::loadScene(std::string path)
 			scene->setParentRelationship(element.uniqueId, element.transform.parentId);			
 		}
 	}
+
+	loaded = true;
 }
 
 void Engine::update(float deltaTimeSec) {

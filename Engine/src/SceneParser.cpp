@@ -50,6 +50,7 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 		auto g = to_vec2(v.get("gravity"));
 		scene.gravity = b2Vec2(g.x, g.y);
 	}
+	if (v.contains("physicsscale")) scene.physicsScale = float(v.get("physicsscale").get<double>());
 
 	if (v.contains("sprites"))
 		for (auto atlas : v.get("sprites").get<picojson::array>())
@@ -161,7 +162,7 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 					{
 						auto p = s.get(prop.get<std::string>());
 						if (p.is<std::string>()) script.strings[prop.get<std::string>()] = p.get<std::string>();
-						if (p.is<double>()) script.numbers[prop.get<std::string>()] = p.get<double>();
+						if (p.is<double>()) script.numbers[prop.get<std::string>()] = float(p.get<double>());
 					}
 				}
 			}
@@ -202,16 +203,16 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 		if (p.contains("splinePointsSize")) {
 			std::vector<glm::vec2> points;
 			auto arr = p.get("splinePointsSize").get<picojson::array>();
-			for (int i = 0; i < arr.size(); i++) {
-				points.push_back(to_vec2(arr[i]));
+			for (auto a : arr) {
+				points.push_back(to_vec2(a));
 			}
 			d.particles.splinePointsSize = points;
 		}
 		if (p.contains("splinePointsColor")) {
 			std::vector<glm::vec2> points;
 			auto arr = p.get("splinePointsColor").get<picojson::array>();
-			for (int i = 0; i < arr.size(); i++) {
-				points.push_back(to_vec2(arr[i]));
+			for (auto a : arr) {
+				points.push_back(to_vec2(a));
 			}
 			d.particles.splinePointsColor = points;
 
@@ -219,8 +220,8 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 		if (p.contains("splinePointsRotation")) {
 			std::vector<glm::vec2> points;
 			auto arr = p.get("splinePointsRotation").get<picojson::array>();
-			for (int i = 0; i < arr.size(); i++) {
-				points.push_back(to_vec2(arr[i]));
+			for (auto a : arr) {
+				points.push_back(to_vec2(a));
 			}
 			d.particles.splinePointsRotation = points;
 		}

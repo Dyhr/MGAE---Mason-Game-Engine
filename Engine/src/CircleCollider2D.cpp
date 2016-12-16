@@ -7,8 +7,8 @@ using namespace Mason;
 
 void CircleCollider2D::setCenter(float x, float y)
 {
-	center = b2Vec2(x, y);
-	circleShape.m_p.Set(x,y);
+	center = b2Vec2(x / Physics::instance->phScale, y / Physics::instance->phScale);
+	circleShape.m_p.Set(center.x, center.y);
 	
 }
 void CircleCollider2D::setScale(float scale) {
@@ -36,7 +36,7 @@ void CircleCollider2D::setFriction(float friction)
 
 void CircleCollider2D::setSize(float rad)
 {
-	circleShape.m_radius = rad;
+	circleShape.m_radius = rad / Physics::instance->phScale;
 }
 
 CircleCollider2D::CircleCollider2D(GameObject* gameObject) : Collider2D(gameObject)

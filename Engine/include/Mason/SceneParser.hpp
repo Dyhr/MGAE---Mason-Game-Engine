@@ -106,7 +106,7 @@ namespace Mason {
 	public:
 		std::string name;
 		std::map<std::string, std::string> strings;
-		std::map<std::string, double> numbers;
+		std::map<std::string, float> numbers;
 	};
 
 
@@ -138,6 +138,7 @@ namespace Mason {
 		std::vector<GameObjectDescriptor> gameobjects;
 
 		b2Vec2 gravity = b2Vec2(0, -10);
+		float physicsScale = 100;
 	};
 
 	class SceneParser {

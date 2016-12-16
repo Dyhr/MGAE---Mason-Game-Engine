@@ -25,8 +25,15 @@ namespace Mason {
 
 		std::shared_ptr<CollisionListener> collisionListener;
 		std::vector<PhysicsBody2D*> bodies;
+
+		float phScale = 400;
 		
 		friend class PhysicsBody2D;
 		friend class Engine;
+		friend class Transform;
+		friend class Scene;
+		friend class SREDebugDraw;
+		friend class CircleCollider2D;
+		friend class BoxCollider2D;
 	};
 }

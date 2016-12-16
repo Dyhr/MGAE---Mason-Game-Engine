@@ -18,7 +18,7 @@ Physics::Physics()
 	world.SetContactListener(collisionListener.get());
 	auto debugDraw = new SREDebugDraw();
 	world.SetDebugDraw(debugDraw);
-	debugDraw->SetFlags(b2Draw::e_shapeBit | b2Draw::e_aabbBit);
+	debugDraw->SetFlags(b2Draw::e_shapeBit/* | b2Draw::e_aabbBit*/);
 }
 
 Physics* Physics::getInstance()
@@ -36,8 +36,8 @@ void Physics::step(float dt)
 		auto pos = body->body->GetWorldCenter();
 		auto angle = body->body->GetAngle() * (180/M_PI);
 		if (transform) {
-			transform->position = glm::vec3(pos.x, pos.y, 0);
-			transform->rotation = angle;
+			transform->position = glm::vec3(pos.x*phScale, pos.y*phScale, 0);
+			transform->rotation = float(angle);
 			transform->transformize();
 		}
 			
