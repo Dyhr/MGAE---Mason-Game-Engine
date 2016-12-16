@@ -29,7 +29,7 @@ namespace Mason {
 	*/
 		Sprite(int x, int y, int width, int height, float anchorX, float anchorY, std::shared_ptr<SRE::Texture> texture);
 		
-		/** @brief why is it const ?
+		/** @brief ...
 		*sets the texture in a SRE shader and calls the SRE draw(), providing the mesh, the position given by the SpriteRenderer and the shader. @see SRE
 		*/
 		void draw(glm::mat4 matrix) const;

@@ -3,6 +3,10 @@
 #include "Collider2D.hpp"
 
 namespace Mason {
+	/** @class CircleCollider2D
+	* @brief creates a Collider2D with rectangular-shape properties.
+	* overrides the virtual class Collider2D
+	*/
 	class CircleCollider2D : public Collider2D
 	{
 	public:

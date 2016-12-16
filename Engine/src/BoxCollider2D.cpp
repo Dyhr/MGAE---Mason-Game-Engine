@@ -2,6 +2,10 @@
 
 
 using namespace Mason;
+/** @class BoxCollider2D
+* @brief creates a Collider2D with rectangular-shape properties.
+* overrides the virtual class Collider2D
+*/
 
 void BoxCollider2D::setCenter(float x, float y)
 {
