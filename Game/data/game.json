@@ -3,6 +3,7 @@
   "imagepath": "data/images",
   "templatepath": "data/templates",
   "gravity": [ 0, 0 ],
+  "physicsscale": 10, 
 
   "sprites": [
     "asteroids",
@@ -32,26 +33,46 @@
     },
     {
       "uniqueId": 1,
-      "template": "player", 
+      "template": "player",
       "name": "Player 1",
       "sprite": {
         "name": "sprite134"
       },
+      "scripts": [
+        {
+          "name": "player",
+          "properties": [ "thrust", "left", "right", "shoot" ],
+          "thrust": "w",
+          "left": "a",
+          "right": "d",
+          "shoot": "e"
+        }
+      ],
       "transform": {
         "position": [ -500, 0, 0 ],
-        "rotation":  -90 
+        "rotation": -90
       }
     },
     {
       "uniqueId": 2,
-      "template": "player", 
+      "template": "player",
       "name": "Player 2",
       "sprite": {
         "name": "sprite98"
       },
+      "scripts": [
+        {
+          "name": "player",
+          "properties": [ "thrust", "left", "right", "shoot" ],
+          "thrust": "i",
+          "left": "j",
+          "right": "l",
+          "shoot": "u"
+        }
+      ],
       "transform": {
         "position": [ 500, 0, 0 ],
-        "rotation":  90
+        "rotation": 90
       }
     },
     {
@@ -65,7 +86,7 @@
           "amountMedium": 200,
           "amountSmall": 100,
           "rangeX": 1000,
-          "rangeY": 1000 
+          "rangeY": 1000
         }
       ]
     }

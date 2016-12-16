@@ -8,9 +8,6 @@
       }
     ]
   },
-  "scripts": [
-    { "name": "player" }
-  ],
   "particles": {
     "rate": 3,
     "lifespan": 1,

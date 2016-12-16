@@ -1,0 +1,17 @@
+{
+  "name": "Bullet",
+  "physicsbody": {
+    "type": "dynamic",
+    "circles": [
+      {
+        "radius": 4
+      }
+    ]
+  },
+  "sprite": {
+    "name": "asteroid1"
+  },
+  "transform": {
+    "scale": 0.3 
+  } 
+}

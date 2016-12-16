@@ -20,5 +20,7 @@ public:
 
 	void OnCollisionEnter(GameObject* other) override
 	{
+		if (other->getName() == "Bullet")
+			Scene::Destroy(std::shared_ptr<GameObject>(getGameObject()));
 	}
 };
