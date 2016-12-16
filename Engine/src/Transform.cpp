@@ -8,7 +8,7 @@
 
 using namespace Mason;
 
-Transform::Transform(GameObject *gameObject):Component(gameObject) {
+Transform::Transform(std::shared_ptr<GameObject> gameObject):Component(gameObject) {
 	this->position = glm::vec3(0, 0, 0);
 	this->rotation = 0;
 	this->scale = 1;

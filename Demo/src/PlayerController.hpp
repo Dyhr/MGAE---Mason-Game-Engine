@@ -8,7 +8,7 @@ using namespace Mason;
 class PlayerController :public Script
 {
 protected:
-	PlayerController(GameObject* gameObject) : Script(gameObject)
+	PlayerController(std::shared_ptr<GameObject> gameObject) : Script(gameObject)
 	{
 	}
 
@@ -16,7 +16,7 @@ protected:
 
 public:
 
-	static Script* Create(GameObject* gameObject)
+	static Script* Create(std::shared_ptr<GameObject> gameObject)
 	{
 		return new PlayerController(gameObject);
 	}

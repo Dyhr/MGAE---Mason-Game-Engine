@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 
 namespace Mason {
 
@@ -7,10 +8,10 @@ namespace Mason {
 	class Component {
 	public:
 		virtual ~Component();
-		GameObject* getGameObject();
+		std::shared_ptr<GameObject> getGameObject();
 	protected:
-		Component(GameObject *gameObject);
-		GameObject *gameObject;
+		Component(std::shared_ptr<GameObject> gameObject);
+		std::shared_ptr<GameObject> gameObject;
 
 		friend class GameObject;
 	};

@@ -153,7 +153,7 @@ void ParticleEmitter::updateModel(float deltaTimeSec)
 	//std::cout << bodyCount << std::endl;
 }
 
-ParticleEmitter::ParticleEmitter(GameObject * gameObject) : Component(gameObject) {
+ParticleEmitter::ParticleEmitter(std::shared_ptr<GameObject> gameObject) : Component(gameObject) {
 }
 
 void ParticleEmitter::update(float deltaTimeSec)

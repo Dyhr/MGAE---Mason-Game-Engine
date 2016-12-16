@@ -1,8 +1,9 @@
 #include "Mason/Component.hpp"
+#include <memory>
 
 using namespace Mason;
 
-Component::Component(GameObject *gameObject)
+Component::Component(std::shared_ptr<GameObject> gameObject)
 	:gameObject(gameObject)
 {
 }
@@ -10,6 +11,6 @@ Component::Component(GameObject *gameObject)
 Component::~Component() {
 }
 
-GameObject *Component::getGameObject() {
+std::shared_ptr<GameObject> Component::getGameObject() {
 	return gameObject;
 }

@@ -8,7 +8,7 @@ using namespace Mason;
 
 class BNoteController : public Script {
 public:
-	static Script* Create(GameObject* gameObject)
+	static Script* Create(std::shared_ptr<GameObject> gameObject)
 	{
 		return new BNoteController(gameObject);
 	}
@@ -22,7 +22,7 @@ public:
 		}
 	}
 protected:
-	BNoteController(GameObject* gameObject) : Script(gameObject)
+	BNoteController(std::shared_ptr<GameObject> gameObject) : Script(gameObject)
 	{
 	}
 	friend GameObject;

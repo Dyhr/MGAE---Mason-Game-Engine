@@ -20,7 +20,7 @@ namespace Mason {
 		std::shared_ptr<Sprite> sprite; ///< Pointer to the @see Sprite that is going to be rendered.
 
 	protected:
-		SpriteRenderer(GameObject *gameObject);
+		SpriteRenderer(std::shared_ptr<GameObject> gameObject);
 
 		std::shared_ptr<Transform> transform;
 

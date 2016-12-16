@@ -16,7 +16,7 @@ namespace Mason {
 		void setDensity(float density) override;
 		void setFriction(float friction) override;
 	protected:
-		CircleCollider2D(GameObject* gameObject);
+		CircleCollider2D(std::shared_ptr<GameObject> gameObject);
 		friend class GameObject;
 	private:
 		b2CircleShape circleShape;

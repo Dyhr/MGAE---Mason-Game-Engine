@@ -5,7 +5,7 @@
 using namespace Mason;
 using namespace SRE;
 
-SpriteRenderer::SpriteRenderer(GameObject *gameObject):Component(gameObject) {
+SpriteRenderer::SpriteRenderer(std::shared_ptr<GameObject> gameObject):Component(gameObject) {
 	transform = gameObject->getComponent<Transform>();
 }
 

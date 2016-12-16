@@ -1,14 +1,13 @@
 {
   "name": "Asteroid",
   "sprite": {
-    "name": "asteroid1"
+    "name": "asteroid8"
   },
   "physicsbody": {
     "type": "dynamic",
     "circles": [
       {
-        "center": [ 0, 0 ],
-        "radius": 8
+        "radius": 16
       }
     ]
   }

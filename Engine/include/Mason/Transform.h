@@ -20,7 +20,7 @@ namespace Mason {
 		glm::mat4 localTransform() const;
 		glm::mat4 globalTransform();
 	protected:
-		Transform(GameObject *gameObject);
+		Transform(std::shared_ptr<GameObject> gameObject);
 
 		virtual void transformize();
 

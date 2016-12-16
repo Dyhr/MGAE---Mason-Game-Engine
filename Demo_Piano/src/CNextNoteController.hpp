@@ -8,7 +8,7 @@ using namespace Mason;
 
 class CNextNoteController : public Script {
 public:
-	static Script* Create(GameObject* gameObject)
+	static Script* Create(std::shared_ptr<GameObject> gameObject)
 	{
 		return new CNextNoteController(gameObject);
 	}
@@ -22,7 +22,7 @@ public:
 		}
 	}
 protected:
-	CNextNoteController(GameObject* gameObject) : Script(gameObject)
+	CNextNoteController(std::shared_ptr<GameObject> gameObject) : Script(gameObject)
 	{
 	}
 	friend GameObject;

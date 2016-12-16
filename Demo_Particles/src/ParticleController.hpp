@@ -7,13 +7,13 @@ using namespace Mason;
 
 class ParticleController : public Script {
 protected:
-	ParticleController(GameObject* go) : Script(go) {
+	ParticleController(std::shared_ptr<GameObject> go) : Script(go) {
 
 	}
 	friend GameObject;
 	std::shared_ptr<ParticleEmitter> emitter;
 public:
-	static Script* Create(GameObject* gameObject)
+	static Script* Create(std::shared_ptr<GameObject> gameObject)
 	{
 		return new ParticleController(gameObject);
 	}

@@ -37,6 +37,7 @@ shared_ptr<GameObject> Scene::addGameObject(string name) {
 
 shared_ptr<GameObject> Scene::loadGameObject(GameObjectDescriptor element) {
 	auto gameObject = addGameObject(element.name);
+
 	map_gameObjects[element.uniqueId] = gameObject;
 	if (element.camera.found)
 	{

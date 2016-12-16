@@ -30,7 +30,7 @@ namespace Mason {
 	protected:
 		/** @brief Constructor
 		*/
-		Camera(GameObject *gameObject);
+		Camera(std::shared_ptr<GameObject> gameObject);
 
 		/** @brief scales to the size of the window
 		* called on the methods setViewportMin() and setViewportMax(). Uses orthogonal projection for 2D.

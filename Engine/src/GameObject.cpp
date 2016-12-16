@@ -4,7 +4,7 @@
 
 using namespace Mason;
 
-std::map<std::string, Script*(*)(GameObject*)> Script::scripts = std::map<std::string, Script*(*)(GameObject*)>();
+std::map<std::string, Script*(*)(std::shared_ptr<GameObject>)> Script::scripts = std::map<std::string, Script*(*)(std::shared_ptr<GameObject>)>();
 
 GameObject::GameObject(std::string name_) :name(name_)
 {
@@ -16,7 +16,7 @@ GameObject::~GameObject() {
 
 std::shared_ptr<Script> GameObject::addScript(std::string name)
 {
-	Script* c = Script::scripts[name](this);
+	Script* c = Script::scripts[name](std::shared_ptr<GameObject>(this));
 	auto res = std::shared_ptr<Script>(c);
 	components.push_back(res);
 	return res;

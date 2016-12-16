@@ -13,12 +13,12 @@ namespace Mason {
 
 	class Audio : public Component {
 	public:
-		void init(std::string file, SoundType type, AudioManager * manager, int loops = 0);
+		void init(std::string file, SoundType type, AudioManager* manager, int loops = 0);
 		SoundType type;
 		std::string path;
 		void play();		
 	protected:
-		Audio(GameObject *gameObject);
+		Audio(std::shared_ptr<GameObject> gameObject);
 		friend class GameObject;
 	private:
 		int loops;

@@ -11,7 +11,7 @@ class DangerousCollisions :public Script
 {
 	bool done = false;
 protected:
-	DangerousCollisions(GameObject* gameObject) : Script(gameObject)
+	DangerousCollisions(std::shared_ptr<GameObject> gameObject) : Script(gameObject)
 	{
 	}
 
@@ -19,7 +19,7 @@ protected:
 
 public:
 
-	static Script* Create(GameObject* gameObject)
+	static Script* Create(std::shared_ptr<GameObject> gameObject)
 	{
 		return new DangerousCollisions(gameObject);
 	}

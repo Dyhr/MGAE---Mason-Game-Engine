@@ -46,7 +46,7 @@ namespace Mason {
 	// function templates has to defined in header files
 	template<typename C>
 	std::shared_ptr<C> GameObject::addComponent() {
-		C * c = new C(this);
+		C * c = new C(std::shared_ptr<GameObject>(this));
 		auto res = std::shared_ptr<C>(c);
 		components.push_back(res);
 		return res;
