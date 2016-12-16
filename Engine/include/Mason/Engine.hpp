@@ -48,10 +48,6 @@ namespace Mason {
 		
 		Engine();
 		~Engine();
-		// TODO make this private once everything is implemented
-		SRE::SimpleRenderEngine* sre; /**< download the latest version of SRE on Git 
-									  * https://github.com/mortennobel/SimpleRenderEngine
-									  */
 
 		Scene* scene; ///< The scene we load(brief description)
 	private:
@@ -60,10 +56,11 @@ namespace Mason {
 		void update(float deltaTimeSec);
 		std::vector<std::shared_ptr<GameObject>> gameObjects;
 		Physics* physics;
+		SRE::SimpleRenderEngine* sre;
 		AudioManager* audioManager;
 		
 		bool running, paused;
-		bool showDebugGUI; 
+		bool showDebugGUI, showDebugPhysics; 
 		int* windowWidth;
 		int* windowHeight;
 		SDL_Window *window;
