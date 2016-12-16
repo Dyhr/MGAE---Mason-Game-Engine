@@ -5,16 +5,20 @@
 
 using namespace Mason;
 
-class PlayerController :public Script
+class CameraController :public Script
 {
 protected:
-	PlayerController(GameObject* gameObject) : Script(gameObject)
+	CameraController(GameObject* gameObject) : Script(gameObject)
 	{
 	}
 
 	friend GameObject;
 
 public:
+	static Script* Create(GameObject* gameObject)
+	{
+		return new CameraController(gameObject);
+	}
 	void OnUpdate() override
 	{
 		directionX = rightDown - leftDown;

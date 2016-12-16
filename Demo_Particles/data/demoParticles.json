@@ -10,8 +10,13 @@
       },
       "transform":
       {
-        "position": [100, 0, 0] 
-      } 
+        "position": [0, 0, 0] 
+      },
+	  "scripts": [
+		{
+			"name": "camera-controller"
+		}
+	  ] 
     },
     {
       "uniqueId": 1,
@@ -26,7 +31,7 @@
 		"rate": 60,
 		"lifespan": 0.5,
 		"velocityState": "random",
-		"minVelocity": [-20, 300, 0],
+		"minVelocity": [0, 300, 0],
 		"maxVelocity": [20, 300, 0],
 		"gravity": [0, 0, 0],
 		"sizeState": "linear",
@@ -37,81 +42,12 @@
 		"finalColor": [1, 0, 0, 1],
 		"rotationState": "fixed",
 		"rotation": 0
-	  }
-    },
-    {
-      "uniqueId": 2,
-      "name": "green_tube",
-      "sprite": {
-		"name": "green_tube"
 	  },
-      "transform": {
-		"position": [200, 0, 0]
-      },
-	  "particles": {
-		"rate": 5,
-		"lifespan": 5,
-		"velocityState": "random",
-		"minVelocity": [-50, 150, 0],
-		"maxVelocity": [50, 150, 0],
-		"gravity": [0, -100, 0],
-		"sizeState": "fixed",
-		"size": 1,
-		"colorState": "spline",
-		"splinePointsColor": [[0, 0],[0.33, 1],[0.67, 0],[1, 1]],
-		"initialColor": [0, 1, 0, 1],
-		"finalColor": [0, 0, 1, 1],
-		"rotationState": "linear",
-		"initialRotation": 0,
-		"finalRotation": 2
-	  }
-    },
-    {
-      "uniqueId": 3,
-      "name": "ball_launcher",
-      "sprite": {
-		"name": "green_tube_horizontal"
-	  },
-      "transform": {
-		"position": [-100, 100, 0]
-      },
-	  "particles": {
-		"texturePath": "data/ball.png",
-		"rate": 2,
-		"lifespan": 4,
-		"velocity": [350, 50, 0],
-		"gravity": [0, -100, 0],
-		"sizeState": "fixed",
-		"size": 0.75,
-		"colorState": "fixed",
-		"color": [1, 1, 1, 1],
-		"rotationState": "linear",
-		"initialRotation": 0,
-		"finalRotation": 2
-	  }
-    },
-    {
-      "uniqueId": 4,
-      "name": "dicer",
-      "transform": {
-		"position": [0, -200, 0]
-      },
-	  "particles": {
-		"texturePath": "data/dice.png",
-		"rate": 5,
-		"lifespan": 4,
-		"velocity": [-100, 100, 0],
-		"gravity": [0, 200, 0],
-		"sizeState": "linear",
-		"initialSize": 0.75,
-		"finalSize": 0.1,
-		"colorState": "fixed",
-		"color": [1, 1, 1, 1],
-		"rotationState": "linear",
-		"initialRotation": 0,
-		"finalRotation": 5
-	  }
+	  "scripts": [
+		{
+			"name": "particle-controller"
+		}
+	  ]
     }
-	
   ]
 }

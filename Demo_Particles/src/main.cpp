@@ -1,7 +1,7 @@
 
 #include <Mason/Engine.hpp>
-#include "Mason/InputManager.h"
-#include "PlayerController.hpp"
+#include "CameraController.hpp"
+#include "ParticleController.hpp"
 
 using namespace glm;
 using namespace Mason;
@@ -10,8 +10,11 @@ Engine engine;
 
 int main(int argc, char** argv) {
 	
+	Script::scripts["camera-controller"] = CameraController::Create;
+	Script::scripts["particle-controller"] = ParticleController::Create;
+
 	engine.loadScene("data/demoParticles.json");
-	engine.scene->getGameObject(0)->addComponent<PlayerController>();
+	
 	engine.start();
 	
 	return 0;
