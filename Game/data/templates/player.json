@@ -4,12 +4,26 @@
     "type": "dynamic",
     "circles": [
       {
-        "center": [ 0, 0 ],
-        "radius": 8
+        "radius": 16
       }
     ]
   },
   "scripts": [
     { "name": "player" }
-  ]
+  ],
+  "particles": {
+    "rate": 3,
+    "lifespan": 1,
+    "velocityState": "random",
+    "minVelocity": [ -10, -200, 0 ],
+    "maxVelocity": [ 10, -200, 0 ],
+    "gravity": [ 0, 0, 0 ],
+    "sizeState": "fixed",
+    "size": 0.3,
+    "colorState": "linear",
+    "initialColor": [ 0.5, 0.5, 0.5, 1 ],
+    "finalColor": [ 0.0, 0.0, 0.0, 0 ],
+    "rotationState": "fixed",
+    "rotation": 0
+  }
 }
