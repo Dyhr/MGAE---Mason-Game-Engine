@@ -39,7 +39,7 @@ void CircleCollider2D::setSize(float rad)
 	circleShape.m_radius = rad / Physics::instance->phScale;
 }
 
-CircleCollider2D::CircleCollider2D(GameObject* gameObject) : Collider2D(gameObject)
+CircleCollider2D::CircleCollider2D(std::shared_ptr<GameObject> gameObject) : Collider2D(gameObject)
 {
 	shape = &circleShape; //fixture which uses this shape
 	setCenter(0, 0);

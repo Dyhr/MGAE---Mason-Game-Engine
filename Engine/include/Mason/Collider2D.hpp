@@ -21,7 +21,7 @@ namespace Mason {
 		/** @brief Constructor of Collider2D
 		* defines the shape, density and friction of the fixtures of the bodies in the world ( PhysicsBody2D ).
 		*/
-		Collider2D(GameObject* gameObject) : Component(gameObject), shape(nullptr), density(1), friction(0.1f) { }
+		Collider2D(std::shared_ptr<GameObject> gameObject) : Component(gameObject), shape(nullptr), density(1), friction(0.1f) { }
 		
 		b2Shape* shape; ///< in the world, shapes are created automatically when a b2Fixture is created (in a PhysicsBody2D ).
 

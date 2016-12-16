@@ -6,7 +6,7 @@
 
 using namespace Mason;
 
-Camera::Camera(GameObject* gameObject) : Transform(gameObject)
+Camera::Camera(std::shared_ptr<GameObject> gameObject) : Transform(gameObject)
 {
 	cam = new SRE::Camera();
 }

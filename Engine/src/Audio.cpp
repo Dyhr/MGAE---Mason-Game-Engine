@@ -8,7 +8,7 @@
 using namespace std;
 using namespace Mason;
 
-Audio::Audio(GameObject * gameObject) :Component(gameObject)
+Audio::Audio(shared_ptr<GameObject> gameObject) :Component(gameObject)
 {
 }
 

@@ -13,5 +13,8 @@
   },
   "transform": {
     "scale": 0.3 
-  } 
+  } ,
+  "scripts": [
+    { "name": "asteroid" }
+  ]
 }

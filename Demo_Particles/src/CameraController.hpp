@@ -8,14 +8,14 @@ using namespace Mason;
 class CameraController :public Script
 {
 protected:
-	CameraController(GameObject* gameObject) : Script(gameObject)
+	CameraController(std::shared_ptr<GameObject> gameObject) : Script(gameObject)
 	{
 	}
 
 	friend GameObject;
 
 public:
-	static Script* Create(GameObject* gameObject)
+	static Script* Create(std::shared_ptr<GameObject> gameObject)
 	{
 		return new CameraController(gameObject);
 	}

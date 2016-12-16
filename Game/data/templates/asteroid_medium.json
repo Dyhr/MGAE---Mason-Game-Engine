@@ -10,8 +10,5 @@
         "radius": 16
       }
     ]
-  },
-  "scripts": [
-    { "name": "asteroid" }
-  ]
+  }
 }

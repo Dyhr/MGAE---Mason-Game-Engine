@@ -9,7 +9,7 @@ namespace Mason {
 		void setCenter(float x, float y);
 		void setSize(float width, float height);
 	protected:
-		BoxCollider2D(GameObject* gameObject);
+		BoxCollider2D(std::shared_ptr<GameObject> gameObject);
 		friend class GameObject;
 	private:
 		b2PolygonShape polyShape;

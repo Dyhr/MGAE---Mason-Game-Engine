@@ -13,9 +13,9 @@ namespace Mason {
 	{
 	public:
 
-		static std::map<std::string, Script*(*)(GameObject*)> scripts;
+		static std::map<std::string, Script*(*)(std::shared_ptr<GameObject>)> scripts;
 
-		Script(GameObject* gameObject) :Component(gameObject)
+		Script(std::shared_ptr<GameObject> gameObject) :Component(gameObject)
 		{
 			this->gameobject = std::make_shared<GameObject>(*gameObject);
 			this->transform = gameObject->getComponent<Transform>();

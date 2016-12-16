@@ -15,7 +15,7 @@ using namespace Mason;
 class AsteroidSpawner :public Script
 {
 protected:
-	AsteroidSpawner(GameObject* gameObject) : Script(gameObject)
+	AsteroidSpawner(std::shared_ptr<GameObject> gameObject) : Script(gameObject)
 	{
 	}
 
@@ -38,7 +38,7 @@ private:
 
 	std::vector<std::shared_ptr<GameObject>> asteroids;
 public:
-	static Script* Create(GameObject* gameObject)
+	static Script* Create(std::shared_ptr<GameObject> gameObject)
 	{
 		return new AsteroidSpawner(gameObject);
 	}

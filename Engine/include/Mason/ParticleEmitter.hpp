@@ -225,7 +225,7 @@ namespace Mason {
 
 		glm::vec2 cubicBezier(float t, std::vector<glm::vec2> splinePoints);
 		void updateModel(float deltaTimeSec);
-		ParticleEmitter(GameObject *gameObject);
+		ParticleEmitter(std::shared_ptr<GameObject> gameObject);
 
 		ParticleEmitterConfig config;
 		int numParticles, maxParticles;

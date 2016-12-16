@@ -23,7 +23,7 @@ namespace Mason {
 		b2Body* body; ///< rigid body created in the Physics world
 
 	protected:
-		PhysicsBody2D(GameObject* gameObject);
+		PhysicsBody2D(std::shared_ptr<GameObject> gameObject);
 
 		std::vector<b2Fixture*> fixtures;
 

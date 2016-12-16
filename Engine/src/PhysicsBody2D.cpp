@@ -11,7 +11,7 @@ PhysicsBody2D::~PhysicsBody2D() {
 	vec->erase(remove(vec->begin(), vec->end(), this), vec->end());
 }
 
-PhysicsBody2D::PhysicsBody2D(GameObject* gameObject) : Component(gameObject) {
+PhysicsBody2D::PhysicsBody2D(std::shared_ptr<GameObject> gameObject) : Component(gameObject) {
 	b2BodyDef bd;
 	bd.type = b2_dynamicBody;
 	body = Physics::instance->world.CreateBody(&bd);
@@ -31,7 +31,7 @@ void PhysicsBody2D::UpdateFixtures() {
 		fd.density = collider->density;
 		fd.friction = collider->friction;
 		auto fixture = body->CreateFixture(&fd);
-		fixture->SetUserData(static_cast<void*>(gameObject)); //our body is a container for the body we get from box2D
+		fixture->SetUserData(static_cast<void*>(gameObject.get())); //our body is a container for the body we get from box2D
 		fixtures.push_back(fixture);
 	}
 }

@@ -19,7 +19,7 @@ void BoxCollider2D::setSize(float width, float height)
 	polyShape.SetAsBox(size.x, size.y, center, 0);
 }
 
-BoxCollider2D::BoxCollider2D(GameObject* gameObject) : Collider2D(gameObject)
+BoxCollider2D::BoxCollider2D(std::shared_ptr<GameObject> gameObject) : Collider2D(gameObject)
 {
 	shape = &polyShape;
 	setCenter(0, 0);
