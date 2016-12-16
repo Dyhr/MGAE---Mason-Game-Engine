@@ -213,14 +213,14 @@ namespace Mason {
 		SRE::Shader* shader = nullptr;
 
 		std::vector<glm::vec3> positions = std::vector<glm::vec3>();
+		std::vector<int> leftAlive = std::vector<int>();
 		std::vector<float> sizes = std::vector<float>();
 		std::vector<glm::vec4> colors = std::vector<glm::vec4>();
 		std::vector<glm::vec2> uvs = std::vector<glm::vec2>();
 		std::vector<float> uvSize = std::vector<float>();
 		std::vector<float> uvRotation = std::vector<float>();
-		int totalParticles = 0;
-		std::vector<float> birthTimes = std::vector<float>();
-		std::vector<float> age = std::vector<float>();
+		int totalParticles = 0;		
+		std::vector<float> ages = std::vector<float>();
 		std::vector<glm::vec3> velocities = std::vector<glm::vec3>();
 
 		glm::vec2 cubicBezier(float t, std::vector<glm::vec2> splinePoints);
@@ -228,9 +228,13 @@ namespace Mason {
 		ParticleEmitter(GameObject *gameObject);
 
 		ParticleEmitterConfig config;
-		int numParticles, maxParticles, pos;
-		float startTime;
+		int numParticles, maxParticles;
+		int bodyCount = 0;
+		float runTime = 0;
+		float startTime = -1;
+		float stopTime;
 		float lastUpdateTime = 0;
+		bool emitNewParticles = false;
 		friend class GameObject;
 	};
 }
