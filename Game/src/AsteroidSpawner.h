@@ -2,14 +2,11 @@
 
 #include "Mason/Script.hpp"
 #include "Mason/Scene.hpp"
-#include "Mason/CircleCollider2D.h"
-#include "Mason/Sprite.h"
 #include <glm/glm.hpp>
 #include <memory>
 #include <random>
 #include <vector>
 #include <time.h>
-#include "Mason/SceneParser.hpp"
 
 #include <iostream>
 
@@ -48,8 +45,8 @@ public:
 
 	void OnStart() override
 	{
-		for (int i = 0; i < numbers["amount"]; i++) {
-			auto asteroid = Scene::Instantiate("asteroid");
+		for (int i = 0; i < numbers["amountBig"]; i++) {
+			auto asteroid = Scene::Instantiate("asteroid_big");
 			asteroid->getTransform()->setPosition(glm::vec3(
 				randf(-numbers["rangeX"], numbers["rangeX"]),
 				randf(-numbers["rangeY"], numbers["rangeY"]),
@@ -57,6 +54,24 @@ public:
 			asteroid->getTransform()->setRotation(randf(0,360));
 			asteroids.push_back(asteroid);
 		}
-		std::cout << "Asteroid spawned: " << numbers["amount"] << std::endl;
+		for (int i = 0; i < numbers["amountMedium"]; i++) {
+			auto asteroid = Scene::Instantiate("asteroid_medium");
+			asteroid->getTransform()->setPosition(glm::vec3(
+				randf(-numbers["rangeX"], numbers["rangeX"]),
+				randf(-numbers["rangeY"], numbers["rangeY"]),
+				0));
+			asteroid->getTransform()->setRotation(randf(0, 360));
+			asteroids.push_back(asteroid);
+		}
+		for (int i = 0; i < numbers["amountSmall"]; i++) {
+			auto asteroid = Scene::Instantiate("asteroid_small");
+			asteroid->getTransform()->setPosition(glm::vec3(
+				randf(-numbers["rangeX"], numbers["rangeX"]),
+				randf(-numbers["rangeY"], numbers["rangeY"]),
+				0));
+			asteroid->getTransform()->setRotation(randf(0, 360));
+			asteroids.push_back(asteroid);
+		}
+		std::cout << "Asteroid spawned: " << numbers["amountBig"]+ numbers["amountMedium"]+ numbers["amountSmall"] << std::endl;
 	}
 };

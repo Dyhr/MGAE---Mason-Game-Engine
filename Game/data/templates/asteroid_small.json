@@ -1,7 +1,7 @@
 {
   "name": "Asteroid",
   "sprite": {
-    "name": "asteroid1"
+    "name": "asteroid5"
   },
   "physicsbody": {
     "type": "dynamic",
@@ -11,5 +11,8 @@
         "radius": 8
       }
     ]
-  }
+  },
+  "scripts": [
+    { "name": "asteroid" }
+  ]
 }

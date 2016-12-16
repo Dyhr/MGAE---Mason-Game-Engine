@@ -5,7 +5,7 @@
   "gravity": [ 0, 0 ],
 
   "sprites": [
-    "ships_asteroids",
+    "asteroids",
     "ships_human_packed"
   ],
 
@@ -60,8 +60,10 @@
       "scripts": [
         {
           "name": "asteroid-spawner",
-          "properties": [ "amount", "rangeX", "rangeY" ],
-          "amount": 200,
+          "properties": [ "amountBig", "amountMedium", "amountSmall", "rangeX", "rangeY" ],
+          "amountBig": 100,
+          "amountMedium": 200,
+          "amountSmall": 100,
           "rangeX": 1000,
           "rangeY": 1000 
         }

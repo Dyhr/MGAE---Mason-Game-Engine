@@ -1,15 +1,18 @@
 {
-  "name": "Player",
+  "name": "Asteroid",
+  "sprite": {
+    "name": "asteroid7"
+  },
   "physicsbody": {
     "type": "dynamic",
     "circles": [
       {
         "center": [ 0, 0 ],
-        "radius": 8
+        "radius": 24
       }
     ]
   },
   "scripts": [
-    { "name": "player" }
+    { "name": "asteroid" }
   ]
 }
