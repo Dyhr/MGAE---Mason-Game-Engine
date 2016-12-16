@@ -1,11 +1,11 @@
 #pragma once
 
 #include "Mason/Transform.h"
+#include "Mason/GameObject.hpp"
 #include "Time.hpp"
 #include <SDL.h>
 #include <iostream>
 #include <map>
-
 
 namespace Mason {
 
@@ -29,8 +29,8 @@ namespace Mason {
 
 		virtual void OnStart() {}
 		virtual void OnUpdate() {}
-		virtual void OnCollisionEnter(GameObject* other) {}
-		virtual void OnCollisionStay() {}
+		virtual void OnCollisionEnter(Mason::GameObject* other) {}
+		//virtual void OnCollisionStay() {}
 		virtual void OnCollisionExit(GameObject* other) {}
 		virtual void OnInput(SDL_Event event) {} // TODO refactor to better input system
 	private:

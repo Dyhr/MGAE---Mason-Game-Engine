@@ -19,11 +19,10 @@ PhysicsBody2D::PhysicsBody2D(GameObject* gameObject) : Component(gameObject) {
 }
 
 void PhysicsBody2D::UpdateFixtures() {
-	auto fixture = body->GetFixtureList();
-	while (fixture) {
+	for(auto fixture : fixtures) {
 		body->DestroyFixture(fixture);
-		fixture = fixture->GetNext();
 	}
+	fixtures.clear();
 
 	auto colliders = getGameObject()->getComponents<Collider2D>();
 	for (auto collider : colliders) {
@@ -31,6 +30,8 @@ void PhysicsBody2D::UpdateFixtures() {
 		fd.shape = collider->shape;
 		fd.density = collider->density;
 		fd.friction = collider->friction;
-		body->CreateFixture(&fd)->SetUserData(static_cast<void*>(gameObject)); //our body is a container for the body we get from box2D
+		auto fixture = body->CreateFixture(&fd);
+		fixture->SetUserData(static_cast<void*>(gameObject)); //our body is a container for the body we get from box2D
+		fixtures.push_back(fixture);
 	}
 }

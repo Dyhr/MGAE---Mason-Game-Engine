@@ -14,8 +14,8 @@ Physics* Physics::instance = nullptr;
 
 Physics::Physics()
 {
-	auto collisionL = new CollisionListener();
-	world.SetContactListener(collisionL);
+	collisionListener = std::make_shared<CollisionListener>();
+	world.SetContactListener(collisionListener.get());
 	auto debugDraw = new SREDebugDraw();
 	world.SetDebugDraw(debugDraw);
 	debugDraw->SetFlags(b2Draw::e_shapeBit | b2Draw::e_aabbBit);

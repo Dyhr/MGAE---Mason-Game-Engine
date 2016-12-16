@@ -14,6 +14,7 @@
 #include "Mason/PhysicsBody2D.hpp"
 #include "Mason/BoxCollider2D.hpp"
 #include "Mason/CircleCollider2D.h"
+#include "Mason/CollisionListener.h"
 
 
 #include <chrono>
@@ -160,6 +161,14 @@ void Engine::update(float deltaTimeSec) {
 	InputManager::getInstance()->Handle(this);
 
 	if (!paused) {
+		// update physics
+		physics->step(deltaTimeSec);
+		physics->collisionListener->ProcessEvents();
+
+		// update audio
+		audioManager->step();
+
+		// update scripts
 		for (auto & script : scene->getAllComponent<Script>()) {
 			if (!script->started) {
 				script->started = true;
@@ -174,9 +183,6 @@ void Engine::update(float deltaTimeSec) {
 				particleEmitter->update(deltaTimeSec);
 			}
 		}
-
-		physics->step(deltaTimeSec);
-		audioManager->step();
 	}
 
 	for (auto & camera : scene->getAllComponent<Camera>()) {

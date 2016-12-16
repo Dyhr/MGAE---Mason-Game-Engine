@@ -105,6 +105,8 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 				if (bc.contains("center")) boxCollider.center = to_vec2(bc.get("center"));
 				if (bc.contains("width")) boxCollider.width = float(bc.get("width").get<double>());
 				if (bc.contains("height")) boxCollider.height = float(bc.get("height").get<double>());
+				if (bc.contains("density")) boxCollider.density = float(bc.get("density").get<double>());
+				if (bc.contains("friction")) boxCollider.friction = float(bc.get("friction").get<double>());
 				d.physicsBody2D.boxColliders.push_back(boxCollider);
 			}
 		}
@@ -114,6 +116,8 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 				CircleColliderDescriptor circleCollider;
 				if (cc.contains("center")) circleCollider.center = to_vec2(cc.get("center"));
 				if (cc.contains("radius")) circleCollider.radius = float(cc.get("radius").get<double>());
+				if (cc.contains("density")) circleCollider.density = float(cc.get("density").get<double>());
+				if (cc.contains("friction")) circleCollider.friction = float(cc.get("friction").get<double>());
 				d.physicsBody2D.circleColliders.push_back(circleCollider);
 			}
 		}

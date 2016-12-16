@@ -1,12 +1,11 @@
 #pragma once
 
 #include <vector>
-
 #include <Box2D/Box2D.h>
-#include <glm/vec2.hpp>
 
 namespace Mason {
 	class PhysicsBody2D;
+	class CollisionListener;
 
 	class Physics
 	{
@@ -24,7 +23,9 @@ namespace Mason {
 
 		Physics();
 
+		std::shared_ptr<CollisionListener> collisionListener;
 		std::vector<PhysicsBody2D*> bodies;
+		
 		friend class PhysicsBody2D;
 		friend class Engine;
 	};

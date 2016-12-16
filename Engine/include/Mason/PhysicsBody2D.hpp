@@ -12,6 +12,9 @@ namespace Mason {
 
 	protected:
 		PhysicsBody2D(GameObject* gameObject);
+
+		std::vector<b2Fixture*> fixtures;
+
 		friend class GameObject;
 	};
 }

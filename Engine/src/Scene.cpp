@@ -191,12 +191,16 @@ void Scene::loadPhysicsBodyComponent(PhysicsBodyDescriptor element, shared_ptr<G
 
 void Scene::loadBoxColliderComponent(BoxColliderDescriptor element, shared_ptr<GameObject> go) {
 	auto box = go->addComponent<BoxCollider2D>();
+	box->setDensity(element.density);
+	box->setFriction(element.friction);
 	box->setCenter(element.center.x, element.center.y);
 	box->setSize(element.width, element.height);
 }
 
 void Scene::loadCircleColliderComponenet(CircleColliderDescriptor element, shared_ptr<GameObject> go) {
 	auto circle = go->addComponent<CircleCollider2D>();
+	circle->setDensity(element.density);
+	circle->setFriction(element.friction);
 	circle->setCenter(element.center.x, element.center.y);
 	circle->setSize(element.radius);
 }

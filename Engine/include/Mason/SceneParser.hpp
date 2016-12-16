@@ -64,12 +64,18 @@ namespace Mason {
 		glm::vec2 center = glm::vec2(0, 0);
 		float width = 1;
 		float height = 1;
+
+		float density = 1;
+		float friction = 0.1f;
 	};
 
 	class CircleColliderDescriptor {
 	public:
 		glm::vec2 center = glm::vec2(0, 0);
 		float radius = 1;
+
+		float density = 1;
+		float friction = 0.1f;
 	};
 
 	class PhysicsBodyDescriptor {

@@ -9,14 +9,14 @@ namespace Mason {
 		void setCenter(float x, float y);
 		void setSize(float rad);
 		void setScale(float scale) override;
+		void setDensity(float density) override;
+		void setFriction(float friction) override;
 	protected:
 		CircleCollider2D(GameObject* gameObject);
 		friend class GameObject;
 	private:
 		b2CircleShape circleShape;
-		//circleShape.m_p.Set(0, 0); //position, relative to body position
-		//circleShape.m_radius = 1; //radius
 		b2Vec2 center;
-		float radiuslength;
+		float radius;
 	};
 }
