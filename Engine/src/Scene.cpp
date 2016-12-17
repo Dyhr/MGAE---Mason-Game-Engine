@@ -96,11 +96,27 @@ void Scene::setParentRelationship(int childId, int parentId) {
 }
 
 bool Scene::removeGameObject(shared_ptr<GameObject> ptr) {
-	for (auto iter = this->gameObjects.begin(); iter != this->gameObjects.end(); iter++) {
+	for (auto iter = gameObjectIds.begin(); iter != gameObjectIds.end(); ++iter) {
+		if ((*iter).second == ptr) {
+			gameObjectIds.erase(iter);
+			break;
+		}
+	}
+	for (auto iter = this->gameObjects.begin(); iter != this->gameObjects.end(); ++iter) {
 		if (*iter == ptr) {
+			auto arr = &gameObjectNames[ptr->getName()];
+			for (auto iter2 = arr->begin(); iter2 != arr->end(); ++iter2) {
+				if (*iter2 == ptr) {
+					arr->erase(iter2);
+					break;
+				}
+			}
 			this->gameObjects.erase(iter);
+
 			ptr->destroyed = true;
-			delete ptr.get();
+			delete ptr->me;
+			for (auto component : ptr->components)
+				delete component;
 			ptr.reset();
 			return true;
 		}

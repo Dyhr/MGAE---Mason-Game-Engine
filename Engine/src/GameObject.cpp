@@ -11,12 +11,6 @@ GameObject::GameObject(std::string name_) : me(nullptr), transform(nullptr), nam
 {
 }
 
-GameObject::~GameObject() {
-	delete me;
-	for (auto component : components)
-		delete component;
-}
-
 Script* GameObject::addScript(std::string name)
 {
 	Script* c = Script::scripts[name](*me);

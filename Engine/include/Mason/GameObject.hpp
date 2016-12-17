@@ -14,7 +14,6 @@ namespace Mason {
 
 	class GameObject {
 	public:
-		~GameObject();
 		GameObject(std::string name);
 
 		std::string getName() const;
@@ -44,6 +43,7 @@ namespace Mason {
 
 		friend class Scene;
 		friend class CollisionListener;
+		friend class Physics;
 	};
 
 	// function templates has to defined in header files

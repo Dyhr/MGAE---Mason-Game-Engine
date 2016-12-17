@@ -12,6 +12,12 @@ PhysicsBody2D::~PhysicsBody2D() {
 	auto vec = &Physics::instance->bodies;
 	vec->erase(remove(vec->begin(), vec->end(), this), vec->end());
 	Physics::instance->world->DestroyBody(body);
+	for (auto iter = Physics::instance->bodies.begin(); iter != Physics::instance->bodies.end(); ++iter) {
+		if (*iter == this) {
+			Physics::instance->bodies.erase(iter);
+			break;
+		}
+	}
 }
 
 PhysicsBody2D::PhysicsBody2D(std::shared_ptr<GameObject> gameObject) : Component(gameObject) {
