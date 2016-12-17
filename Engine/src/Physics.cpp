@@ -40,6 +40,7 @@ void Physics::step(float dt)
 	world->Step(dt, velIterations, posIterations);
 	for (auto body : bodies)
 	{
+		if (body->getGameObject()->destroyed) continue;
 		auto transform = body->getGameObject()->getComponent<Transform>();
 		auto pos = body->body->GetWorldCenter();
 		auto angle = body->body->GetAngle() * (180/M_PI);
