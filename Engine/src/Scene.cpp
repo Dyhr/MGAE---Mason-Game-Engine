@@ -192,7 +192,7 @@ void Scene::loadPhysicsBodyComponent(PhysicsBodyDescriptor element, shared_ptr<G
 
 	auto pos = go->getComponent<Transform>()->getPosition();
 	auto rot = go->getComponent<Transform>()->getRotation();
-	physicsBody2D->body->SetTransform(b2Vec2(pos.x / Physics::instance->phScale, pos.y / Physics::instance->phScale), rot * (M_PI/180));
+	physicsBody2D->body->SetTransform(b2Vec2(pos.x / Physics::instance->phScale, pos.y / Physics::instance->phScale), rot * float(M_PI/180));
 }
 
 void Scene::loadBoxColliderComponent(BoxColliderDescriptor element, shared_ptr<GameObject> go) {

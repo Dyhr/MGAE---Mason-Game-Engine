@@ -1,10 +1,13 @@
 #pragma once
 
 #include <glm/glm.hpp>
-#include <SRE/Mesh.hpp>
-#include <SRE/Texture.hpp>
 #include <memory>
 
+namespace SRE
+{
+	class Texture;
+	class Mesh;
+}
 
 namespace Mason {
 	/** @class Sprite

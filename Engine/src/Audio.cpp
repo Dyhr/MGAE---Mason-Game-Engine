@@ -8,11 +8,11 @@
 using namespace std;
 using namespace Mason;
 
-Audio::Audio(shared_ptr<GameObject> gameObject) :Component(gameObject)
+Audio::Audio(shared_ptr<GameObject> gameObject) : Component(gameObject), type(), loops(0), manager(nullptr)
 {
 }
 
-void Audio::init(string file, SoundType type, AudioManager * manager, int loops)
+void Audio::init(string file, SoundType type, AudioManager* manager, int loops)
 {
 	this->manager = manager;
 	path = file;

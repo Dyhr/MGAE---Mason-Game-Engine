@@ -1,8 +1,12 @@
 #pragma once
 
 #include <map>
-#include <SRE/Texture.hpp>
 #include <memory>
+
+namespace SRE
+{
+	class Texture;
+}
 
 namespace Mason {
 	/** @class SpriteAtlas

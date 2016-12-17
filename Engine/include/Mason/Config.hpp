@@ -1,5 +1,5 @@
 #pragma once
-#include "Mason/Engine.hpp"
+
 #include <map>
 
 namespace Mason {

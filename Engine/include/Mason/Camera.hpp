@@ -2,8 +2,11 @@
 
 #include "Mason/Transform.h"
 #include <memory>
-#include <SRE/Camera.hpp>
 #include <glm/glm.hpp>
+
+namespace SRE{
+	class Camera;
+}
 
 namespace Mason {
 	/** @class Camera

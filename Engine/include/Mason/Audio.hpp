@@ -2,8 +2,6 @@
 
 #include "Mason/AudioManager.hpp"
 #include "Mason/Component.hpp"
-#include <string>
-#include <SDL_mixer.h>
 
 namespace Mason {
 	class AudioManager;

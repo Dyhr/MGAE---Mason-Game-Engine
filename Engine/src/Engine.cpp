@@ -15,6 +15,7 @@
 #include "Mason/BoxCollider2D.hpp"
 #include "Mason/CircleCollider2D.h"
 #include "Mason/CollisionListener.h"
+#include "Mason/Config.hpp"
 
 
 #include <chrono>

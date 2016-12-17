@@ -8,14 +8,16 @@
 #include "Scene.hpp"
 #include "Physics.hpp"
 #include "AudioManager.hpp"
-#include "Mason/Config.hpp"
 
 struct SDL_Window;
-class SRE::SimpleRenderEngine;
+
+namespace SRE {
+	class SimpleRenderEngine;
+}
 
 namespace Mason {
 
-	
+
 	/** @class Engine
 	* @brief Brief about the engine.
 	*
@@ -25,7 +27,7 @@ namespace Mason {
 	* @brief about start, it initializes...
 	*
 	* @fn void loadScene(std::string path)
-	
+
 	*
 	* @fn Engine()
 	* @brief constructor
@@ -47,7 +49,7 @@ namespace Mason {
 		* @param path json file that contains the components
 		*/
 		void loadScene(std::string path);
-		
+
 		Engine();
 		~Engine();
 
@@ -60,9 +62,9 @@ namespace Mason {
 		Physics* physics;
 		SRE::SimpleRenderEngine* sre;
 		AudioManager* audioManager;
-		
+
 		bool running, paused;
-		bool showDebugGUI, showDebugPhysics; 
+		bool showDebugGUI, showDebugPhysics;
 		int* windowWidth;
 		int* windowHeight;
 		SDL_Window* window;

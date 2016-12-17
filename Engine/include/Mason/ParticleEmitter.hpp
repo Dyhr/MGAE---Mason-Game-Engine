@@ -2,12 +2,16 @@
 
 #include <glm/glm.hpp>
 #include "Component.hpp"
-#include <SRE/SimpleRenderEngine.hpp>
 #include <math.h>
-#include <SRE/Texture.hpp>
 #include <vector>
 #include <iostream>
 
+namespace SRE
+{
+	class Texture;
+	class ParticleMesh;
+	class Shader;
+}
 
 namespace Mason {
 
@@ -17,7 +21,7 @@ namespace Mason {
 
 	struct ParticleEmitterConfig
 	{
-		SRE::Texture *tex = nullptr;
+		SRE::Texture* tex = nullptr;
 		float rate;
 		float lifespan;
 

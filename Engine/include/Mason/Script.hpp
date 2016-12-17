@@ -2,9 +2,7 @@
 
 #include "Mason/Transform.h"
 #include "Mason/GameObject.hpp"
-#include "Time.hpp"
 #include <SDL.h>
-#include <iostream>
 #include <map>
 
 namespace Mason {
@@ -34,6 +32,6 @@ namespace Mason {
 		virtual void OnInput(SDL_Event event) {} // TODO refactor to better input system
 	private:
 		bool started = false;
-		friend Engine;
+		friend class Engine;
 	};
 }

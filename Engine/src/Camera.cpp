@@ -3,6 +3,8 @@
 #include <iostream>
 #include "Mason/Config.hpp"
 
+#include <SRE/Camera.hpp>
+
 
 using namespace Mason;
 

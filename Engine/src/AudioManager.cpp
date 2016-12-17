@@ -1,6 +1,9 @@
 #include "Mason/AudioManager.hpp"
 
+#include "Mason/Audio.hpp"
+
 #include <SDL.h>
+#include <SDL_mixer.h>
 #include <iostream>
 
 using namespace Mason;
@@ -67,7 +70,7 @@ void AudioManager::step()
 		auto audio = sourcesToBePlayed.front();
 		if (audio->type == EFFECT) {
 			auto soundEffect = soundEffectMap[audio->path];
-			if (soundEffect != NULL) {
+			if (soundEffect != nullptr) {
 				Mix_PlayChannel(i, soundEffect, 0);				
 				sourcesToBePlayed.pop();
 				channelsPlaying[i] = soundEffect;
@@ -78,7 +81,7 @@ void AudioManager::step()
 		}
 		else if (audio->type == MUSIC) {
 			auto music = musicMap[audio->path];
-			if (music != NULL && Mix_PlayingMusic() == 0) {
+			if (music != nullptr && Mix_PlayingMusic() == 0) {
 				Mix_PlayMusic(music, -1);
 				sourcesToBePlayed.pop();
 			}
@@ -93,7 +96,7 @@ void AudioManager::playAudioSource(Audio * audioComponent)
 {
 	if (audioComponent->type == EFFECT) {
 		auto soundEffect = soundEffectMap[audioComponent->path];
-		if (soundEffect != NULL) {
+		if (soundEffect != nullptr) {
 			for (int i = 0; i < maxChannels; i++) {
 				if (channelsPlaying[i] == nullptr) {
 					Mix_PlayChannel(i, soundEffect, 0);
@@ -117,7 +120,7 @@ bool AudioManager::loadAudioSource(Audio * audioComponent)
 {
 	if (audioComponent->type == EFFECT) {
 		auto soundEffect = Mix_LoadWAV(audioComponent->path.c_str());
-		if (soundEffect != NULL) {
+		if (soundEffect != nullptr) {
 			soundEffectMap[audioComponent->path] = soundEffect;
 			return true;
 		}
@@ -125,7 +128,7 @@ bool AudioManager::loadAudioSource(Audio * audioComponent)
 	}
 	else if (audioComponent->type == MUSIC) {
 		auto music = Mix_LoadMUS(audioComponent->path.c_str());
-		if (music != NULL) {
+		if (music != nullptr) {
 			musicMap[audioComponent->path] = music;
 			return true;
 		}

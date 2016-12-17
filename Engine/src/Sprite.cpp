@@ -2,9 +2,11 @@
 
 #include <vector>
 #include <glm/gtx/transform.hpp>
-#include <SRE/Shader.hpp>
 #include <memory>
 #include <SRE/SimpleRenderEngine.hpp>
+#include <SRE/Shader.hpp>
+#include <SRE/Texture.hpp>
+#include <SRE/Mesh.hpp>
 
 using namespace Mason;
 

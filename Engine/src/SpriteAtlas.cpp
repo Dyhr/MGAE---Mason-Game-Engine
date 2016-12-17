@@ -3,6 +3,7 @@
 #include "Mason/Sprite.h"
 #include "picojson.h"
 #include <fstream>
+#include <SRE/Texture.hpp>
 
 using namespace Mason;
 

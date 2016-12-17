@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Mason/Script.hpp"
-#include <iostream>
+#include "Mason/Time.hpp"
 
 using namespace Mason;
 

@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Mason/Audio.hpp"
-
-#include <vector>
 #include <queue>
-#include <SDL_mixer.h>
 #include <map>
+
+struct Mix_Chunk;
+typedef struct _Mix_Music Mix_Music;
+
 namespace Mason {
 	class Audio;
 
