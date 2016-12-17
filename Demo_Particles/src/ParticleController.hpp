@@ -11,7 +11,7 @@ protected:
 
 	}
 	friend GameObject;
-	std::shared_ptr<ParticleEmitter> emitter;
+	ParticleEmitter* emitter;
 public:
 	static Script* Create(std::shared_ptr<GameObject> gameObject)
 	{

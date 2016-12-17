@@ -37,7 +37,7 @@ namespace Mason {
 
 		// Returns all components of type C
 		template<typename C>
-		std::vector<std::shared_ptr<C>> getAllComponent();
+		std::vector<C*> getAllComponent();
 
 	private:
 		std::vector<std::shared_ptr<GameObject>> gameObjects;
@@ -67,15 +67,14 @@ namespace Mason {
 
 	// function templates has to defined in header files
 	template<typename C>
-	std::vector<std::shared_ptr<C>> Scene::getAllComponent() {
-		std::vector<std::shared_ptr<C>> res;
+	std::vector<C*> Scene::getAllComponent() {
+		std::vector<C*> res;
 		for (auto& go : gameObjects) {
-			std::shared_ptr<C> c = go->getComponent<C>();
-			if (c.get() != nullptr) {
+			auto c = go->getComponent<C>();
+			if (c != nullptr) {
 				res.push_back(c);
 			}
 		}
 		return res;
 	}
-
 }

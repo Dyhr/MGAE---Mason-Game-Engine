@@ -21,41 +21,40 @@ namespace Mason {
 		void setName(std::string nm);
 
 		template<typename C>
-		std::shared_ptr<C> addComponent();
+		C* addComponent();
 
-		bool removeComponent(std::shared_ptr<Component> ptr);
+		bool removeComponent(Component* ptr);
 
-		std::shared_ptr<Script> addScript(std::string name);
+		Script* addScript(std::string name);
 
 		template<typename C>
-		std::shared_ptr<C> getComponent();
+		C* getComponent();
 		template<typename C>
-		std::vector<std::shared_ptr<C>> getComponents();
+		std::vector<C*> getComponents();
 
-		std::shared_ptr<Transform> getTransform() const;
-		void setTransform(std::shared_ptr<Transform>);
+		Transform* getTransform() const;
+		void setTransform(Transform* transform);
 
 	private:
-		std::vector<std::shared_ptr<Component>> components;
+		std::vector<Component*> components;
 
-		std::shared_ptr<Transform> transform;
+		Transform* transform;
 		std::string name;
 		friend class Scene;
 	};
 
 	// function templates has to defined in header files
 	template<typename C>
-	std::shared_ptr<C> GameObject::addComponent() {
+	C* GameObject::addComponent() {
 		C * c = new C(std::shared_ptr<GameObject>(this));
-		auto res = std::shared_ptr<C>(c);
-		components.push_back(res);
-		return res;
+		components.push_back(c);
+		return c;
 	}
 
 	template<typename C>
-	std::shared_ptr<C> GameObject::getComponent() {
+	C* GameObject::getComponent() {
 		for (auto c : components) {
-			auto castPtr = std::dynamic_pointer_cast<C>(c);
+			auto castPtr = dynamic_cast<C*>(c);
 			if (castPtr != nullptr)
 				return castPtr;
 		}
@@ -63,10 +62,10 @@ namespace Mason {
 		return nullptr;
 	}
 	template<typename C>
-	std::vector<std::shared_ptr<C>> GameObject::getComponents() {
-		std::vector<std::shared_ptr<C>> result;
+	std::vector<C*> GameObject::getComponents() {
+		std::vector<C*> result;
 		for (auto c : components) {
-			auto castPtr = std::dynamic_pointer_cast<C>(c);
+			auto castPtr = dynamic_cast<C*>(c);
 			if (castPtr != nullptr)
 				result.push_back(castPtr);
 		}

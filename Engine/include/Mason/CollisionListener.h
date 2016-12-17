@@ -15,7 +15,7 @@ namespace Mason {
 		void EndContact(b2Contact* contact) override;
 		//void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse) override;
 	private:
-		std::vector<std::tuple<std::shared_ptr<Script>, GameObject*>> collisionEnters;
-		std::vector<std::tuple<std::shared_ptr<Script>, GameObject*>> collisionExits;
+		std::vector<std::tuple<Script*, GameObject*>> collisionEnters;
+		std::vector<std::tuple<Script*, GameObject*>> collisionExits;
 	};
 }

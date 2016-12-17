@@ -22,7 +22,7 @@ namespace Mason {
 	protected:
 		SpriteRenderer(std::shared_ptr<GameObject> gameObject);
 
-		std::shared_ptr<Transform> transform;
+		Transform* transform;
 
 		friend class GameObject;
 	};

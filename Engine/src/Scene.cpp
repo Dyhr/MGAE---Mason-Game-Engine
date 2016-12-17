@@ -77,7 +77,7 @@ shared_ptr<GameObject> Scene::loadGameObject(GameObjectDescriptor element) {
 void Scene::setParentRelationship(int childId, int parentId) {
 	auto gameObject = map_gameObjects[childId];
 	auto parentGameObject = map_gameObjects[parentId];
-	gameObject->getComponent<Transform>()->setParent(parentGameObject->getComponent<Transform>().get());
+	gameObject->getComponent<Transform>()->setParent(parentGameObject->getComponent<Transform>());
 }
 
 bool Scene::removeGameObject(shared_ptr<GameObject> ptr) {
@@ -112,7 +112,7 @@ void Scene::loadCameraComponent(GameObjectDescriptor element, shared_ptr<GameObj
 }
 
 void Scene::loadParticleComponent(ParticleDescriptor element, shared_ptr<GameObject> go) {
-	auto emitter = go->addComponent<ParticleEmitter>();
+	ParticleEmitter* emitter = go->addComponent<ParticleEmitter>();
 	ParticleEmitterConfig config(element.rate, element.lifespan, element.velocity, element.gravity);
 	AttributeState sizeState = config.attributeFromString(element.sizeState);
 	AttributeState rotationState = config.attributeFromString(element.rotationState);
@@ -177,8 +177,8 @@ void Scene::loadParticleComponent(ParticleDescriptor element, shared_ptr<GameObj
 }
 
 void Scene::loadSpriteComponent(SpriteDescriptor element, shared_ptr<GameObject> go) {
-	auto sprite = go->addComponent<SpriteRenderer>();
-	sprite->sprite = sprites[element.name];
+	auto spriteRenderer = go->addComponent<SpriteRenderer>();
+	spriteRenderer->sprite = sprites[element.name];
 	// TODO support changing color of sprite
 }
 

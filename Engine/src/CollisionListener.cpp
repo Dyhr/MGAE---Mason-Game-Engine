@@ -5,6 +5,7 @@
 #include "Mason/Script.hpp"
 
 using namespace Mason;
+using namespace std;
 
 /*http://www.learn-cocos2d.com/api-ref/1.0/Box2D/html/classb2_contact_listener.html*/
 /*void CollisionListener::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)

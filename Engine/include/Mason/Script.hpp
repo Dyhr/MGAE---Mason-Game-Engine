@@ -17,12 +17,11 @@ namespace Mason {
 
 		Script(std::shared_ptr<GameObject> gameObject) :Component(gameObject)
 		{
-			this->gameobject = std::make_shared<GameObject>(*gameObject);
 			this->transform = gameObject->getComponent<Transform>();
 		}
 
 		std::shared_ptr<GameObject> gameobject;
-		std::shared_ptr<Transform> transform;
+		Transform* transform;
 
 		std::map<std::string, std::string> strings;
 		std::map<std::string, float> numbers;
