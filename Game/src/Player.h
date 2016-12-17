@@ -60,8 +60,8 @@ public:
 		if (turnRight && !turnLeft)
 			body->ApplyTorque(-50, false);
 
-		if (thrust && !emitter->running()) emitter->start();
-		if (!thrust && emitter->running()) emitter->stop();
+		if (thrust) emitter->start();
+		if (!thrust) emitter->stop();
 
 		auto t = body->GetAngularVelocity();
 		body->ApplyTorque(-t * 10.0f, false);

@@ -37,11 +37,13 @@ namespace Mason {
 	private:
 		std::vector<Component*> components;
 
+		bool destroyed = false;
 		std::shared_ptr<GameObject>* me;
 		Transform* transform;
 		std::string name;
 
 		friend class Scene;
+		friend class CollisionListener;
 	};
 
 	// function templates has to defined in header files

@@ -99,6 +99,9 @@ bool Scene::removeGameObject(shared_ptr<GameObject> ptr) {
 	for (auto iter = this->gameObjects.begin(); iter != this->gameObjects.end(); iter++) {
 		if (*iter == ptr) {
 			this->gameObjects.erase(iter);
+			ptr->destroyed = true;
+			delete ptr.get();
+			ptr.reset();
 			return true;
 		}
 	}

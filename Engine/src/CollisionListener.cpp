@@ -28,6 +28,8 @@ void CollisionListener::ProcessEvents()
 		std::get<0>(enter)->OnCollisionEnter(std::get<1>(enter));
 	for (auto exit : collisionExits)
 		std::get<0>(exit)->OnCollisionEnter(std::get<1>(exit));
+	collisionEnters.clear();
+	collisionExits.clear();
 }
 
 void CollisionListener::BeginContact(b2Contact * contact)
@@ -48,6 +50,7 @@ void CollisionListener::EndContact(b2Contact * contact)
 {
 	auto g0 = static_cast<GameObject*>(contact->GetFixtureA()->GetUserData());
 	auto g1 = static_cast<GameObject*>(contact->GetFixtureB()->GetUserData());
+	if (g0->destroyed || g1->destroyed) return;
 	auto s0 = g0->getComponents<Script>();
 	auto s1 = g1->getComponents<Script>();
 
