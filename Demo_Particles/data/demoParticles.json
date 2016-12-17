@@ -1,12 +1,15 @@
 {
-  "scenename": "Demo 1",
+  "scenename": "Particle Demo",
+  "imagepath": "data/images",
+  "sprites": [
+	"MarioPacked"
+  ],
+  
   "gameobjects": [
     {
       "uniqueId": 100,
       "name": "Camera",
       "camera": {
-        "perspective": true, 
-        "fieldOfView": 60
       },
       "transform":
       {
@@ -20,9 +23,9 @@
     },
     {
       "uniqueId": 1,
-      "name": "brick_1",
+      "name": "FirePlant",
       "sprite": {
-		"name": "brick"
+		"name": "green_plant_0"
 	  },
       "transform": {
 		"position": [100, 0, 0]
@@ -45,7 +48,126 @@
 	  },
 	  "scripts": [
 		{
-			"name": "particle-controller"
+			"name": "particle-controller",
+			"properties": ["start", "stop"],
+			"start": "n",
+			"stop": "m"
+		}
+	  ]
+    },
+    {
+      "uniqueId": 2,
+      "name": "RainCloud",
+      "sprite": {
+		"name": "cloud_0"
+	  },
+      "transform": {
+		"position": [-200, 200, 0]
+      },
+	  "particles": {
+		"texturePath": "data/images/raindrop.png",
+		"rate": 20,
+		"lifespan": 7,
+		"velocityState": "random",
+		"minVelocity": [-30, -10, 0],
+		"maxVelocity": [30, -10, 0],
+		"gravity": [0, -20, 0],
+		"sizeState": "fixed",
+		"size": 0.2,
+		"colorState": "linear",
+		"initialColor": [0, 1, 1, 0],
+		"finalColor": [0, 1, 1, 1],
+		"rotationState": "fixed",
+		"rotation": 0
+	  },
+	  "scripts": [
+		{
+			"name": "particle-controller",
+			"properties": ["start", "stop"],
+			"start": "i",
+			"stop": "o"
+		}
+	  ]
+    },
+    {
+      "uniqueId": 3,
+      "name": "BallLauncher",
+      "sprite": {
+		"name": "green_tube"
+	  },
+      "transform": {
+		"position": [0, 0, 0]
+      },
+	  "particles": {
+		"texturePath": "data/images/ball.png",
+		"rate": 3,
+		"lifespan": 2,
+		"velocityState": "fixed",
+		"velocity": [0, 100, 0],
+		"gravity": [100, 0, 0],
+		"sizeState": "linear",
+		"initialSize": 0.7,
+		"finalSize": 0.2,
+		"colorState": "spline",
+		"initialColor": [0, 1, 0, 0],
+		"finalColor": [0, 0, 0, 1],
+		"splinePointsColor": [[0,0],[0.5,0.8],[0.9,1]],
+		"rotationState": "spline",
+		"initialRotation": 0,
+		"finalRotation": 90,
+		"splinePointsRotation": [[0,0],[0.25, 1],[0.5, 1],[0.75, 0],[1, 1]]
+
+	  },
+	  "scripts": [
+		{
+			"name": "particle-controller",
+			"properties": ["start", "stop"],
+			"start": "y",
+			"stop": "u"
+		}
+	  ]
+    },
+    {
+      "uniqueId": 3,
+      "name": "mariocatch",
+      "sprite": {
+		"name": "mario_10"
+	  },
+      "transform": {
+		"position": [205, -5, 0]
+      }
+    },	
+    {
+      "uniqueId": 4,
+      "name": "Mario_1",
+      "sprite": {
+		"name": "mario_1"
+	  },
+      "transform": {
+		"position": [-200, -100, 0]
+      },
+	  "particles": {
+		"rate": 10,
+		"lifespan": 4,
+		"velocityState": "fixed",
+		"velocity": [100, -20, 0],
+		"gravity": [0, 20, 0],
+		"sizeState": "linear",
+		"initialSize": 0.5,
+		"finalSize": 0.2,
+		"colorState": "random",
+		"minColor": [0, 0, 0, 1],
+		"maxColor": [1, 1, 1, 1],	
+		"rotationState": "fixed",
+		"rotation": 0,		
+
+	  },
+	  "scripts": [
+		{
+			"name": "particle-controller",
+			"properties": ["start", "stop"],
+			"start": "v",
+			"stop": "b"
 		}
 	  ]
     }
