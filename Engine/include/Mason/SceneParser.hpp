@@ -4,7 +4,6 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include <map>
-#include <Box2D/Box2D.h>
 #include "Mason/Audio.hpp"
 #include "picojson.h"
 
@@ -81,7 +80,7 @@ namespace Mason {
 	class PhysicsBodyDescriptor {
 	public:
 		bool found = false;
-		b2BodyType type;
+		int type;
 		std::vector<BoxColliderDescriptor> boxColliders;
 		std::vector<CircleColliderDescriptor> circleColliders;
 	};
@@ -137,7 +136,7 @@ namespace Mason {
 
 		std::vector<GameObjectDescriptor> gameobjects;
 
-		b2Vec2 gravity = b2Vec2(0, -10);
+		glm::vec2 gravity = glm::vec2(0, -10);
 		float physicsScale = 100;
 	};
 

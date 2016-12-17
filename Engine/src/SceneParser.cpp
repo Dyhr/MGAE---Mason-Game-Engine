@@ -2,6 +2,8 @@
 #include <fstream>
 #include "picojson.h"
 
+#include "Box2D/Box2D.h"
+
 using namespace Mason;
 
 glm::vec4 to_vec4(picojson::value v) {
@@ -45,11 +47,7 @@ SceneDescriptor SceneParser::parseFile(std::string filename) {
 	if (v.contains("soundpath")) scene.soundpath = v.get("soundpath").get<std::string>();
 	if (v.contains("templatepath")) scene.templatepath = v.get("templatepath").get<std::string>();
 
-	if(v.contains("gravity"))
-	{
-		auto g = to_vec2(v.get("gravity"));
-		scene.gravity = b2Vec2(g.x, g.y);
-	}
+	if(v.contains("gravity")) scene.gravity = to_vec2(v.get("gravity"));
 	if (v.contains("physicsscale")) scene.physicsScale = float(v.get("physicsscale").get<double>());
 
 	if (v.contains("sprites"))

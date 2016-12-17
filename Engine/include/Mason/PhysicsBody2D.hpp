@@ -3,6 +3,9 @@
 #include "Component.hpp"
 #include "Physics.hpp"
 
+class b2Body;
+class b2Fixture;
+
 namespace Mason {
 
 	/** @class PhysicsBody2D

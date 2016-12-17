@@ -8,11 +8,13 @@
 #include "Scene.hpp"
 #include "Physics.hpp"
 #include "AudioManager.hpp"
-#include <SDL.h>
-#include <SRE/SimpleRenderEngine.hpp>
 #include "Mason/Config.hpp"
 
+struct SDL_Window;
+class SRE::SimpleRenderEngine;
+
 namespace Mason {
+
 	
 	/** @class Engine
 	* @brief Brief about the engine.
@@ -63,7 +65,7 @@ namespace Mason {
 		bool showDebugGUI, showDebugPhysics; 
 		int* windowWidth;
 		int* windowHeight;
-		SDL_Window *window;
+		SDL_Window* window;
 
 		friend class InputManager;
 	};

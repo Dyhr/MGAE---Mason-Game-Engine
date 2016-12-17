@@ -7,6 +7,8 @@
 #include "Mason/SREDebugDraw.h"
 #include "Mason/CollisionListener.h"
 
+#include "Box2D/Box2D.h"
+
 using namespace Mason;
 
 Physics* Physics::instance = nullptr;
@@ -14,11 +16,17 @@ Physics* Physics::instance = nullptr;
 
 Physics::Physics()
 {
+	world = new b2World(b2Vec2(0, -10));
 	collisionListener = std::make_shared<CollisionListener>();
-	world.SetContactListener(collisionListener.get());
+	world->SetContactListener(collisionListener.get());
 	auto debugDraw = new SREDebugDraw();
-	world.SetDebugDraw(debugDraw);
+	world->SetDebugDraw(debugDraw);
 	debugDraw->SetFlags(b2Draw::e_shapeBit/* | b2Draw::e_aabbBit*/);
+}
+
+Physics::~Physics()
+{
+	delete world;
 }
 
 Physics* Physics::getInstance()
@@ -29,7 +37,7 @@ Physics* Physics::getInstance()
 
 void Physics::step(float dt)
 {
-	world.Step(dt, velIterations, posIterations);
+	world->Step(dt, velIterations, posIterations);
 	for (auto body : bodies)
 	{
 		auto transform = body->getGameObject()->getComponent<Transform>();

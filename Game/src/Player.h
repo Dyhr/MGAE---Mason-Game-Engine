@@ -7,6 +7,8 @@
 #include <time.h>
 #include "Mason/PhysicsBody2D.hpp"
 
+#include "Box2D/Box2D.h"
+
 using namespace Mason;
 
 class Player :public Script

@@ -10,6 +10,8 @@
 #include "Mason/SpriteAtlas.h"
 #include "Mason/Transform.h"
 
+#include "Box2D/Box2D.h"
+
 using namespace std;
 using namespace Mason;
 
@@ -186,7 +188,7 @@ void Scene::loadSpriteComponent(SpriteDescriptor element, shared_ptr<GameObject>
 
 void Scene::loadPhysicsBodyComponent(PhysicsBodyDescriptor element, shared_ptr<GameObject> go) {
 	auto physicsBody2D = go->addComponent<PhysicsBody2D>();
-	physicsBody2D->body->SetType(element.type);
+	physicsBody2D->body->SetType(b2BodyType(element.type));
 
 	auto pos = go->getComponent<Transform>()->getPosition();
 	auto rot = go->getComponent<Transform>()->getRotation();

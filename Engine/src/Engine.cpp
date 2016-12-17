@@ -133,7 +133,7 @@ void Engine::loadScene(std::string path)
 	scene->soundpath = sceneDescriptor.soundpath;
 	scene->templatepath = sceneDescriptor.templatepath;
 
-	physics->world.SetGravity(sceneDescriptor.gravity);
+	physics->world->SetGravity(b2Vec2(sceneDescriptor.gravity.x, sceneDescriptor.gravity.y));
 	physics->phScale = sceneDescriptor.physicsScale;
 
 	std::map<std::string, SpriteAtlas> map_spriteatlas;
@@ -209,7 +209,7 @@ void Engine::update(float deltaTimeSec) {
 			}
 		}
 
-		if(showDebugPhysics) physics->world.DrawDebugData();
+		if(showDebugPhysics) physics->world->DrawDebugData();
 	}
 
 	if (showDebugGUI) DebugUI();

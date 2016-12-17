@@ -6,6 +6,8 @@
 #include <glm/gtx/euler_angles.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+#include <Box2D/Box2D.h>
+
 using namespace Mason;
 
 Transform::Transform(std::shared_ptr<GameObject> gameObject):Component(gameObject) {

@@ -1,7 +1,9 @@
 #pragma once
 
 #include <vector>
-#include <Box2D/Box2D.h>
+#include <memory>
+
+class b2World;
 
 namespace Mason {
 	class PhysicsBody2D;
@@ -17,7 +19,7 @@ namespace Mason {
 		*/
 		static Physics* getInstance();
 
-		b2World world = b2World(b2Vec2(0, -10)); ///< world with 2D physics we get from Box2D
+		b2World* world; ///< world with 2D physics we get from Box2D
 		int velIterations = 10; ///< physics settings. the distance thebodies in the world move will be their velocity (in distance units per second) multiplied by the length of the step (in seconds)
 		int posIterations = 10; ///< physics settings. affect the way bodies will react when they collide, together with the velocity
 
@@ -27,6 +29,7 @@ namespace Mason {
 		void step(float dt);
 
 		Physics();
+		~Physics();
 
 		std::shared_ptr<CollisionListener> collisionListener;
 		std::vector<PhysicsBody2D*> bodies;

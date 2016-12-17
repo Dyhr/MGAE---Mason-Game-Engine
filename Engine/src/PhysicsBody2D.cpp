@@ -4,6 +4,8 @@
 
 #include <algorithm>
 
+#include <Box2D/Box2D.h>
+
 using namespace Mason;
 
 PhysicsBody2D::~PhysicsBody2D() {
@@ -14,7 +16,7 @@ PhysicsBody2D::~PhysicsBody2D() {
 PhysicsBody2D::PhysicsBody2D(std::shared_ptr<GameObject> gameObject) : Component(gameObject) {
 	b2BodyDef bd;
 	bd.type = b2_dynamicBody;
-	body = Physics::instance->world.CreateBody(&bd);
+	body = Physics::instance->world->CreateBody(&bd);
 	Physics::instance->bodies.push_back(this);
 }
 
