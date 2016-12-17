@@ -33,11 +33,11 @@ namespace Mason {
 		std::vector<C*> getComponents();
 
 		Transform* getTransform() const;
-		void setTransform(Transform* transform);
 
 	private:
 		std::vector<Component*> components;
 
+		std::shared_ptr<GameObject>* me;
 		Transform* transform;
 		std::string name;
 		friend class Scene;
@@ -46,7 +46,7 @@ namespace Mason {
 	// function templates has to defined in header files
 	template<typename C>
 	C* GameObject::addComponent() {
-		C * c = new C(std::shared_ptr<GameObject>(this));
+		C * c = new C(*me);
 		components.push_back(c);
 		return c;
 	}

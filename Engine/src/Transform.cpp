@@ -24,7 +24,7 @@ void Transform::transformize()
 }
 
 void Transform::setPosition(glm::vec3 position) {
-	auto body = gameObject->getComponent<PhysicsBody2D>();
+	auto body = getGameObject()->getComponent<PhysicsBody2D>();
 	if (body != nullptr)
 		body->body->SetTransform(b2Vec2(position.x / Physics::instance->phScale, position.y / Physics::instance->phScale), body->body->GetAngle());
 	this->position = position;
@@ -32,7 +32,7 @@ void Transform::setPosition(glm::vec3 position) {
 }
 
 void Transform::setRotation(float rotation) {
-	auto body = gameObject->getComponent<PhysicsBody2D>();
+	auto body = getGameObject()->getComponent<PhysicsBody2D>();
 	if (body != nullptr)
 		body->body->SetTransform(body->body->GetWorldCenter(), rotation);
 	this->rotation = rotation;

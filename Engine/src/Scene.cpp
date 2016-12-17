@@ -29,10 +29,11 @@ void Scene::Destroy(shared_ptr<GameObject> ptr)
 }
 
 shared_ptr<GameObject> Scene::addGameObject(string name) {
-	GameObject * go = new GameObject(name);
-	auto res = shared_ptr<GameObject>(go);
-	this->gameObjects.push_back(res);
-	return res;
+	GameObject* go = new GameObject(name);
+	auto res = new shared_ptr<GameObject>(go);
+	go->me = res;
+	this->gameObjects.push_back(*res);
+	return *res;
 }
 
 shared_ptr<GameObject> Scene::loadGameObject(GameObjectDescriptor element) {
@@ -105,6 +106,7 @@ vector<shared_ptr<GameObject>> Scene::getGameObjects() {
 
 void Scene::loadCameraComponent(GameObjectDescriptor element, shared_ptr<GameObject> go) {
 	auto camera = go->addComponent<Camera>();
+	go->transform = camera;
 	camera->setViewportMin(element.camera.viewportMin);
 	camera->setViewportMax(element.camera.viewportMax);
 	camera->setPosition(element.transform.position);
@@ -212,7 +214,7 @@ void Scene::loadTransformComponent(TransformDescriptor element, shared_ptr<GameO
 	transformComponent->setPosition(element.position);
 	transformComponent->setRotation(element.rotation);
 	transformComponent->setScale(element.scale);
-	go->setTransform(transformComponent);
+	go->transform = transformComponent;
 }
 
 void Scene::loadAudioComponent(AudioDescriptor element, shared_ptr<GameObject> go) {

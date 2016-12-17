@@ -8,15 +8,18 @@ std::map<std::string, Script*(*)(std::shared_ptr<GameObject>)> Script::scripts =
 
 GameObject::GameObject(std::string name_) :name(name_)
 {
+	transform = nullptr;
 }
 
 GameObject::~GameObject() {
-	
+	delete me;
+	for (auto component : components)
+		delete component;
 }
 
 Script* GameObject::addScript(std::string name)
 {
-	Script* c = Script::scripts[name](std::shared_ptr<GameObject>(this));
+	Script* c = Script::scripts[name](*me);
 	components.push_back(c);
 	return c;
 }
@@ -34,9 +37,6 @@ std::string GameObject::getName() const
 Transform* GameObject::getTransform() const
 {
 	return this->transform;
-}
-void GameObject::setTransform(Transform* tr) {
-	this->transform = tr;
 }
 
 bool GameObject::removeComponent(Component* ptr) {
