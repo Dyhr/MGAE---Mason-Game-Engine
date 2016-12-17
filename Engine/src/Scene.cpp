@@ -11,6 +11,7 @@
 #include "Mason/Transform.h"
 
 #include "Box2D/Box2D.h"
+#include <SRE/Texture.hpp>
 
 using namespace std;
 using namespace Mason;
@@ -29,19 +30,30 @@ void Scene::Destroy(shared_ptr<GameObject> ptr)
 {
 	activeInstance->removeGameObject(ptr);
 }
+void Scene::Destroy(GameObject* ptr)
+{
+	activeInstance->removeGameObject(*ptr->me);
+}
+
+std::vector<std::shared_ptr<GameObject>> Scene::GetByName(std::string name)
+{
+	return activeInstance->gameObjectNames[name];
+}
 
 shared_ptr<GameObject> Scene::addGameObject(string name) {
 	GameObject* go = new GameObject(name);
 	auto res = new shared_ptr<GameObject>(go);
 	go->me = res;
-	this->gameObjects.push_back(*res);
+	
+	gameObjectNames[name].push_back(*res);
+	gameObjects.push_back(*res);
 	return *res;
 }
 
 shared_ptr<GameObject> Scene::loadGameObject(GameObjectDescriptor element) {
 	auto gameObject = addGameObject(element.name);
 
-	map_gameObjects[element.uniqueId] = gameObject;
+	gameObjectIds[element.uniqueId] = gameObject;
 	if (element.camera.found)
 	{
 		loadCameraComponent(element, gameObject);
@@ -78,8 +90,8 @@ shared_ptr<GameObject> Scene::loadGameObject(GameObjectDescriptor element) {
 }
 
 void Scene::setParentRelationship(int childId, int parentId) {
-	auto gameObject = map_gameObjects[childId];
-	auto parentGameObject = map_gameObjects[parentId];
+	auto gameObject = gameObjectIds[childId];
+	auto parentGameObject = gameObjectIds[parentId];
 	gameObject->getComponent<Transform>()->setParent(parentGameObject->getComponent<Transform>());
 }
 

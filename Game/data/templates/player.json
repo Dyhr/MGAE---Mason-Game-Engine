@@ -9,7 +9,7 @@
     ]
   },
   "particles": {
-    "rate": 3,
+    "rate": 6,
     "lifespan": 1,
     "velocityState": "random",
     "minVelocity": [ -10, -200, 0 ],

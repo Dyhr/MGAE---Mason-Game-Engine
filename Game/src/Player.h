@@ -4,7 +4,6 @@
 #include "Mason/Scene.hpp"
 #include <memory>
 #include <random>
-#include <time.h>
 #include "Mason/PhysicsBody2D.hpp"
 
 #include "Box2D/Box2D.h"
@@ -28,6 +27,13 @@ public:
 	bool turnLeft = false;
 	bool turnRight = false;
 
+	std::shared_ptr<GameObject> camera = nullptr;
+
+	void OnStart() override
+	{
+		camera = Scene::GetByName(strings["camera"])[0];
+	}
+
 	void Shoot()
 	{
 		auto body = getGameObject()->getComponent<PhysicsBody2D>()->body;
@@ -43,6 +49,7 @@ public:
 	void OnUpdate() override 
 	{
 		auto body = getGameObject()->getComponent<PhysicsBody2D>()->body;
+		auto emitter = getGameObject()->getComponent<ParticleEmitter>();
 		auto x = cos(transform->getRotation() * M_PI / 180);
 		auto y = sin(transform->getRotation() * M_PI / 180);
 
@@ -52,6 +59,16 @@ public:
 			body->ApplyTorque(50, false);
 		if (turnRight && !turnLeft)
 			body->ApplyTorque(-50, false);
+
+		if (thrust && !emitter->running()) emitter->start();
+		if (!thrust && emitter->running()) emitter->stop();
+
+		auto t = body->GetAngularVelocity();
+		body->ApplyTorque(-t * 10.0f, false);
+		auto v = body->GetLinearVelocity();
+		body->ApplyForceToCenter(b2Vec2(-v.x*10.0f, -v.y*10.0f), false);
+
+		camera->getTransform()->setPosition(transform->getPosition());
 	}
 
 	void OnInput(SDL_Event e) override

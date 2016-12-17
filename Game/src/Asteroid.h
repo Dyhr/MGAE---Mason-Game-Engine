@@ -5,22 +5,28 @@
 
 using namespace Mason;
 
-class Asteroid :public Script
+class Bullet :public Script
 {
 protected:
-	Asteroid(std::shared_ptr<GameObject> gameObject) : Script(gameObject)
+	Bullet(std::shared_ptr<GameObject> gameObject) : Script(gameObject)
 	{
 	}
 	friend GameObject;
 public:
 	static Script* Create(std::shared_ptr<GameObject> gameObject)
 	{
-		return new Asteroid(gameObject);
+		return new Bullet(gameObject);
 	}
 
 	void OnCollisionEnter(GameObject* other) override
 	{
-		if (other->getName() == "Asteroid")
-			Scene::Destroy(std::shared_ptr<GameObject>(getGameObject()));
+		Scene::Destroy(getGameObject());
+		if (other->getName() == "Asteroid") {
+			Scene::Destroy(other);
+		}
+		else if (other->getName() == "Player")
+		{
+			Scene::Destroy(other);
+		}
 	}
 };

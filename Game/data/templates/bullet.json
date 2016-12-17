@@ -4,7 +4,7 @@
     "type": "dynamic",
     "circles": [
       {
-        "radius": 4
+        "radius": 2
       }
     ]
   },
@@ -12,9 +12,9 @@
     "name": "asteroid1"
   },
   "transform": {
-    "scale": 0.3 
+    "scale": 0.2
   } ,
   "scripts": [
-    { "name": "asteroid" }
+    { "name": "bullet" }
   ]
 }

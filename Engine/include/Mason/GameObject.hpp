@@ -40,6 +40,7 @@ namespace Mason {
 		std::shared_ptr<GameObject>* me;
 		Transform* transform;
 		std::string name;
+
 		friend class Scene;
 	};
 

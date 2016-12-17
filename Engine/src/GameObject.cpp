@@ -1,14 +1,14 @@
 #include "Mason/GameObject.hpp"
 
 #include "Mason/Script.hpp"
+#include "Mason/Scene.hpp"
 
 using namespace Mason;
 
 std::map<std::string, Script*(*)(std::shared_ptr<GameObject>)> Script::scripts = std::map<std::string, Script*(*)(std::shared_ptr<GameObject>)>();
 
-GameObject::GameObject(std::string name_) :name(name_)
+GameObject::GameObject(std::string name_) : me(nullptr), transform(nullptr), name(name_)
 {
-	transform = nullptr;
 }
 
 GameObject::~GameObject() {

@@ -13,6 +13,9 @@ namespace Mason {
 		Scene();
 		static std::shared_ptr<GameObject> Instantiate(std::string name);
 		static void Destroy(std::shared_ptr<GameObject> ptr);
+		static void Destroy(GameObject* ptr);
+
+		static std::vector<std::shared_ptr<GameObject>> GetByName(std::string name);
 
 		// Add game object
 		std::shared_ptr<GameObject> addGameObject(std::string name);
@@ -42,7 +45,8 @@ namespace Mason {
 	private:
 		std::vector<std::shared_ptr<GameObject>> gameObjects;
 		std::map<std::string, std::shared_ptr<Sprite>> sprites;
-		std::map<int, std::shared_ptr<GameObject>> map_gameObjects;
+		std::map<int, std::shared_ptr<GameObject>> gameObjectIds;
+		std::map<std::string, std::vector<std::shared_ptr<GameObject>>> gameObjectNames;
 
 		std::string templatepath;
 		std::string imagepath;
@@ -63,6 +67,7 @@ namespace Mason {
 
 
 		friend class Engine;
+		friend class Scene;
 	};
 
 	// function templates has to defined in header files

@@ -41,11 +41,12 @@
       "scripts": [
         {
           "name": "player",
-          "properties": [ "thrust", "left", "right", "shoot" ],
+          "properties": [ "thrust", "left", "right", "shoot", "camera" ],
           "thrust": "w",
           "left": "a",
           "right": "d",
-          "shoot": "e"
+          "shoot": "e",
+          "camera":  "Camera 1" 
         }
       ],
       "transform": {
@@ -63,11 +64,12 @@
       "scripts": [
         {
           "name": "player",
-          "properties": [ "thrust", "left", "right", "shoot" ],
+          "properties": [ "thrust", "left", "right", "shoot", "camera" ],
           "thrust": "i",
           "left": "j",
           "right": "l",
-          "shoot": "u"
+          "shoot": "u",
+          "camera":  "Camera 2" 
         }
       ],
       "transform": {

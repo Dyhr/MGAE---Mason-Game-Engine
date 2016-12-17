@@ -1,7 +1,8 @@
 
 #include <Mason/Engine.hpp>
-#include "Mason/ParticleEmitter.hpp"
-#include "Mason/Script.hpp"
+#include <Mason/ParticleEmitter.hpp>
+#include <Mason/Script.hpp>
+
 #include "AsteroidSpawner.h"
 #include "Player.h"
 #include "Asteroid.h"
@@ -14,7 +15,7 @@ int main(int argc, char** argv) {
 
 	Script::scripts["asteroid-spawner"] = AsteroidSpawner::Create;
 	Script::scripts["player"] = Player::Create;
-	Script::scripts["asteroid"] = Asteroid::Create;
+	Script::scripts["bullet"] = Bullet::Create;
 
 	e.loadScene("data/game.json");
 	e.start();
