@@ -29,36 +29,35 @@ namespace Mason {
 	/** @class ParticleDescriptor
 	* @brief Describes a Particle component <BR>
 	*  "particles": {
-	*   "texturePath": "/data/images",	// Optional, default: nullptr <BR>
-	*	"rate": 60,						// Optional<BR>
-	*	"lifespan": 0.5,				// Optional <BR>
-	*	"velocityState": "random",		// Optional, options: FIXED | RANDOM | LINEAR | SPLINE <BR>
-	*	"minVelocity": [0, 300, 0],		// Optional <BR>
-	*	"maxVelocity": [20, 300, 0],	// Optional <BR>
-	*	"gravity": [0, 0, 0],			// Optional <BR>
-	*	"size": 1,						// Optional <BR>
-	*	"minsize": 0					// Optional <BR>
-	*	"maxsize": 1					// Optional <BR>
-	*	"sizeState": "linear",			// Optional <BR>
-	*	"initialSize": 0.3,				// Optional <BR>
-	*	"finalSize": 0.7,				// Optional <BR>
-	*	"initialColor": [1, 1, 0, 1],	// Optional <BR>
-	*	"finalColor": [1, 0, 0, 1],		// Optional <BR>
-	*	"rotationState": "fixed",		// Optional <BR>
-	*	"rotation": 0,					// Optional <BR>
-	*	"minrotation": 0,				// Optional <BR>
-	*	"maxrotation": 1,				// Optional <BR>
-	*	"initialrotation": 0,			// Optional <BR>
-	*	"finalrotation": 1,				// Optional <BR>
-	*	"color": [0,0,0,0],				// Optional <BR>
-	*	"mincolor": [0,0,0,0],			// Optional <BR>
-	*	"maxcolor": [0,0,0,0],			// Optional <BR>
-	*	"initialcolor": [0,0,0,0],		// Optional <BR>
-	*	"finalcolor": [0,0,0,0],		// Optional <BR>
-	*	"colorState": "linear",			// Optional <BR>
-	*	"splinePointsSize": [0.5, 0.5], // Optional <BR>
-	*	"splinePointsColor": [0.5, 0.5],// Optional <BR>
-	*	"splinePointsRotation": [0.5, 0.5], // Optional <BR>
+	*   "texturePath": "/data/images/ball.png",	// Optional, default: "" <BR>
+	*	"rate": 60,								// Optional, default: 1 <BR>
+	*	"lifespan": 0.5,						// Optional, default: 1 <BR>
+	*	"gravity": [0, 0, 0],					// Optional, default: glm::vec3(0, 0, 0) <BR>
+	*	"velocityState": "random",				// Optional, options: "fixed" | "random", default: "fixed" <BR>
+	*	"velocity": [0, 300, 0],				// Optional, default: glm::vec3(0, 0, 0) <BR>
+	*	"minVelocity": [0, 300, 0],				// Optional, default: glm::vec3(0, 0, 0) <BR>
+	*	"maxVelocity": [20, 300, 0],			// Optional, default: glm::vec3(0, 0, 0) <BR>
+	*	"sizeState": "linear",					// Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <BR>
+	*	"size": 1,								// Optional <BR>
+	*	"minsize": 0							// Optional, default: 0 <BR>
+	*	"maxsize": 1							// Optional, default: 1 <BR>
+	*	"initialSize": 0.3,						// Optional, default: 0 <BR>
+	*	"finalSize": 0.7,						// Optional, default: 1 <BR>
+	*	"rotationState": "fixed",				// Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <BR>
+	*	"rotation": 0,							// Optional <BR>
+	*	"minrotation": 0,						// Optional, default: 0 <BR>
+	*	"maxrotation": 1,						// Optional, default: 1 <BR>
+	*	"initialrotation": 0,					// Optional, default: 0 <BR>
+	*	"finalrotation": 1,						// Optional, default: 1 <BR>
+	*	"colorState": "linear",					// Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <BR>
+	*	"color": [0,0,0,0],						// Optional <BR>
+	*	"mincolor": [0,0,0,0],					// Optional, default: glm::vec4(0, 0, 0, 0) <BR>
+	*	"maxcolor": [0,0,0,0],					// Optional, default: glm::vec4(1, 1, 1, 1) <BR>
+	*	"initialcolor": [0,0,0,0],				// Optional, default: glm::vec4(0, 0, 0, 0) <BR> <BR>
+	*	"finalcolor": [0,0,0,0],				// Optional, default: glm::vec4(1, 1, 1, 1) <BR> <BR>
+	*	"splinePointsSize": [0.5, 0.5],			// Optional <BR>
+	*	"splinePointsColor": [0.5, 0.5],		// Optional <BR>
+	*	"splinePointsRotation": [0.5, 0.5],		// Optional <BR>
 	*	}
 	*/
 	class ParticleDescriptor
@@ -66,31 +65,31 @@ namespace Mason {
 	public:
 		bool found = false;
 		std::string texturePath = "";
-		float rate;
-		float lifespan;
-		glm::vec3 velocity;
-		glm::vec3 gravity;
+		float rate = 1;
+		float lifespan = 1;
+		glm::vec3 velocity = glm::vec3(0, 0, 0);
+		glm::vec3 gravity = glm::vec3(0, 0, 0);
 		//Used for random
-		float minSize;
-		float maxSize;
-		float minRotation;
-		float maxRotation;
-		glm::vec3 minVelocity;
-		glm::vec3 maxVelocity;
-		glm::vec4 minColor;
-		glm::vec4 maxColor;
+		float minSize = 0;
+		float maxSize = 1;
+		float minRotation = 0;
+		float maxRotation = 1;
+		glm::vec3 minVelocity = glm::vec3(0, 0, 0);
+		glm::vec3 maxVelocity = glm::vec3(0, 0, 0);
+		glm::vec4 minColor = glm::vec4(0, 0, 0, 0);
+		glm::vec4 maxColor = glm::vec4(1, 1, 1, 1);
 		//Used for interpolation
-		float initialSize;
-		float finalSize;
-		glm::vec4 initialColor;
-		glm::vec4 finalColor;
-		float initialRotation;
-		float finalRotation;
+		float initialSize = 0;
+		float finalSize = 1;
+		glm::vec4 initialColor = glm::vec4(0, 0, 0, 0);;
+		glm::vec4 finalColor = glm::vec4(1, 1, 1, 1);;
+		float initialRotation = 0;
+		float finalRotation = 1;
 
-		std::string velocityState;
-		std::string rotationState;
-		std::string sizeState;
-		std::string colorState;
+		std::string velocityState = "fixed";
+		std::string rotationState = "fixed";
+		std::string sizeState = "fixed";
+		std::string colorState = "fixed";
 		std::vector<glm::vec2> splinePointsSize;
 		std::vector<glm::vec2> splinePointsColor;
 		std::vector<glm::vec2> splinePointsRotation;
