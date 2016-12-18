@@ -85,6 +85,16 @@ namespace Mason {
 		std::vector<CircleColliderDescriptor> circleColliders;
 	};
 
+	/** @class TransformDescriptor
+	* @brief Describes a Transform component
+	* 
+	* "transform": {
+	*	"position" = [0, 0, 0],		// Optional, default: [0,0,0]
+	*	"rotation" = 0,				// Optional, default: 0
+	*	"scale" = 1,				// Optional, default: 1
+	*	"parentId" = -1				// Optional, default: -1
+	* }
+	*/
 	class TransformDescriptor {
 	public:
 		glm::vec3 position = glm::vec3(0, 0, 0);
@@ -109,6 +119,33 @@ namespace Mason {
 	};
 
 
+	/** @class GameObjectDescriptor
+	* @brief Describes a GameObject
+	*
+	* "transform": {		// Optional, created by default, see TransformDescriptor for details
+	*	...	
+	* }
+	* "sprite": {			// Optional, see SpriteDescriptor for details
+	*	...
+	* }
+	* "camera": {			// Optional, see CameraDescriptor for details
+	*	...
+	* }
+	* "audio": {			// Optional, see AudioDescriptor for details
+	*	...
+	* }
+	* "particles": {		// Optional, see ParticleDescriptor for details
+	*	...
+	* }
+	* "physicsbody": {		// Optional, see PhysicsBodyDescriptor for details
+	*	...
+	* }
+	* "scripts": [			// Optional, list of scripts, see ScriptDescriptor for details
+	*	{
+	*		...
+	*	}
+	* ]
+	*/
 	class GameObjectDescriptor {
 	public:
 		std::string name = "Object";

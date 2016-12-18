@@ -22,7 +22,7 @@ Scene::Scene() {
 	activeInstance = this;
 }
 
-shared_ptr<GameObject> Scene::Instantiate(std::string name) {
+shared_ptr<GameObject> Scene::Instantiate(string name) {
 	return activeInstance->loadGameObject(SceneParser::parseTemplate(name, activeInstance->templatepath));
 }
 
@@ -35,7 +35,7 @@ void Scene::Destroy(GameObject* ptr)
 	activeInstance->removeGameObject(*ptr->me);
 }
 
-std::vector<std::shared_ptr<GameObject>> Scene::GetByName(std::string name)
+vector<shared_ptr<GameObject>> Scene::GetByName(string name)
 {
 	return activeInstance->gameObjectNames[name];
 }

@@ -26,7 +26,7 @@ namespace Mason {
 
 		virtual void OnStart() {}
 		virtual void OnUpdate() {}
-		virtual void OnCollisionEnter(Mason::GameObject* other) {}
+		virtual void OnCollisionEnter(GameObject* other) {}
 		//virtual void OnCollisionStay() {}
 		virtual void OnCollisionExit(GameObject* other) {}
 		virtual void OnInput(SDL_Event event) {} // TODO refactor to better input system
