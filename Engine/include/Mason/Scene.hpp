@@ -10,6 +10,8 @@
 namespace Mason {
 	class Scene {
 	public:
+		/** @brief constructor
+		*/
 		Scene();
 		static std::shared_ptr<GameObject> Instantiate(std::string name);
 		static void Destroy(std::shared_ptr<GameObject> ptr);
@@ -17,28 +19,44 @@ namespace Mason {
 
 		static std::vector<std::shared_ptr<GameObject>> GetByName(std::string name);
 
-		// Add game object
+		/** @brief Add game object
+		*/
+		
 		std::shared_ptr<GameObject> addGameObject(std::string name);
 
-		//Load game object from decriptor
+		/** @brief Load game object from decriptor
+		*/
+		
 		std::shared_ptr<GameObject> loadGameObject(GameObjectDescriptor desc);
 
-		//Setup a parent-child relationship between gameobjects
+		/** @brief Setup a parent-child relationship between gameobjects
+		*/
+		
 		void setParentRelationship(int childId, int parentId);
 
-		// Remove game object
+		/** @brief Remove game object
+		*/
+		
 		bool removeGameObject(std::shared_ptr<GameObject> ptr);
 
-		// Get number of game objects
+		/** @brief Get number of game objects
+		*/
+		
 		int getSize();
 
-		// Get game object by index
+		/** @brief Get game object by index
+		*/
+		
 		std::shared_ptr<GameObject> getGameObject(int index);
 
-		//Get all game objects
+		/** @brief Get all game objects
+		*/
+		
 		std::vector<std::shared_ptr<GameObject>> getGameObjects();
 
-		// Returns all components of type C
+		/** @brief Returns all components of type C
+		* @return std::vector<C*>
+		*/
 		template<typename C>
 		std::vector<C*> getAllComponent();
 
@@ -57,22 +75,50 @@ namespace Mason {
 		static Scene* activeInstance;
 		
 		//Load components from descriptors
+		/** @brief loads components of this kind from its descriptor
+		*/
 		void loadCameraComponent(GameObjectDescriptor goDesc, std::shared_ptr<GameObject> go);
+
+		/** @brief loads components of this kind from its descriptor
+		*/
 		void loadParticleComponent(ParticleDescriptor particleDesc, std::shared_ptr<GameObject> go);
+
+		/** @brief loads components of this kind from its descriptor
+		*/
 		void loadSpriteComponent(SpriteDescriptor spriteDesc, std::shared_ptr<GameObject> go);
+
+		/** @brief loads components of this kind from its descriptor
+		*/
 		void loadPhysicsBodyComponent(PhysicsBodyDescriptor physicsDesc, std::shared_ptr<GameObject> go);
+
+		/** @brief loads components of this kind from its descriptor
+		*/
 		void loadBoxColliderComponent(BoxColliderDescriptor boxColliderDesc, std::shared_ptr<GameObject> go);
+
+		/** @brief loads components of this kind from its descriptor
+		*/
 		void loadCircleColliderComponenet(CircleColliderDescriptor circleColliderDesc, std::shared_ptr<GameObject> go);
+
+		/** @brief loads components of this kind from its descriptor
+		*/
 		void loadTransformComponent(TransformDescriptor transformDesc, std::shared_ptr<GameObject> go);
+
+		/** @brief loads components of this kind from its descriptor
+		*/
 		void loadAudioComponent(AudioDescriptor audioDesc, std::shared_ptr<GameObject> go);
+
+		/** @brief loads components of this kind from its descriptor
+		*/
 		void loadScriptComponent(ScriptDescriptor scriptDesc, std::shared_ptr<GameObject> go);
 
 
 		friend class Engine;
-		friend class Scene;
 	};
 
-	// function templates has to defined in header files
+	/** @brief gets all the components of the scene
+	* @return std::vector<C*>
+	*/
+	//function templates has to be defined in header files
 	template<typename C>
 	std::vector<C*> Scene::getAllComponent() {
 		std::vector<C*> res;
