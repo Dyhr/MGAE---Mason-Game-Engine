@@ -10,35 +10,62 @@
 namespace Mason {
 	class Scene {
 	public:
+		/** @brief Constructor
+		*/
 		Scene();
+		/** @brief Instantiate a gameobject
+		* @param name template name
+		*/
 		static std::shared_ptr<GameObject> Instantiate(std::string name);
+		/** @brief Destroy a gameobject
+		* @param ptr shared pointer to gameobject
+		*/
 		static void Destroy(std::shared_ptr<GameObject> ptr);
+		/** @brief Destroy a gameobject
+		* @param ptr pointer to gameobject
+		*/
 		static void Destroy(GameObject* ptr);
-
+		/** @brief Get a shared pointer to a game object
+		* @param name name of game object
+		*/
 		static std::vector<std::shared_ptr<GameObject>> GetByName(std::string name);
-
-		// Add game object
+		
+		/** @brief Add a gameobject to the scene. Get a shared pointer to it in return.
+		* @param name name of game object
+		*/
 		std::shared_ptr<GameObject> addGameObject(std::string name);
 
-		//Load game object from decriptor
+		/** @brief Load a gameobject. Returns a shared pointer to it. Used by Instantiate.
+		* @param desc descriptor object of gameobject
+		*/
 		std::shared_ptr<GameObject> loadGameObject(GameObjectDescriptor desc);
 
-		//Setup a parent-child relationship between gameobjects
+		/** @brief Sets up a parent-child relationship between two gameobject.
+		* @param childId unique id of child game object
+		* @param parentId unique id of parent game object
+		*/
 		void setParentRelationship(int childId, int parentId);
 
-		// Remove game object
+		/** @brief Remove a game object from the scene.
+		* @param ptr shared pointer to the gameobject that is to be removed.
+		*/
 		bool removeGameObject(std::shared_ptr<GameObject> ptr);
 
-		// Get number of game objects
+		/** @brief Get the number of game objects in the scene		
+		*/
 		int getSize();
 
-		// Get game object by index
+		/** @brief Get a game object by index
+		* @param index index of gameobject
+		*/
 		std::shared_ptr<GameObject> getGameObject(int index);
 
-		//Get all game objects
+		/** @brief Get all game objects in scene
+		*/
 		std::vector<std::shared_ptr<GameObject>> getGameObjects();
 
-		// Returns all components of type C
+		/** @brief Returns all components of type C
+		*/
 		template<typename C>
 		std::vector<C*> getAllComponent();
 
@@ -72,7 +99,9 @@ namespace Mason {
 		friend class Scene;
 	};
 
-	// function templates has to defined in header files
+
+	/** @brief Get all components of type C
+	*/
 	template<typename C>
 	std::vector<C*> Scene::getAllComponent() {
 		std::vector<C*> res;
