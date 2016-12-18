@@ -8,6 +8,7 @@
 #include "Mason/Time.hpp"
 
 #include "Box2D/Box2D.h"
+#include "Mason/GUI.hpp"
 
 using namespace Mason;
 
@@ -30,6 +31,12 @@ public:
 	float shootTime = 0;
 
 	std::shared_ptr<GameObject> camera = nullptr;
+
+	void OnGUI() override {
+		GUI::Label(getGameObject()->getName());
+		if (GUI::Button("Self Destruct"))
+			Scene::Destroy(getGameObject());
+	}
 
 	void OnStart() override
 	{

@@ -30,6 +30,7 @@ namespace Mason {
 		//virtual void OnCollisionStay() {}
 		virtual void OnCollisionExit(GameObject* other) {}
 		virtual void OnInput(SDL_Event event) {} // TODO refactor to better input system
+		virtual void OnGUI() {}
 	private:
 		bool started = false;
 		friend class Engine;

@@ -29,6 +29,7 @@
 #include <SDL.h>
 #include <imgui.h>
 #include <SRE/imgui_sre.hpp>
+#include "Mason/GUI.hpp"
 
 using namespace glm;
 using namespace Mason;
@@ -153,7 +154,7 @@ void Engine::loadScene(std::string path)
 	//Set up parent relationships between Transform components
 	for (auto element : gameObjectDescriptors) {
 		if (element.transform.parentId != -1) {
-			scene->setParentRelationship(element.uniqueId, element.transform.parentId);			
+			scene->setParentRelationship(element.uniqueId, element.transform.parentId);
 		}
 	}
 
@@ -173,7 +174,7 @@ void Engine::update(float deltaTimeSec) {
 
 		// update audio
 		audioManager->step();
-		 
+
 		// update scripts
 		for (auto & script : scene->getAllComponent<Script>()) {
 			if (!script->started) {
@@ -182,7 +183,7 @@ void Engine::update(float deltaTimeSec) {
 			}
 			script->OnUpdate();
 		}
-		 
+
 		// update particle emitters
 		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
 			if (particleEmitter) {
@@ -191,7 +192,7 @@ void Engine::update(float deltaTimeSec) {
 		}
 	}
 
-	for(auto go : scene->destroyList)
+	for (auto go : scene->destroyList)
 	{
 		scene->removeGameObject(go);
 	}
@@ -211,13 +212,33 @@ void Engine::update(float deltaTimeSec) {
 
 		// render particle emitters
 		for (auto & particleEmitter : scene->getAllComponent<ParticleEmitter>()) {
-			if (particleEmitter) {				
+			if (particleEmitter) {
 				particleEmitter->render();
 			}
 		}
 
-		if(showDebugPhysics) physics->world->DrawDebugData();
+		if (showDebugPhysics) physics->world->DrawDebugData();
 	}
+
+	// Render GUI
+	bool t = true;
+	ImGui_SRE_NewFrame(this->window);
+	ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0, 0, 0, 0));
+	ImGui::SetNextWindowPos(ImVec2(0, 0));
+	ImGui::SetNextWindowSize(ImVec2(*windowWidth, *windowHeight / 2));
+	ImGui::Begin("Window?", &t, ImGuiWindowFlags_NoTitleBar
+		| ImGuiWindowFlags_NoResize
+		| ImGuiWindowFlags_NoMove
+		| ImGuiWindowFlags_NoFocusOnAppearing
+		| ImGuiWindowFlags_NoCollapse); 
+	GUI::ready = true;
+	for (auto & script : scene->getAllComponent<Script>()) {
+		script->OnGUI();
+	}
+	GUI::ready = false;
+	ImGui::End();
+	ImGui::PopStyleColor();
+	ImGui::Render();
 
 	if (showDebugGUI) DebugUI();
 	sre->swapWindow();
