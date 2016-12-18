@@ -48,6 +48,8 @@ namespace Mason {
 		std::map<int, std::shared_ptr<GameObject>> gameObjectIds;
 		std::map<std::string, std::vector<std::shared_ptr<GameObject>>> gameObjectNames;
 
+		std::vector<std::shared_ptr<GameObject>> destroyList;
+
 		std::string templatepath;
 		std::string imagepath;
 		std::string soundpath;

@@ -191,6 +191,12 @@ void Engine::update(float deltaTimeSec) {
 		}
 	}
 
+	for(auto go : scene->destroyList)
+	{
+		scene->removeGameObject(go);
+	}
+	scene->destroyList.clear();
+
 	for (auto & camera : scene->getAllComponent<Camera>()) {
 
 		sre->setCamera(camera->cam);

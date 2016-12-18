@@ -211,8 +211,10 @@ namespace Mason {
 	*/
 	class AudioDescriptor {
 	public:
+
 		std::string path ="data/sounds";
 		SoundType type=EFFECT;
+
 		bool found = false;
 	};
 

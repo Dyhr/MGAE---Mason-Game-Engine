@@ -16,5 +16,8 @@
   } ,
   "scripts": [
     { "name": "bullet" }
-  ]
+  ],
+  "audio": {
+    "path": "data/sounds/Ship_Explosion.wav" 
+  } 
 }

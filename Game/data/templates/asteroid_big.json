@@ -1,5 +1,5 @@
 {
-  "name": "Asteroid",
+  "name": "Asteroid Big",
   "sprite": {
     "name": "asteroid7"
   },
@@ -10,5 +10,8 @@
         "radius": 24
       }
     ]
-  }
+  },
+  "audio": {
+    "path": "data/sounds/Explosion.wav" 
+  } 
 }
