@@ -18,11 +18,11 @@
 using namespace glm;
 using namespace Mason;
 
-Engine engine;
+
 
 int main(int argc, char** argv) {
 	
-	
+	Engine engine;
 	Script::scripts["a-note-controller"] =			ANoteController::Create;
 	Script::scripts["a-sharp-note-controller"] =	ASharpNoteController::Create;
 	Script::scripts["b-note-controller"] =			BNoteController::Create;
