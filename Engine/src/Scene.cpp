@@ -28,11 +28,11 @@ shared_ptr<GameObject> Scene::Instantiate(string name) {
 
 void Scene::Destroy(shared_ptr<GameObject> ptr)
 {
-	activeInstance->removeGameObject(ptr);
+	activeInstance->destroyList.push_back(ptr);
 }
 void Scene::Destroy(GameObject* ptr)
 {
-	activeInstance->removeGameObject(*ptr->me);
+	Destroy(*ptr->me);
 }
 
 vector<shared_ptr<GameObject>> Scene::GetByName(string name)

@@ -107,7 +107,7 @@ namespace Mason {
 	public:
 		std::string path;
 		//SoundEffect or Music?
-		SoundType type;
+		SoundType type = EFFECT;
 		bool found = false;
 	};
 

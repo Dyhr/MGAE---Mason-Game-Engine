@@ -1,5 +1,5 @@
 {
-  "name": "Asteroid",
+  "name": "Asteroid Medium",
   "sprite": {
     "name": "asteroid8"
   },
@@ -10,5 +10,8 @@
         "radius": 16
       }
     ]
-  }
+  },
+  "audio": {
+    "path": "data/sounds/Explosion.wav" 
+  } 
 }

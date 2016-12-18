@@ -22,5 +22,8 @@
     "finalColor": [ 0.0, 0.0, 0.0, 0 ],
     "rotationState": "fixed",
     "rotation": 0
-  }
+  },
+  "audio": {
+    "path": "data/sounds/Laser_Shoot.wav" 
+  } 
 }

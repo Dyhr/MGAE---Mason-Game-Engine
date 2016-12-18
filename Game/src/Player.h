@@ -5,6 +5,7 @@
 #include <memory>
 #include <random>
 #include "Mason/PhysicsBody2D.hpp"
+#include "Mason/Time.hpp"
 
 #include "Box2D/Box2D.h"
 
@@ -26,6 +27,7 @@ public:
 	bool thrust = false;
 	bool turnLeft = false;
 	bool turnRight = false;
+	float shootTime = 0;
 
 	std::shared_ptr<GameObject> camera = nullptr;
 
@@ -36,6 +38,11 @@ public:
 
 	void Shoot()
 	{
+		if (Time::getTime() - shootTime < 0.5f) return;
+		shootTime = Time::getTime();
+
+		getGameObject()->getComponent<Audio>()->play();
+
 		auto body = getGameObject()->getComponent<PhysicsBody2D>()->body;
 		auto x = cos(transform->getRotation() * M_PI / 180);
 		auto y = sin(transform->getRotation() * M_PI / 180);
