@@ -4,41 +4,39 @@
 
 {\ttfamily \#include $<$Transform.\+h$>$}
 
-
-
-Inheritance diagram for Mason\+:\+:Transform\+:
-% FIG 0
-
-
-Collaboration diagram for Mason\+:\+:Transform\+:
-% FIG 1
+Inheritance diagram for Mason\+:\+:Transform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_mason_1_1_transform}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 virtual void \hyperlink{class_mason_1_1_transform_a740f389e20c0190c52bcb893aeaa0490}{set\+Position} (glm\+::vec3 \hyperlink{class_mason_1_1_transform_ac9e11b4ec4433a38ac1100f12c955dcb}{position})
 \item 
-virtual void \hyperlink{class_mason_1_1_transform_aacc2b668bdd1d9b978aa0edccf75144a}{set\+Rotation} (glm\+::vec3 \hyperlink{class_mason_1_1_transform_ae2f541ade79d561584619e93edb034ae}{rotation})
+virtual void \hyperlink{class_mason_1_1_transform_aef821c00885810e430f61b274a6089db}{set\+Rotation} (float \hyperlink{class_mason_1_1_transform_a1ff204c28b286c45743fbbd03d8193a6}{rotation})
 \item 
-virtual void \hyperlink{class_mason_1_1_transform_a4a273ac58f45b6ee9cf2b37cf661daac}{set\+Scale} (glm\+::vec3 \hyperlink{class_mason_1_1_transform_a4618b31e34a6ec8a0ee638401fc56367}{scale})
+virtual void \hyperlink{class_mason_1_1_transform_a498d685b66e2f73b88d3583ce55461c8}{set\+Scale} (float \hyperlink{class_mason_1_1_transform_a0a12711710700aca2523630c1014dc17}{scale})
 \item 
-virtual void \hyperlink{class_mason_1_1_transform_a6e1a6b57214a7de21595e6af8b05138b}{set\+Parent} (\hyperlink{class_mason_1_1_transform}{Transform} $\ast$\hyperlink{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8}{game\+Object})
+virtual void \hyperlink{class_mason_1_1_transform_a6e1a6b57214a7de21595e6af8b05138b}{set\+Parent} (\hyperlink{class_mason_1_1_transform}{Transform} $\ast$\hyperlink{class_mason_1_1_component_abaa67b569d0a70e26a4606f4a099a925}{game\+Object})
 \item 
 virtual glm\+::vec3 \hyperlink{class_mason_1_1_transform_a0b21f641e72d7b55f3a630b986d0b106}{get\+Position} ()
 \item 
-virtual glm\+::vec3 \hyperlink{class_mason_1_1_transform_a7367502d4344eff2d88a250084ae19dc}{get\+Rotation} ()
+virtual float \hyperlink{class_mason_1_1_transform_ab15164f1690929c45e636514c0dafb7f}{get\+Rotation} ()
 \item 
-virtual glm\+::vec3 \hyperlink{class_mason_1_1_transform_a24107560725b250c4c2e10ab98a6ac04}{get\+Scale} ()
+virtual float \hyperlink{class_mason_1_1_transform_afb5f0dbe6bcd49e26a792f578bf5ec9d}{get\+Scale} ()
 \item 
 virtual \hyperlink{class_mason_1_1_transform}{Transform} $\ast$ \hyperlink{class_mason_1_1_transform_ae3e8acbd25d7d171aff00da038f79a9a}{get\+Parent} ()
 \item 
-glm\+::mat4 \hyperlink{class_mason_1_1_transform_a8b85abc03488f58bef8bb78df77c1689}{local\+Transform} ()
+glm\+::mat4 \hyperlink{class_mason_1_1_transform_a70d142174711ef237e176e4972a194e2}{local\+Transform} () const
 \item 
 glm\+::mat4 \hyperlink{class_mason_1_1_transform_a35e627aa09604bf3a81f4c07d28205f3}{global\+Transform} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_mason_1_1_transform_a00209266b27fa0c297551a0ce4a07017}{Transform} (\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$\hyperlink{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8}{game\+Object})
+\hyperlink{class_mason_1_1_transform_a61406a0dbfdd518be1d038fc8ed18a7a}{Transform} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ \hyperlink{class_mason_1_1_component_abaa67b569d0a70e26a4606f4a099a925}{game\+Object})
 \item 
 virtual void \hyperlink{class_mason_1_1_transform_a4dd61568d49044377f3312397ffdafd1}{transformize} ()
 \end{DoxyCompactItemize}
@@ -49,9 +47,9 @@ glm\+::mat4 \hyperlink{class_mason_1_1_transform_aeb64a62787375e23645da6f490763c
 \item 
 glm\+::vec3 \hyperlink{class_mason_1_1_transform_ac9e11b4ec4433a38ac1100f12c955dcb}{position}
 \item 
-glm\+::vec3 \hyperlink{class_mason_1_1_transform_ae2f541ade79d561584619e93edb034ae}{rotation}
+float \hyperlink{class_mason_1_1_transform_a1ff204c28b286c45743fbbd03d8193a6}{rotation}
 \item 
-glm\+::vec3 \hyperlink{class_mason_1_1_transform_a4618b31e34a6ec8a0ee638401fc56367}{scale}
+float \hyperlink{class_mason_1_1_transform_a0a12711710700aca2523630c1014dc17}{scale}
 \item 
 \hyperlink{class_mason_1_1_transform}{Transform} $\ast$ \hyperlink{class_mason_1_1_transform_a1e2c91adcef43bcc170803656260f9db}{parent}
 \end{DoxyCompactItemize}
@@ -63,15 +61,17 @@ class \hyperlink{class_mason_1_1_transform_a00df87c957d8f7ee0fc51f07a0542f4a}{Ga
 class \hyperlink{class_mason_1_1_transform_a33061a25b8332281d02c83e2bf1d4959}{Rendering}
 \item 
 class \hyperlink{class_mason_1_1_transform_a82b374d797a09668286ac5cf26f539f3}{Particle\+Emitter}
+\item 
+class \hyperlink{class_mason_1_1_transform_a2bfcbae6c8e1d7af93c5ac1200b1535c}{Physics}
 \end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_mason_1_1_transform_a00209266b27fa0c297551a0ce4a07017}{}\label{class_mason_1_1_transform_a00209266b27fa0c297551a0ce4a07017} 
+\hypertarget{class_mason_1_1_transform_a61406a0dbfdd518be1d038fc8ed18a7a}{}\label{class_mason_1_1_transform_a61406a0dbfdd518be1d038fc8ed18a7a} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!Transform@{Transform}}
 \index{Transform@{Transform}!Mason\+::\+Transform@{Mason\+::\+Transform}}
 \subsubsection{\texorpdfstring{Transform()}{Transform()}}
-{\footnotesize\ttfamily Transform\+::\+Transform (\begin{DoxyParamCaption}\item[{\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily Transform\+::\+Transform (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
@@ -92,21 +92,21 @@ class \hyperlink{class_mason_1_1_transform_a82b374d797a09668286ac5cf26f539f3}{Pa
 
 Reimplemented in \hyperlink{class_mason_1_1_camera_a71560b8b6216a542ae1958bd91a4361d}{Mason\+::\+Camera}.
 
-\hypertarget{class_mason_1_1_transform_a7367502d4344eff2d88a250084ae19dc}{}\label{class_mason_1_1_transform_a7367502d4344eff2d88a250084ae19dc} 
+\hypertarget{class_mason_1_1_transform_ab15164f1690929c45e636514c0dafb7f}{}\label{class_mason_1_1_transform_ab15164f1690929c45e636514c0dafb7f} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!get\+Rotation@{get\+Rotation}}
 \index{get\+Rotation@{get\+Rotation}!Mason\+::\+Transform@{Mason\+::\+Transform}}
 \subsubsection{\texorpdfstring{get\+Rotation()}{getRotation()}}
-{\footnotesize\ttfamily glm\+::vec3 Transform\+::get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily float Transform\+::get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-\hypertarget{class_mason_1_1_transform_a24107560725b250c4c2e10ab98a6ac04}{}\label{class_mason_1_1_transform_a24107560725b250c4c2e10ab98a6ac04} 
+\hypertarget{class_mason_1_1_transform_afb5f0dbe6bcd49e26a792f578bf5ec9d}{}\label{class_mason_1_1_transform_afb5f0dbe6bcd49e26a792f578bf5ec9d} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!get\+Scale@{get\+Scale}}
 \index{get\+Scale@{get\+Scale}!Mason\+::\+Transform@{Mason\+::\+Transform}}
 \subsubsection{\texorpdfstring{get\+Scale()}{getScale()}}
-{\footnotesize\ttfamily glm\+::vec3 Transform\+::get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily float Transform\+::get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Reimplemented in \hyperlink{class_mason_1_1_camera_a405b26eaaae2ab7a460dfc319a9d16ea}{Mason\+::\+Camera}.
+Reimplemented in \hyperlink{class_mason_1_1_camera_a9c86fd4a182c472001f5d52e99fc0bbc}{Mason\+::\+Camera}.
 
 \hypertarget{class_mason_1_1_transform_a35e627aa09604bf3a81f4c07d28205f3}{}\label{class_mason_1_1_transform_a35e627aa09604bf3a81f4c07d28205f3} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!global\+Transform@{global\+Transform}}
@@ -114,13 +114,11 @@ Reimplemented in \hyperlink{class_mason_1_1_camera_a405b26eaaae2ab7a460dfc319a9d
 \subsubsection{\texorpdfstring{global\+Transform()}{globalTransform()}}
 {\footnotesize\ttfamily glm\+::mat4 Transform\+::global\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-% FIG 2
-\hypertarget{class_mason_1_1_transform_a8b85abc03488f58bef8bb78df77c1689}{}\label{class_mason_1_1_transform_a8b85abc03488f58bef8bb78df77c1689} 
+\hypertarget{class_mason_1_1_transform_a70d142174711ef237e176e4972a194e2}{}\label{class_mason_1_1_transform_a70d142174711ef237e176e4972a194e2} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!local\+Transform@{local\+Transform}}
 \index{local\+Transform@{local\+Transform}!Mason\+::\+Transform@{Mason\+::\+Transform}}
 \subsubsection{\texorpdfstring{local\+Transform()}{localTransform()}}
-{\footnotesize\ttfamily glm\+::mat4 Transform\+::local\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily glm\+::mat4 Transform\+::local\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \hypertarget{class_mason_1_1_transform_a6e1a6b57214a7de21595e6af8b05138b}{}\label{class_mason_1_1_transform_a6e1a6b57214a7de21595e6af8b05138b} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!set\+Parent@{set\+Parent}}
@@ -138,28 +136,22 @@ Here is the call graph for this function\+:
 
 Reimplemented in \hyperlink{class_mason_1_1_camera_a69f184af46d081b85209040bbe814cbb}{Mason\+::\+Camera}.
 
-Here is the call graph for this function\+:
-% FIG 3
-\hypertarget{class_mason_1_1_transform_aacc2b668bdd1d9b978aa0edccf75144a}{}\label{class_mason_1_1_transform_aacc2b668bdd1d9b978aa0edccf75144a} 
+\hypertarget{class_mason_1_1_transform_aef821c00885810e430f61b274a6089db}{}\label{class_mason_1_1_transform_aef821c00885810e430f61b274a6089db} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!set\+Rotation@{set\+Rotation}}
 \index{set\+Rotation@{set\+Rotation}!Mason\+::\+Transform@{Mason\+::\+Transform}}
 \subsubsection{\texorpdfstring{set\+Rotation()}{setRotation()}}
-{\footnotesize\ttfamily void Transform\+::set\+Rotation (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{rotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Transform\+::set\+Rotation (\begin{DoxyParamCaption}\item[{float}]{rotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Here is the call graph for this function\+:
-% FIG 4
-\hypertarget{class_mason_1_1_transform_a4a273ac58f45b6ee9cf2b37cf661daac}{}\label{class_mason_1_1_transform_a4a273ac58f45b6ee9cf2b37cf661daac} 
+\hypertarget{class_mason_1_1_transform_a498d685b66e2f73b88d3583ce55461c8}{}\label{class_mason_1_1_transform_a498d685b66e2f73b88d3583ce55461c8} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!set\+Scale@{set\+Scale}}
 \index{set\+Scale@{set\+Scale}!Mason\+::\+Transform@{Mason\+::\+Transform}}
 \subsubsection{\texorpdfstring{set\+Scale()}{setScale()}}
-{\footnotesize\ttfamily void Transform\+::set\+Scale (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Transform\+::set\+Scale (\begin{DoxyParamCaption}\item[{float}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Reimplemented in \hyperlink{class_mason_1_1_camera_a732501ee31e862f557bbbc8ff58631a4}{Mason\+::\+Camera}.
+Reimplemented in \hyperlink{class_mason_1_1_camera_af7aa6752699108d282996199549a704b}{Mason\+::\+Camera}.
 
-Here is the call graph for this function\+:
-% FIG 5
 \hypertarget{class_mason_1_1_transform_a4dd61568d49044377f3312397ffdafd1}{}\label{class_mason_1_1_transform_a4dd61568d49044377f3312397ffdafd1} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!transformize@{transformize}}
 \index{transformize@{transformize}!Mason\+::\+Transform@{Mason\+::\+Transform}}
@@ -184,6 +176,12 @@ Reimplemented in \hyperlink{class_mason_1_1_camera_a27ff2d3ad004a49db2ae508ac6e9
 \index{Particle\+Emitter@{Particle\+Emitter}!Mason\+::\+Transform@{Mason\+::\+Transform}}
 \subsubsection{\texorpdfstring{Particle\+Emitter}{ParticleEmitter}}
 {\footnotesize\ttfamily friend class \hyperlink{class_mason_1_1_particle_emitter}{Particle\+Emitter}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\hypertarget{class_mason_1_1_transform_a2bfcbae6c8e1d7af93c5ac1200b1535c}{}\label{class_mason_1_1_transform_a2bfcbae6c8e1d7af93c5ac1200b1535c} 
+\index{Mason\+::\+Transform@{Mason\+::\+Transform}!Physics@{Physics}}
+\index{Physics@{Physics}!Mason\+::\+Transform@{Mason\+::\+Transform}}
+\subsubsection{\texorpdfstring{Physics}{Physics}}
+{\footnotesize\ttfamily friend class \hyperlink{class_mason_1_1_physics}{Physics}\hspace{0.3cm}{\ttfamily [friend]}}
 
 \hypertarget{class_mason_1_1_transform_a33061a25b8332281d02c83e2bf1d4959}{}\label{class_mason_1_1_transform_a33061a25b8332281d02c83e2bf1d4959} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!Rendering@{Rendering}}
@@ -212,17 +210,17 @@ Reimplemented in \hyperlink{class_mason_1_1_camera_a27ff2d3ad004a49db2ae508ac6e9
 \subsubsection{\texorpdfstring{position}{position}}
 {\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Transform\+::position\hspace{0.3cm}{\ttfamily [protected]}}
 
-\hypertarget{class_mason_1_1_transform_ae2f541ade79d561584619e93edb034ae}{}\label{class_mason_1_1_transform_ae2f541ade79d561584619e93edb034ae} 
+\hypertarget{class_mason_1_1_transform_a1ff204c28b286c45743fbbd03d8193a6}{}\label{class_mason_1_1_transform_a1ff204c28b286c45743fbbd03d8193a6} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!rotation@{rotation}}
 \index{rotation@{rotation}!Mason\+::\+Transform@{Mason\+::\+Transform}}
 \subsubsection{\texorpdfstring{rotation}{rotation}}
-{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Transform\+::rotation\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily float Mason\+::\+Transform\+::rotation\hspace{0.3cm}{\ttfamily [protected]}}
 
-\hypertarget{class_mason_1_1_transform_a4618b31e34a6ec8a0ee638401fc56367}{}\label{class_mason_1_1_transform_a4618b31e34a6ec8a0ee638401fc56367} 
+\hypertarget{class_mason_1_1_transform_a0a12711710700aca2523630c1014dc17}{}\label{class_mason_1_1_transform_a0a12711710700aca2523630c1014dc17} 
 \index{Mason\+::\+Transform@{Mason\+::\+Transform}!scale@{scale}}
 \index{scale@{scale}!Mason\+::\+Transform@{Mason\+::\+Transform}}
 \subsubsection{\texorpdfstring{scale}{scale}}
-{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Transform\+::scale\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily float Mason\+::\+Transform\+::scale\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 

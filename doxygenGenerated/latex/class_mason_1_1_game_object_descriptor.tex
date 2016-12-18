@@ -2,12 +2,14 @@
 \label{class_mason_1_1_game_object_descriptor}\index{Mason\+::\+Game\+Object\+Descriptor@{Mason\+::\+Game\+Object\+Descriptor}}
 
 
+Describes a \hyperlink{class_mason_1_1_game_object}{Game\+Object} ~\newline
+  
+
+
+
+
 {\ttfamily \#include $<$Scene\+Parser.\+hpp$>$}
 
-
-
-Collaboration diagram for Mason\+:\+:Game\+Object\+Descriptor\+:
-% FIG 0
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,13 +29,39 @@ int \hyperlink{class_mason_1_1_game_object_descriptor_aafbd17cd506939c46ce70b550
 \item 
 std\+::vector$<$ \hyperlink{class_mason_1_1_script_descriptor}{Script\+Descriptor} $>$ \hyperlink{class_mason_1_1_game_object_descriptor_a07c8b975f3306740060a73924c6315a7}{scripts}
 \item 
-\hyperlink{class_mason_1_1_circle_collider_descriptor}{Circle\+Collider\+Descriptor} \hyperlink{class_mason_1_1_game_object_descriptor_a1ece68a262a9eade1de5f470c1a84778}{circle\+Collider}
-\item 
-\hyperlink{class_mason_1_1_box_collider_descriptor}{Box\+Collider\+Descriptor} \hyperlink{class_mason_1_1_game_object_descriptor_a81952b9b181c5731b74971fb6510c838}{box\+Collider}
-\item 
 \hyperlink{class_mason_1_1_physics_body_descriptor}{Physics\+Body\+Descriptor} \hyperlink{class_mason_1_1_game_object_descriptor_a923994ccf28b36e3349e6355d3d0d6bd}{physics\+Body2D}
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Describes a \hyperlink{class_mason_1_1_game_object}{Game\+Object} ~\newline
+ 
+
+\char`\"{}unique\+Id\char`\"{}\+: 0, // Optional, default\+: 0 ~\newline
+ \char`\"{}name\char`\"{}\+: \char`\"{}\+Object\char`\"{}, // Optional, default\+: \char`\"{}\+Object\char`\"{} ~\newline
+ \char`\"{}transform\char`\"{}\+: \{ // Optional, created by default, see \hyperlink{class_mason_1_1_transform_descriptor}{Transform\+Descriptor} for details ~\newline
+ ... ~\newline
+ \}, ~\newline
+ \char`\"{}sprite\char`\"{}\+: \{ // Optional, see \hyperlink{class_mason_1_1_sprite_descriptor}{Sprite\+Descriptor} for details ~\newline
+ ... ~\newline
+ \}, ~\newline
+ \char`\"{}camera\char`\"{}\+: \{ // Optional, see \hyperlink{class_mason_1_1_camera_descriptor}{Camera\+Descriptor} for details ~\newline
+ ... ~\newline
+ \}, ~\newline
+ \char`\"{}audio\char`\"{}\+: \{ // Optional, see \hyperlink{class_mason_1_1_audio_descriptor}{Audio\+Descriptor} for details ~\newline
+ ... ~\newline
+ \}, ~\newline
+ \char`\"{}particles\char`\"{}\+: \{ // Optional, see \hyperlink{class_mason_1_1_particle_descriptor}{Particle\+Descriptor} for details ~\newline
+ ... ~\newline
+ \}, ~\newline
+ \char`\"{}physicsbody\char`\"{}\+: \{ // Optional, see \hyperlink{class_mason_1_1_physics_body_descriptor}{Physics\+Body\+Descriptor} for details ~\newline
+ ... ~\newline
+ \}, ~\newline
+ \char`\"{}scripts\char`\"{}\+: \mbox{[} // Optional, list of \hyperlink{class_mason_1_1_script}{Script}, see \hyperlink{class_mason_1_1_script_descriptor}{Script\+Descriptor} for details ~\newline
+ \{ ~\newline
+ ... ~\newline
+ \} ~\newline
+ \mbox{]} 
 
 \subsection{Member Data Documentation}
 \hypertarget{class_mason_1_1_game_object_descriptor_a121843bc6264f0828e8672b1b390b21b}{}\label{class_mason_1_1_game_object_descriptor_a121843bc6264f0828e8672b1b390b21b} 
@@ -42,23 +70,11 @@ std\+::vector$<$ \hyperlink{class_mason_1_1_script_descriptor}{Script\+Descripto
 \subsubsection{\texorpdfstring{audio}{audio}}
 {\footnotesize\ttfamily \hyperlink{class_mason_1_1_audio_descriptor}{Audio\+Descriptor} Mason\+::\+Game\+Object\+Descriptor\+::audio}
 
-\hypertarget{class_mason_1_1_game_object_descriptor_a81952b9b181c5731b74971fb6510c838}{}\label{class_mason_1_1_game_object_descriptor_a81952b9b181c5731b74971fb6510c838} 
-\index{Mason\+::\+Game\+Object\+Descriptor@{Mason\+::\+Game\+Object\+Descriptor}!box\+Collider@{box\+Collider}}
-\index{box\+Collider@{box\+Collider}!Mason\+::\+Game\+Object\+Descriptor@{Mason\+::\+Game\+Object\+Descriptor}}
-\subsubsection{\texorpdfstring{box\+Collider}{boxCollider}}
-{\footnotesize\ttfamily \hyperlink{class_mason_1_1_box_collider_descriptor}{Box\+Collider\+Descriptor} Mason\+::\+Game\+Object\+Descriptor\+::box\+Collider}
-
 \hypertarget{class_mason_1_1_game_object_descriptor_a9b2710a89f6a1bb223594a2762340414}{}\label{class_mason_1_1_game_object_descriptor_a9b2710a89f6a1bb223594a2762340414} 
 \index{Mason\+::\+Game\+Object\+Descriptor@{Mason\+::\+Game\+Object\+Descriptor}!camera@{camera}}
 \index{camera@{camera}!Mason\+::\+Game\+Object\+Descriptor@{Mason\+::\+Game\+Object\+Descriptor}}
 \subsubsection{\texorpdfstring{camera}{camera}}
 {\footnotesize\ttfamily \hyperlink{class_mason_1_1_camera_descriptor}{Camera\+Descriptor} Mason\+::\+Game\+Object\+Descriptor\+::camera}
-
-\hypertarget{class_mason_1_1_game_object_descriptor_a1ece68a262a9eade1de5f470c1a84778}{}\label{class_mason_1_1_game_object_descriptor_a1ece68a262a9eade1de5f470c1a84778} 
-\index{Mason\+::\+Game\+Object\+Descriptor@{Mason\+::\+Game\+Object\+Descriptor}!circle\+Collider@{circle\+Collider}}
-\index{circle\+Collider@{circle\+Collider}!Mason\+::\+Game\+Object\+Descriptor@{Mason\+::\+Game\+Object\+Descriptor}}
-\subsubsection{\texorpdfstring{circle\+Collider}{circleCollider}}
-{\footnotesize\ttfamily \hyperlink{class_mason_1_1_circle_collider_descriptor}{Circle\+Collider\+Descriptor} Mason\+::\+Game\+Object\+Descriptor\+::circle\+Collider}
 
 \hypertarget{class_mason_1_1_game_object_descriptor_aea3fddf12ef08c91e1f5e422c7521e18}{}\label{class_mason_1_1_game_object_descriptor_aea3fddf12ef08c91e1f5e422c7521e18} 
 \index{Mason\+::\+Game\+Object\+Descriptor@{Mason\+::\+Game\+Object\+Descriptor}!name@{name}}

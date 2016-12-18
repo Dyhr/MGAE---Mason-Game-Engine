@@ -26,7 +26,7 @@ var namespace_mason =
     [ "PhysicsBodyDescriptor", "class_mason_1_1_physics_body_descriptor.html", "class_mason_1_1_physics_body_descriptor" ],
     [ "Scene", "class_mason_1_1_scene.html", "class_mason_1_1_scene" ],
     [ "SceneDescriptor", "class_mason_1_1_scene_descriptor.html", "class_mason_1_1_scene_descriptor" ],
-    [ "SceneParser", "class_mason_1_1_scene_parser.html", null ],
+    [ "SceneParser", "class_mason_1_1_scene_parser.html", "class_mason_1_1_scene_parser" ],
     [ "Script", "class_mason_1_1_script.html", "class_mason_1_1_script" ],
     [ "ScriptDescriptor", "class_mason_1_1_script_descriptor.html", "class_mason_1_1_script_descriptor" ],
     [ "Sprite", "class_mason_1_1_sprite.html", "class_mason_1_1_sprite" ],

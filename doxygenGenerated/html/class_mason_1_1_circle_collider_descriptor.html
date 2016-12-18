@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: Mason::CircleColliderDescriptor Class Reference</title>
+<title>Game Engines: Mason::CircleColliderDescriptor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -88,18 +88,36 @@ $(document).ready(function(){initNavTree('class_mason_1_1_circle_collider_descri
 </div><!--header-->
 <div class="contents">
 
+<p>Describes a kind of <a class="el" href="class_mason_1_1_collider2_d.html" title="creates a collider in the physics world, so they affect the game object that this component is attach...">Collider2D</a> component: CircleCollider (circle shaped) <br />
+  
+ <a href="class_mason_1_1_circle_collider_descriptor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_scene_parser_8hpp_source.html">SceneParser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:af6bbcde718abdf4fca1fd33283d90fe7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_circle_collider_descriptor.html#af6bbcde718abdf4fca1fd33283d90fe7">found</a> = false</td></tr>
-<tr class="separator:af6bbcde718abdf4fca1fd33283d90fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95cb9b34dd352a4fb9d13b883bebc4b6"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_circle_collider_descriptor.html#a95cb9b34dd352a4fb9d13b883bebc4b6">center</a> = glm::vec2(0, 0)</td></tr>
 <tr class="separator:a95cb9b34dd352a4fb9d13b883bebc4b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8785a58429df1c9bac9f1f482164e9f1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_circle_collider_descriptor.html#a8785a58429df1c9bac9f1f482164e9f1">radius</a> = 1</td></tr>
 <tr class="separator:a8785a58429df1c9bac9f1f482164e9f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cc660a99bd52e811faff6dfc491ff56"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_circle_collider_descriptor.html#a3cc660a99bd52e811faff6dfc491ff56">density</a> = 1</td></tr>
+<tr class="separator:a3cc660a99bd52e811faff6dfc491ff56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77cbaa2de9aa4787e94616b4a0cf5cf0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_circle_collider_descriptor.html#a77cbaa2de9aa4787e94616b4a0cf5cf0">friction</a> = 0.1f</td></tr>
+<tr class="separator:a77cbaa2de9aa4787e94616b4a0cf5cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Describes a kind of <a class="el" href="class_mason_1_1_collider2_d.html" title="creates a collider in the physics world, so they affect the game object that this component is attach...">Collider2D</a> component: CircleCollider (circle shaped) <br />
+ </p>
+<p>"physicsbody": { // as part of a <a class="el" href="class_mason_1_1_physics_body2_d.html" title="creates a body in the physics world, so they affect the game object that this component is attached t...">PhysicsBody2D</a> <br />
+ "circles": [ // Optional, for giving a CircleCollider. <br />
+ { "center": [ 0, 0 ], // Optional, default: [0,0] <br />
+ "radius": 1, // Optional, default: 1 <br />
+ "density": 1, // Optional, default: 1 <br />
+ "friction": 0.1 // Optional, default: 0.1 <br />
+ } <br />
+ ] <br />
+ } </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a95cb9b34dd352a4fb9d13b883bebc4b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a95cb9b34dd352a4fb9d13b883bebc4b6">&sect;&nbsp;</a></span>center</h2>
 
@@ -114,14 +132,28 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af6bbcde718abdf4fca1fd33283d90fe7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6bbcde718abdf4fca1fd33283d90fe7">&sect;&nbsp;</a></span>found</h2>
+<a id="a3cc660a99bd52e811faff6dfc491ff56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cc660a99bd52e811faff6dfc491ff56">&sect;&nbsp;</a></span>density</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Mason::CircleColliderDescriptor::found = false</td>
+          <td class="memname">float Mason::CircleColliderDescriptor::density = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77cbaa2de9aa4787e94616b4a0cf5cf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77cbaa2de9aa4787e94616b4a0cf5cf0">&sect;&nbsp;</a></span>friction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Mason::CircleColliderDescriptor::friction = 0.1f</td>
         </tr>
       </table>
 </div><div class="memdoc">

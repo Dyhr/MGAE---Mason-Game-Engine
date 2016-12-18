@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: Mason::ParticleDescriptor Class Reference</title>
+<title>Game Engines: Mason::ParticleDescriptor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -87,6 +87,40 @@ $(document).ready(function(){initNavTree('class_mason_1_1_particle_descriptor.ht
 <div class="title">Mason::ParticleDescriptor Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Describes a Particle component <br />
+ "particles": { "texturePath": "/data/images", // Optional, default: nullptr <br />
+ "rate": 60, // Optional<br />
+ "lifespan": 0.5, // Optional <br />
+ "velocityState": "random", // Optional, options: FIXED | RANDOM | LINEAR | SPLINE <br />
+ "minVelocity": [0, 300, 0], // Optional <br />
+ "maxVelocity": [20, 300, 0], // Optional <br />
+ "gravity": [0, 0, 0], // Optional <br />
+ "size": 1, // Optional <br />
+ "minsize": 0 // Optional <br />
+ "maxsize": 1 // Optional <br />
+ "sizeState": "linear", // Optional <br />
+ "initialSize": 0.3, // Optional <br />
+ "finalSize": 0.7, // Optional <br />
+ "initialColor": [1, 1, 0, 1], // Optional <br />
+ "finalColor": [1, 0, 0, 1], // Optional <br />
+ "rotationState": "fixed", // Optional <br />
+ "rotation": 0, // Optional <br />
+ "minrotation": 0, // Optional <br />
+ "maxrotation": 1, // Optional <br />
+ "initialrotation": 0, // Optional <br />
+ "finalrotation": 1, // Optional <br />
+ "color": [0,0,0,0], // Optional <br />
+ "mincolor": [0,0,0,0], // Optional <br />
+ "maxcolor": [0,0,0,0], // Optional <br />
+ "initialcolor": [0,0,0,0], // Optional <br />
+ "finalcolor": [0,0,0,0], // Optional <br />
+ "colorState": "linear", // Optional <br />
+ "splinePointsSize": [0.5, 0.5], // Optional <br />
+ "splinePointsColor": [0.5, 0.5],// Optional <br />
+ "splinePointsRotation": [0.5, 0.5], // Optional <br />
+ }.  
+ <a href="class_mason_1_1_particle_descriptor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_scene_parser_8hpp_source.html">SceneParser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -147,7 +181,40 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aad86105e768cb5cf59c26d1277ccad2e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; glm::vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#aad86105e768cb5cf59c26d1277ccad2e">splinePointsRotation</a></td></tr>
 <tr class="separator:aad86105e768cb5cf59c26d1277ccad2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Describes a Particle component <br />
+ "particles": { "texturePath": "/data/images", // Optional, default: nullptr <br />
+ "rate": 60, // Optional<br />
+ "lifespan": 0.5, // Optional <br />
+ "velocityState": "random", // Optional, options: FIXED | RANDOM | LINEAR | SPLINE <br />
+ "minVelocity": [0, 300, 0], // Optional <br />
+ "maxVelocity": [20, 300, 0], // Optional <br />
+ "gravity": [0, 0, 0], // Optional <br />
+ "size": 1, // Optional <br />
+ "minsize": 0 // Optional <br />
+ "maxsize": 1 // Optional <br />
+ "sizeState": "linear", // Optional <br />
+ "initialSize": 0.3, // Optional <br />
+ "finalSize": 0.7, // Optional <br />
+ "initialColor": [1, 1, 0, 1], // Optional <br />
+ "finalColor": [1, 0, 0, 1], // Optional <br />
+ "rotationState": "fixed", // Optional <br />
+ "rotation": 0, // Optional <br />
+ "minrotation": 0, // Optional <br />
+ "maxrotation": 1, // Optional <br />
+ "initialrotation": 0, // Optional <br />
+ "finalrotation": 1, // Optional <br />
+ "color": [0,0,0,0], // Optional <br />
+ "mincolor": [0,0,0,0], // Optional <br />
+ "maxcolor": [0,0,0,0], // Optional <br />
+ "initialcolor": [0,0,0,0], // Optional <br />
+ "finalcolor": [0,0,0,0], // Optional <br />
+ "colorState": "linear", // Optional <br />
+ "splinePointsSize": [0.5, 0.5], // Optional <br />
+ "splinePointsColor": [0.5, 0.5],// Optional <br />
+ "splinePointsRotation": [0.5, 0.5], // Optional <br />
+ }. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="aea9d3bf8cd0eaf89a9d34ca698062280"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea9d3bf8cd0eaf89a9d34ca698062280">&sect;&nbsp;</a></span>colorState</h2>
 

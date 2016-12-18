@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: include/Mason/SceneParser.hpp File Reference</title>
+<title>Game Engines: include/Mason/SceneParser.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -91,46 +91,88 @@ $(document).ready(function(){initNavTree('_scene_parser_8hpp.html','');});
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;glm/glm.hpp&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
-<code>#include &lt;Box2D/Box2D.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_audio_8hpp_source.html">Mason/Audio.hpp</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for SceneParser.hpp:</div>
-<div class="dyncontent">
-<div class="center"><img src="_scene_parser_8hpp__incl.png" border="0" usemap="#include_2_mason_2_scene_parser_8hpp" alt=""/></div>
-<!-- MAP 0 -->
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="_scene_parser_8hpp__dep__incl.png" border="0" usemap="#include_2_mason_2_scene_parser_8hppdep" alt=""/></div>
-<!-- MAP 1 -->
-</div>
+<code>#include &quot;<a class="el" href="picojson_8h_source.html">picojson.h</a>&quot;</code><br />
 </div>
 <p><a href="_scene_parser_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_camera_descriptor.html">Mason::CameraDescriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a <a class="el" href="class_mason_1_1_camera.html" title="We need to translate and scale the camera (not rotate because it is 2D) and setup the viewport plane...">Camera</a> component <br />
+  <a href="class_mason_1_1_camera_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html">Mason::ParticleDescriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a Particle component <br />
+ "particles": { "texturePath": "/data/images", // Optional, default: nullptr <br />
+ "rate": 60, // Optional<br />
+ "lifespan": 0.5, // Optional <br />
+ "velocityState": "random", // Optional, options: FIXED | RANDOM | LINEAR | SPLINE <br />
+ "minVelocity": [0, 300, 0], // Optional <br />
+ "maxVelocity": [20, 300, 0], // Optional <br />
+ "gravity": [0, 0, 0], // Optional <br />
+ "size": 1, // Optional <br />
+ "minsize": 0 // Optional <br />
+ "maxsize": 1 // Optional <br />
+ "sizeState": "linear", // Optional <br />
+ "initialSize": 0.3, // Optional <br />
+ "finalSize": 0.7, // Optional <br />
+ "initialColor": [1, 1, 0, 1], // Optional <br />
+ "finalColor": [1, 0, 0, 1], // Optional <br />
+ "rotationState": "fixed", // Optional <br />
+ "rotation": 0, // Optional <br />
+ "minrotation": 0, // Optional <br />
+ "maxrotation": 1, // Optional <br />
+ "initialrotation": 0, // Optional <br />
+ "finalrotation": 1, // Optional <br />
+ "color": [0,0,0,0], // Optional <br />
+ "mincolor": [0,0,0,0], // Optional <br />
+ "maxcolor": [0,0,0,0], // Optional <br />
+ "initialcolor": [0,0,0,0], // Optional <br />
+ "finalcolor": [0,0,0,0], // Optional <br />
+ "colorState": "linear", // Optional <br />
+ "splinePointsSize": [0.5, 0.5], // Optional <br />
+ "splinePointsColor": [0.5, 0.5],// Optional <br />
+ "splinePointsRotation": [0.5, 0.5], // Optional <br />
+ }.  <a href="class_mason_1_1_particle_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_sprite_descriptor.html">Mason::SpriteDescriptor</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics_body_descriptor.html">Mason::PhysicsBodyDescriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a> component <br />
+ "sprite": { "name": "mario_0", // Mandatory <br />
+ "color": [1,1,1,1] // Optional, default [1,1,1,1] <br />
+  <a href="class_mason_1_1_sprite_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_box_collider_descriptor.html">Mason::BoxColliderDescriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a kind of <a class="el" href="class_mason_1_1_collider2_d.html" title="creates a collider in the physics world, so they affect the game object that this component is attach...">Collider2D</a> component: BoxCollider (square shaped) <br />
+  <a href="class_mason_1_1_box_collider_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_circle_collider_descriptor.html">Mason::CircleColliderDescriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a kind of <a class="el" href="class_mason_1_1_collider2_d.html" title="creates a collider in the physics world, so they affect the game object that this component is attach...">Collider2D</a> component: CircleCollider (circle shaped) <br />
+  <a href="class_mason_1_1_circle_collider_descriptor.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics_body_descriptor.html">Mason::PhysicsBodyDescriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a PhysicsBody component <br />
+  <a href="class_mason_1_1_physics_body_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_transform_descriptor.html">Mason::TransformDescriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a <a class="el" href="class_mason_1_1_transform.html">Transform</a> component <br />
+  <a href="class_mason_1_1_transform_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_audio_descriptor.html">Mason::AudioDescriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes an <a class="el" href="class_mason_1_1_audio.html">Audio</a> component <br />
+  <a href="class_mason_1_1_audio_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_script_descriptor.html">Mason::ScriptDescriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a <a class="el" href="class_mason_1_1_script.html">Script</a> component <br />
+  <a href="class_mason_1_1_script_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_game_object_descriptor.html">Mason::GameObjectDescriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> <br />
+  <a href="class_mason_1_1_game_object_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_descriptor.html">Mason::SceneDescriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a <a class="el" href="class_mason_1_1_scene.html">Scene</a> <br />
+  <a href="class_mason_1_1_scene_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_parser.html">Mason::SceneParser</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>

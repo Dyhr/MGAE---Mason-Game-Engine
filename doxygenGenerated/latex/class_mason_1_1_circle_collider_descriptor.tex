@@ -2,18 +2,40 @@
 \label{class_mason_1_1_circle_collider_descriptor}\index{Mason\+::\+Circle\+Collider\+Descriptor@{Mason\+::\+Circle\+Collider\+Descriptor}}
 
 
+Describes a kind of \hyperlink{class_mason_1_1_collider2_d}{Collider2D} component\+: Circle\+Collider (circle shaped) ~\newline
+  
+
+
+
+
 {\ttfamily \#include $<$Scene\+Parser.\+hpp$>$}
 
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-bool \hyperlink{class_mason_1_1_circle_collider_descriptor_af6bbcde718abdf4fca1fd33283d90fe7}{found} = false
-\item 
 glm\+::vec2 \hyperlink{class_mason_1_1_circle_collider_descriptor_a95cb9b34dd352a4fb9d13b883bebc4b6}{center} = glm\+::vec2(0, 0)
 \item 
 float \hyperlink{class_mason_1_1_circle_collider_descriptor_a8785a58429df1c9bac9f1f482164e9f1}{radius} = 1
+\item 
+float \hyperlink{class_mason_1_1_circle_collider_descriptor_a3cc660a99bd52e811faff6dfc491ff56}{density} = 1
+\item 
+float \hyperlink{class_mason_1_1_circle_collider_descriptor_a77cbaa2de9aa4787e94616b4a0cf5cf0}{friction} = 0.\+1f
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Describes a kind of \hyperlink{class_mason_1_1_collider2_d}{Collider2D} component\+: Circle\+Collider (circle shaped) ~\newline
+ 
+
+\char`\"{}physicsbody\char`\"{}\+: \{ // as part of a \hyperlink{class_mason_1_1_physics_body2_d}{Physics\+Body2D} ~\newline
+ \char`\"{}circles\char`\"{}\+: \mbox{[} // Optional, for giving a Circle\+Collider. ~\newline
+ \{ \char`\"{}center\char`\"{}\+: \mbox{[} 0, 0 \mbox{]}, // Optional, default\+: \mbox{[}0,0\mbox{]} ~\newline
+ \char`\"{}radius\char`\"{}\+: 1, // Optional, default\+: 1 ~\newline
+ \char`\"{}density\char`\"{}\+: 1, // Optional, default\+: 1 ~\newline
+ \char`\"{}friction\char`\"{}\+: 0.\+1 // Optional, default\+: 0.\+1 ~\newline
+ \} ~\newline
+ \mbox{]} ~\newline
+ \} 
 
 \subsection{Member Data Documentation}
 \hypertarget{class_mason_1_1_circle_collider_descriptor_a95cb9b34dd352a4fb9d13b883bebc4b6}{}\label{class_mason_1_1_circle_collider_descriptor_a95cb9b34dd352a4fb9d13b883bebc4b6} 
@@ -22,11 +44,17 @@ float \hyperlink{class_mason_1_1_circle_collider_descriptor_a8785a58429df1c9bac9
 \subsubsection{\texorpdfstring{center}{center}}
 {\footnotesize\ttfamily glm\+::vec2 Mason\+::\+Circle\+Collider\+Descriptor\+::center = glm\+::vec2(0, 0)}
 
-\hypertarget{class_mason_1_1_circle_collider_descriptor_af6bbcde718abdf4fca1fd33283d90fe7}{}\label{class_mason_1_1_circle_collider_descriptor_af6bbcde718abdf4fca1fd33283d90fe7} 
-\index{Mason\+::\+Circle\+Collider\+Descriptor@{Mason\+::\+Circle\+Collider\+Descriptor}!found@{found}}
-\index{found@{found}!Mason\+::\+Circle\+Collider\+Descriptor@{Mason\+::\+Circle\+Collider\+Descriptor}}
-\subsubsection{\texorpdfstring{found}{found}}
-{\footnotesize\ttfamily bool Mason\+::\+Circle\+Collider\+Descriptor\+::found = false}
+\hypertarget{class_mason_1_1_circle_collider_descriptor_a3cc660a99bd52e811faff6dfc491ff56}{}\label{class_mason_1_1_circle_collider_descriptor_a3cc660a99bd52e811faff6dfc491ff56} 
+\index{Mason\+::\+Circle\+Collider\+Descriptor@{Mason\+::\+Circle\+Collider\+Descriptor}!density@{density}}
+\index{density@{density}!Mason\+::\+Circle\+Collider\+Descriptor@{Mason\+::\+Circle\+Collider\+Descriptor}}
+\subsubsection{\texorpdfstring{density}{density}}
+{\footnotesize\ttfamily float Mason\+::\+Circle\+Collider\+Descriptor\+::density = 1}
+
+\hypertarget{class_mason_1_1_circle_collider_descriptor_a77cbaa2de9aa4787e94616b4a0cf5cf0}{}\label{class_mason_1_1_circle_collider_descriptor_a77cbaa2de9aa4787e94616b4a0cf5cf0} 
+\index{Mason\+::\+Circle\+Collider\+Descriptor@{Mason\+::\+Circle\+Collider\+Descriptor}!friction@{friction}}
+\index{friction@{friction}!Mason\+::\+Circle\+Collider\+Descriptor@{Mason\+::\+Circle\+Collider\+Descriptor}}
+\subsubsection{\texorpdfstring{friction}{friction}}
+{\footnotesize\ttfamily float Mason\+::\+Circle\+Collider\+Descriptor\+::friction = 0.\+1f}
 
 \hypertarget{class_mason_1_1_circle_collider_descriptor_a8785a58429df1c9bac9f1f482164e9f1}{}\label{class_mason_1_1_circle_collider_descriptor_a8785a58429df1c9bac9f1f482164e9f1} 
 \index{Mason\+::\+Circle\+Collider\+Descriptor@{Mason\+::\+Circle\+Collider\+Descriptor}!radius@{radius}}

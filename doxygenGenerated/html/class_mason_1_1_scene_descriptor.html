@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: Mason::SceneDescriptor Class Reference</title>
+<title>Game Engines: Mason::SceneDescriptor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -88,6 +88,10 @@ $(document).ready(function(){initNavTree('class_mason_1_1_scene_descriptor.html'
 </div><!--header-->
 <div class="contents">
 
+<p>Describes a <a class="el" href="class_mason_1_1_scene.html">Scene</a> <br />
+  
+ <a href="class_mason_1_1_scene_descriptor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_scene_parser_8hpp_source.html">SceneParser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -98,12 +102,37 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a32d312e0bb11e5e3f5419f5d3a6d002a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd7e349dc63b0692c2f4912765db2cbe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_descriptor.html#acd7e349dc63b0692c2f4912765db2cbe">soundpath</a> = &quot;data/sounds&quot;</td></tr>
 <tr class="separator:acd7e349dc63b0692c2f4912765db2cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5790bbda9414295660aa96be5824dbbb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_descriptor.html#a5790bbda9414295660aa96be5824dbbb">templatepath</a> = &quot;data/templates&quot;</td></tr>
+<tr class="separator:a5790bbda9414295660aa96be5824dbbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0037cbfd772bbacb81017de405276475"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_descriptor.html#a0037cbfd772bbacb81017de405276475">sprites</a></td></tr>
 <tr class="separator:a0037cbfd772bbacb81017de405276475"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1883e270cf9361e9797269cc0bed1bbc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_mason_1_1_game_object_descriptor.html">GameObjectDescriptor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_descriptor.html#a1883e270cf9361e9797269cc0bed1bbc">gameobjects</a></td></tr>
 <tr class="separator:a1883e270cf9361e9797269cc0bed1bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d9c12b3d2176d2012a22824113c7b56"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_descriptor.html#a7d9c12b3d2176d2012a22824113c7b56">gravity</a> = glm::vec2(0, -10)</td></tr>
+<tr class="separator:a7d9c12b3d2176d2012a22824113c7b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a800b682b3cadc6d6830e9bf23f01c958"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_descriptor.html#a800b682b3cadc6d6830e9bf23f01c958">physicsScale</a> = 100</td></tr>
+<tr class="separator:a800b682b3cadc6d6830e9bf23f01c958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Describes a <a class="el" href="class_mason_1_1_scene.html">Scene</a> <br />
+ </p>
+<p>"scenename": "Scene", // Optional, default: "Scene" <br />
+ "imagepath": "data/images", // Optional, default: "data/images" <br />
+ "soundpath": "data/sounds", // Optional, default: "data/sounds" <br />
+ "templatepath": "data/templates", // Optional, default: "data/templates" <br />
+ "sprites": [ // Optional, list of <a class="el" href="class_mason_1_1_sprite.html" title="rectangular images rendered at a specific position. A mesh contains the width and height of the Sprit...">Sprite</a>, see <a class="el" href="class_mason_1_1_sprite_descriptor.html" title="Describes a Sprite component   &quot;sprite&quot;: { &quot;name&quot;: &quot;mario_0&quot;, // Mandatory   &quot;color&quot;: [1...">SpriteDescriptor</a> for details <br />
+ { <br />
+ ... <br />
+ } <br />
+ ], "gameobjects": [ // Optional, list of <a class="el" href="class_mason_1_1_game_object.html">GameObject</a>, see <a class="el" href="class_mason_1_1_game_object_descriptor.html" title="Describes a GameObject   ">GameObjectDescriptor</a> for details <br />
+ { <br />
+ ... <br />
+ } <br />
+ ], <br />
+ "gravity": [0, -10], // Optional, default: [0, -10] <br />
+ "physicsScale": 100 // Optional, default: 100 <br />
+ </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a1883e270cf9361e9797269cc0bed1bbc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1883e270cf9361e9797269cc0bed1bbc">&sect;&nbsp;</a></span>gameobjects</h2>
 
@@ -112,6 +141,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;<a class="el" href="class_mason_1_1_game_object_descriptor.html">GameObjectDescriptor</a>&gt; Mason::SceneDescriptor::gameobjects</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d9c12b3d2176d2012a22824113c7b56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d9c12b3d2176d2012a22824113c7b56">&sect;&nbsp;</a></span>gravity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 Mason::SceneDescriptor::gravity = glm::vec2(0, -10)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -146,6 +189,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a800b682b3cadc6d6830e9bf23f01c958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a800b682b3cadc6d6830e9bf23f01c958">&sect;&nbsp;</a></span>physicsScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Mason::SceneDescriptor::physicsScale = 100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acd7e349dc63b0692c2f4912765db2cbe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acd7e349dc63b0692c2f4912765db2cbe">&sect;&nbsp;</a></span>soundpath</h2>
 
@@ -168,6 +225,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;std::string&gt; Mason::SceneDescriptor::sprites</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5790bbda9414295660aa96be5824dbbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5790bbda9414295660aa96be5824dbbb">&sect;&nbsp;</a></span>templatepath</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Mason::SceneDescriptor::templatepath = &quot;data/templates&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">

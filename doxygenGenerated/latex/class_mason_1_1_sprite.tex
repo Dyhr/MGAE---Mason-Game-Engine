@@ -2,7 +2,7 @@
 \label{class_mason_1_1_sprite}\index{Mason\+::\+Sprite@{Mason\+::\+Sprite}}
 
 
-rectangular images rendered at a specific position. A mesh contains the width and height of the \hyperlink{class_mason_1_1_sprite}{Sprite}. The image of the \hyperlink{class_mason_1_1_sprite}{Sprite} is loaded as a S\+RE Texture. This Texture is assigned to the S\+RE shader  
+rectangular images rendered at a specific position. A mesh contains the width and height of the \hyperlink{class_mason_1_1_sprite}{Sprite}. The image of the \hyperlink{class_mason_1_1_sprite}{Sprite} is loaded as a \hyperlink{namespace_s_r_e}{S\+RE} Texture. This Texture is assigned to the \hyperlink{namespace_s_r_e}{S\+RE} shader  
 
 
 
@@ -14,8 +14,8 @@ rectangular images rendered at a specific position. A mesh contains the width an
 \item 
 \hyperlink{class_mason_1_1_sprite_a40dbab8285c1d3bdc95dfe1806736402}{Sprite} (int x, int y, int width, int height, float anchorX, float anchorY, std\+::shared\+\_\+ptr$<$ S\+R\+E\+::\+Texture $>$ texture)
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_mason_1_1_sprite}{Sprite} constructor Sets up the mesh to be rendered (with vertices defined in windows coordinates, normals (not used in 2D graphics) and U\+Vs with the normalize texture coordinates) \end{DoxyCompactList}\item 
-void \hyperlink{class_mason_1_1_sprite_a6229a8bef359a9023f6510978bd95b0b}{draw} (glm\+::vec3 position) const
-\begin{DoxyCompactList}\small\item\em why is it const ? sets the texture in a S\+RE shader and calls the S\+RE \hyperlink{class_mason_1_1_sprite_a6229a8bef359a9023f6510978bd95b0b}{draw()}, providing the mesh, the position given by the \hyperlink{class_mason_1_1_sprite_renderer}{Sprite\+Renderer} and the shader. \end{DoxyCompactList}\item 
+void \hyperlink{class_mason_1_1_sprite_ab79c7da6288a30931a376c53544f7171}{draw} (glm\+::mat4 matrix) const
+\begin{DoxyCompactList}\small\item\em ... sets the texture in a \hyperlink{namespace_s_r_e}{S\+RE} shader (the built-\/in get\+Unlit\+Sprite(), with No Z-\/buffer test) and calls the \hyperlink{namespace_s_r_e}{S\+RE} \hyperlink{class_mason_1_1_sprite_ab79c7da6288a30931a376c53544f7171}{draw()}, providing the mesh, the position given by the \hyperlink{class_mason_1_1_sprite_renderer}{Sprite\+Renderer} and the shader. \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ S\+R\+E\+::\+Texture $>$ \hyperlink{class_mason_1_1_sprite_a712bae6921e612c77150a2741a0be7b1}{get\+Texture} ()
 \item 
 void \hyperlink{class_mason_1_1_sprite_a0331c6ca9aeb29be568485209cabcf06}{set\+Texture} (std\+::shared\+\_\+ptr$<$ S\+R\+E\+::\+Texture $>$ t)
@@ -28,10 +28,10 @@ int \hyperlink{class_mason_1_1_sprite_a5d5ba8a72349d94bbe9190efcb9715cc}{pixelsp
 
 
 \subsection{Detailed Description}
-rectangular images rendered at a specific position. A mesh contains the width and height of the \hyperlink{class_mason_1_1_sprite}{Sprite}. The image of the \hyperlink{class_mason_1_1_sprite}{Sprite} is loaded as a S\+RE Texture. This Texture is assigned to the S\+RE shader 
+rectangular images rendered at a specific position. A mesh contains the width and height of the \hyperlink{class_mason_1_1_sprite}{Sprite}. The image of the \hyperlink{class_mason_1_1_sprite}{Sprite} is loaded as a \hyperlink{namespace_s_r_e}{S\+RE} Texture. This Texture is assigned to the \hyperlink{namespace_s_r_e}{S\+RE} shader 
 
 \begin{DoxySeeAlso}{See also}
-S\+RE. 
+\hyperlink{namespace_s_r_e}{S\+RE}. 
 \end{DoxySeeAlso}
 
 
@@ -64,23 +64,23 @@ S\+RE.
 \hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
-S\+RE (also supports 3D graphics) 
+\hyperlink{namespace_s_r_e}{S\+RE} (also supports 3D graphics) 
 \end{DoxySeeAlso}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_mason_1_1_sprite_a6229a8bef359a9023f6510978bd95b0b}{}\label{class_mason_1_1_sprite_a6229a8bef359a9023f6510978bd95b0b} 
+\hypertarget{class_mason_1_1_sprite_ab79c7da6288a30931a376c53544f7171}{}\label{class_mason_1_1_sprite_ab79c7da6288a30931a376c53544f7171} 
 \index{Mason\+::\+Sprite@{Mason\+::\+Sprite}!draw@{draw}}
 \index{draw@{draw}!Mason\+::\+Sprite@{Mason\+::\+Sprite}}
 \subsubsection{\texorpdfstring{draw()}{draw()}}
-{\footnotesize\ttfamily void Sprite\+::draw (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{position }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily void Sprite\+::draw (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{matrix }\end{DoxyParamCaption}) const}
 
 
 
-why is it const ? sets the texture in a S\+RE shader and calls the S\+RE \hyperlink{class_mason_1_1_sprite_a6229a8bef359a9023f6510978bd95b0b}{draw()}, providing the mesh, the position given by the \hyperlink{class_mason_1_1_sprite_renderer}{Sprite\+Renderer} and the shader. 
+... sets the texture in a \hyperlink{namespace_s_r_e}{S\+RE} shader (the built-\/in get\+Unlit\+Sprite(), with No Z-\/buffer test) and calls the \hyperlink{namespace_s_r_e}{S\+RE} \hyperlink{class_mason_1_1_sprite_ab79c7da6288a30931a376c53544f7171}{draw()}, providing the mesh, the position given by the \hyperlink{class_mason_1_1_sprite_renderer}{Sprite\+Renderer} and the shader. 
 
 \begin{DoxySeeAlso}{See also}
-S\+RE 
+\hyperlink{namespace_s_r_e}{S\+RE} 
 \end{DoxySeeAlso}
 \hypertarget{class_mason_1_1_sprite_a712bae6921e612c77150a2741a0be7b1}{}\label{class_mason_1_1_sprite_a712bae6921e612c77150a2741a0be7b1} 
 \index{Mason\+::\+Sprite@{Mason\+::\+Sprite}!get\+Texture@{get\+Texture}}
@@ -89,10 +89,10 @@ S\+RE
 {\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ S\+R\+E\+::\+Texture $>$ Sprite\+::get\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyReturn}{Returns}
-S\+RE texture that stores colors, shadows, geometry data and others 
+\hyperlink{namespace_s_r_e}{S\+RE} texture that stores colors, shadows, geometry data and others 
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
-S\+RE 
+\hyperlink{namespace_s_r_e}{S\+RE} 
 \end{DoxySeeAlso}
 \hypertarget{class_mason_1_1_sprite_a0331c6ca9aeb29be568485209cabcf06}{}\label{class_mason_1_1_sprite_a0331c6ca9aeb29be568485209cabcf06} 
 \index{Mason\+::\+Sprite@{Mason\+::\+Sprite}!set\+Texture@{set\+Texture}}
@@ -105,7 +105,7 @@ S\+RE
 sets the texture of the \hyperlink{class_mason_1_1_sprite}{Sprite} 
 
 \begin{DoxySeeAlso}{See also}
-S\+RE 
+\hyperlink{namespace_s_r_e}{S\+RE} 
 \end{DoxySeeAlso}
 
 

@@ -1,13 +1,13 @@
 var class_mason_1_1_camera =
 [
     [ "~Camera", "class_mason_1_1_camera.html#ad1897942d0ccf91052386388a497349f", null ],
-    [ "Camera", "class_mason_1_1_camera.html#aca4e1307d4601e7f0a711dfd94729143", null ],
+    [ "Camera", "class_mason_1_1_camera.html#af0b5abfa91d40f8338b84744e99aea66", null ],
     [ "getPosition", "class_mason_1_1_camera.html#a71560b8b6216a542ae1958bd91a4361d", null ],
-    [ "getScale", "class_mason_1_1_camera.html#a405b26eaaae2ab7a460dfc319a9d16ea", null ],
+    [ "getScale", "class_mason_1_1_camera.html#a9c86fd4a182c472001f5d52e99fc0bbc", null ],
     [ "getViewportMax", "class_mason_1_1_camera.html#abe43550148e85f5a32919a3c8b8ff115", null ],
     [ "getViewportMin", "class_mason_1_1_camera.html#a0d2d26d8b7b80ab508ed4f4f537614b5", null ],
     [ "setPosition", "class_mason_1_1_camera.html#a69f184af46d081b85209040bbe814cbb", null ],
-    [ "setScale", "class_mason_1_1_camera.html#a732501ee31e862f557bbbc8ff58631a4", null ],
+    [ "setScale", "class_mason_1_1_camera.html#af7aa6752699108d282996199549a704b", null ],
     [ "setViewportMax", "class_mason_1_1_camera.html#a1f9a7896bb617d1402e3c4738324e1ea", null ],
     [ "setViewportMin", "class_mason_1_1_camera.html#aa630259d7e0c0124dec5c9aaf33b7160", null ],
     [ "transformize", "class_mason_1_1_camera.html#a27ff2d3ad004a49db2ae508ac6e9d3c2", null ],

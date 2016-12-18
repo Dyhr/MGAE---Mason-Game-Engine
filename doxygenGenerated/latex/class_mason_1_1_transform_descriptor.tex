@@ -2,6 +2,12 @@
 \label{class_mason_1_1_transform_descriptor}\index{Mason\+::\+Transform\+Descriptor@{Mason\+::\+Transform\+Descriptor}}
 
 
+Describes a \hyperlink{class_mason_1_1_transform}{Transform} component ~\newline
+  
+
+
+
+
 {\ttfamily \#include $<$Scene\+Parser.\+hpp$>$}
 
 \subsection*{Public Attributes}
@@ -9,13 +15,24 @@
 \item 
 glm\+::vec3 \hyperlink{class_mason_1_1_transform_descriptor_acce622c3f89ae5b081c61feabc1319bf}{position} = glm\+::vec3(0, 0, 0)
 \item 
-glm\+::vec3 \hyperlink{class_mason_1_1_transform_descriptor_aa66cc703fd520b19b4347b390eabfc41}{rotation\+Euler} = glm\+::vec3(0, 0, 0)
+float \hyperlink{class_mason_1_1_transform_descriptor_aae276979ce993523996db1c9192d8cf8}{rotation} = 0.\+0f
 \item 
-glm\+::vec3 \hyperlink{class_mason_1_1_transform_descriptor_a5d264880a0c22c624c996057bf59b752}{scale} = glm\+::vec3(1, 1, 1)
+float \hyperlink{class_mason_1_1_transform_descriptor_a8fe9d0ecd10d501dc956fae07b252dc8}{scale} = 1.\+0f
 \item 
 int \hyperlink{class_mason_1_1_transform_descriptor_ae83bf1f16969979cb24e2ae9d1eb3134}{parent\+Id} = -\/1
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Describes a \hyperlink{class_mason_1_1_transform}{Transform} component ~\newline
+ 
+
+\char`\"{}transform\char`\"{}\+: \{ ~\newline
+ \char`\"{}position\char`\"{} = \mbox{[}0, 0, 0\mbox{]}, // Optional, default\+: \mbox{[}0,0,0\mbox{]} ~\newline
+ \char`\"{}rotation\char`\"{} = 0, // Optional, default\+: 0 ~\newline
+ \char`\"{}scale\char`\"{} = 1, // Optional, default\+: 1 ~\newline
+ \char`\"{}parent\+Id\char`\"{} = -\/1 // Optional, default\+: -\/1 ~\newline
+ \} 
 
 \subsection{Member Data Documentation}
 \hypertarget{class_mason_1_1_transform_descriptor_ae83bf1f16969979cb24e2ae9d1eb3134}{}\label{class_mason_1_1_transform_descriptor_ae83bf1f16969979cb24e2ae9d1eb3134} 
@@ -30,17 +47,17 @@ int \hyperlink{class_mason_1_1_transform_descriptor_ae83bf1f16969979cb24e2ae9d1e
 \subsubsection{\texorpdfstring{position}{position}}
 {\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Transform\+Descriptor\+::position = glm\+::vec3(0, 0, 0)}
 
-\hypertarget{class_mason_1_1_transform_descriptor_aa66cc703fd520b19b4347b390eabfc41}{}\label{class_mason_1_1_transform_descriptor_aa66cc703fd520b19b4347b390eabfc41} 
-\index{Mason\+::\+Transform\+Descriptor@{Mason\+::\+Transform\+Descriptor}!rotation\+Euler@{rotation\+Euler}}
-\index{rotation\+Euler@{rotation\+Euler}!Mason\+::\+Transform\+Descriptor@{Mason\+::\+Transform\+Descriptor}}
-\subsubsection{\texorpdfstring{rotation\+Euler}{rotationEuler}}
-{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Transform\+Descriptor\+::rotation\+Euler = glm\+::vec3(0, 0, 0)}
+\hypertarget{class_mason_1_1_transform_descriptor_aae276979ce993523996db1c9192d8cf8}{}\label{class_mason_1_1_transform_descriptor_aae276979ce993523996db1c9192d8cf8} 
+\index{Mason\+::\+Transform\+Descriptor@{Mason\+::\+Transform\+Descriptor}!rotation@{rotation}}
+\index{rotation@{rotation}!Mason\+::\+Transform\+Descriptor@{Mason\+::\+Transform\+Descriptor}}
+\subsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily float Mason\+::\+Transform\+Descriptor\+::rotation = 0.\+0f}
 
-\hypertarget{class_mason_1_1_transform_descriptor_a5d264880a0c22c624c996057bf59b752}{}\label{class_mason_1_1_transform_descriptor_a5d264880a0c22c624c996057bf59b752} 
+\hypertarget{class_mason_1_1_transform_descriptor_a8fe9d0ecd10d501dc956fae07b252dc8}{}\label{class_mason_1_1_transform_descriptor_a8fe9d0ecd10d501dc956fae07b252dc8} 
 \index{Mason\+::\+Transform\+Descriptor@{Mason\+::\+Transform\+Descriptor}!scale@{scale}}
 \index{scale@{scale}!Mason\+::\+Transform\+Descriptor@{Mason\+::\+Transform\+Descriptor}}
 \subsubsection{\texorpdfstring{scale}{scale}}
-{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Transform\+Descriptor\+::scale = glm\+::vec3(1, 1, 1)}
+{\footnotesize\ttfamily float Mason\+::\+Transform\+Descriptor\+::scale = 1.\+0f}
 
 
 

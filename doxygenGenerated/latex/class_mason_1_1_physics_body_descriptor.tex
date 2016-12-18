@@ -2,6 +2,12 @@
 \label{class_mason_1_1_physics_body_descriptor}\index{Mason\+::\+Physics\+Body\+Descriptor@{Mason\+::\+Physics\+Body\+Descriptor}}
 
 
+Describes a Physics\+Body component ~\newline
+  
+
+
+
+
 {\ttfamily \#include $<$Scene\+Parser.\+hpp$>$}
 
 \subsection*{Public Attributes}
@@ -9,22 +15,52 @@
 \item 
 bool \hyperlink{class_mason_1_1_physics_body_descriptor_aa2f258b6d07e44ce6bf4ccbea346f81d}{found} = false
 \item 
-b2\+Body\+Type \hyperlink{class_mason_1_1_physics_body_descriptor_a3fff369ef465ec0da8ae5a44957b4832}{type}
+int \hyperlink{class_mason_1_1_physics_body_descriptor_a30086565a0e9d3ec8c27366d852f333f}{type}
+\item 
+std\+::vector$<$ \hyperlink{class_mason_1_1_box_collider_descriptor}{Box\+Collider\+Descriptor} $>$ \hyperlink{class_mason_1_1_physics_body_descriptor_a5bf7d827bc6c3008e60d7eb596ff8f0b}{box\+Colliders}
+\item 
+std\+::vector$<$ \hyperlink{class_mason_1_1_circle_collider_descriptor}{Circle\+Collider\+Descriptor} $>$ \hyperlink{class_mason_1_1_physics_body_descriptor_ade73d134aefec863d829a2bc09712b84}{circle\+Colliders}
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Describes a Physics\+Body component ~\newline
+ 
+
+\char`\"{}physicsbody\char`\"{}\+: \{ ~\newline
+ \char`\"{}type\char`\"{}\+: \char`\"{}kinematic\char`\"{}, // Optional. Options\+: \char`\"{}dynamic\char`\"{} (default) $\vert$ \char`\"{}static\char`\"{} $\vert$ \char`\"{}kinematic\char`\"{}~\newline
+ \char`\"{}boxes\char`\"{}\+:\mbox{[} // Optional, see \hyperlink{class_mason_1_1_box_collider_descriptor}{Box\+Collider\+Descriptor} for details ~\newline
+ ... ~\newline
+ \mbox{]} ~\newline
+ \char`\"{}circles\char`\"{}\+: \mbox{[} // Optional, see \hyperlink{class_mason_1_1_circle_collider_descriptor}{Circle\+Collider\+Descriptor} for details ~\newline
+ ... ~\newline
+ \mbox{]} ~\newline
+ \} 
+
 \subsection{Member Data Documentation}
+\hypertarget{class_mason_1_1_physics_body_descriptor_a5bf7d827bc6c3008e60d7eb596ff8f0b}{}\label{class_mason_1_1_physics_body_descriptor_a5bf7d827bc6c3008e60d7eb596ff8f0b} 
+\index{Mason\+::\+Physics\+Body\+Descriptor@{Mason\+::\+Physics\+Body\+Descriptor}!box\+Colliders@{box\+Colliders}}
+\index{box\+Colliders@{box\+Colliders}!Mason\+::\+Physics\+Body\+Descriptor@{Mason\+::\+Physics\+Body\+Descriptor}}
+\subsubsection{\texorpdfstring{box\+Colliders}{boxColliders}}
+{\footnotesize\ttfamily std\+::vector$<$\hyperlink{class_mason_1_1_box_collider_descriptor}{Box\+Collider\+Descriptor}$>$ Mason\+::\+Physics\+Body\+Descriptor\+::box\+Colliders}
+
+\hypertarget{class_mason_1_1_physics_body_descriptor_ade73d134aefec863d829a2bc09712b84}{}\label{class_mason_1_1_physics_body_descriptor_ade73d134aefec863d829a2bc09712b84} 
+\index{Mason\+::\+Physics\+Body\+Descriptor@{Mason\+::\+Physics\+Body\+Descriptor}!circle\+Colliders@{circle\+Colliders}}
+\index{circle\+Colliders@{circle\+Colliders}!Mason\+::\+Physics\+Body\+Descriptor@{Mason\+::\+Physics\+Body\+Descriptor}}
+\subsubsection{\texorpdfstring{circle\+Colliders}{circleColliders}}
+{\footnotesize\ttfamily std\+::vector$<$\hyperlink{class_mason_1_1_circle_collider_descriptor}{Circle\+Collider\+Descriptor}$>$ Mason\+::\+Physics\+Body\+Descriptor\+::circle\+Colliders}
+
 \hypertarget{class_mason_1_1_physics_body_descriptor_aa2f258b6d07e44ce6bf4ccbea346f81d}{}\label{class_mason_1_1_physics_body_descriptor_aa2f258b6d07e44ce6bf4ccbea346f81d} 
 \index{Mason\+::\+Physics\+Body\+Descriptor@{Mason\+::\+Physics\+Body\+Descriptor}!found@{found}}
 \index{found@{found}!Mason\+::\+Physics\+Body\+Descriptor@{Mason\+::\+Physics\+Body\+Descriptor}}
 \subsubsection{\texorpdfstring{found}{found}}
 {\footnotesize\ttfamily bool Mason\+::\+Physics\+Body\+Descriptor\+::found = false}
 
-\hypertarget{class_mason_1_1_physics_body_descriptor_a3fff369ef465ec0da8ae5a44957b4832}{}\label{class_mason_1_1_physics_body_descriptor_a3fff369ef465ec0da8ae5a44957b4832} 
+\hypertarget{class_mason_1_1_physics_body_descriptor_a30086565a0e9d3ec8c27366d852f333f}{}\label{class_mason_1_1_physics_body_descriptor_a30086565a0e9d3ec8c27366d852f333f} 
 \index{Mason\+::\+Physics\+Body\+Descriptor@{Mason\+::\+Physics\+Body\+Descriptor}!type@{type}}
 \index{type@{type}!Mason\+::\+Physics\+Body\+Descriptor@{Mason\+::\+Physics\+Body\+Descriptor}}
 \subsubsection{\texorpdfstring{type}{type}}
-{\footnotesize\ttfamily b2\+Body\+Type Mason\+::\+Physics\+Body\+Descriptor\+::type}
+{\footnotesize\ttfamily int Mason\+::\+Physics\+Body\+Descriptor\+::type}
 
 
 

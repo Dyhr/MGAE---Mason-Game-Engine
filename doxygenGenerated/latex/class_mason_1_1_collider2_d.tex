@@ -2,62 +2,111 @@
 \label{class_mason_1_1_collider2_d}\index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
 
 
+creates a collider in the physics world, so they affect the game object that this component is attached to. it is a virtual class, as its methods are expected to be override by specific kinds of colliders\+: \hyperlink{class_mason_1_1_box_collider2_d}{Box\+Collider2D} and \hyperlink{class_mason_1_1_circle_collider2_d}{Circle\+Collider2D}  
+
+
+
+
 {\ttfamily \#include $<$Collider2\+D.\+hpp$>$}
 
-
-
-Inheritance diagram for Mason\+:\+:Collider2D\+:
-% FIG 0
-
-
-Collaboration diagram for Mason\+:\+:Collider2D\+:
-% FIG 1
+Inheritance diagram for Mason\+:\+:Collider2D\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_mason_1_1_collider2_d}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual b2\+Vec2 \hyperlink{class_mason_1_1_collider2_d_a3394739f1fea805691ac2753a9272156}{Get\+Scale} ()=0
+virtual float \hyperlink{class_mason_1_1_collider2_d_aeb03667bfd9e1006fd9076199af786e4}{get\+Density} ()
+\item 
+virtual void \hyperlink{class_mason_1_1_collider2_d_a077061bfa5c7a8c80e78042f9a421a49}{set\+Density} (float density\+\_\+)
+\item 
+virtual float \hyperlink{class_mason_1_1_collider2_d_a51dc3e85d605474a71c3b8c7949affef}{get\+Friction} ()
+\item 
+virtual void \hyperlink{class_mason_1_1_collider2_d_aa2e1d4505ee65f9a6fa7490bc50bd092}{set\+Friction} (float friction\+\_\+)
+\item 
+virtual float \hyperlink{class_mason_1_1_collider2_d_a370216fb8ccfe760adfc3365ac41ff8e}{get\+Scale} ()
+\item 
+virtual void \hyperlink{class_mason_1_1_collider2_d_a08f3b34369aaa53d89c2d16b37319795}{set\+Scale} (float scale\+\_\+)
 \end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_mason_1_1_collider2_d_a6873ad74052b0edb69dc61fcadace96b}{Collider2D} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ \hyperlink{class_mason_1_1_component_abaa67b569d0a70e26a4606f4a099a925}{game\+Object})
+\begin{DoxyCompactList}\small\item\em Constructor of \hyperlink{class_mason_1_1_collider2_d}{Collider2D} defines the shape, density and friction of the fixtures of the bodies in the world ( \hyperlink{class_mason_1_1_physics_body2_d}{Physics\+Body2D} ). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 b2\+Shape $\ast$ \hyperlink{class_mason_1_1_collider2_d_a82de033fe10f7da3fd079c7ff54eaf94}{shape}
+\begin{DoxyCompactList}\small\item\em in the world, shapes are created automatically when a b2\+Fixture is created (in a \hyperlink{class_mason_1_1_physics_body2_d}{Physics\+Body2D} ). \end{DoxyCompactList}\item 
+float \hyperlink{class_mason_1_1_collider2_d_ac0b6fb4b2bb5add1c96b4e1a8c6c0567}{scale}
 \item 
 float \hyperlink{class_mason_1_1_collider2_d_ad3b9178c829dbe0a8a25a75d643f8744}{density}
 \item 
 float \hyperlink{class_mason_1_1_collider2_d_ab08954cffa1ac7539e26c4e2da535481}{friction}
 \end{DoxyCompactItemize}
-\subsection*{Protected Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\hyperlink{class_mason_1_1_collider2_d_a7ac26a9d09d5380b49027e9ae50fdacc}{Collider2D} (\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$\hyperlink{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8}{game\+Object})
-\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_mason_1_1_collider2_d_a00df87c957d8f7ee0fc51f07a0542f4a}{Game\+Object}
+\item 
+class \hyperlink{class_mason_1_1_collider2_d_a60dcb177f208afef9864b04ec483a960}{Physics\+Body2D}
 \end{DoxyCompactItemize}
-\subsection*{Additional Inherited Members}
 
+
+\subsection{Detailed Description}
+creates a collider in the physics world, so they affect the game object that this component is attached to. it is a virtual class, as its methods are expected to be override by specific kinds of colliders\+: \hyperlink{class_mason_1_1_box_collider2_d}{Box\+Collider2D} and \hyperlink{class_mason_1_1_circle_collider2_d}{Circle\+Collider2D} 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_mason_1_1_collider2_d_a7ac26a9d09d5380b49027e9ae50fdacc}{}\label{class_mason_1_1_collider2_d_a7ac26a9d09d5380b49027e9ae50fdacc} 
+\hypertarget{class_mason_1_1_collider2_d_a6873ad74052b0edb69dc61fcadace96b}{}\label{class_mason_1_1_collider2_d_a6873ad74052b0edb69dc61fcadace96b} 
 \index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!Collider2D@{Collider2D}}
 \index{Collider2D@{Collider2D}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
 \subsubsection{\texorpdfstring{Collider2\+D()}{Collider2D()}}
-{\footnotesize\ttfamily Mason\+::\+Collider2\+D\+::\+Collider2D (\begin{DoxyParamCaption}\item[{\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily Mason\+::\+Collider2\+D\+::\+Collider2D (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Constructor of \hyperlink{class_mason_1_1_collider2_d}{Collider2D} defines the shape, density and friction of the fixtures of the bodies in the world ( \hyperlink{class_mason_1_1_physics_body2_d}{Physics\+Body2D} ). 
 
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_mason_1_1_collider2_d_a3394739f1fea805691ac2753a9272156}{}\label{class_mason_1_1_collider2_d_a3394739f1fea805691ac2753a9272156} 
-\index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!Get\+Scale@{Get\+Scale}}
-\index{Get\+Scale@{Get\+Scale}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
-\subsubsection{\texorpdfstring{Get\+Scale()}{GetScale()}}
-{\footnotesize\ttfamily virtual b2\+Vec2 Mason\+::\+Collider2\+D\+::\+Get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+\hypertarget{class_mason_1_1_collider2_d_aeb03667bfd9e1006fd9076199af786e4}{}\label{class_mason_1_1_collider2_d_aeb03667bfd9e1006fd9076199af786e4} 
+\index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!get\+Density@{get\+Density}}
+\index{get\+Density@{get\+Density}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
+\subsubsection{\texorpdfstring{get\+Density()}{getDensity()}}
+{\footnotesize\ttfamily virtual float Mason\+::\+Collider2\+D\+::get\+Density (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
+\hypertarget{class_mason_1_1_collider2_d_a51dc3e85d605474a71c3b8c7949affef}{}\label{class_mason_1_1_collider2_d_a51dc3e85d605474a71c3b8c7949affef} 
+\index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!get\+Friction@{get\+Friction}}
+\index{get\+Friction@{get\+Friction}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
+\subsubsection{\texorpdfstring{get\+Friction()}{getFriction()}}
+{\footnotesize\ttfamily virtual float Mason\+::\+Collider2\+D\+::get\+Friction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
+\hypertarget{class_mason_1_1_collider2_d_a370216fb8ccfe760adfc3365ac41ff8e}{}\label{class_mason_1_1_collider2_d_a370216fb8ccfe760adfc3365ac41ff8e} 
+\index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!get\+Scale@{get\+Scale}}
+\index{get\+Scale@{get\+Scale}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
+\subsubsection{\texorpdfstring{get\+Scale()}{getScale()}}
+{\footnotesize\ttfamily virtual float Mason\+::\+Collider2\+D\+::get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
-Implemented in \hyperlink{class_mason_1_1_box_collider2_d_a396aa615690a67c855b5025e3a1b3bce}{Mason\+::\+Box\+Collider2D}, and \hyperlink{class_mason_1_1_circle_collider2_d_a4aa06f3ff8f00445a78f6b6a8b479ad0}{Mason\+::\+Circle\+Collider2D}.
+\hypertarget{class_mason_1_1_collider2_d_a077061bfa5c7a8c80e78042f9a421a49}{}\label{class_mason_1_1_collider2_d_a077061bfa5c7a8c80e78042f9a421a49} 
+\index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!set\+Density@{set\+Density}}
+\index{set\+Density@{set\+Density}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
+\subsubsection{\texorpdfstring{set\+Density()}{setDensity()}}
+{\footnotesize\ttfamily virtual void Mason\+::\+Collider2\+D\+::set\+Density (\begin{DoxyParamCaption}\item[{float}]{density\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\hypertarget{class_mason_1_1_collider2_d_aa2e1d4505ee65f9a6fa7490bc50bd092}{}\label{class_mason_1_1_collider2_d_aa2e1d4505ee65f9a6fa7490bc50bd092} 
+\index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!set\+Friction@{set\+Friction}}
+\index{set\+Friction@{set\+Friction}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
+\subsubsection{\texorpdfstring{set\+Friction()}{setFriction()}}
+{\footnotesize\ttfamily virtual void Mason\+::\+Collider2\+D\+::set\+Friction (\begin{DoxyParamCaption}\item[{float}]{friction\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\hypertarget{class_mason_1_1_collider2_d_a08f3b34369aaa53d89c2d16b37319795}{}\label{class_mason_1_1_collider2_d_a08f3b34369aaa53d89c2d16b37319795} 
+\index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!set\+Scale@{set\+Scale}}
+\index{set\+Scale@{set\+Scale}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
+\subsubsection{\texorpdfstring{set\+Scale()}{setScale()}}
+{\footnotesize\ttfamily virtual void Mason\+::\+Collider2\+D\+::set\+Scale (\begin{DoxyParamCaption}\item[{float}]{scale\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
@@ -68,6 +117,12 @@ Implemented in \hyperlink{class_mason_1_1_box_collider2_d_a396aa615690a67c855b50
 \subsubsection{\texorpdfstring{Game\+Object}{GameObject}}
 {\footnotesize\ttfamily friend class \hyperlink{class_mason_1_1_game_object}{Game\+Object}\hspace{0.3cm}{\ttfamily [friend]}}
 
+\hypertarget{class_mason_1_1_collider2_d_a60dcb177f208afef9864b04ec483a960}{}\label{class_mason_1_1_collider2_d_a60dcb177f208afef9864b04ec483a960} 
+\index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!Physics\+Body2D@{Physics\+Body2D}}
+\index{Physics\+Body2D@{Physics\+Body2D}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
+\subsubsection{\texorpdfstring{Physics\+Body2D}{PhysicsBody2D}}
+{\footnotesize\ttfamily friend class \hyperlink{class_mason_1_1_physics_body2_d}{Physics\+Body2D}\hspace{0.3cm}{\ttfamily [friend]}}
+
 
 
 \subsection{Member Data Documentation}
@@ -75,19 +130,29 @@ Implemented in \hyperlink{class_mason_1_1_box_collider2_d_a396aa615690a67c855b50
 \index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!density@{density}}
 \index{density@{density}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
 \subsubsection{\texorpdfstring{density}{density}}
-{\footnotesize\ttfamily float Mason\+::\+Collider2\+D\+::density}
+{\footnotesize\ttfamily float Mason\+::\+Collider2\+D\+::density\hspace{0.3cm}{\ttfamily [protected]}}
 
 \hypertarget{class_mason_1_1_collider2_d_ab08954cffa1ac7539e26c4e2da535481}{}\label{class_mason_1_1_collider2_d_ab08954cffa1ac7539e26c4e2da535481} 
 \index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!friction@{friction}}
 \index{friction@{friction}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
 \subsubsection{\texorpdfstring{friction}{friction}}
-{\footnotesize\ttfamily float Mason\+::\+Collider2\+D\+::friction}
+{\footnotesize\ttfamily float Mason\+::\+Collider2\+D\+::friction\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_mason_1_1_collider2_d_ac0b6fb4b2bb5add1c96b4e1a8c6c0567}{}\label{class_mason_1_1_collider2_d_ac0b6fb4b2bb5add1c96b4e1a8c6c0567} 
+\index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!scale@{scale}}
+\index{scale@{scale}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
+\subsubsection{\texorpdfstring{scale}{scale}}
+{\footnotesize\ttfamily float Mason\+::\+Collider2\+D\+::scale\hspace{0.3cm}{\ttfamily [protected]}}
 
 \hypertarget{class_mason_1_1_collider2_d_a82de033fe10f7da3fd079c7ff54eaf94}{}\label{class_mason_1_1_collider2_d_a82de033fe10f7da3fd079c7ff54eaf94} 
 \index{Mason\+::\+Collider2D@{Mason\+::\+Collider2D}!shape@{shape}}
 \index{shape@{shape}!Mason\+::\+Collider2D@{Mason\+::\+Collider2D}}
 \subsubsection{\texorpdfstring{shape}{shape}}
-{\footnotesize\ttfamily b2\+Shape$\ast$ Mason\+::\+Collider2\+D\+::shape}
+{\footnotesize\ttfamily b2\+Shape$\ast$ Mason\+::\+Collider2\+D\+::shape\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+in the world, shapes are created automatically when a b2\+Fixture is created (in a \hyperlink{class_mason_1_1_physics_body2_d}{Physics\+Body2D} ). 
 
 
 

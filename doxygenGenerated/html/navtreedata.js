@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Game Engine", "index.html", [
+  [ "Game Engines", "index.html", [
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -29,6 +29,7 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -38,8 +39,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_audio_8cpp.html",
-"class_mason_1_1_particle_emitter.html#a591a7ed2fc6cded5dc19b144ece7b3fb",
-"globals_defs.html"
+"class_mason_1_1_particle_emitter.html#a00df87c957d8f7ee0fc51f07a0542f4a",
+"functions_func_e.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

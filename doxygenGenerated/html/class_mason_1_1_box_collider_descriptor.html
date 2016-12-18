@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: Mason::BoxColliderDescriptor Class Reference</title>
+<title>Game Engines: Mason::BoxColliderDescriptor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -88,20 +88,37 @@ $(document).ready(function(){initNavTree('class_mason_1_1_box_collider_descripto
 </div><!--header-->
 <div class="contents">
 
+<p>Describes a kind of <a class="el" href="class_mason_1_1_collider2_d.html" title="creates a collider in the physics world, so they affect the game object that this component is attach...">Collider2D</a> component: BoxCollider (square shaped) <br />
+  
+ <a href="class_mason_1_1_box_collider_descriptor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_scene_parser_8hpp_source.html">SceneParser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a2d5e6513971fcc6d8a0ce78a8985f909"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_box_collider_descriptor.html#a2d5e6513971fcc6d8a0ce78a8985f909">found</a> = false</td></tr>
-<tr class="separator:a2d5e6513971fcc6d8a0ce78a8985f909"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76bdf93a5c562a89e1f513b2f4ee7a65"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_box_collider_descriptor.html#a76bdf93a5c562a89e1f513b2f4ee7a65">center</a></td></tr>
+<tr class="memitem:a76bdf93a5c562a89e1f513b2f4ee7a65"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_box_collider_descriptor.html#a76bdf93a5c562a89e1f513b2f4ee7a65">center</a> = glm::vec2(0, 0)</td></tr>
 <tr class="separator:a76bdf93a5c562a89e1f513b2f4ee7a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae147e1798e9ef8855faaf51ce4bac9c4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_box_collider_descriptor.html#ae147e1798e9ef8855faaf51ce4bac9c4">width</a></td></tr>
+<tr class="memitem:ae147e1798e9ef8855faaf51ce4bac9c4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_box_collider_descriptor.html#ae147e1798e9ef8855faaf51ce4bac9c4">width</a> = 1</td></tr>
 <tr class="separator:ae147e1798e9ef8855faaf51ce4bac9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ed17142f44ec7337d38b34674b9e292"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_box_collider_descriptor.html#a7ed17142f44ec7337d38b34674b9e292">height</a></td></tr>
+<tr class="memitem:a7ed17142f44ec7337d38b34674b9e292"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_box_collider_descriptor.html#a7ed17142f44ec7337d38b34674b9e292">height</a> = 1</td></tr>
 <tr class="separator:a7ed17142f44ec7337d38b34674b9e292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a084463ca0e2073f923ed8d58f62129a6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_box_collider_descriptor.html#a084463ca0e2073f923ed8d58f62129a6">density</a> = 1</td></tr>
+<tr class="separator:a084463ca0e2073f923ed8d58f62129a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa951d5f120f8f3d658d8265ed0b4e6e0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_box_collider_descriptor.html#aa951d5f120f8f3d658d8265ed0b4e6e0">friction</a> = 0.1f</td></tr>
+<tr class="separator:aa951d5f120f8f3d658d8265ed0b4e6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Describes a kind of <a class="el" href="class_mason_1_1_collider2_d.html" title="creates a collider in the physics world, so they affect the game object that this component is attach...">Collider2D</a> component: BoxCollider (square shaped) <br />
+ </p>
+<p>"physicsbody": { // as part of a <a class="el" href="class_mason_1_1_physics_body2_d.html" title="creates a body in the physics world, so they affect the game object that this component is attached t...">PhysicsBody2D</a> <br />
+ "boxes": [ // Optional, for giving a BoxCollider . <br />
+ { "center": [ 0, 0 ], // Optional, default: [0,0] <br />
+ "height": 1, // Optional, default: 1 <br />
+ "width": 1, // Optional, default: 1 <br />
+ "density": 1, // Optional, default: 1 <br />
+ "friction": 0.1 // Optional, default: 0.1 <br />
+ } ] } </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a76bdf93a5c562a89e1f513b2f4ee7a65"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a76bdf93a5c562a89e1f513b2f4ee7a65">&sect;&nbsp;</a></span>center</h2>
 
@@ -109,21 +126,35 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec2 Mason::BoxColliderDescriptor::center</td>
+          <td class="memname">glm::vec2 Mason::BoxColliderDescriptor::center = glm::vec2(0, 0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a2d5e6513971fcc6d8a0ce78a8985f909"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d5e6513971fcc6d8a0ce78a8985f909">&sect;&nbsp;</a></span>found</h2>
+<a id="a084463ca0e2073f923ed8d58f62129a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a084463ca0e2073f923ed8d58f62129a6">&sect;&nbsp;</a></span>density</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Mason::BoxColliderDescriptor::found = false</td>
+          <td class="memname">float Mason::BoxColliderDescriptor::density = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa951d5f120f8f3d658d8265ed0b4e6e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa951d5f120f8f3d658d8265ed0b4e6e0">&sect;&nbsp;</a></span>friction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Mason::BoxColliderDescriptor::friction = 0.1f</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -137,7 +168,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::BoxColliderDescriptor::height</td>
+          <td class="memname">float Mason::BoxColliderDescriptor::height = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -151,7 +182,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::BoxColliderDescriptor::width</td>
+          <td class="memname">float Mason::BoxColliderDescriptor::width = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">

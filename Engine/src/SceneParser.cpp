@@ -143,7 +143,7 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 		if (a.contains("type")) {
 			auto typeString = a.get("type").get<std::string>();
 			if (typeString == "music") d.audio.type = MUSIC;
-			else d.audio.type = EFFECT;
+			else  if (typeString == "soundeffect") d.audio.type = EFFECT;
 		}
 	}
 
@@ -191,7 +191,6 @@ GameObjectDescriptor SceneParser::parseObject(picojson::value o, std::string pat
 		if (p.contains("finalSize")) d.particles.finalSize = float(p.get("finalSize").get<double>());
 		if (p.contains("initialRotation")) d.particles.initialRotation = float(p.get("initialRotation").get<double>());
 		if (p.contains("finalRotation")) d.particles.finalRotation = float(p.get("finalRotation").get<double>());
-		if (p.contains("initialSize")) d.particles.initialSize = float(p.get("initialSize").get<double>());
 		if (p.contains("initialColor")) d.particles.initialColor = to_vec4(p.get("initialColor"));
 		if (p.contains("finalColor")) d.particles.finalColor = to_vec4(p.get("finalColor"));
 		if (p.contains("velocityState")) d.particles.velocityState = p.get("velocityState").get<std::string>();

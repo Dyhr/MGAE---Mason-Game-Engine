@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: Mason::PhysicsBodyDescriptor Class Reference</title>
+<title>Game Engines: Mason::PhysicsBodyDescriptor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -88,16 +88,64 @@ $(document).ready(function(){initNavTree('class_mason_1_1_physics_body_descripto
 </div><!--header-->
 <div class="contents">
 
+<p>Describes a PhysicsBody component <br />
+  
+ <a href="class_mason_1_1_physics_body_descriptor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_scene_parser_8hpp_source.html">SceneParser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa2f258b6d07e44ce6bf4ccbea346f81d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics_body_descriptor.html#aa2f258b6d07e44ce6bf4ccbea346f81d">found</a> = false</td></tr>
 <tr class="separator:aa2f258b6d07e44ce6bf4ccbea346f81d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fff369ef465ec0da8ae5a44957b4832"><td class="memItemLeft" align="right" valign="top">b2BodyType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics_body_descriptor.html#a3fff369ef465ec0da8ae5a44957b4832">type</a></td></tr>
-<tr class="separator:a3fff369ef465ec0da8ae5a44957b4832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30086565a0e9d3ec8c27366d852f333f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics_body_descriptor.html#a30086565a0e9d3ec8c27366d852f333f">type</a></td></tr>
+<tr class="separator:a30086565a0e9d3ec8c27366d852f333f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bf7d827bc6c3008e60d7eb596ff8f0b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_mason_1_1_box_collider_descriptor.html">BoxColliderDescriptor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics_body_descriptor.html#a5bf7d827bc6c3008e60d7eb596ff8f0b">boxColliders</a></td></tr>
+<tr class="separator:a5bf7d827bc6c3008e60d7eb596ff8f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade73d134aefec863d829a2bc09712b84"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_mason_1_1_circle_collider_descriptor.html">CircleColliderDescriptor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics_body_descriptor.html#ade73d134aefec863d829a2bc09712b84">circleColliders</a></td></tr>
+<tr class="separator:ade73d134aefec863d829a2bc09712b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Describes a PhysicsBody component <br />
+ </p>
+<p>"physicsbody": { <br />
+ "type": "kinematic", // Optional. Options: "dynamic" (default) | "static" | "kinematic"<br />
+ "boxes":[ // Optional, see <a class="el" href="class_mason_1_1_box_collider_descriptor.html" title="Describes a kind of Collider2D component: BoxCollider (square shaped)   ">BoxColliderDescriptor</a> for details <br />
+ ... <br />
+ ] <br />
+ "circles": [ // Optional, see <a class="el" href="class_mason_1_1_circle_collider_descriptor.html" title="Describes a kind of Collider2D component: CircleCollider (circle shaped)   ">CircleColliderDescriptor</a> for details <br />
+ ... <br />
+ ] <br />
+ } </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5bf7d827bc6c3008e60d7eb596ff8f0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bf7d827bc6c3008e60d7eb596ff8f0b">&sect;&nbsp;</a></span>boxColliders</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_mason_1_1_box_collider_descriptor.html">BoxColliderDescriptor</a>&gt; Mason::PhysicsBodyDescriptor::boxColliders</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade73d134aefec863d829a2bc09712b84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade73d134aefec863d829a2bc09712b84">&sect;&nbsp;</a></span>circleColliders</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_mason_1_1_circle_collider_descriptor.html">CircleColliderDescriptor</a>&gt; Mason::PhysicsBodyDescriptor::circleColliders</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa2f258b6d07e44ce6bf4ccbea346f81d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa2f258b6d07e44ce6bf4ccbea346f81d">&sect;&nbsp;</a></span>found</h2>
 
@@ -112,14 +160,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a3fff369ef465ec0da8ae5a44957b4832"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fff369ef465ec0da8ae5a44957b4832">&sect;&nbsp;</a></span>type</h2>
+<a id="a30086565a0e9d3ec8c27366d852f333f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30086565a0e9d3ec8c27366d852f333f">&sect;&nbsp;</a></span>type</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">b2BodyType Mason::PhysicsBodyDescriptor::type</td>
+          <td class="memname">int Mason::PhysicsBodyDescriptor::type</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -4,51 +4,41 @@
 
 {\ttfamily \#include $<$Collision\+Listener.\+h$>$}
 
-
-
-Inheritance diagram for Mason\+:\+:Collision\+Listener\+:
-% FIG 0
-
-
-Collaboration diagram for Mason\+:\+:Collision\+Listener\+:
-% FIG 1
+Inheritance diagram for Mason\+:\+:Collision\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mason_1_1_collision_listener}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \hyperlink{class_mason_1_1_collision_listener_accc6ff23dcbf8cbef31e68fe3c56837a}{Pre\+Solve} (b2\+Contact $\ast$contact, const b2\+Manifold $\ast$old\+Manifold)
+void \hyperlink{class_mason_1_1_collision_listener_a10c4d83465cd2a9f6dd9d6e4dfba2834}{Process\+Events} ()
 \item 
-virtual void \hyperlink{class_mason_1_1_collision_listener_afceef187bf2f12230da95c98699fef29}{Begin\+Contact} (b2\+Contact $\ast$contact)
+void \hyperlink{class_mason_1_1_collision_listener_ac65851c3fa2d3ee90d287fca613e20be}{Begin\+Contact} (b2\+Contact $\ast$contact) override
 \item 
-virtual void \hyperlink{class_mason_1_1_collision_listener_a58250c23f5fe17721c186a9d22408576}{End\+Contact} (b2\+Contact $\ast$contact)
-\item 
-virtual void \hyperlink{class_mason_1_1_collision_listener_a974aee4f4b2068706e87a887c842eb66}{Post\+Solve} (b2\+Contact $\ast$contact, const b2\+Contact\+Impulse $\ast$impulse)
+void \hyperlink{class_mason_1_1_collision_listener_a41a2b9775c5814c1446ceffdeb009640}{End\+Contact} (b2\+Contact $\ast$contact) override
 \end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_mason_1_1_collision_listener_afceef187bf2f12230da95c98699fef29}{}\label{class_mason_1_1_collision_listener_afceef187bf2f12230da95c98699fef29} 
+\hypertarget{class_mason_1_1_collision_listener_ac65851c3fa2d3ee90d287fca613e20be}{}\label{class_mason_1_1_collision_listener_ac65851c3fa2d3ee90d287fca613e20be} 
 \index{Mason\+::\+Collision\+Listener@{Mason\+::\+Collision\+Listener}!Begin\+Contact@{Begin\+Contact}}
 \index{Begin\+Contact@{Begin\+Contact}!Mason\+::\+Collision\+Listener@{Mason\+::\+Collision\+Listener}}
 \subsubsection{\texorpdfstring{Begin\+Contact()}{BeginContact()}}
-{\footnotesize\ttfamily void Mason\+::\+Collision\+Listener\+::\+Begin\+Contact (\begin{DoxyParamCaption}\item[{b2\+Contact $\ast$}]{contact }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Collision\+Listener\+::\+Begin\+Contact (\begin{DoxyParamCaption}\item[{b2\+Contact $\ast$}]{contact }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
 
-\hypertarget{class_mason_1_1_collision_listener_a58250c23f5fe17721c186a9d22408576}{}\label{class_mason_1_1_collision_listener_a58250c23f5fe17721c186a9d22408576} 
+\hypertarget{class_mason_1_1_collision_listener_a41a2b9775c5814c1446ceffdeb009640}{}\label{class_mason_1_1_collision_listener_a41a2b9775c5814c1446ceffdeb009640} 
 \index{Mason\+::\+Collision\+Listener@{Mason\+::\+Collision\+Listener}!End\+Contact@{End\+Contact}}
 \index{End\+Contact@{End\+Contact}!Mason\+::\+Collision\+Listener@{Mason\+::\+Collision\+Listener}}
 \subsubsection{\texorpdfstring{End\+Contact()}{EndContact()}}
-{\footnotesize\ttfamily void Mason\+::\+Collision\+Listener\+::\+End\+Contact (\begin{DoxyParamCaption}\item[{b2\+Contact $\ast$}]{contact }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Collision\+Listener\+::\+End\+Contact (\begin{DoxyParamCaption}\item[{b2\+Contact $\ast$}]{contact }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
 
-\hypertarget{class_mason_1_1_collision_listener_a974aee4f4b2068706e87a887c842eb66}{}\label{class_mason_1_1_collision_listener_a974aee4f4b2068706e87a887c842eb66} 
-\index{Mason\+::\+Collision\+Listener@{Mason\+::\+Collision\+Listener}!Post\+Solve@{Post\+Solve}}
-\index{Post\+Solve@{Post\+Solve}!Mason\+::\+Collision\+Listener@{Mason\+::\+Collision\+Listener}}
-\subsubsection{\texorpdfstring{Post\+Solve()}{PostSolve()}}
-{\footnotesize\ttfamily void Mason\+::\+Collision\+Listener\+::\+Post\+Solve (\begin{DoxyParamCaption}\item[{b2\+Contact $\ast$}]{contact,  }\item[{const b2\+Contact\+Impulse $\ast$}]{impulse }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-\hypertarget{class_mason_1_1_collision_listener_accc6ff23dcbf8cbef31e68fe3c56837a}{}\label{class_mason_1_1_collision_listener_accc6ff23dcbf8cbef31e68fe3c56837a} 
-\index{Mason\+::\+Collision\+Listener@{Mason\+::\+Collision\+Listener}!Pre\+Solve@{Pre\+Solve}}
-\index{Pre\+Solve@{Pre\+Solve}!Mason\+::\+Collision\+Listener@{Mason\+::\+Collision\+Listener}}
-\subsubsection{\texorpdfstring{Pre\+Solve()}{PreSolve()}}
-{\footnotesize\ttfamily void Collision\+Listener\+::\+Pre\+Solve (\begin{DoxyParamCaption}\item[{b2\+Contact $\ast$}]{contact,  }\item[{const b2\+Manifold $\ast$}]{old\+Manifold }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+\hypertarget{class_mason_1_1_collision_listener_a10c4d83465cd2a9f6dd9d6e4dfba2834}{}\label{class_mason_1_1_collision_listener_a10c4d83465cd2a9f6dd9d6e4dfba2834} 
+\index{Mason\+::\+Collision\+Listener@{Mason\+::\+Collision\+Listener}!Process\+Events@{Process\+Events}}
+\index{Process\+Events@{Process\+Events}!Mason\+::\+Collision\+Listener@{Mason\+::\+Collision\+Listener}}
+\subsubsection{\texorpdfstring{Process\+Events()}{ProcessEvents()}}
+{\footnotesize\ttfamily void Collision\+Listener\+::\+Process\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 

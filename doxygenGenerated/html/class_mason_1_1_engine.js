@@ -5,6 +5,5 @@ var class_mason_1_1_engine =
     [ "loadScene", "class_mason_1_1_engine.html#ab7f05ee3e9f917f11ed0deb20d4508b0", null ],
     [ "start", "class_mason_1_1_engine.html#a4d8066dd213a03f5420d1bf60f150ca7", null ],
     [ "InputManager", "class_mason_1_1_engine.html#af0e8c3dcc20b7ddcaf63506363a22821", null ],
-    [ "scene", "class_mason_1_1_engine.html#a2ec6bc225a9327484dde73bb8298ea85", null ],
-    [ "sre", "class_mason_1_1_engine.html#a8b5ac2d43f0b366ff51c0908fe581f17", null ]
+    [ "scene", "class_mason_1_1_engine.html#a2ec6bc225a9327484dde73bb8298ea85", null ]
 ];

@@ -2,19 +2,16 @@
 \label{_camera_8hpp}\index{include/\+Mason/\+Camera.\+hpp@{include/\+Mason/\+Camera.\+hpp}}
 {\ttfamily \#include \char`\"{}Mason/\+Transform.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$memory$>$}\newline
-{\ttfamily \#include $<$S\+R\+E/\+Camera.\+hpp$>$}\newline
 {\ttfamily \#include $<$glm/glm.\+hpp$>$}\newline
-Include dependency graph for Camera.\+hpp\+:
-% FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_mason_1_1_camera}{Mason\+::\+Camera}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em We need to translate and scale the camera (not rotate because it is 2D) and setup the viewport plane. Inherites from \hyperlink{class_mason_1_1_transform}{Transform} and override its functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_s_r_e}{S\+RE}
 \item 
  \hyperlink{namespace_mason}{Mason}
 \end{DoxyCompactItemize}

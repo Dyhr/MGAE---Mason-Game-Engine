@@ -2,6 +2,12 @@
 \label{class_mason_1_1_script_descriptor}\index{Mason\+::\+Script\+Descriptor@{Mason\+::\+Script\+Descriptor}}
 
 
+Describes a \hyperlink{class_mason_1_1_script}{Script} component ~\newline
+  
+
+
+
+
 {\ttfamily \#include $<$Scene\+Parser.\+hpp$>$}
 
 \subsection*{Public Attributes}
@@ -11,9 +17,22 @@ std\+::string \hyperlink{class_mason_1_1_script_descriptor_aa04b0220bbef995dce7e
 \item 
 std\+::map$<$ std\+::string, std\+::string $>$ \hyperlink{class_mason_1_1_script_descriptor_a426d001b44ece88ba6b465b0505724c4}{strings}
 \item 
-std\+::map$<$ std\+::string, double $>$ \hyperlink{class_mason_1_1_script_descriptor_a4280fa9820a476c7640bde5af20e8e9c}{numbers}
+std\+::map$<$ std\+::string, float $>$ \hyperlink{class_mason_1_1_script_descriptor_a536144088cd6770fb4f63fe502d89e3e}{numbers}
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Describes a \hyperlink{class_mason_1_1_script}{Script} component ~\newline
+ 
+
+\char`\"{}name\char`\"{}\+: \char`\"{}player\char`\"{} // mandatory ~\newline
+ \char`\"{}properties\char`\"{}\+: \mbox{[} \char`\"{}thrust\char`\"{}, \char`\"{}left\char`\"{}, \char`\"{}right\char`\"{}, \char`\"{}shoot\char`\"{}, \char`\"{}camera\char`\"{} \mbox{]}, //\+Optional. Defines strings used in the script. In the example, the strings contain control keys and the camera used ~\newline
+ \char`\"{}thrust\char`\"{}\+: \char`\"{}w\char`\"{}, ~\newline
+ \char`\"{}left\char`\"{}\+: \char`\"{}a\char`\"{}, ~\newline
+ \char`\"{}right\char`\"{}\+: \char`\"{}d\char`\"{}, ~\newline
+ \char`\"{}shoot\char`\"{}\+: \char`\"{}e\char`\"{}, ~\newline
+ \char`\"{}camera\char`\"{}\+: \char`\"{}\+Camera 1\char`\"{} ~\newline
+ 
 
 \subsection{Member Data Documentation}
 \hypertarget{class_mason_1_1_script_descriptor_aa04b0220bbef995dce7e14a778449460}{}\label{class_mason_1_1_script_descriptor_aa04b0220bbef995dce7e14a778449460} 
@@ -22,11 +41,11 @@ std\+::map$<$ std\+::string, double $>$ \hyperlink{class_mason_1_1_script_descri
 \subsubsection{\texorpdfstring{name}{name}}
 {\footnotesize\ttfamily std\+::string Mason\+::\+Script\+Descriptor\+::name}
 
-\hypertarget{class_mason_1_1_script_descriptor_a4280fa9820a476c7640bde5af20e8e9c}{}\label{class_mason_1_1_script_descriptor_a4280fa9820a476c7640bde5af20e8e9c} 
+\hypertarget{class_mason_1_1_script_descriptor_a536144088cd6770fb4f63fe502d89e3e}{}\label{class_mason_1_1_script_descriptor_a536144088cd6770fb4f63fe502d89e3e} 
 \index{Mason\+::\+Script\+Descriptor@{Mason\+::\+Script\+Descriptor}!numbers@{numbers}}
 \index{numbers@{numbers}!Mason\+::\+Script\+Descriptor@{Mason\+::\+Script\+Descriptor}}
 \subsubsection{\texorpdfstring{numbers}{numbers}}
-{\footnotesize\ttfamily std\+::map$<$std\+::string, double$>$ Mason\+::\+Script\+Descriptor\+::numbers}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, float$>$ Mason\+::\+Script\+Descriptor\+::numbers}
 
 \hypertarget{class_mason_1_1_script_descriptor_a426d001b44ece88ba6b465b0505724c4}{}\label{class_mason_1_1_script_descriptor_a426d001b44ece88ba6b465b0505724c4} 
 \index{Mason\+::\+Script\+Descriptor@{Mason\+::\+Script\+Descriptor}!strings@{strings}}

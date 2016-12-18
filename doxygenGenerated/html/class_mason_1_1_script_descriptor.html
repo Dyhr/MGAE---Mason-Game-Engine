@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: Mason::ScriptDescriptor Class Reference</title>
+<title>Game Engines: Mason::ScriptDescriptor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -88,6 +88,10 @@ $(document).ready(function(){initNavTree('class_mason_1_1_script_descriptor.html
 </div><!--header-->
 <div class="contents">
 
+<p>Describes a <a class="el" href="class_mason_1_1_script.html">Script</a> component <br />
+  
+ <a href="class_mason_1_1_script_descriptor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_scene_parser_8hpp_source.html">SceneParser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -96,10 +100,21 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aa04b0220bbef995dce7e14a778449460"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a426d001b44ece88ba6b465b0505724c4"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_script_descriptor.html#a426d001b44ece88ba6b465b0505724c4">strings</a></td></tr>
 <tr class="separator:a426d001b44ece88ba6b465b0505724c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4280fa9820a476c7640bde5af20e8e9c"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_script_descriptor.html#a4280fa9820a476c7640bde5af20e8e9c">numbers</a></td></tr>
-<tr class="separator:a4280fa9820a476c7640bde5af20e8e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a536144088cd6770fb4f63fe502d89e3e"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_script_descriptor.html#a536144088cd6770fb4f63fe502d89e3e">numbers</a></td></tr>
+<tr class="separator:a536144088cd6770fb4f63fe502d89e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Describes a <a class="el" href="class_mason_1_1_script.html">Script</a> component <br />
+ </p>
+<p>"name": "player" // mandatory <br />
+ "properties": [ "thrust", "left", "right", "shoot", "camera" ], //Optional. Defines strings used in the script. In the example, the strings contain control keys and the camera used <br />
+ "thrust": "w", <br />
+ "left": "a", <br />
+ "right": "d", <br />
+ "shoot": "e", <br />
+ "camera": "Camera 1" <br />
+ </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="aa04b0220bbef995dce7e14a778449460"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa04b0220bbef995dce7e14a778449460">&sect;&nbsp;</a></span>name</h2>
 
@@ -114,14 +129,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4280fa9820a476c7640bde5af20e8e9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4280fa9820a476c7640bde5af20e8e9c">&sect;&nbsp;</a></span>numbers</h2>
+<a id="a536144088cd6770fb4f63fe502d89e3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a536144088cd6770fb4f63fe502d89e3e">&sect;&nbsp;</a></span>numbers</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::string, double&gt; Mason::ScriptDescriptor::numbers</td>
+          <td class="memname">std::map&lt;std::string, float&gt; Mason::ScriptDescriptor::numbers</td>
         </tr>
       </table>
 </div><div class="memdoc">

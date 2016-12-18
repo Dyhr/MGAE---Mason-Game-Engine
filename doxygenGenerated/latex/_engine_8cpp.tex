@@ -15,6 +15,8 @@
 {\ttfamily \#include \char`\"{}Mason/\+Physics\+Body2\+D.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Mason/\+Box\+Collider2\+D.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Mason/\+Circle\+Collider2\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Mason/\+Collision\+Listener.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Mason/\+Config.\+hpp\char`\"{}}\newline
 {\ttfamily \#include $<$chrono$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$map$>$}\newline
@@ -25,10 +27,10 @@
 {\ttfamily \#include $<$S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$imgui.\+h$>$}\newline
 {\ttfamily \#include $<$S\+R\+E/imgui\+\_\+sre.\+hpp$>$}\newline
-Include dependency graph for Engine.\+cpp\+:
-% FIG 0
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{_engine_8cpp_a992c70a16169035bc9e2e8f9953d91ed}{loaded} = false
 \item 
 bool \hyperlink{_engine_8cpp_afcde3c4b88a1fd6e68f6608330fb7eac}{show\+\_\+another\+\_\+window}
 \item 
@@ -37,6 +39,12 @@ int \hyperlink{_engine_8cpp_a8fccb55f373b4b64d7c382ce251e69c7}{number\+Sprites}
 
 
 \subsection{Variable Documentation}
+\hypertarget{_engine_8cpp_a992c70a16169035bc9e2e8f9953d91ed}{}\label{_engine_8cpp_a992c70a16169035bc9e2e8f9953d91ed} 
+\index{Engine.\+cpp@{Engine.\+cpp}!loaded@{loaded}}
+\index{loaded@{loaded}!Engine.\+cpp@{Engine.\+cpp}}
+\subsubsection{\texorpdfstring{loaded}{loaded}}
+{\footnotesize\ttfamily bool loaded = false}
+
 \hypertarget{_engine_8cpp_a8fccb55f373b4b64d7c382ce251e69c7}{}\label{_engine_8cpp_a8fccb55f373b4b64d7c382ce251e69c7} 
 \index{Engine.\+cpp@{Engine.\+cpp}!number\+Sprites@{number\+Sprites}}
 \index{number\+Sprites@{number\+Sprites}!Engine.\+cpp@{Engine.\+cpp}}

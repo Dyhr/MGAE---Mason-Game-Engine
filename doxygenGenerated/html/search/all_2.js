@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['begincontact',['BeginContact',['../class_mason_1_1_collision_listener.html#afceef187bf2f12230da95c98699fef29',1,'Mason::CollisionListener']]],
-  ['birthtimes',['birthTimes',['../class_mason_1_1_particle_emitter.html#aa7e4b79447b8c65255b92d313464a03c',1,'Mason::ParticleEmitter']]],
+  ['begincontact',['BeginContact',['../class_mason_1_1_collision_listener.html#ac65851c3fa2d3ee90d287fca613e20be',1,'Mason::CollisionListener']]],
   ['body',['body',['../class_mason_1_1_physics_body2_d.html#abd02e269a86d5b760966a33eefa918d9',1,'Mason::PhysicsBody2D']]],
+  ['bodycount',['bodyCount',['../class_mason_1_1_particle_emitter.html#a76a3eb861adfec2123479be32c66999c',1,'Mason::ParticleEmitter']]],
   ['boolean_5f',['boolean_',['../unionpicojson_1_1value_1_1__storage.html#a612a1a8ceb65bdd2e8f09eb33074ba0b',1,'picojson::value::_storage']]],
   ['boolean_5ftype',['boolean_type',['../namespacepicojson.html#acbcfb4072b62a8a097a2aaf7a8f8cc02ae04a93ebe65786d1f8687430242df802',1,'picojson']]],
-  ['boxcollider',['boxCollider',['../class_mason_1_1_game_object_descriptor.html#a81952b9b181c5731b74971fb6510c838',1,'Mason::GameObjectDescriptor']]],
   ['boxcollider2d',['BoxCollider2D',['../class_mason_1_1_box_collider2_d.html',1,'Mason']]],
-  ['boxcollider2d',['BoxCollider2D',['../class_mason_1_1_box_collider2_d.html#ab74dd3e9b390bd7580e0137503000ac1',1,'Mason::BoxCollider2D']]],
+  ['boxcollider2d',['BoxCollider2D',['../class_box_collider2_d.html',1,'BoxCollider2D'],['../class_mason_1_1_physics.html#ae5e915b753caa5273de73badf505458f',1,'Mason::Physics::BoxCollider2D()'],['../class_mason_1_1_box_collider2_d.html#a5b81f4bc97912c6f8375a427819d6d68',1,'Mason::BoxCollider2D::BoxCollider2D()']]],
   ['boxcollider2d_2ecpp',['BoxCollider2D.cpp',['../_box_collider2_d_8cpp.html',1,'']]],
   ['boxcollider2d_2ehpp',['BoxCollider2D.hpp',['../_box_collider2_d_8hpp.html',1,'']]],
-  ['boxcolliderdescriptor',['BoxColliderDescriptor',['../class_mason_1_1_box_collider_descriptor.html',1,'Mason']]]
+  ['boxcolliderdescriptor',['BoxColliderDescriptor',['../class_mason_1_1_box_collider_descriptor.html',1,'Mason']]],
+  ['boxcolliders',['boxColliders',['../class_mason_1_1_physics_body_descriptor.html#a5bf7d827bc6c3008e60d7eb596ff8f0b',1,'Mason::PhysicsBodyDescriptor']]]
 ];

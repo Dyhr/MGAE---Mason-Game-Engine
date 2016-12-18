@@ -4,26 +4,22 @@
 
 {\ttfamily \#include $<$Script.\+hpp$>$}
 
-
-
-Inheritance diagram for Mason\+:\+:Script\+:
-% FIG 0
-
-
-Collaboration diagram for Mason\+:\+:Script\+:
-% FIG 1
+Inheritance diagram for Mason\+:\+:Script\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mason_1_1_script}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_mason_1_1_script_a11d07693e51f3e22894784a6ae7a761d}{Script} (\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$\hyperlink{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8}{game\+Object})
+\hyperlink{class_mason_1_1_script_a3d41c440d07b53c15437a13754eff7d0}{Script} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ \hyperlink{class_mason_1_1_component_abaa67b569d0a70e26a4606f4a099a925}{game\+Object})
 \item 
 virtual void \hyperlink{class_mason_1_1_script_aa42915c752bb7f4623ca679b222edf2f}{On\+Start} ()
 \item 
 virtual void \hyperlink{class_mason_1_1_script_acafa4283460fb677484bb43ebec37743}{On\+Update} ()
 \item 
 virtual void \hyperlink{class_mason_1_1_script_a1088013d6edc47d74643aa48a7cbbbdf}{On\+Collision\+Enter} (\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$other)
-\item 
-virtual void \hyperlink{class_mason_1_1_script_a9649674f058f8e1b9229e93f3d9a34d7}{On\+Collision\+Stay} ()
 \item 
 virtual void \hyperlink{class_mason_1_1_script_a04d09648b7dba1bcb0a0ad3c3570e2f3}{On\+Collision\+Exit} (\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$other)
 \item 
@@ -34,26 +30,31 @@ virtual void \hyperlink{class_mason_1_1_script_a84fff8072c4e8b56fb242b29f3491224
 \item 
 std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ \hyperlink{class_mason_1_1_script_a26ffab9ad2a0f22cb6a3cba3029a985f}{gameobject}
 \item 
-std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_transform}{Transform} $>$ \hyperlink{class_mason_1_1_script_a480aa8b8f65245d51e41ceeaf9cab93a}{transform}
+\hyperlink{class_mason_1_1_transform}{Transform} $\ast$ \hyperlink{class_mason_1_1_script_a4ac6ab2299555435468ba62c52ede167}{transform}
 \item 
 std\+::map$<$ std\+::string, std\+::string $>$ \hyperlink{class_mason_1_1_script_a96f691d0ccd8db2e3e95824e8579cc42}{strings}
 \item 
-std\+::map$<$ std\+::string, double $>$ \hyperlink{class_mason_1_1_script_aea1a14b7709c72400c5e1355f57234da}{numbers}
+std\+::map$<$ std\+::string, float $>$ \hyperlink{class_mason_1_1_script_a39ec15b6842f815f09537f524c0b0786}{numbers}
 \end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static std\+::map$<$ std\+::string, \hyperlink{class_mason_1_1_script}{Script} $\ast$($\ast$)(\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$)$>$ \hyperlink{class_mason_1_1_script_ad7f94424b50f1a841d25c5efe95f3c73}{scripts} = std\+::map$<$std\+::string, \hyperlink{class_mason_1_1_script}{Script}$\ast$($\ast$)(\hyperlink{class_mason_1_1_game_object}{Game\+Object}$\ast$)$>$()
+static std\+::map$<$ std\+::string, \hyperlink{class_mason_1_1_script}{Script} $\ast$($\ast$)(std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$)$>$ \hyperlink{class_mason_1_1_script_a0b74a1b2b601b05841c95b44b329f859}{scripts} = std\+::map$<$std\+::string, \hyperlink{class_mason_1_1_script}{Script}$\ast$($\ast$)(std\+::shared\+\_\+ptr$<$\hyperlink{class_mason_1_1_game_object}{Game\+Object}$>$)$>$()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_mason_1_1_script_a3e1914489e4bed4f9f23cdeab34a43dc}{Engine}
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_mason_1_1_script_a11d07693e51f3e22894784a6ae7a761d}{}\label{class_mason_1_1_script_a11d07693e51f3e22894784a6ae7a761d} 
+\hypertarget{class_mason_1_1_script_a3d41c440d07b53c15437a13754eff7d0}{}\label{class_mason_1_1_script_a3d41c440d07b53c15437a13754eff7d0} 
 \index{Mason\+::\+Script@{Mason\+::\+Script}!Script@{Script}}
 \index{Script@{Script}!Mason\+::\+Script@{Mason\+::\+Script}}
 \subsubsection{\texorpdfstring{Script()}{Script()}}
-{\footnotesize\ttfamily Mason\+::\+Script\+::\+Script (\begin{DoxyParamCaption}\item[{\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Mason\+::\+Script\+::\+Script (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -69,12 +70,6 @@ static std\+::map$<$ std\+::string, \hyperlink{class_mason_1_1_script}{Script} $
 \index{On\+Collision\+Exit@{On\+Collision\+Exit}!Mason\+::\+Script@{Mason\+::\+Script}}
 \subsubsection{\texorpdfstring{On\+Collision\+Exit()}{OnCollisionExit()}}
 {\footnotesize\ttfamily virtual void Mason\+::\+Script\+::\+On\+Collision\+Exit (\begin{DoxyParamCaption}\item[{\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
-
-\hypertarget{class_mason_1_1_script_a9649674f058f8e1b9229e93f3d9a34d7}{}\label{class_mason_1_1_script_a9649674f058f8e1b9229e93f3d9a34d7} 
-\index{Mason\+::\+Script@{Mason\+::\+Script}!On\+Collision\+Stay@{On\+Collision\+Stay}}
-\index{On\+Collision\+Stay@{On\+Collision\+Stay}!Mason\+::\+Script@{Mason\+::\+Script}}
-\subsubsection{\texorpdfstring{On\+Collision\+Stay()}{OnCollisionStay()}}
-{\footnotesize\ttfamily virtual void Mason\+::\+Script\+::\+On\+Collision\+Stay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 \hypertarget{class_mason_1_1_script_a84fff8072c4e8b56fb242b29f3491224}{}\label{class_mason_1_1_script_a84fff8072c4e8b56fb242b29f3491224} 
 \index{Mason\+::\+Script@{Mason\+::\+Script}!On\+Input@{On\+Input}}
@@ -96,6 +91,15 @@ static std\+::map$<$ std\+::string, \hyperlink{class_mason_1_1_script}{Script} $
 
 
 
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_mason_1_1_script_a3e1914489e4bed4f9f23cdeab34a43dc}{}\label{class_mason_1_1_script_a3e1914489e4bed4f9f23cdeab34a43dc} 
+\index{Mason\+::\+Script@{Mason\+::\+Script}!Engine@{Engine}}
+\index{Engine@{Engine}!Mason\+::\+Script@{Mason\+::\+Script}}
+\subsubsection{\texorpdfstring{Engine}{Engine}}
+{\footnotesize\ttfamily friend class \hyperlink{class_mason_1_1_engine}{Engine}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
 \subsection{Member Data Documentation}
 \hypertarget{class_mason_1_1_script_a26ffab9ad2a0f22cb6a3cba3029a985f}{}\label{class_mason_1_1_script_a26ffab9ad2a0f22cb6a3cba3029a985f} 
 \index{Mason\+::\+Script@{Mason\+::\+Script}!gameobject@{gameobject}}
@@ -103,17 +107,17 @@ static std\+::map$<$ std\+::string, \hyperlink{class_mason_1_1_script}{Script} $
 \subsubsection{\texorpdfstring{gameobject}{gameobject}}
 {\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\hyperlink{class_mason_1_1_game_object}{Game\+Object}$>$ Mason\+::\+Script\+::gameobject}
 
-\hypertarget{class_mason_1_1_script_aea1a14b7709c72400c5e1355f57234da}{}\label{class_mason_1_1_script_aea1a14b7709c72400c5e1355f57234da} 
+\hypertarget{class_mason_1_1_script_a39ec15b6842f815f09537f524c0b0786}{}\label{class_mason_1_1_script_a39ec15b6842f815f09537f524c0b0786} 
 \index{Mason\+::\+Script@{Mason\+::\+Script}!numbers@{numbers}}
 \index{numbers@{numbers}!Mason\+::\+Script@{Mason\+::\+Script}}
 \subsubsection{\texorpdfstring{numbers}{numbers}}
-{\footnotesize\ttfamily std\+::map$<$std\+::string, double$>$ Mason\+::\+Script\+::numbers}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, float$>$ Mason\+::\+Script\+::numbers}
 
-\hypertarget{class_mason_1_1_script_ad7f94424b50f1a841d25c5efe95f3c73}{}\label{class_mason_1_1_script_ad7f94424b50f1a841d25c5efe95f3c73} 
+\hypertarget{class_mason_1_1_script_a0b74a1b2b601b05841c95b44b329f859}{}\label{class_mason_1_1_script_a0b74a1b2b601b05841c95b44b329f859} 
 \index{Mason\+::\+Script@{Mason\+::\+Script}!scripts@{scripts}}
 \index{scripts@{scripts}!Mason\+::\+Script@{Mason\+::\+Script}}
 \subsubsection{\texorpdfstring{scripts}{scripts}}
-{\footnotesize\ttfamily std\+::map$<$ std\+::string, \hyperlink{class_mason_1_1_script}{Script} $\ast$($\ast$)(\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$)$>$ Script\+::scripts = std\+::map$<$std\+::string, \hyperlink{class_mason_1_1_script}{Script}$\ast$($\ast$)(\hyperlink{class_mason_1_1_game_object}{Game\+Object}$\ast$)$>$()\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, \hyperlink{class_mason_1_1_script}{Script} $\ast$($\ast$)(std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$)$>$ Script\+::scripts = std\+::map$<$std\+::string, \hyperlink{class_mason_1_1_script}{Script}$\ast$($\ast$)(std\+::shared\+\_\+ptr$<$\hyperlink{class_mason_1_1_game_object}{Game\+Object}$>$)$>$()\hspace{0.3cm}{\ttfamily [static]}}
 
 \hypertarget{class_mason_1_1_script_a96f691d0ccd8db2e3e95824e8579cc42}{}\label{class_mason_1_1_script_a96f691d0ccd8db2e3e95824e8579cc42} 
 \index{Mason\+::\+Script@{Mason\+::\+Script}!strings@{strings}}
@@ -121,11 +125,11 @@ static std\+::map$<$ std\+::string, \hyperlink{class_mason_1_1_script}{Script} $
 \subsubsection{\texorpdfstring{strings}{strings}}
 {\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::string$>$ Mason\+::\+Script\+::strings}
 
-\hypertarget{class_mason_1_1_script_a480aa8b8f65245d51e41ceeaf9cab93a}{}\label{class_mason_1_1_script_a480aa8b8f65245d51e41ceeaf9cab93a} 
+\hypertarget{class_mason_1_1_script_a4ac6ab2299555435468ba62c52ede167}{}\label{class_mason_1_1_script_a4ac6ab2299555435468ba62c52ede167} 
 \index{Mason\+::\+Script@{Mason\+::\+Script}!transform@{transform}}
 \index{transform@{transform}!Mason\+::\+Script@{Mason\+::\+Script}}
 \subsubsection{\texorpdfstring{transform}{transform}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\hyperlink{class_mason_1_1_transform}{Transform}$>$ Mason\+::\+Script\+::transform}
+{\footnotesize\ttfamily \hyperlink{class_mason_1_1_transform}{Transform}$\ast$ Mason\+::\+Script\+::transform}
 
 
 

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: Mason::TransformDescriptor Class Reference</title>
+<title>Game Engines: Mason::TransformDescriptor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -88,20 +88,33 @@ $(document).ready(function(){initNavTree('class_mason_1_1_transform_descriptor.h
 </div><!--header-->
 <div class="contents">
 
+<p>Describes a <a class="el" href="class_mason_1_1_transform.html">Transform</a> component <br />
+  
+ <a href="class_mason_1_1_transform_descriptor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_scene_parser_8hpp_source.html">SceneParser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:acce622c3f89ae5b081c61feabc1319bf"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_transform_descriptor.html#acce622c3f89ae5b081c61feabc1319bf">position</a> = glm::vec3(0, 0, 0)</td></tr>
 <tr class="separator:acce622c3f89ae5b081c61feabc1319bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa66cc703fd520b19b4347b390eabfc41"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_transform_descriptor.html#aa66cc703fd520b19b4347b390eabfc41">rotationEuler</a> = glm::vec3(0, 0, 0)</td></tr>
-<tr class="separator:aa66cc703fd520b19b4347b390eabfc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d264880a0c22c624c996057bf59b752"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_transform_descriptor.html#a5d264880a0c22c624c996057bf59b752">scale</a> = glm::vec3(1, 1, 1)</td></tr>
-<tr class="separator:a5d264880a0c22c624c996057bf59b752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae276979ce993523996db1c9192d8cf8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_transform_descriptor.html#aae276979ce993523996db1c9192d8cf8">rotation</a> = 0.0f</td></tr>
+<tr class="separator:aae276979ce993523996db1c9192d8cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fe9d0ecd10d501dc956fae07b252dc8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_transform_descriptor.html#a8fe9d0ecd10d501dc956fae07b252dc8">scale</a> = 1.0f</td></tr>
+<tr class="separator:a8fe9d0ecd10d501dc956fae07b252dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae83bf1f16969979cb24e2ae9d1eb3134"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_transform_descriptor.html#ae83bf1f16969979cb24e2ae9d1eb3134">parentId</a> = -1</td></tr>
 <tr class="separator:ae83bf1f16969979cb24e2ae9d1eb3134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Describes a <a class="el" href="class_mason_1_1_transform.html">Transform</a> component <br />
+ </p>
+<p>"transform": { <br />
+ "position" = [0, 0, 0], // Optional, default: [0,0,0] <br />
+ "rotation" = 0, // Optional, default: 0 <br />
+ "scale" = 1, // Optional, default: 1 <br />
+ "parentId" = -1 // Optional, default: -1 <br />
+ } </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="ae83bf1f16969979cb24e2ae9d1eb3134"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae83bf1f16969979cb24e2ae9d1eb3134">&sect;&nbsp;</a></span>parentId</h2>
 
@@ -130,28 +143,28 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa66cc703fd520b19b4347b390eabfc41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa66cc703fd520b19b4347b390eabfc41">&sect;&nbsp;</a></span>rotationEuler</h2>
+<a id="aae276979ce993523996db1c9192d8cf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae276979ce993523996db1c9192d8cf8">&sect;&nbsp;</a></span>rotation</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Mason::TransformDescriptor::rotationEuler = glm::vec3(0, 0, 0)</td>
+          <td class="memname">float Mason::TransformDescriptor::rotation = 0.0f</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a5d264880a0c22c624c996057bf59b752"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d264880a0c22c624c996057bf59b752">&sect;&nbsp;</a></span>scale</h2>
+<a id="a8fe9d0ecd10d501dc956fae07b252dc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fe9d0ecd10d501dc956fae07b252dc8">&sect;&nbsp;</a></span>scale</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Mason::TransformDescriptor::scale = glm::vec3(1, 1, 1)</td>
+          <td class="memname">float Mason::TransformDescriptor::scale = 1.0f</td>
         </tr>
       </table>
 </div><div class="memdoc">

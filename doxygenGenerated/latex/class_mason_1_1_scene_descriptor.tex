@@ -2,6 +2,12 @@
 \label{class_mason_1_1_scene_descriptor}\index{Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}}
 
 
+Describes a \hyperlink{class_mason_1_1_scene}{Scene} ~\newline
+  
+
+
+
+
 {\ttfamily \#include $<$Scene\+Parser.\+hpp$>$}
 
 \subsection*{Public Attributes}
@@ -13,11 +19,38 @@ std\+::string \hyperlink{class_mason_1_1_scene_descriptor_a32d312e0bb11e5e3f5419
 \item 
 std\+::string \hyperlink{class_mason_1_1_scene_descriptor_acd7e349dc63b0692c2f4912765db2cbe}{soundpath} = \char`\"{}data/sounds\char`\"{}
 \item 
+std\+::string \hyperlink{class_mason_1_1_scene_descriptor_a5790bbda9414295660aa96be5824dbbb}{templatepath} = \char`\"{}data/templates\char`\"{}
+\item 
 std\+::vector$<$ std\+::string $>$ \hyperlink{class_mason_1_1_scene_descriptor_a0037cbfd772bbacb81017de405276475}{sprites}
 \item 
 std\+::vector$<$ \hyperlink{class_mason_1_1_game_object_descriptor}{Game\+Object\+Descriptor} $>$ \hyperlink{class_mason_1_1_scene_descriptor_a1883e270cf9361e9797269cc0bed1bbc}{gameobjects}
+\item 
+glm\+::vec2 \hyperlink{class_mason_1_1_scene_descriptor_a7d9c12b3d2176d2012a22824113c7b56}{gravity} = glm\+::vec2(0, -\/10)
+\item 
+float \hyperlink{class_mason_1_1_scene_descriptor_a800b682b3cadc6d6830e9bf23f01c958}{physics\+Scale} = 100
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Describes a \hyperlink{class_mason_1_1_scene}{Scene} ~\newline
+ 
+
+\char`\"{}scenename\char`\"{}\+: \char`\"{}\+Scene\char`\"{}, // Optional, default\+: \char`\"{}\+Scene\char`\"{} ~\newline
+ \char`\"{}imagepath\char`\"{}\+: \char`\"{}data/images\char`\"{}, // Optional, default\+: \char`\"{}data/images\char`\"{} ~\newline
+ \char`\"{}soundpath\char`\"{}\+: \char`\"{}data/sounds\char`\"{}, // Optional, default\+: \char`\"{}data/sounds\char`\"{} ~\newline
+ \char`\"{}templatepath\char`\"{}\+: \char`\"{}data/templates\char`\"{}, // Optional, default\+: \char`\"{}data/templates\char`\"{} ~\newline
+ \char`\"{}sprites\char`\"{}\+: \mbox{[} // Optional, list of \hyperlink{class_mason_1_1_sprite}{Sprite}, see \hyperlink{class_mason_1_1_sprite_descriptor}{Sprite\+Descriptor} for details ~\newline
+ \{ ~\newline
+ ... ~\newline
+ \} ~\newline
+ \mbox{]}, \char`\"{}gameobjects\char`\"{}\+: \mbox{[} // Optional, list of \hyperlink{class_mason_1_1_game_object}{Game\+Object}, see \hyperlink{class_mason_1_1_game_object_descriptor}{Game\+Object\+Descriptor} for details ~\newline
+ \{ ~\newline
+ ... ~\newline
+ \} ~\newline
+ \mbox{]}, ~\newline
+ \char`\"{}gravity\char`\"{}\+: \mbox{[}0, -\/10\mbox{]}, // Optional, default\+: \mbox{[}0, -\/10\mbox{]} ~\newline
+ \char`\"{}physics\+Scale\char`\"{}\+: 100 // Optional, default\+: 100 ~\newline
+ 
 
 \subsection{Member Data Documentation}
 \hypertarget{class_mason_1_1_scene_descriptor_a1883e270cf9361e9797269cc0bed1bbc}{}\label{class_mason_1_1_scene_descriptor_a1883e270cf9361e9797269cc0bed1bbc} 
@@ -25,6 +58,12 @@ std\+::vector$<$ \hyperlink{class_mason_1_1_game_object_descriptor}{Game\+Object
 \index{gameobjects@{gameobjects}!Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}}
 \subsubsection{\texorpdfstring{gameobjects}{gameobjects}}
 {\footnotesize\ttfamily std\+::vector$<$\hyperlink{class_mason_1_1_game_object_descriptor}{Game\+Object\+Descriptor}$>$ Mason\+::\+Scene\+Descriptor\+::gameobjects}
+
+\hypertarget{class_mason_1_1_scene_descriptor_a7d9c12b3d2176d2012a22824113c7b56}{}\label{class_mason_1_1_scene_descriptor_a7d9c12b3d2176d2012a22824113c7b56} 
+\index{Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}!gravity@{gravity}}
+\index{gravity@{gravity}!Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}}
+\subsubsection{\texorpdfstring{gravity}{gravity}}
+{\footnotesize\ttfamily glm\+::vec2 Mason\+::\+Scene\+Descriptor\+::gravity = glm\+::vec2(0, -\/10)}
 
 \hypertarget{class_mason_1_1_scene_descriptor_a32d312e0bb11e5e3f5419f5d3a6d002a}{}\label{class_mason_1_1_scene_descriptor_a32d312e0bb11e5e3f5419f5d3a6d002a} 
 \index{Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}!imagepath@{imagepath}}
@@ -38,6 +77,12 @@ std\+::vector$<$ \hyperlink{class_mason_1_1_game_object_descriptor}{Game\+Object
 \subsubsection{\texorpdfstring{name}{name}}
 {\footnotesize\ttfamily std\+::string Mason\+::\+Scene\+Descriptor\+::name = \char`\"{}Scene\char`\"{}}
 
+\hypertarget{class_mason_1_1_scene_descriptor_a800b682b3cadc6d6830e9bf23f01c958}{}\label{class_mason_1_1_scene_descriptor_a800b682b3cadc6d6830e9bf23f01c958} 
+\index{Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}!physics\+Scale@{physics\+Scale}}
+\index{physics\+Scale@{physics\+Scale}!Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}}
+\subsubsection{\texorpdfstring{physics\+Scale}{physicsScale}}
+{\footnotesize\ttfamily float Mason\+::\+Scene\+Descriptor\+::physics\+Scale = 100}
+
 \hypertarget{class_mason_1_1_scene_descriptor_acd7e349dc63b0692c2f4912765db2cbe}{}\label{class_mason_1_1_scene_descriptor_acd7e349dc63b0692c2f4912765db2cbe} 
 \index{Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}!soundpath@{soundpath}}
 \index{soundpath@{soundpath}!Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}}
@@ -49,6 +94,12 @@ std\+::vector$<$ \hyperlink{class_mason_1_1_game_object_descriptor}{Game\+Object
 \index{sprites@{sprites}!Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}}
 \subsubsection{\texorpdfstring{sprites}{sprites}}
 {\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Mason\+::\+Scene\+Descriptor\+::sprites}
+
+\hypertarget{class_mason_1_1_scene_descriptor_a5790bbda9414295660aa96be5824dbbb}{}\label{class_mason_1_1_scene_descriptor_a5790bbda9414295660aa96be5824dbbb} 
+\index{Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}!templatepath@{templatepath}}
+\index{templatepath@{templatepath}!Mason\+::\+Scene\+Descriptor@{Mason\+::\+Scene\+Descriptor}}
+\subsubsection{\texorpdfstring{templatepath}{templatepath}}
+{\footnotesize\ttfamily std\+::string Mason\+::\+Scene\+Descriptor\+::templatepath = \char`\"{}data/templates\char`\"{}}
 
 
 

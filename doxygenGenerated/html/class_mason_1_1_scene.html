@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: Mason::Scene Class Reference</title>
+<title>Game Engines: Mason::Scene Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -82,6 +82,7 @@ $(document).ready(function(){initNavTree('class_mason_1_1_scene.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="class_mason_1_1_scene-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -93,8 +94,14 @@ $(document).ready(function(){initNavTree('class_mason_1_1_scene.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a31b9509898769d98c7230ac78b95059d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a31b9509898769d98c7230ac78b95059d">Scene</a> ()</td></tr>
+<tr class="separator:a31b9509898769d98c7230ac78b95059d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe8ac9cb371c04a0587faf06bf828ac9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#afe8ac9cb371c04a0587faf06bf828ac9">addGameObject</a> (std::string name)</td></tr>
 <tr class="separator:afe8ac9cb371c04a0587faf06bf828ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d1afc4d112079aedd3829a8a42e902e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a4d1afc4d112079aedd3829a8a42e902e">loadGameObject</a> (<a class="el" href="class_mason_1_1_game_object_descriptor.html">GameObjectDescriptor</a> desc)</td></tr>
+<tr class="separator:a4d1afc4d112079aedd3829a8a42e902e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d10aca9d364dc70935795a1436f353d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a2d10aca9d364dc70935795a1436f353d">setParentRelationship</a> (int childId, int parentId)</td></tr>
+<tr class="separator:a2d10aca9d364dc70935795a1436f353d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad5427fcdd330f65dc4e7b1e627afce4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#aad5427fcdd330f65dc4e7b1e627afce4">removeGameObject</a> (std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt; ptr)</td></tr>
 <tr class="separator:aad5427fcdd330f65dc4e7b1e627afce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97780dbb825e92c62b02623fe1e297fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a97780dbb825e92c62b02623fe1e297fa">getSize</a> ()</td></tr>
@@ -103,15 +110,46 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae13738888d4f00135fb827639f87239b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a045d786fa6f11ab01e190971637b15ce"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a045d786fa6f11ab01e190971637b15ce">getGameObjects</a> ()</td></tr>
 <tr class="separator:a045d786fa6f11ab01e190971637b15ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0766a39a27d936b12a93cb3f49ee32b0"><td class="memTemplParams" colspan="2">template&lt;typename C &gt; </td></tr>
-<tr class="memitem:a0766a39a27d936b12a93cb3f49ee32b0"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; C &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a0766a39a27d936b12a93cb3f49ee32b0">getAllComponent</a> ()</td></tr>
-<tr class="separator:a0766a39a27d936b12a93cb3f49ee32b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a889caa86c1c4c8fad9416c7240148232"><td class="memTemplParams" colspan="2">template&lt;typename C &gt; </td></tr>
+<tr class="memitem:a889caa86c1c4c8fad9416c7240148232"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; C * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a889caa86c1c4c8fad9416c7240148232">getAllComponent</a> ()</td></tr>
+<tr class="separator:a889caa86c1c4c8fad9416c7240148232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a3eee172075ff2b845caffc8e641f9d9c"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a3eee172075ff2b845caffc8e641f9d9c">Instantiate</a> (std::string name)</td></tr>
+<tr class="separator:a3eee172075ff2b845caffc8e641f9d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4721fcf8438883759478aee25bf247c2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a4721fcf8438883759478aee25bf247c2">Destroy</a> (std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt; ptr)</td></tr>
+<tr class="separator:a4721fcf8438883759478aee25bf247c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f395f22c024c0d5161cfa8e024f177d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a8f395f22c024c0d5161cfa8e024f177d">Destroy</a> (<a class="el" href="class_mason_1_1_game_object.html">GameObject</a> *ptr)</td></tr>
+<tr class="separator:a8f395f22c024c0d5161cfa8e024f177d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684a224fe56794d0db86da99947a6fac"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a684a224fe56794d0db86da99947a6fac">GetByName</a> (std::string name)</td></tr>
+<tr class="separator:a684a224fe56794d0db86da99947a6fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a3e1914489e4bed4f9f23cdeab34a43dc"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a3e1914489e4bed4f9f23cdeab34a43dc">Engine</a></td></tr>
 <tr class="separator:a3e1914489e4bed4f9f23cdeab34a43dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8060d758084fa30aaed3278425b90665"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene.html#a8060d758084fa30aaed3278425b90665">Scene</a></td></tr>
+<tr class="separator:a8060d758084fa30aaed3278425b90665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a31b9509898769d98c7230ac78b95059d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b9509898769d98c7230ac78b95059d">&sect;&nbsp;</a></span>Scene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mason::Scene::Scene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="afe8ac9cb371c04a0587faf06bf828ac9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe8ac9cb371c04a0587faf06bf828ac9">&sect;&nbsp;</a></span>addGameObject()</h2>
@@ -131,8 +169,60 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a0766a39a27d936b12a93cb3f49ee32b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0766a39a27d936b12a93cb3f49ee32b0">&sect;&nbsp;</a></span>getAllComponent()</h2>
+<a id="a4721fcf8438883759478aee25bf247c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4721fcf8438883759478aee25bf247c2">&sect;&nbsp;</a></span>Destroy() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Mason::Scene::Destroy </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt;&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f395f22c024c0d5161cfa8e024f177d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f395f22c024c0d5161cfa8e024f177d">&sect;&nbsp;</a></span>Destroy() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::Destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_mason_1_1_game_object.html">GameObject</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a889caa86c1c4c8fad9416c7240148232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a889caa86c1c4c8fad9416c7240148232">&sect;&nbsp;</a></span>getAllComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,12 +230,38 @@ Friends</h2></td></tr>
 template&lt;typename C &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; std::shared_ptr&lt; C &gt; &gt; Mason::Scene::getAllComponent </td>
+          <td class="memname">std::vector&lt; C * &gt; Mason::Scene::getAllComponent </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a684a224fe56794d0db86da99947a6fac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684a224fe56794d0db86da99947a6fac">&sect;&nbsp;</a></span>GetByName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt; &gt; Scene::GetByName </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -202,6 +318,50 @@ template&lt;typename C &gt; </div>
 
 </div>
 </div>
+<a id="a3eee172075ff2b845caffc8e641f9d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eee172075ff2b845caffc8e641f9d9c">&sect;&nbsp;</a></span>Instantiate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt; Scene::Instantiate </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d1afc4d112079aedd3829a8a42e902e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d1afc4d112079aedd3829a8a42e902e">&sect;&nbsp;</a></span>loadGameObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt; Scene::loadGameObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_mason_1_1_game_object_descriptor.html">GameObjectDescriptor</a>&#160;</td>
+          <td class="paramname"><em>desc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aad5427fcdd330f65dc4e7b1e627afce4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad5427fcdd330f65dc4e7b1e627afce4">&sect;&nbsp;</a></span>removeGameObject()</h2>
 
@@ -220,6 +380,34 @@ template&lt;typename C &gt; </div>
 
 </div>
 </div>
+<a id="a2d10aca9d364dc70935795a1436f353d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d10aca9d364dc70935795a1436f353d">&sect;&nbsp;</a></span>setParentRelationship()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::setParentRelationship </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>childId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>parentId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
 <a id="a3e1914489e4bed4f9f23cdeab34a43dc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e1914489e4bed4f9f23cdeab34a43dc">&sect;&nbsp;</a></span>Engine</h2>
@@ -232,6 +420,28 @@ template&lt;typename C &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">friend class <a class="el" href="class_mason_1_1_engine.html">Engine</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8060d758084fa30aaed3278425b90665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8060d758084fa30aaed3278425b90665">&sect;&nbsp;</a></span>Scene</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Scene::Scene</td>
         </tr>
       </table>
   </td>

@@ -4,14 +4,12 @@
 
 {\ttfamily \#include $<$Particle\+Emitter.\+hpp$>$}
 
-
-
-Inheritance diagram for Mason\+:\+:Particle\+Emitter\+:
-% FIG 0
-
-
-Collaboration diagram for Mason\+:\+:Particle\+Emitter\+:
-% FIG 1
+Inheritance diagram for Mason\+:\+:Particle\+Emitter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mason_1_1_particle_emitter}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,9 +34,9 @@ bool \hyperlink{class_mason_1_1_particle_emitter_acaf3e09e8eb747d3c603c225a781b5
 \item 
 glm\+::vec2 \hyperlink{class_mason_1_1_particle_emitter_a9750a2b4f2f644691822b266359f1c86}{cubic\+Bezier} (float t, std\+::vector$<$ glm\+::vec2 $>$ spline\+Points)
 \item 
-void \hyperlink{class_mason_1_1_particle_emitter_abc43ce83f1adef05e78b166422217cad}{update\+Model} (float delta\+Time\+Sec)
+void \hyperlink{class_mason_1_1_particle_emitter_a00459b3ebe215bede4427ad1e8e3f7dc}{update\+Model} (float delta\+Time\+Sec)
 \item 
-\hyperlink{class_mason_1_1_particle_emitter_a30525758eaab5f41e625b8354e80d219}{Particle\+Emitter} (\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$\hyperlink{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8}{game\+Object})
+\hyperlink{class_mason_1_1_particle_emitter_a6a985b19a4f37f242030afe2c8cc5545}{Particle\+Emitter} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ \hyperlink{class_mason_1_1_component_abaa67b569d0a70e26a4606f4a099a925}{game\+Object})
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -48,6 +46,8 @@ S\+R\+E\+::\+Particle\+Mesh $\ast$ \hyperlink{class_mason_1_1_particle_emitter_a
 S\+R\+E\+::\+Shader $\ast$ \hyperlink{class_mason_1_1_particle_emitter_abd604dd44e85f836580c40bf8d147a2c}{shader} = nullptr
 \item 
 std\+::vector$<$ glm\+::vec3 $>$ \hyperlink{class_mason_1_1_particle_emitter_a9398d92e4bed89396c02d4c028ba3e69}{positions} = std\+::vector$<$glm\+::vec3$>$()
+\item 
+std\+::vector$<$ int $>$ \hyperlink{class_mason_1_1_particle_emitter_a1c66e387ee5824b69e72efe37d5ce850}{left\+Alive} = std\+::vector$<$int$>$()
 \item 
 std\+::vector$<$ float $>$ \hyperlink{class_mason_1_1_particle_emitter_a6209f3a86719de038574edafc0eaa194}{sizes} = std\+::vector$<$float$>$()
 \item 
@@ -61,9 +61,7 @@ std\+::vector$<$ float $>$ \hyperlink{class_mason_1_1_particle_emitter_a477934ce
 \item 
 int \hyperlink{class_mason_1_1_particle_emitter_afc99ceabe0f61e289bc7e6d4c3b1b038}{total\+Particles} = 0
 \item 
-std\+::vector$<$ float $>$ \hyperlink{class_mason_1_1_particle_emitter_aa7e4b79447b8c65255b92d313464a03c}{birth\+Times} = std\+::vector$<$float$>$()
-\item 
-std\+::vector$<$ float $>$ \hyperlink{class_mason_1_1_particle_emitter_af8aa10f22ae7a4662b198d52c2424d3c}{age} = std\+::vector$<$float$>$()
+std\+::vector$<$ float $>$ \hyperlink{class_mason_1_1_particle_emitter_a00b9492ad2e49d6f95e05ea7c4052a57}{ages} = std\+::vector$<$float$>$()
 \item 
 std\+::vector$<$ glm\+::vec3 $>$ \hyperlink{class_mason_1_1_particle_emitter_aa72403d590c4528e1a1d9dbf4bc3dfd3}{velocities} = std\+::vector$<$glm\+::vec3$>$()
 \item 
@@ -73,11 +71,17 @@ int \hyperlink{class_mason_1_1_particle_emitter_a2df785f58db33ede9255ba835e955e1
 \item 
 int \hyperlink{class_mason_1_1_particle_emitter_a591a7ed2fc6cded5dc19b144ece7b3fb}{max\+Particles}
 \item 
-int \hyperlink{class_mason_1_1_particle_emitter_a2204ca394c10b6b3a5c5bd11c34d2251}{pos}
+int \hyperlink{class_mason_1_1_particle_emitter_a76a3eb861adfec2123479be32c66999c}{body\+Count} = 0
 \item 
-float \hyperlink{class_mason_1_1_particle_emitter_a46d4d3d2871daba6f320dfbc1f89ace1}{start\+Time}
+float \hyperlink{class_mason_1_1_particle_emitter_a5ae9088b02fdfd269dfd34c2a092e384}{run\+Time} = 0
+\item 
+float \hyperlink{class_mason_1_1_particle_emitter_a46d4d3d2871daba6f320dfbc1f89ace1}{start\+Time} = -\/1
+\item 
+float \hyperlink{class_mason_1_1_particle_emitter_a63333da2d5eb945d62e428f980c27523}{stop\+Time}
 \item 
 float \hyperlink{class_mason_1_1_particle_emitter_a79acae3c8f64f592e8868cb166b1a1ce}{last\+Update\+Time} = 0
+\item 
+bool \hyperlink{class_mason_1_1_particle_emitter_a615f89f70c414781aa518c8a035312bb}{emit\+New\+Particles} = false
 \end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -93,11 +97,11 @@ class \hyperlink{class_mason_1_1_particle_emitter_a00df87c957d8f7ee0fc51f07a0542
 \subsubsection{\texorpdfstring{$\sim$\+Particle\+Emitter()}{~ParticleEmitter()}}
 {\footnotesize\ttfamily Particle\+Emitter\+::$\sim$\+Particle\+Emitter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\hypertarget{class_mason_1_1_particle_emitter_a30525758eaab5f41e625b8354e80d219}{}\label{class_mason_1_1_particle_emitter_a30525758eaab5f41e625b8354e80d219} 
+\hypertarget{class_mason_1_1_particle_emitter_a6a985b19a4f37f242030afe2c8cc5545}{}\label{class_mason_1_1_particle_emitter_a6a985b19a4f37f242030afe2c8cc5545} 
 \index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!Particle\+Emitter@{Particle\+Emitter}}
 \index{Particle\+Emitter@{Particle\+Emitter}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
 \subsubsection{\texorpdfstring{Particle\+Emitter()}{ParticleEmitter()}}
-{\footnotesize\ttfamily Particle\+Emitter\+::\+Particle\+Emitter (\begin{DoxyParamCaption}\item[{\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily Particle\+Emitter\+::\+Particle\+Emitter (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
@@ -138,8 +142,6 @@ class \hyperlink{class_mason_1_1_particle_emitter_a00df87c957d8f7ee0fc51f07a0542
 \subsubsection{\texorpdfstring{start()}{start()}}
 {\footnotesize\ttfamily void Particle\+Emitter\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-% FIG 2
 \hypertarget{class_mason_1_1_particle_emitter_a4843aa3afd1c4d49c9c2519837fffe81}{}\label{class_mason_1_1_particle_emitter_a4843aa3afd1c4d49c9c2519837fffe81} 
 \index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!stop@{stop}}
 \index{stop@{stop}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
@@ -152,16 +154,12 @@ Here is the call graph for this function\+:
 \subsubsection{\texorpdfstring{update()}{update()}}
 {\footnotesize\ttfamily void Particle\+Emitter\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time\+Sec }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-% FIG 3
-\hypertarget{class_mason_1_1_particle_emitter_abc43ce83f1adef05e78b166422217cad}{}\label{class_mason_1_1_particle_emitter_abc43ce83f1adef05e78b166422217cad} 
+\hypertarget{class_mason_1_1_particle_emitter_a00459b3ebe215bede4427ad1e8e3f7dc}{}\label{class_mason_1_1_particle_emitter_a00459b3ebe215bede4427ad1e8e3f7dc} 
 \index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!update\+Model@{update\+Model}}
 \index{update\+Model@{update\+Model}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
 \subsubsection{\texorpdfstring{update\+Model()}{updateModel()}}
-{\footnotesize\ttfamily void Mason\+::\+Particle\+Emitter\+::update\+Model (\begin{DoxyParamCaption}\item[{float}]{delta\+Time\+Sec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily void Particle\+Emitter\+::update\+Model (\begin{DoxyParamCaption}\item[{float}]{delta\+Time\+Sec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
-Here is the call graph for this function\+:
-% FIG 4
 
 
 \subsection{Friends And Related Function Documentation}
@@ -174,17 +172,17 @@ Here is the call graph for this function\+:
 
 
 \subsection{Member Data Documentation}
-\hypertarget{class_mason_1_1_particle_emitter_af8aa10f22ae7a4662b198d52c2424d3c}{}\label{class_mason_1_1_particle_emitter_af8aa10f22ae7a4662b198d52c2424d3c} 
-\index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!age@{age}}
-\index{age@{age}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
-\subsubsection{\texorpdfstring{age}{age}}
-{\footnotesize\ttfamily std\+::vector$<$float$>$ Mason\+::\+Particle\+Emitter\+::age = std\+::vector$<$float$>$()\hspace{0.3cm}{\ttfamily [protected]}}
+\hypertarget{class_mason_1_1_particle_emitter_a00b9492ad2e49d6f95e05ea7c4052a57}{}\label{class_mason_1_1_particle_emitter_a00b9492ad2e49d6f95e05ea7c4052a57} 
+\index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!ages@{ages}}
+\index{ages@{ages}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
+\subsubsection{\texorpdfstring{ages}{ages}}
+{\footnotesize\ttfamily std\+::vector$<$float$>$ Mason\+::\+Particle\+Emitter\+::ages = std\+::vector$<$float$>$()\hspace{0.3cm}{\ttfamily [protected]}}
 
-\hypertarget{class_mason_1_1_particle_emitter_aa7e4b79447b8c65255b92d313464a03c}{}\label{class_mason_1_1_particle_emitter_aa7e4b79447b8c65255b92d313464a03c} 
-\index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!birth\+Times@{birth\+Times}}
-\index{birth\+Times@{birth\+Times}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
-\subsubsection{\texorpdfstring{birth\+Times}{birthTimes}}
-{\footnotesize\ttfamily std\+::vector$<$float$>$ Mason\+::\+Particle\+Emitter\+::birth\+Times = std\+::vector$<$float$>$()\hspace{0.3cm}{\ttfamily [protected]}}
+\hypertarget{class_mason_1_1_particle_emitter_a76a3eb861adfec2123479be32c66999c}{}\label{class_mason_1_1_particle_emitter_a76a3eb861adfec2123479be32c66999c} 
+\index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!body\+Count@{body\+Count}}
+\index{body\+Count@{body\+Count}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
+\subsubsection{\texorpdfstring{body\+Count}{bodyCount}}
+{\footnotesize\ttfamily int Mason\+::\+Particle\+Emitter\+::body\+Count = 0\hspace{0.3cm}{\ttfamily [protected]}}
 
 \hypertarget{class_mason_1_1_particle_emitter_a18c989ce7de75ba90f2b9f40f36beed1}{}\label{class_mason_1_1_particle_emitter_a18c989ce7de75ba90f2b9f40f36beed1} 
 \index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!colors@{colors}}
@@ -198,11 +196,23 @@ Here is the call graph for this function\+:
 \subsubsection{\texorpdfstring{config}{config}}
 {\footnotesize\ttfamily \hyperlink{struct_mason_1_1_particle_emitter_config}{Particle\+Emitter\+Config} Mason\+::\+Particle\+Emitter\+::config\hspace{0.3cm}{\ttfamily [protected]}}
 
+\hypertarget{class_mason_1_1_particle_emitter_a615f89f70c414781aa518c8a035312bb}{}\label{class_mason_1_1_particle_emitter_a615f89f70c414781aa518c8a035312bb} 
+\index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!emit\+New\+Particles@{emit\+New\+Particles}}
+\index{emit\+New\+Particles@{emit\+New\+Particles}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
+\subsubsection{\texorpdfstring{emit\+New\+Particles}{emitNewParticles}}
+{\footnotesize\ttfamily bool Mason\+::\+Particle\+Emitter\+::emit\+New\+Particles = false\hspace{0.3cm}{\ttfamily [protected]}}
+
 \hypertarget{class_mason_1_1_particle_emitter_a79acae3c8f64f592e8868cb166b1a1ce}{}\label{class_mason_1_1_particle_emitter_a79acae3c8f64f592e8868cb166b1a1ce} 
 \index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!last\+Update\+Time@{last\+Update\+Time}}
 \index{last\+Update\+Time@{last\+Update\+Time}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
 \subsubsection{\texorpdfstring{last\+Update\+Time}{lastUpdateTime}}
 {\footnotesize\ttfamily float Mason\+::\+Particle\+Emitter\+::last\+Update\+Time = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_mason_1_1_particle_emitter_a1c66e387ee5824b69e72efe37d5ce850}{}\label{class_mason_1_1_particle_emitter_a1c66e387ee5824b69e72efe37d5ce850} 
+\index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!left\+Alive@{left\+Alive}}
+\index{left\+Alive@{left\+Alive}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
+\subsubsection{\texorpdfstring{left\+Alive}{leftAlive}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Mason\+::\+Particle\+Emitter\+::left\+Alive = std\+::vector$<$int$>$()\hspace{0.3cm}{\ttfamily [protected]}}
 
 \hypertarget{class_mason_1_1_particle_emitter_a591a7ed2fc6cded5dc19b144ece7b3fb}{}\label{class_mason_1_1_particle_emitter_a591a7ed2fc6cded5dc19b144ece7b3fb} 
 \index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!max\+Particles@{max\+Particles}}
@@ -222,17 +232,17 @@ Here is the call graph for this function\+:
 \subsubsection{\texorpdfstring{num\+Particles}{numParticles}}
 {\footnotesize\ttfamily int Mason\+::\+Particle\+Emitter\+::num\+Particles\hspace{0.3cm}{\ttfamily [protected]}}
 
-\hypertarget{class_mason_1_1_particle_emitter_a2204ca394c10b6b3a5c5bd11c34d2251}{}\label{class_mason_1_1_particle_emitter_a2204ca394c10b6b3a5c5bd11c34d2251} 
-\index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!pos@{pos}}
-\index{pos@{pos}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
-\subsubsection{\texorpdfstring{pos}{pos}}
-{\footnotesize\ttfamily int Mason\+::\+Particle\+Emitter\+::pos\hspace{0.3cm}{\ttfamily [protected]}}
-
 \hypertarget{class_mason_1_1_particle_emitter_a9398d92e4bed89396c02d4c028ba3e69}{}\label{class_mason_1_1_particle_emitter_a9398d92e4bed89396c02d4c028ba3e69} 
 \index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!positions@{positions}}
 \index{positions@{positions}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
 \subsubsection{\texorpdfstring{positions}{positions}}
 {\footnotesize\ttfamily std\+::vector$<$glm\+::vec3$>$ Mason\+::\+Particle\+Emitter\+::positions = std\+::vector$<$glm\+::vec3$>$()\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_mason_1_1_particle_emitter_a5ae9088b02fdfd269dfd34c2a092e384}{}\label{class_mason_1_1_particle_emitter_a5ae9088b02fdfd269dfd34c2a092e384} 
+\index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!run\+Time@{run\+Time}}
+\index{run\+Time@{run\+Time}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
+\subsubsection{\texorpdfstring{run\+Time}{runTime}}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Emitter\+::run\+Time = 0\hspace{0.3cm}{\ttfamily [protected]}}
 
 \hypertarget{class_mason_1_1_particle_emitter_abd604dd44e85f836580c40bf8d147a2c}{}\label{class_mason_1_1_particle_emitter_abd604dd44e85f836580c40bf8d147a2c} 
 \index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!shader@{shader}}
@@ -250,7 +260,13 @@ Here is the call graph for this function\+:
 \index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!start\+Time@{start\+Time}}
 \index{start\+Time@{start\+Time}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
 \subsubsection{\texorpdfstring{start\+Time}{startTime}}
-{\footnotesize\ttfamily float Mason\+::\+Particle\+Emitter\+::start\+Time\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Emitter\+::start\+Time = -\/1\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_mason_1_1_particle_emitter_a63333da2d5eb945d62e428f980c27523}{}\label{class_mason_1_1_particle_emitter_a63333da2d5eb945d62e428f980c27523} 
+\index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!stop\+Time@{stop\+Time}}
+\index{stop\+Time@{stop\+Time}!Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}}
+\subsubsection{\texorpdfstring{stop\+Time}{stopTime}}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Emitter\+::stop\+Time\hspace{0.3cm}{\ttfamily [protected]}}
 
 \hypertarget{class_mason_1_1_particle_emitter_afc99ceabe0f61e289bc7e6d4c3b1b038}{}\label{class_mason_1_1_particle_emitter_afc99ceabe0f61e289bc7e6d4c3b1b038} 
 \index{Mason\+::\+Particle\+Emitter@{Mason\+::\+Particle\+Emitter}!total\+Particles@{total\+Particles}}

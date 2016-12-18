@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: Mason::CollisionListener Class Reference</title>
+<title>Game Engines: Mason::CollisionListener Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -92,30 +92,24 @@ $(document).ready(function(){initNavTree('class_mason_1_1_collision_listener.htm
 <div class="dynheader">
 Inheritance diagram for Mason::CollisionListener:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_mason_1_1_collision_listener__inherit__graph.png" border="0" usemap="#_mason_1_1_collision_listener_inherit__map" alt="Inheritance graph"/></div>
-<!-- MAP 0 -->
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for Mason::CollisionListener:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_mason_1_1_collision_listener__coll__graph.png" border="0" usemap="#_mason_1_1_collision_listener_coll__map" alt="Collaboration graph"/></div>
-<!-- MAP 1 -->
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+ <div class="center">
+  <img src="class_mason_1_1_collision_listener.png" usemap="#Mason::CollisionListener_map" alt=""/>
+  <map id="Mason::CollisionListener_map" name="Mason::CollisionListener_map">
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:accc6ff23dcbf8cbef31e68fe3c56837a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_collision_listener.html#accc6ff23dcbf8cbef31e68fe3c56837a">PreSolve</a> (b2Contact *contact, const b2Manifold *oldManifold)</td></tr>
-<tr class="separator:accc6ff23dcbf8cbef31e68fe3c56837a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afceef187bf2f12230da95c98699fef29"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_collision_listener.html#afceef187bf2f12230da95c98699fef29">BeginContact</a> (b2Contact *contact)</td></tr>
-<tr class="separator:afceef187bf2f12230da95c98699fef29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58250c23f5fe17721c186a9d22408576"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_collision_listener.html#a58250c23f5fe17721c186a9d22408576">EndContact</a> (b2Contact *contact)</td></tr>
-<tr class="separator:a58250c23f5fe17721c186a9d22408576"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a974aee4f4b2068706e87a887c842eb66"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_collision_listener.html#a974aee4f4b2068706e87a887c842eb66">PostSolve</a> (b2Contact *contact, const b2ContactImpulse *impulse)</td></tr>
-<tr class="separator:a974aee4f4b2068706e87a887c842eb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c4d83465cd2a9f6dd9d6e4dfba2834"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_collision_listener.html#a10c4d83465cd2a9f6dd9d6e4dfba2834">ProcessEvents</a> ()</td></tr>
+<tr class="separator:a10c4d83465cd2a9f6dd9d6e4dfba2834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac65851c3fa2d3ee90d287fca613e20be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_collision_listener.html#ac65851c3fa2d3ee90d287fca613e20be">BeginContact</a> (b2Contact *contact) override</td></tr>
+<tr class="separator:ac65851c3fa2d3ee90d287fca613e20be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41a2b9775c5814c1446ceffdeb009640"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_collision_listener.html#a41a2b9775c5814c1446ceffdeb009640">EndContact</a> (b2Contact *contact) override</td></tr>
+<tr class="separator:a41a2b9775c5814c1446ceffdeb009640"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="afceef187bf2f12230da95c98699fef29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afceef187bf2f12230da95c98699fef29">&sect;&nbsp;</a></span>BeginContact()</h2>
+<a id="ac65851c3fa2d3ee90d287fca613e20be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac65851c3fa2d3ee90d287fca613e20be">&sect;&nbsp;</a></span>BeginContact()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,7 +118,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Mason::CollisionListener::BeginContact </td>
+          <td class="memname">void CollisionListener::BeginContact </td>
           <td>(</td>
           <td class="paramtype">b2Contact *&#160;</td>
           <td class="paramname"><em>contact</em></td><td>)</td>
@@ -133,15 +127,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a58250c23f5fe17721c186a9d22408576"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58250c23f5fe17721c186a9d22408576">&sect;&nbsp;</a></span>EndContact()</h2>
+<a id="a41a2b9775c5814c1446ceffdeb009640"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41a2b9775c5814c1446ceffdeb009640">&sect;&nbsp;</a></span>EndContact()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +144,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Mason::CollisionListener::EndContact </td>
+          <td class="memname">void CollisionListener::EndContact </td>
           <td>(</td>
           <td class="paramtype">b2Contact *&#160;</td>
           <td class="paramname"><em>contact</em></td><td>)</td>
@@ -159,81 +153,26 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a974aee4f4b2068706e87a887c842eb66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a974aee4f4b2068706e87a887c842eb66">&sect;&nbsp;</a></span>PostSolve()</h2>
+<a id="a10c4d83465cd2a9f6dd9d6e4dfba2834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c4d83465cd2a9f6dd9d6e4dfba2834">&sect;&nbsp;</a></span>ProcessEvents()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Mason::CollisionListener::PostSolve </td>
+          <td class="memname">void CollisionListener::ProcessEvents </td>
           <td>(</td>
-          <td class="paramtype">b2Contact *&#160;</td>
-          <td class="paramname"><em>contact</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const b2ContactImpulse *&#160;</td>
-          <td class="paramname"><em>impulse</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="accc6ff23dcbf8cbef31e68fe3c56837a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#accc6ff23dcbf8cbef31e68fe3c56837a">&sect;&nbsp;</a></span>PreSolve()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CollisionListener::PreSolve </td>
-          <td>(</td>
-          <td class="paramtype">b2Contact *&#160;</td>
-          <td class="paramname"><em>contact</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const b2Manifold *&#160;</td>
-          <td class="paramname"><em>oldManifold</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>

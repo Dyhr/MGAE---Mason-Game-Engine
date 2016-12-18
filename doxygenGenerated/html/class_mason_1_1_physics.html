@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: Mason::Physics Class Reference</title>
+<title>Game Engines: Mason::Physics Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -81,24 +81,20 @@ $(document).ready(function(){initNavTree('class_mason_1_1_physics.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_mason_1_1_physics-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Mason::Physics Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>contains the physics world, with the the <a class="el" href="class_mason_1_1_collision_listener.html">CollisionListener</a> and the <a class="el" href="class_mason_1_1_s_r_e_debug_draw.html">SREDebugDraw</a> built on the physics and collision library Box2D. A private method calls the world step to advance the time in physics world. That step should be constant on FPS delta time.  
+ <a href="class_mason_1_1_physics.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_physics_8hpp_source.html">Physics.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ad625f1dea595f7b723003d54f997a518"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#ad625f1dea595f7b723003d54f997a518">step</a> (float dt)</td></tr>
-<tr class="separator:ad625f1dea595f7b723003d54f997a518"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc4560255c493a7fd543dd6730e4f826"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#abc4560255c493a7fd543dd6730e4f826">init</a> ()</td></tr>
-<tr class="separator:abc4560255c493a7fd543dd6730e4f826"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aba5aeb438d394e23ebd74bdc4aa716c2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_mason_1_1_physics.html">Physics</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#aba5aeb438d394e23ebd74bdc4aa716c2">getInstance</a> ()</td></tr>
@@ -106,14 +102,36 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7740dc3712e10eb4258774b76daeb2f6"><td class="memItemLeft" align="right" valign="top">b2World&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#a7740dc3712e10eb4258774b76daeb2f6">world</a> = b2World(b2Vec2(0, -10))</td></tr>
-<tr class="separator:a7740dc3712e10eb4258774b76daeb2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76c12a9fcecf8ff84953c1a5841e6f56"><td class="memItemLeft" align="right" valign="top">b2World *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#a76c12a9fcecf8ff84953c1a5841e6f56">world</a></td></tr>
+<tr class="memdesc:a76c12a9fcecf8ff84953c1a5841e6f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">world with 2D physics we get from Box2D  <a href="#a76c12a9fcecf8ff84953c1a5841e6f56">More...</a><br /></td></tr>
+<tr class="separator:a76c12a9fcecf8ff84953c1a5841e6f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab93e9c5caf8cb0964ceedc2161fac86d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#ab93e9c5caf8cb0964ceedc2161fac86d">velIterations</a> = 10</td></tr>
+<tr class="memdesc:ab93e9c5caf8cb0964ceedc2161fac86d"><td class="mdescLeft">&#160;</td><td class="mdescRight">physics settings. the distance thebodies in the world move will be their velocity (in distance units per second) multiplied by the length of the step (in seconds)  <a href="#ab93e9c5caf8cb0964ceedc2161fac86d">More...</a><br /></td></tr>
 <tr class="separator:ab93e9c5caf8cb0964ceedc2161fac86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43a4f23b2ee62ad20c3ed54a7c75a468"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#a43a4f23b2ee62ad20c3ed54a7c75a468">posIterations</a> = 10</td></tr>
+<tr class="memdesc:a43a4f23b2ee62ad20c3ed54a7c75a468"><td class="mdescLeft">&#160;</td><td class="mdescRight">physics settings. affect the way bodies will react when they collide, together with the velocity  <a href="#a43a4f23b2ee62ad20c3ed54a7c75a468">More...</a><br /></td></tr>
 <tr class="separator:a43a4f23b2ee62ad20c3ed54a7c75a468"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a60dcb177f208afef9864b04ec483a960"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#a60dcb177f208afef9864b04ec483a960">PhysicsBody2D</a></td></tr>
+<tr class="separator:a60dcb177f208afef9864b04ec483a960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e1914489e4bed4f9f23cdeab34a43dc"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#a3e1914489e4bed4f9f23cdeab34a43dc">Engine</a></td></tr>
+<tr class="separator:a3e1914489e4bed4f9f23cdeab34a43dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af851b4d9aacd1a871da33592334b8d72"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#af851b4d9aacd1a871da33592334b8d72">Transform</a></td></tr>
+<tr class="separator:af851b4d9aacd1a871da33592334b8d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a032858ae1fe02d2d1170981c2af2d67c"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#a032858ae1fe02d2d1170981c2af2d67c">Scene</a></td></tr>
+<tr class="separator:a032858ae1fe02d2d1170981c2af2d67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab15c5307c2a47823bec7f9c8deedcbd0"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#ab15c5307c2a47823bec7f9c8deedcbd0">SREDebugDraw</a></td></tr>
+<tr class="separator:ab15c5307c2a47823bec7f9c8deedcbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55094363fa44c6fe8cccbd7213309403"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#a55094363fa44c6fe8cccbd7213309403">CircleCollider2D</a></td></tr>
+<tr class="separator:a55094363fa44c6fe8cccbd7213309403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5e915b753caa5273de73badf505458f"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_physics.html#ae5e915b753caa5273de73badf505458f">BoxCollider2D</a></td></tr>
+<tr class="separator:ae5e915b753caa5273de73badf505458f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>contains the physics world, with the the <a class="el" href="class_mason_1_1_collision_listener.html">CollisionListener</a> and the <a class="el" href="class_mason_1_1_s_r_e_debug_draw.html">SREDebugDraw</a> built on the physics and collision library Box2D. A private method calls the world step to advance the time in physics world. That step should be constant on FPS delta time. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aba5aeb438d394e23ebd74bdc4aa716c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba5aeb438d394e23ebd74bdc4aa716c2">&sect;&nbsp;</a></span>getInstance()</h2>
 
@@ -136,53 +154,162 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>instance of the physics </dd></dl>
 
 </div>
 </div>
-<a id="abc4560255c493a7fd543dd6730e4f826"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc4560255c493a7fd543dd6730e4f826">&sect;&nbsp;</a></span>init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Physics::init </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_mason_1_1_physics_abc4560255c493a7fd543dd6730e4f826_cgraph.png" border="0" usemap="#class_mason_1_1_physics_abc4560255c493a7fd543dd6730e4f826_cgraph" alt=""/></div>
-<!-- MAP 0 -->
-</div>
-
-</div>
-</div>
-<a id="ad625f1dea595f7b723003d54f997a518"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad625f1dea595f7b723003d54f997a518">&sect;&nbsp;</a></span>step()</h2>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ae5e915b753caa5273de73badf505458f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5e915b753caa5273de73badf505458f">&sect;&nbsp;</a></span>BoxCollider2D</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Physics::step </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dt</em></td><td>)</td>
-          <td></td>
+          <td class="memname">friend class <a class="el" href="class_mason_1_1_box_collider2_d.html">BoxCollider2D</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_mason_1_1_physics_ad625f1dea595f7b723003d54f997a518_cgraph.png" border="0" usemap="#class_mason_1_1_physics_ad625f1dea595f7b723003d54f997a518_cgraph" alt=""/></div>
-<!-- MAP 1 -->
+
 </div>
+</div>
+<a id="a55094363fa44c6fe8cccbd7213309403"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55094363fa44c6fe8cccbd7213309403">&sect;&nbsp;</a></span>CircleCollider2D</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_mason_1_1_circle_collider2_d.html">CircleCollider2D</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e1914489e4bed4f9f23cdeab34a43dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e1914489e4bed4f9f23cdeab34a43dc">&sect;&nbsp;</a></span>Engine</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_mason_1_1_engine.html">Engine</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a60dcb177f208afef9864b04ec483a960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60dcb177f208afef9864b04ec483a960">&sect;&nbsp;</a></span>PhysicsBody2D</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_mason_1_1_physics_body2_d.html">PhysicsBody2D</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a032858ae1fe02d2d1170981c2af2d67c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a032858ae1fe02d2d1170981c2af2d67c">&sect;&nbsp;</a></span>Scene</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_mason_1_1_scene.html">Scene</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab15c5307c2a47823bec7f9c8deedcbd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab15c5307c2a47823bec7f9c8deedcbd0">&sect;&nbsp;</a></span>SREDebugDraw</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_mason_1_1_s_r_e_debug_draw.html">SREDebugDraw</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af851b4d9aacd1a871da33592334b8d72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af851b4d9aacd1a871da33592334b8d72">&sect;&nbsp;</a></span>Transform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_mason_1_1_transform.html">Transform</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -199,6 +326,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>physics settings. affect the way bodies will react when they collide, together with the velocity </p>
+
 </div>
 </div>
 <a id="ab93e9c5caf8cb0964ceedc2161fac86d"></a>
@@ -213,19 +342,23 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>physics settings. the distance thebodies in the world move will be their velocity (in distance units per second) multiplied by the length of the step (in seconds) </p>
+
 </div>
 </div>
-<a id="a7740dc3712e10eb4258774b76daeb2f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7740dc3712e10eb4258774b76daeb2f6">&sect;&nbsp;</a></span>world</h2>
+<a id="a76c12a9fcecf8ff84953c1a5841e6f56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76c12a9fcecf8ff84953c1a5841e6f56">&sect;&nbsp;</a></span>world</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">b2World Mason::Physics::world = b2World(b2Vec2(0, -10))</td>
+          <td class="memname">b2World* Mason::Physics::world</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>world with 2D physics we get from Box2D </p>
 
 </div>
 </div>

@@ -9,6 +9,7 @@ var hierarchy =
     [ "b2Draw", null, [
       [ "Mason::SREDebugDraw", "class_mason_1_1_s_r_e_debug_draw.html", null ]
     ] ],
+    [ "BoxCollider2D", "class_box_collider2_d.html", null ],
     [ "Mason::BoxColliderDescriptor", "class_mason_1_1_box_collider_descriptor.html", null ],
     [ "Mason::CameraDescriptor", "class_mason_1_1_camera_descriptor.html", null ],
     [ "Mason::CircleColliderDescriptor", "class_mason_1_1_circle_collider_descriptor.html", null ],
@@ -46,6 +47,7 @@ var hierarchy =
     [ "Mason::Scene", "class_mason_1_1_scene.html", null ],
     [ "Mason::SceneDescriptor", "class_mason_1_1_scene_descriptor.html", null ],
     [ "Mason::SceneParser", "class_mason_1_1_scene_parser.html", null ],
+    [ "SceneParserDescriptor", "class_scene_parser_descriptor.html", null ],
     [ "Mason::ScriptDescriptor", "class_mason_1_1_script_descriptor.html", null ],
     [ "picojson::serialize_str_char< Iter >", "structpicojson_1_1serialize__str__char.html", null ],
     [ "Mason::Sprite", "class_mason_1_1_sprite.html", null ],

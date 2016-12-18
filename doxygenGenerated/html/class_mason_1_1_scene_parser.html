@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engine: Mason::SceneParser Class Reference</title>
+<title>Game Engines: Mason::SceneParser Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game Engine
+   <div id="projectname">Game Engines
    </div>
    <div id="projectbrief">Mason</div>
   </td>
@@ -81,7 +81,8 @@ $(document).ready(function(){initNavTree('class_mason_1_1_scene_parser.html','')
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_mason_1_1_scene_parser-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Mason::SceneParser Class Reference</div>  </div>
@@ -90,10 +91,21 @@ $(document).ready(function(){initNavTree('class_mason_1_1_scene_parser.html','')
 
 <p><code>#include &lt;<a class="el" href="_scene_parser_8hpp_source.html">SceneParser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:ade3727eacb10881f5db54e649d649354"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_mason_1_1_scene_descriptor.html">SceneDescriptor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_parser.html#ade3727eacb10881f5db54e649d649354">parseFile</a> (std::string filename)</td></tr>
+<tr class="memdesc:ade3727eacb10881f5db54e649d649354"><td class="mdescLeft">&#160;</td><td class="mdescRight">parses a JSON file. Creates the scene that is going to be loaded in the game  <a href="#ade3727eacb10881f5db54e649d649354">More...</a><br /></td></tr>
 <tr class="separator:ade3727eacb10881f5db54e649d649354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e637ac719b878f7c11741b7c0d6c443"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_mason_1_1_game_object_descriptor.html">GameObjectDescriptor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_parser.html#a3e637ac719b878f7c11741b7c0d6c443">parseTemplate</a> (std::string name, std::string path)</td></tr>
+<tr class="memdesc:a3e637ac719b878f7c11741b7c0d6c443"><td class="mdescLeft">&#160;</td><td class="mdescRight">calls the private method parseObject  <a href="#a3e637ac719b878f7c11741b7c0d6c443">More...</a><br /></td></tr>
+<tr class="separator:a3e637ac719b878f7c11741b7c0d6c443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a3e1914489e4bed4f9f23cdeab34a43dc"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_parser.html#a3e1914489e4bed4f9f23cdeab34a43dc">Engine</a></td></tr>
+<tr class="separator:a3e1914489e4bed4f9f23cdeab34a43dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a032858ae1fe02d2d1170981c2af2d67c"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_scene_parser.html#a032858ae1fe02d2d1170981c2af2d67c">Scene</a></td></tr>
+<tr class="separator:a032858ae1fe02d2d1170981c2af2d67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ade3727eacb10881f5db54e649d649354"></a>
@@ -115,16 +127,110 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_mason_1_1_scene_parser_ade3727eacb10881f5db54e649d649354_cgraph.png" border="0" usemap="#class_mason_1_1_scene_parser_ade3727eacb10881f5db54e649d649354_cgraph" alt=""/></div>
-<!-- MAP 0 -->
+
+<p>parses a JSON file. Creates the scene that is going to be loaded in the game </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>name of the JSON file taht contains the elements of the scene </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_mason_1_1_scene_descriptor.html" title="Describes a Scene   ">SceneDescriptor</a> with the elements of the scene </dd></dl>
+
 </div>
+</div>
+<a id="a3e637ac719b878f7c11741b7c0d6c443"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e637ac719b878f7c11741b7c0d6c443">&sect;&nbsp;</a></span>parseTemplate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_mason_1_1_game_object_descriptor.html">GameObjectDescriptor</a> SceneParser::parseTemplate </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>calls the private method parseObject </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>of the JSON file that contains the elements of the <a class="el" href="class_mason_1_1_scene.html">Scene</a> </td></tr>
+    <tr><td class="paramname">path</td><td>of the JSON file that contains the elements of the <a class="el" href="class_mason_1_1_scene.html">Scene</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a <a class="el" href="class_mason_1_1_game_object_descriptor.html" title="Describes a GameObject   ">GameObjectDescriptor</a> with the info of the <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> of the <a class="el" href="class_mason_1_1_scene.html">Scene</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a3e1914489e4bed4f9f23cdeab34a43dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e1914489e4bed4f9f23cdeab34a43dc">&sect;&nbsp;</a></span>Engine</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_mason_1_1_engine.html">Engine</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a032858ae1fe02d2d1170981c2af2d67c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a032858ae1fe02d2d1170981c2af2d67c">&sect;&nbsp;</a></span>Scene</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_mason_1_1_scene.html">Scene</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -4,30 +4,28 @@
 
 {\ttfamily \#include $<$Component.\+hpp$>$}
 
-
-
-Inheritance diagram for Mason\+:\+:Component\+:
-% FIG 0
-
-
-Collaboration diagram for Mason\+:\+:Component\+:
-% FIG 1
+Inheritance diagram for Mason\+:\+:Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.518987cm]{class_mason_1_1_component}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 virtual \hyperlink{class_mason_1_1_component_ab8378fa275af98e568a7e91d33d867af}{$\sim$\+Component} ()
 \item 
-\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$ \hyperlink{class_mason_1_1_component_abed36db99f1ee0ba84a5fb8485e17428}{get\+Game\+Object} ()
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ \hyperlink{class_mason_1_1_component_a6c96ba73e4added598bfa975e000a3ea}{get\+Game\+Object} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_mason_1_1_component_a98d3a7d72f88dc7e67c946c78afb8243}{Component} (\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$\hyperlink{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8}{game\+Object})
+\hyperlink{class_mason_1_1_component_a19f394f7e3e940e7fc01d18d6a762d46}{Component} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ \hyperlink{class_mason_1_1_component_abaa67b569d0a70e26a4606f4a099a925}{game\+Object})
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$ \hyperlink{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8}{game\+Object}
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ \hyperlink{class_mason_1_1_component_abaa67b569d0a70e26a4606f4a099a925}{game\+Object}
 \end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -43,20 +41,20 @@ class \hyperlink{class_mason_1_1_component_a00df87c957d8f7ee0fc51f07a0542f4a}{Ga
 \subsubsection{\texorpdfstring{$\sim$\+Component()}{~Component()}}
 {\footnotesize\ttfamily Component\+::$\sim$\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-\hypertarget{class_mason_1_1_component_a98d3a7d72f88dc7e67c946c78afb8243}{}\label{class_mason_1_1_component_a98d3a7d72f88dc7e67c946c78afb8243} 
+\hypertarget{class_mason_1_1_component_a19f394f7e3e940e7fc01d18d6a762d46}{}\label{class_mason_1_1_component_a19f394f7e3e940e7fc01d18d6a762d46} 
 \index{Mason\+::\+Component@{Mason\+::\+Component}!Component@{Component}}
 \index{Component@{Component}!Mason\+::\+Component@{Mason\+::\+Component}}
 \subsubsection{\texorpdfstring{Component()}{Component()}}
-{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$}]{game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_mason_1_1_component_abed36db99f1ee0ba84a5fb8485e17428}{}\label{class_mason_1_1_component_abed36db99f1ee0ba84a5fb8485e17428} 
+\hypertarget{class_mason_1_1_component_a6c96ba73e4added598bfa975e000a3ea}{}\label{class_mason_1_1_component_a6c96ba73e4added598bfa975e000a3ea} 
 \index{Mason\+::\+Component@{Mason\+::\+Component}!get\+Game\+Object@{get\+Game\+Object}}
 \index{get\+Game\+Object@{get\+Game\+Object}!Mason\+::\+Component@{Mason\+::\+Component}}
 \subsubsection{\texorpdfstring{get\+Game\+Object()}{getGameObject()}}
-{\footnotesize\ttfamily \hyperlink{class_mason_1_1_game_object}{Game\+Object} $\ast$ Component\+::get\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ Component\+::get\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -70,11 +68,11 @@ class \hyperlink{class_mason_1_1_component_a00df87c957d8f7ee0fc51f07a0542f4a}{Ga
 
 
 \subsection{Member Data Documentation}
-\hypertarget{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8}{}\label{class_mason_1_1_component_a30030370c35f5562cbbbb0927b0448c8} 
+\hypertarget{class_mason_1_1_component_abaa67b569d0a70e26a4606f4a099a925}{}\label{class_mason_1_1_component_abaa67b569d0a70e26a4606f4a099a925} 
 \index{Mason\+::\+Component@{Mason\+::\+Component}!game\+Object@{game\+Object}}
 \index{game\+Object@{game\+Object}!Mason\+::\+Component@{Mason\+::\+Component}}
 \subsubsection{\texorpdfstring{game\+Object}{gameObject}}
-{\footnotesize\ttfamily \hyperlink{class_mason_1_1_game_object}{Game\+Object}$\ast$ Mason\+::\+Component\+::game\+Object\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\hyperlink{class_mason_1_1_game_object}{Game\+Object}$>$ Mason\+::\+Component\+::game\+Object\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
