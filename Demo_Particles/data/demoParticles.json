@@ -13,7 +13,7 @@
       },
       "transform":
       {
-        "position": [0, 0, 0] 
+        "position": [0, 100, 0] 
       },
 	  "scripts": [
 		{
@@ -128,25 +128,15 @@
 	  ]
     },
     {
-      "uniqueId": 3,
-      "name": "mariocatch",
-      "sprite": {
-		"name": "mario_10"
-	  },
-      "transform": {
-		"position": [205, -5, 0]
-      }
-    },	
-    {
       "uniqueId": 4,
-      "name": "Mario_1",
+      "name": "RainbowMario",
       "sprite": {
 		"name": "mario_1"
 	  },
       "transform": {
 		"position": [-200, -100, 0]
       },
-	  "particles": {
+	  "particles": {	
 		"rate": 10,
 		"lifespan": 4,
 		"velocityState": "fixed",
@@ -159,17 +149,26 @@
 		"minColor": [0, 0, 0, 1],
 		"maxColor": [1, 1, 1, 1],	
 		"rotationState": "fixed",
-		"rotation": 0,		
-
+		"rotation": 0
 	  },
 	  "scripts": [
 		{
 			"name": "particle-controller",
 			"properties": ["start", "stop"],
-			"start": "v",
-			"stop": "b"
+			"start": "k",
+			"stop": "l"
 		}
 	  ]
+    },
+    {
+      "uniqueId": 5,
+      "name": "mariocatch",
+      "sprite": {
+		"name": "mario_10"
+	  },
+      "transform": {
+		"position": [205, -5, 0]
+      }
     }
   ]
 }

@@ -3,6 +3,7 @@
 #include "Mason/Script.hpp"
 #include "Mason/GameObject.hpp"
 #include "Mason/Audio.hpp"
+#include "Mason/GUI.hpp"
 
 using namespace Mason;
 
@@ -21,6 +22,12 @@ public:
 		{
 			if (event.key.keysym.sym == SDLK_h) gameObject->getComponent<Audio>()->play();
 		}
+	}
+	void OnGUI() override {		
+		GUI::Label("Play the 1-octave-Piano!");
+		GUI::Label("Major keys are: a, s, d, f, g, h, j, k");
+		GUI::Label("Sharp keys are: w, e, t, y, u");
+
 	}
 protected:
 	ANoteController(std::shared_ptr<GameObject> gameObject) : Script(gameObject)

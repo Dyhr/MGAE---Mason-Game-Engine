@@ -3,6 +3,7 @@
 #include "Mason/Script.hpp"
 #include "Mason/Time.hpp"
 #include <iostream>
+#include "Mason/InputManager.h"
 
 using namespace Mason;
 
@@ -55,5 +56,5 @@ public:
 	int upDown = 0;
 	int directionX = 0;
 	int directionY = 0;
-	float speed = 50.0f;
+	float speed = 100.0f;
 };

@@ -28,13 +28,13 @@ void channelDone(int channel) {
 	channelsPlaying[channel] = nullptr;
 }
 
-void AudioManager::init()
+void AudioManager::init(int channels)
 {
 	Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024);
 	Mix_ChannelFinished(channelDone);
 	initialized = true;
 	//Allocate arbitrary channels for audio. TODO base on something, such as e.g. a multiple of the number of audiocomponents in a scene?
-	Mix_AllocateChannels(16);
+	Mix_AllocateChannels(channels);
 	maxChannels = Mix_AllocateChannels(-1);
 	std::cout << "AudioManager initialized with " << maxChannels << " channels allocated." << std::endl;
 }

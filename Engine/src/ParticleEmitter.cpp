@@ -149,8 +149,7 @@ void ParticleEmitter::updateModel(float deltaTimeSec)
 	}
 	if (bodyCount == 0 && !emitNewParticles) {
 		runTime = 0;
-	}
-	//std::cout << bodyCount << std::endl;
+	}	
 }
 
 ParticleEmitter::ParticleEmitter(std::shared_ptr<GameObject> gameObject) : Component(gameObject) {
@@ -181,11 +180,6 @@ void ParticleEmitter::stop()
 	}
 }
 
-bool ParticleEmitter::running()
-{
-	return startTime >= 0.0f;
-}
-
 void ParticleEmitter::render() {
 	if (shader == nullptr)
 		shader = SRE::Shader::getStandardParticles();
@@ -200,22 +194,6 @@ void ParticleEmitter::render() {
 	}
 	
 	SRE::SimpleRenderEngine::instance->draw(mesh, glm::mat4(1), shader);
-}
-
-void ParticleEmitter::clear() // TODO actual garbage collection
-{
-	positions = std::vector<glm::vec3>();
-	sizes = std::vector<float>();
-	colors = std::vector<glm::vec4>();
-	uvs = std::vector<glm::vec2>();
-	uvSize = std::vector<float>();
-	//uv rotation in radians -> from 0 to 2*pi
-	uvRotation = std::vector<float>();
-
-	totalParticles = 0;
-
-	ages = std::vector<float>();
-	velocities = std::vector<glm::vec3>();
 }
 
 ParticleEmitter::~ParticleEmitter()
@@ -241,8 +219,7 @@ void ParticleEmitter::init(ParticleEmitterConfig config)
 	numParticles = 0;
 	startTime = -1.0f;	
 	for(int i = 0; i < maxParticles; i++)
-	{
-		totalParticles++;
+	{	
 		ages.push_back(-1.0f);
 		positions.push_back(glm::vec3());
 		velocities.push_back(glm::vec3());
