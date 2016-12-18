@@ -287,7 +287,7 @@ namespace Mason {
 	* "imagepath": "data/images",		// Optional, default: "data/images" <BR>
 	* "soundpath": "data/sounds",		// Optional, default: "data/sounds" <BR>
 	* "templatepath": "data/templates",	// Optional, default: "data/templates" <BR>
-	* "sprites": [						// Optional, list of Sprite Atlases, see SpriteDescriptor for details <BR>
+	* "sprites": [						// Optional, list of SpriteAtlas, see SpriteDescriptor for details <BR>
 	*	{ <BR>
 	*		... <BR>
 	*	} <BR>
