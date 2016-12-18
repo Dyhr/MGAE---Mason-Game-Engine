@@ -8,6 +8,8 @@
 #include "SceneParser.hpp"
 
 namespace Mason {
+	/** @class Scene Holds all GameObjects, sprites, paths to images, templates, and sounds
+	*/
 	class Scene {
 	public:
 		/** @brief constructor
