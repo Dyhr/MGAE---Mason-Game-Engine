@@ -205,14 +205,14 @@ namespace Mason {
 	* @brief Describes an Audio component <BR>
 	*
 	* "audio": { <BR>
-	*	"path": "data/sounds/1-octave/A5.wav",	// Optional, default: "data/sounds" <BR>
-	*	"type": "soundeffect"				// Optional. Options: "soundeffect" (default) | "music" <BR>
+	*	"path": "data/sounds/1-octave/A5.wav",	// Mandatory <BR>
+	*	"type": "soundeffect"				    // Optional. Options: "soundeffect" (default) | "music" <BR>
 	* }
 	*/
 	class AudioDescriptor {
 	public:
 
-		std::string path ="data/sounds";
+		std::string path;
 		SoundType type=EFFECT;
 
 		bool found = false;
@@ -283,22 +283,22 @@ namespace Mason {
 	/** @class SceneDescriptor
 	* @brief Describes a Scene <BR>
 	*
-	* "scenename": "Scene",		// Optional, default: "Scene" <BR>
-	* "imagepath": "data/images",	// Optional, default: "data/images" <BR>
-	* "soundpath": "data/sounds",	// Optional, default: "data/sounds" <BR>
+	* "scenename": "Scene",				// Optional, default: "Scene" <BR>
+	* "imagepath": "data/images",		// Optional, default: "data/images" <BR>
+	* "soundpath": "data/sounds",		// Optional, default: "data/sounds" <BR>
 	* "templatepath": "data/templates",	// Optional, default: "data/templates" <BR>
-	* "sprites": [			// Optional, list of Sprite, see SpriteDescriptor for details <BR>
+	* "sprites": [						// Optional, list of Sprite Atlases, see SpriteDescriptor for details <BR>
 	*	{ <BR>
 	*		... <BR>
 	*	} <BR>
 	* ],
-	* "gameobjects": [			// Optional, list of GameObject, see GameObjectDescriptor for details <BR>
+	* "gameobjects": [					// Optional, list of GameObject, see GameObjectDescriptor for details <BR>
 	*	{ <BR>
 	*		... <BR>
 	*	} <BR>
 	* ], <BR>
-	* "gravity": [0, -10],		// Optional, default: [0, -10] <BR>
-	* "physicsScale": 100		// Optional, default: 100 <BR>
+	* "gravity": [0, -10],				// Optional, default: [0, -10] <BR>
+	* "physicsScale": 100				// Optional, default: 100 <BR>
 	*/
 
 	class SceneDescriptor {
