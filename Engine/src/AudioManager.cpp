@@ -54,6 +54,8 @@ void AudioManager::cleanUp()
 			Mix_FreeChunk(channelsPlaying[i]);
 		}
 	}
+	soundEffectMap.clear();
+	musicMap.clear();
 	Mix_CloseAudio();
 	initialized = false;
 }
@@ -119,6 +121,7 @@ void AudioManager::playAudioSource(Audio * audioComponent)
 bool AudioManager::loadAudioSource(Audio * audioComponent)
 {
 	if (audioComponent->type == EFFECT) {
+		if (soundEffectMap[audioComponent->path]) return true;
 		auto soundEffect = Mix_LoadWAV(audioComponent->path.c_str());
 		if (soundEffect != nullptr) {
 			soundEffectMap[audioComponent->path] = soundEffect;
@@ -127,6 +130,7 @@ bool AudioManager::loadAudioSource(Audio * audioComponent)
 		return false;
 	}
 	else if (audioComponent->type == MUSIC) {
+		if (musicMap[audioComponent->path]) return true;
 		auto music = Mix_LoadMUS(audioComponent->path.c_str());
 		if (music != nullptr) {
 			musicMap[audioComponent->path] = music;
