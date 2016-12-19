@@ -6,6 +6,9 @@
 
 // Callbacks for derived classes.
 namespace Mason {
+	/** @class CollisionListener 
+	* @brief detection to find new collisions 
+	*/
 	class CollisionListener : public b2ContactListener {
 	public:
 		void ProcessEvents();

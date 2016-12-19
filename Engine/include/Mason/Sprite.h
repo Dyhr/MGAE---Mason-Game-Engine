@@ -18,7 +18,7 @@ namespace Mason {
 
 	public:
 
-		int pixelsperunit = 1; ///< For the moment used as a global variable. Same value for every Sprite.
+		int pixelsperunit = 1; ///< conversion between meters (used in the scene graph) and pixels (info of the Sprite). For the moment used as a global variable. Same value for every Sprite.
 		
 							   /** @brief Sprite constructor
 	* Sets up the mesh to be rendered (with vertices defined in windows coordinates, normals (not used in 2D graphics) and UVs with the normalize texture coordinates)

@@ -14,6 +14,9 @@ namespace Mason {
 	public:
 		virtual float getDensity() { return density; }
 		virtual void setDensity(float density_) { density = density; }
+		/**
+		* 
+		*/
 		virtual float getFriction() { return friction; }
 		virtual void setFriction(float friction_) { friction = friction_; }
 		virtual float getScale() { return scale; };
@@ -27,9 +30,9 @@ namespace Mason {
 		
 		b2Shape* shape; ///< in the world, shapes are created automatically when a b2Fixture is created (in a PhysicsBody2D ).
 
-		float scale;
+		float scale; ///< as we scale the transform with the same number in x and y, we do the same with the physics bodies fixtures.
 		float density;
-		float friction;
+		float friction; ///< Friction is the force that arises between two bodies that are in continuous contact, resisting their movement relative to each	other
 
 		friend class GameObject;
 		friend class PhysicsBody2D;

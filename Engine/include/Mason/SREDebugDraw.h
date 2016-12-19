@@ -4,6 +4,10 @@
 #include "SRE\SimpleRenderEngine.hpp"
 #include "SRE\Debug.hpp"
 namespace Mason {
+
+	/** @class SREDebugDraw
+	* @brief to draw rigid bodies, for debugging purposes.
+	*/
 	class SREDebugDraw : public b2Draw
 	{
 	public:
