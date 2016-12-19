@@ -8,16 +8,16 @@
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{class_mason_1_1_audio_manager_a81eb2ff2bc2d1242e532c208b32d17ec}{step} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Is called once every frame. Plays any sounds that are in queue. \end{DoxyCompactList}\item 
 void \hyperlink{class_mason_1_1_audio_manager_a061109c8b24705aa7ed1a5c28b9a4cd1}{play\+Audio\+Source} (\hyperlink{class_mason_1_1_audio}{Audio} $\ast$audio\+Component)
-\item 
+\begin{DoxyCompactList}\small\item\em Tries to play a sound immediately. If unsuccesful, the sound is added to the sources\+To\+Be\+Played queue. \end{DoxyCompactList}\item 
 bool \hyperlink{class_mason_1_1_audio_manager_ae8264e1149615ee5b3cc54317bd0fe4a}{load\+Audio\+Source} (\hyperlink{class_mason_1_1_audio}{Audio} $\ast$audio\+Component)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Loads an audio component into memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static \hyperlink{class_mason_1_1_audio_manager}{Audio\+Manager} $\ast$ \hyperlink{class_mason_1_1_audio_manager_a77de22887544ce37ae13d7c4d5cf7a79}{get\+Instance} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns the currently active instance of \hyperlink{class_mason_1_1_audio_manager}{Audio\+Manager}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
@@ -27,11 +27,19 @@ static \hyperlink{class_mason_1_1_audio_manager}{Audio\+Manager} $\ast$ \hyperli
 \subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
 {\footnotesize\ttfamily \hyperlink{class_mason_1_1_audio_manager}{Audio\+Manager} $\ast$ Audio\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+Returns the currently active instance of \hyperlink{class_mason_1_1_audio_manager}{Audio\+Manager}. 
+
 \hypertarget{class_mason_1_1_audio_manager_ae8264e1149615ee5b3cc54317bd0fe4a}{}\label{class_mason_1_1_audio_manager_ae8264e1149615ee5b3cc54317bd0fe4a} 
 \index{Mason\+::\+Audio\+Manager@{Mason\+::\+Audio\+Manager}!load\+Audio\+Source@{load\+Audio\+Source}}
 \index{load\+Audio\+Source@{load\+Audio\+Source}!Mason\+::\+Audio\+Manager@{Mason\+::\+Audio\+Manager}}
 \subsubsection{\texorpdfstring{load\+Audio\+Source()}{loadAudioSource()}}
 {\footnotesize\ttfamily bool Audio\+Manager\+::load\+Audio\+Source (\begin{DoxyParamCaption}\item[{\hyperlink{class_mason_1_1_audio}{Audio} $\ast$}]{audio\+Component }\end{DoxyParamCaption})}
+
+
+
+Loads an audio component into memory. 
 
 \hypertarget{class_mason_1_1_audio_manager_a061109c8b24705aa7ed1a5c28b9a4cd1}{}\label{class_mason_1_1_audio_manager_a061109c8b24705aa7ed1a5c28b9a4cd1} 
 \index{Mason\+::\+Audio\+Manager@{Mason\+::\+Audio\+Manager}!play\+Audio\+Source@{play\+Audio\+Source}}
@@ -39,11 +47,19 @@ static \hyperlink{class_mason_1_1_audio_manager}{Audio\+Manager} $\ast$ \hyperli
 \subsubsection{\texorpdfstring{play\+Audio\+Source()}{playAudioSource()}}
 {\footnotesize\ttfamily void Audio\+Manager\+::play\+Audio\+Source (\begin{DoxyParamCaption}\item[{\hyperlink{class_mason_1_1_audio}{Audio} $\ast$}]{audio\+Component }\end{DoxyParamCaption})}
 
+
+
+Tries to play a sound immediately. If unsuccesful, the sound is added to the sources\+To\+Be\+Played queue. 
+
 \hypertarget{class_mason_1_1_audio_manager_a81eb2ff2bc2d1242e532c208b32d17ec}{}\label{class_mason_1_1_audio_manager_a81eb2ff2bc2d1242e532c208b32d17ec} 
 \index{Mason\+::\+Audio\+Manager@{Mason\+::\+Audio\+Manager}!step@{step}}
 \index{step@{step}!Mason\+::\+Audio\+Manager@{Mason\+::\+Audio\+Manager}}
 \subsubsection{\texorpdfstring{step()}{step()}}
 {\footnotesize\ttfamily void Audio\+Manager\+::step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Is called once every frame. Plays any sounds that are in queue. 
 
 
 

@@ -27,6 +27,9 @@ var dir_bd2d6246721198ed45d938256506ae02 =
     [ "GameObject.hpp", "_game_object_8hpp.html", [
       [ "GameObject", "class_mason_1_1_game_object.html", "class_mason_1_1_game_object" ]
     ] ],
+    [ "GUI.hpp", "_g_u_i_8hpp.html", [
+      [ "GUI", "class_mason_1_1_g_u_i.html", "class_mason_1_1_g_u_i" ]
+    ] ],
     [ "InputManager.h", "_input_manager_8h.html", [
       [ "InputManager", "class_mason_1_1_input_manager.html", "class_mason_1_1_input_manager" ]
     ] ],

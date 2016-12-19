@@ -8,6 +8,5 @@ var searchData=
   ['physicsscale',['physicsScale',['../class_mason_1_1_scene_descriptor.html#a800b682b3cadc6d6830e9bf23f01c958',1,'Mason::SceneDescriptor']]],
   ['pixelsperunit',['pixelsperunit',['../class_mason_1_1_sprite.html#a5d5ba8a72349d94bbe9190efcb9715cc',1,'Mason::Sprite']]],
   ['positerations',['posIterations',['../class_mason_1_1_physics.html#a43a4f23b2ee62ad20c3ed54a7c75a468',1,'Mason::Physics']]],
-  ['position',['position',['../class_mason_1_1_transform_descriptor.html#acce622c3f89ae5b081c61feabc1319bf',1,'Mason::TransformDescriptor::position()'],['../class_mason_1_1_transform.html#ac9e11b4ec4433a38ac1100f12c955dcb',1,'Mason::Transform::position()']]],
-  ['positions',['positions',['../class_mason_1_1_particle_emitter.html#a9398d92e4bed89396c02d4c028ba3e69',1,'Mason::ParticleEmitter']]]
+  ['position',['position',['../class_mason_1_1_transform_descriptor.html#acce622c3f89ae5b081c61feabc1319bf',1,'Mason::TransformDescriptor::position()'],['../class_mason_1_1_transform.html#ac9e11b4ec4433a38ac1100f12c955dcb',1,'Mason::Transform::position()']]]
 ];

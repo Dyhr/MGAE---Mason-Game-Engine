@@ -22,7 +22,6 @@ var struct_mason_1_1_particle_emitter_config =
     [ "setSplineInterpRotation", "struct_mason_1_1_particle_emitter_config.html#abcaf3368ccf9b524538a3cf3fadb15d2", null ],
     [ "setSplineInterpSize", "struct_mason_1_1_particle_emitter_config.html#a4288325ce9dcf3437fbcabaf99f968b4", null ],
     [ "setTexture", "struct_mason_1_1_particle_emitter_config.html#a92978f0e01ba1078889a3f288ff0c02b", null ],
-    [ "setVelocity", "struct_mason_1_1_particle_emitter_config.html#ae5eafd4808934831fb271304c24b6af7", null ],
     [ "colorState", "struct_mason_1_1_particle_emitter_config.html#a94ad732500966a699dcead307033269a", null ],
     [ "finalColor", "struct_mason_1_1_particle_emitter_config.html#addf94f6df6c784495840b93aa30ce162", null ],
     [ "finalRotation", "struct_mason_1_1_particle_emitter_config.html#a37a579321019d25bdb1ecf4f32353d7c", null ],

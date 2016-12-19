@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scene',['Scene',['../class_mason_1_1_scene.html#a31b9509898769d98c7230ac78b95059d',1,'Mason::Scene']]],
+  ['scene',['Scene',['../class_mason_1_1_scene.html#ad10176d75a9cc0da56626f682d083507',1,'Mason::Scene']]],
   ['script',['Script',['../class_mason_1_1_script.html#a3d41c440d07b53c15437a13754eff7d0',1,'Mason::Script']]],
   ['serialize',['serialize',['../classpicojson_1_1value.html#a23664084ed4a8ecbfda901484de34bbc',1,'picojson::value::serialize(Iter os, bool prettify=false) const'],['../classpicojson_1_1value.html#ad5fa91c040826e85855678db9258238d',1,'picojson::value::serialize(bool prettify=false) const']]],
   ['serialize_5fstr',['serialize_str',['../namespacepicojson.html#a11130e017d868857aeb016f5e3d29008',1,'picojson']]],
@@ -37,7 +37,6 @@ var searchData=
   ['setsplineinterprotation',['setSplineInterpRotation',['../struct_mason_1_1_particle_emitter_config.html#abcaf3368ccf9b524538a3cf3fadb15d2',1,'Mason::ParticleEmitterConfig']]],
   ['setsplineinterpsize',['setSplineInterpSize',['../struct_mason_1_1_particle_emitter_config.html#a4288325ce9dcf3437fbcabaf99f968b4',1,'Mason::ParticleEmitterConfig']]],
   ['settexture',['setTexture',['../struct_mason_1_1_particle_emitter_config.html#a92978f0e01ba1078889a3f288ff0c02b',1,'Mason::ParticleEmitterConfig::setTexture()'],['../class_mason_1_1_sprite.html#a0331c6ca9aeb29be568485209cabcf06',1,'Mason::Sprite::setTexture()']]],
-  ['setvelocity',['setVelocity',['../struct_mason_1_1_particle_emitter_config.html#ae5eafd4808934831fb271304c24b6af7',1,'Mason::ParticleEmitterConfig']]],
   ['setviewportmax',['setViewportMax',['../class_mason_1_1_camera.html#a1f9a7896bb617d1402e3c4738324e1ea',1,'Mason::Camera']]],
   ['setviewportmin',['setViewportMin',['../class_mason_1_1_camera.html#aa630259d7e0c0124dec5c9aaf33b7160',1,'Mason::Camera']]],
   ['skip_5fws',['skip_ws',['../classpicojson_1_1input.html#aa83aefe87374a5e24ab8c8e80fef4aa4',1,'picojson::input']]],

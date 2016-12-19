@@ -3,35 +3,36 @@
 
 
 Describes a Particle component ~\newline
- \char`\"{}particles\char`\"{}\+: \{ \char`\"{}texture\+Path\char`\"{}\+: \char`\"{}/data/images\char`\"{}, // Optional, default\+: nullptr ~\newline
- \char`\"{}rate\char`\"{}\+: 60, // Optional~\newline
- \char`\"{}lifespan\char`\"{}\+: 0.\+5, // Optional ~\newline
- \char`\"{}velocity\+State\char`\"{}\+: \char`\"{}random\char`\"{}, // Optional, options\+: F\+I\+X\+ED $\vert$ R\+A\+N\+D\+OM $\vert$ L\+I\+N\+E\+AR $\vert$ S\+P\+L\+I\+NE ~\newline
- \char`\"{}min\+Velocity\char`\"{}\+: \mbox{[}0, 300, 0\mbox{]}, // Optional ~\newline
- \char`\"{}max\+Velocity\char`\"{}\+: \mbox{[}20, 300, 0\mbox{]}, // Optional ~\newline
- \char`\"{}gravity\char`\"{}\+: \mbox{[}0, 0, 0\mbox{]}, // Optional ~\newline
+ \char`\"{}particles\char`\"{}\+: \{ \char`\"{}texture\+Path\char`\"{}\+: \char`\"{}/data/images/ball.\+png\char`\"{}, // Optional, default\+: \char`\"{}\char`\"{} ~\newline
+ \char`\"{}rate\char`\"{}\+: 60, // Optional, default\+: 1 ~\newline
+ \char`\"{}lifespan\char`\"{}\+: 0.\+5, // Optional, default\+: 1 ~\newline
+ \char`\"{}gravity\char`\"{}\+: \mbox{[}0, 0, 0\mbox{]}, // Optional, default\+: glm\+::vec3(0, 0, 0) ~\newline
+ \char`\"{}velocity\+State\char`\"{}\+: \char`\"{}random\char`\"{}, // Optional, options\+: \char`\"{}fixed\char`\"{} $\vert$ \char`\"{}random\char`\"{}, default\+: \char`\"{}fixed\char`\"{} ~\newline
+ \char`\"{}velocity\char`\"{}\+: \mbox{[}0, 300, 0\mbox{]}, // Optional, default\+: glm\+::vec3(0, 0, 0) ~\newline
+ \char`\"{}min\+Velocity\char`\"{}\+: \mbox{[}0, 300, 0\mbox{]}, // Optional, default\+: glm\+::vec3(0, 0, 0) ~\newline
+ \char`\"{}max\+Velocity\char`\"{}\+: \mbox{[}20, 300, 0\mbox{]}, // Optional, default\+: glm\+::vec3(0, 0, 0) ~\newline
+ \char`\"{}size\+State\char`\"{}\+: \char`\"{}linear\char`\"{}, // Optional, options\+: \char`\"{}fixed\char`\"{} $\vert$ \char`\"{}random\char`\"{} $\vert$ \char`\"{}linear\char`\"{} $\vert$ \char`\"{}spline\char`\"{}, default\+: \char`\"{}fixed\char`\"{} ~\newline
  \char`\"{}size\char`\"{}\+: 1, // Optional ~\newline
- \char`\"{}minsize\char`\"{}\+: 0 // Optional ~\newline
- \char`\"{}maxsize\char`\"{}\+: 1 // Optional ~\newline
- \char`\"{}size\+State\char`\"{}\+: \char`\"{}linear\char`\"{}, // Optional ~\newline
- \char`\"{}initial\+Size\char`\"{}\+: 0.\+3, // Optional ~\newline
- \char`\"{}final\+Size\char`\"{}\+: 0.\+7, // Optional ~\newline
- \char`\"{}initial\+Color\char`\"{}\+: \mbox{[}1, 1, 0, 1\mbox{]}, // Optional ~\newline
- \char`\"{}final\+Color\char`\"{}\+: \mbox{[}1, 0, 0, 1\mbox{]}, // Optional ~\newline
- \char`\"{}rotation\+State\char`\"{}\+: \char`\"{}fixed\char`\"{}, // Optional ~\newline
+ \char`\"{}minsize\char`\"{}\+: 0 // Optional, default\+: 0 ~\newline
+ \char`\"{}maxsize\char`\"{}\+: 1 // Optional, default\+: 1 ~\newline
+ \char`\"{}initial\+Size\char`\"{}\+: 0.\+3, // Optional, default\+: 0 ~\newline
+ \char`\"{}final\+Size\char`\"{}\+: 0.\+7, // Optional, default\+: 1 ~\newline
+ \char`\"{}rotation\+State\char`\"{}\+: \char`\"{}fixed\char`\"{}, // Optional, options\+: \char`\"{}fixed\char`\"{} $\vert$ \char`\"{}random\char`\"{} $\vert$ \char`\"{}linear\char`\"{} $\vert$ \char`\"{}spline\char`\"{}, default\+: \char`\"{}fixed\char`\"{} ~\newline
  \char`\"{}rotation\char`\"{}\+: 0, // Optional ~\newline
- \char`\"{}minrotation\char`\"{}\+: 0, // Optional ~\newline
- \char`\"{}maxrotation\char`\"{}\+: 1, // Optional ~\newline
- \char`\"{}initialrotation\char`\"{}\+: 0, // Optional ~\newline
- \char`\"{}finalrotation\char`\"{}\+: 1, // Optional ~\newline
+ \char`\"{}minrotation\char`\"{}\+: 0, // Optional, default\+: 0 ~\newline
+ \char`\"{}maxrotation\char`\"{}\+: 1, // Optional, default\+: 1 ~\newline
+ \char`\"{}initialrotation\char`\"{}\+: 0, // Optional, default\+: 0 ~\newline
+ \char`\"{}finalrotation\char`\"{}\+: 1, // Optional, default\+: 1 ~\newline
+ \char`\"{}color\+State\char`\"{}\+: \char`\"{}linear\char`\"{}, // Optional, options\+: \char`\"{}fixed\char`\"{} $\vert$ \char`\"{}random\char`\"{} $\vert$ \char`\"{}linear\char`\"{} $\vert$ \char`\"{}spline\char`\"{}, default\+: \char`\"{}fixed\char`\"{} ~\newline
  \char`\"{}color\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional ~\newline
- \char`\"{}mincolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional ~\newline
- \char`\"{}maxcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional ~\newline
- \char`\"{}initialcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional ~\newline
- \char`\"{}finalcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional ~\newline
- \char`\"{}color\+State\char`\"{}\+: \char`\"{}linear\char`\"{}, // Optional ~\newline
+ \char`\"{}mincolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional, default\+: glm\+::vec4(0, 0, 0, 0) ~\newline
+ \char`\"{}maxcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional, default\+: glm\+::vec4(1, 1, 1, 1) ~\newline
+ \char`\"{}initialcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional, default\+: glm\+::vec4(0, 0, 0, 0) ~\newline
+ ~\newline
+ \char`\"{}finalcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional, default\+: glm\+::vec4(1, 1, 1, 1) ~\newline
+ ~\newline
  \char`\"{}spline\+Points\+Size\char`\"{}\+: \mbox{[}0.\+5, 0.\+5\mbox{]}, // Optional ~\newline
- \char`\"{}spline\+Points\+Color\char`\"{}\+: \mbox{[}0.\+5, 0.\+5\mbox{]},// Optional ~\newline
+ \char`\"{}spline\+Points\+Color\char`\"{}\+: \mbox{[}0.\+5, 0.\+5\mbox{]}, // Optional ~\newline
  \char`\"{}spline\+Points\+Rotation\char`\"{}\+: \mbox{[}0.\+5, 0.\+5\mbox{]}, // Optional ~\newline
  \}.  
 
@@ -47,49 +48,49 @@ bool \hyperlink{class_mason_1_1_particle_descriptor_a4e686866e2431ae666800ead5d1
 \item 
 std\+::string \hyperlink{class_mason_1_1_particle_descriptor_a060bb2c95075b3a19432beca816bfa76}{texture\+Path} = \char`\"{}\char`\"{}
 \item 
-float \hyperlink{class_mason_1_1_particle_descriptor_a250f9c2c5b3fa119d0a38311e301fd2a}{rate}
+float \hyperlink{class_mason_1_1_particle_descriptor_a250f9c2c5b3fa119d0a38311e301fd2a}{rate} = 1
 \item 
-float \hyperlink{class_mason_1_1_particle_descriptor_ac38adbef0e6dfa77dd42ade2089595fc}{lifespan}
+float \hyperlink{class_mason_1_1_particle_descriptor_ac38adbef0e6dfa77dd42ade2089595fc}{lifespan} = 1
 \item 
-glm\+::vec3 \hyperlink{class_mason_1_1_particle_descriptor_a015f949d8089667eea16540fb750f70a}{velocity}
+glm\+::vec3 \hyperlink{class_mason_1_1_particle_descriptor_a015f949d8089667eea16540fb750f70a}{velocity} = glm\+::vec3(0, 0, 0)
 \item 
-glm\+::vec3 \hyperlink{class_mason_1_1_particle_descriptor_abd5c0046bb19ee434c56f713c58103c3}{gravity}
+glm\+::vec3 \hyperlink{class_mason_1_1_particle_descriptor_abd5c0046bb19ee434c56f713c58103c3}{gravity} = glm\+::vec3(0, 0, 0)
 \item 
-float \hyperlink{class_mason_1_1_particle_descriptor_a5bbc1147b832c903cee0b6ebe964d8c3}{min\+Size}
+float \hyperlink{class_mason_1_1_particle_descriptor_a5bbc1147b832c903cee0b6ebe964d8c3}{min\+Size} = 0
 \item 
-float \hyperlink{class_mason_1_1_particle_descriptor_a394842f237899eb5fcd3091c8dd2ba89}{max\+Size}
+float \hyperlink{class_mason_1_1_particle_descriptor_a394842f237899eb5fcd3091c8dd2ba89}{max\+Size} = 1
 \item 
-float \hyperlink{class_mason_1_1_particle_descriptor_a086f4988188e22f066e93529cb02608c}{min\+Rotation}
+float \hyperlink{class_mason_1_1_particle_descriptor_a086f4988188e22f066e93529cb02608c}{min\+Rotation} = 0
 \item 
-float \hyperlink{class_mason_1_1_particle_descriptor_a9590c7ad32834d9cce9c24d530e75609}{max\+Rotation}
+float \hyperlink{class_mason_1_1_particle_descriptor_a9590c7ad32834d9cce9c24d530e75609}{max\+Rotation} = 1
 \item 
-glm\+::vec3 \hyperlink{class_mason_1_1_particle_descriptor_a6412dbc10bc67e2e8b21faef1c050a67}{min\+Velocity}
+glm\+::vec3 \hyperlink{class_mason_1_1_particle_descriptor_a6412dbc10bc67e2e8b21faef1c050a67}{min\+Velocity} = glm\+::vec3(0, 0, 0)
 \item 
-glm\+::vec3 \hyperlink{class_mason_1_1_particle_descriptor_afc679429239c6e9c40b5c2e75228e2c1}{max\+Velocity}
+glm\+::vec3 \hyperlink{class_mason_1_1_particle_descriptor_afc679429239c6e9c40b5c2e75228e2c1}{max\+Velocity} = glm\+::vec3(0, 0, 0)
 \item 
-glm\+::vec4 \hyperlink{class_mason_1_1_particle_descriptor_a86b3ee8f533d314ed0f0e48228144a25}{min\+Color}
+glm\+::vec4 \hyperlink{class_mason_1_1_particle_descriptor_a86b3ee8f533d314ed0f0e48228144a25}{min\+Color} = glm\+::vec4(0, 0, 0, 0)
 \item 
-glm\+::vec4 \hyperlink{class_mason_1_1_particle_descriptor_aa755ad8771cf25c71ec868e16cff41e2}{max\+Color}
+glm\+::vec4 \hyperlink{class_mason_1_1_particle_descriptor_aa755ad8771cf25c71ec868e16cff41e2}{max\+Color} = glm\+::vec4(1, 1, 1, 1)
 \item 
-float \hyperlink{class_mason_1_1_particle_descriptor_aebf2ee5b2a1b72e03e010d66a1ccf054}{initial\+Size}
+float \hyperlink{class_mason_1_1_particle_descriptor_aebf2ee5b2a1b72e03e010d66a1ccf054}{initial\+Size} = 0
 \item 
-float \hyperlink{class_mason_1_1_particle_descriptor_ad865ce5734085951e7c1ec384389ca4b}{final\+Size}
+float \hyperlink{class_mason_1_1_particle_descriptor_ad865ce5734085951e7c1ec384389ca4b}{final\+Size} = 1
 \item 
-glm\+::vec4 \hyperlink{class_mason_1_1_particle_descriptor_a458d7ca5c19a0bbcf1c73796dbaf3597}{initial\+Color}
+glm\+::vec4 \hyperlink{class_mason_1_1_particle_descriptor_a458d7ca5c19a0bbcf1c73796dbaf3597}{initial\+Color} = glm\+::vec4(0, 0, 0, 0)
 \item 
-glm\+::vec4 \hyperlink{class_mason_1_1_particle_descriptor_a2b01be3725b46d1f4ef7a6775347be66}{final\+Color}
+glm\+::vec4 \hyperlink{class_mason_1_1_particle_descriptor_a2b01be3725b46d1f4ef7a6775347be66}{final\+Color} = glm\+::vec4(1, 1, 1, 1)
 \item 
-float \hyperlink{class_mason_1_1_particle_descriptor_a24f23bf106c1d0bf7dc676d16d64c6d7}{initial\+Rotation}
+float \hyperlink{class_mason_1_1_particle_descriptor_a24f23bf106c1d0bf7dc676d16d64c6d7}{initial\+Rotation} = 0
 \item 
-float \hyperlink{class_mason_1_1_particle_descriptor_ac588e3cd99709ae248547649b4a6643b}{final\+Rotation}
+float \hyperlink{class_mason_1_1_particle_descriptor_ac588e3cd99709ae248547649b4a6643b}{final\+Rotation} = 1
 \item 
-std\+::string \hyperlink{class_mason_1_1_particle_descriptor_ac84b802189304538944403fdff16faf2}{velocity\+State}
+std\+::string \hyperlink{class_mason_1_1_particle_descriptor_ac84b802189304538944403fdff16faf2}{velocity\+State} = \char`\"{}fixed\char`\"{}
 \item 
-std\+::string \hyperlink{class_mason_1_1_particle_descriptor_ac192d2da527967c55804632bc6c0ca9e}{rotation\+State}
+std\+::string \hyperlink{class_mason_1_1_particle_descriptor_ac192d2da527967c55804632bc6c0ca9e}{rotation\+State} = \char`\"{}fixed\char`\"{}
 \item 
-std\+::string \hyperlink{class_mason_1_1_particle_descriptor_a67edecae2a5df1c28ccc2f7cdb0a615f}{size\+State}
+std\+::string \hyperlink{class_mason_1_1_particle_descriptor_a67edecae2a5df1c28ccc2f7cdb0a615f}{size\+State} = \char`\"{}fixed\char`\"{}
 \item 
-std\+::string \hyperlink{class_mason_1_1_particle_descriptor_aea9d3bf8cd0eaf89a9d34ca698062280}{color\+State}
+std\+::string \hyperlink{class_mason_1_1_particle_descriptor_aea9d3bf8cd0eaf89a9d34ca698062280}{color\+State} = \char`\"{}fixed\char`\"{}
 \item 
 std\+::vector$<$ glm\+::vec2 $>$ \hyperlink{class_mason_1_1_particle_descriptor_aefa11cd147ec20d3084c661245abb49c}{spline\+Points\+Size}
 \item 
@@ -101,35 +102,36 @@ std\+::vector$<$ glm\+::vec2 $>$ \hyperlink{class_mason_1_1_particle_descriptor_
 
 \subsection{Detailed Description}
 Describes a Particle component ~\newline
- \char`\"{}particles\char`\"{}\+: \{ \char`\"{}texture\+Path\char`\"{}\+: \char`\"{}/data/images\char`\"{}, // Optional, default\+: nullptr ~\newline
- \char`\"{}rate\char`\"{}\+: 60, // Optional~\newline
- \char`\"{}lifespan\char`\"{}\+: 0.\+5, // Optional ~\newline
- \char`\"{}velocity\+State\char`\"{}\+: \char`\"{}random\char`\"{}, // Optional, options\+: F\+I\+X\+ED $\vert$ R\+A\+N\+D\+OM $\vert$ L\+I\+N\+E\+AR $\vert$ S\+P\+L\+I\+NE ~\newline
- \char`\"{}min\+Velocity\char`\"{}\+: \mbox{[}0, 300, 0\mbox{]}, // Optional ~\newline
- \char`\"{}max\+Velocity\char`\"{}\+: \mbox{[}20, 300, 0\mbox{]}, // Optional ~\newline
- \char`\"{}gravity\char`\"{}\+: \mbox{[}0, 0, 0\mbox{]}, // Optional ~\newline
+ \char`\"{}particles\char`\"{}\+: \{ \char`\"{}texture\+Path\char`\"{}\+: \char`\"{}/data/images/ball.\+png\char`\"{}, // Optional, default\+: \char`\"{}\char`\"{} ~\newline
+ \char`\"{}rate\char`\"{}\+: 60, // Optional, default\+: 1 ~\newline
+ \char`\"{}lifespan\char`\"{}\+: 0.\+5, // Optional, default\+: 1 ~\newline
+ \char`\"{}gravity\char`\"{}\+: \mbox{[}0, 0, 0\mbox{]}, // Optional, default\+: glm\+::vec3(0, 0, 0) ~\newline
+ \char`\"{}velocity\+State\char`\"{}\+: \char`\"{}random\char`\"{}, // Optional, options\+: \char`\"{}fixed\char`\"{} $\vert$ \char`\"{}random\char`\"{}, default\+: \char`\"{}fixed\char`\"{} ~\newline
+ \char`\"{}velocity\char`\"{}\+: \mbox{[}0, 300, 0\mbox{]}, // Optional, default\+: glm\+::vec3(0, 0, 0) ~\newline
+ \char`\"{}min\+Velocity\char`\"{}\+: \mbox{[}0, 300, 0\mbox{]}, // Optional, default\+: glm\+::vec3(0, 0, 0) ~\newline
+ \char`\"{}max\+Velocity\char`\"{}\+: \mbox{[}20, 300, 0\mbox{]}, // Optional, default\+: glm\+::vec3(0, 0, 0) ~\newline
+ \char`\"{}size\+State\char`\"{}\+: \char`\"{}linear\char`\"{}, // Optional, options\+: \char`\"{}fixed\char`\"{} $\vert$ \char`\"{}random\char`\"{} $\vert$ \char`\"{}linear\char`\"{} $\vert$ \char`\"{}spline\char`\"{}, default\+: \char`\"{}fixed\char`\"{} ~\newline
  \char`\"{}size\char`\"{}\+: 1, // Optional ~\newline
- \char`\"{}minsize\char`\"{}\+: 0 // Optional ~\newline
- \char`\"{}maxsize\char`\"{}\+: 1 // Optional ~\newline
- \char`\"{}size\+State\char`\"{}\+: \char`\"{}linear\char`\"{}, // Optional ~\newline
- \char`\"{}initial\+Size\char`\"{}\+: 0.\+3, // Optional ~\newline
- \char`\"{}final\+Size\char`\"{}\+: 0.\+7, // Optional ~\newline
- \char`\"{}initial\+Color\char`\"{}\+: \mbox{[}1, 1, 0, 1\mbox{]}, // Optional ~\newline
- \char`\"{}final\+Color\char`\"{}\+: \mbox{[}1, 0, 0, 1\mbox{]}, // Optional ~\newline
- \char`\"{}rotation\+State\char`\"{}\+: \char`\"{}fixed\char`\"{}, // Optional ~\newline
+ \char`\"{}minsize\char`\"{}\+: 0 // Optional, default\+: 0 ~\newline
+ \char`\"{}maxsize\char`\"{}\+: 1 // Optional, default\+: 1 ~\newline
+ \char`\"{}initial\+Size\char`\"{}\+: 0.\+3, // Optional, default\+: 0 ~\newline
+ \char`\"{}final\+Size\char`\"{}\+: 0.\+7, // Optional, default\+: 1 ~\newline
+ \char`\"{}rotation\+State\char`\"{}\+: \char`\"{}fixed\char`\"{}, // Optional, options\+: \char`\"{}fixed\char`\"{} $\vert$ \char`\"{}random\char`\"{} $\vert$ \char`\"{}linear\char`\"{} $\vert$ \char`\"{}spline\char`\"{}, default\+: \char`\"{}fixed\char`\"{} ~\newline
  \char`\"{}rotation\char`\"{}\+: 0, // Optional ~\newline
- \char`\"{}minrotation\char`\"{}\+: 0, // Optional ~\newline
- \char`\"{}maxrotation\char`\"{}\+: 1, // Optional ~\newline
- \char`\"{}initialrotation\char`\"{}\+: 0, // Optional ~\newline
- \char`\"{}finalrotation\char`\"{}\+: 1, // Optional ~\newline
+ \char`\"{}minrotation\char`\"{}\+: 0, // Optional, default\+: 0 ~\newline
+ \char`\"{}maxrotation\char`\"{}\+: 1, // Optional, default\+: 1 ~\newline
+ \char`\"{}initialrotation\char`\"{}\+: 0, // Optional, default\+: 0 ~\newline
+ \char`\"{}finalrotation\char`\"{}\+: 1, // Optional, default\+: 1 ~\newline
+ \char`\"{}color\+State\char`\"{}\+: \char`\"{}linear\char`\"{}, // Optional, options\+: \char`\"{}fixed\char`\"{} $\vert$ \char`\"{}random\char`\"{} $\vert$ \char`\"{}linear\char`\"{} $\vert$ \char`\"{}spline\char`\"{}, default\+: \char`\"{}fixed\char`\"{} ~\newline
  \char`\"{}color\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional ~\newline
- \char`\"{}mincolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional ~\newline
- \char`\"{}maxcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional ~\newline
- \char`\"{}initialcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional ~\newline
- \char`\"{}finalcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional ~\newline
- \char`\"{}color\+State\char`\"{}\+: \char`\"{}linear\char`\"{}, // Optional ~\newline
+ \char`\"{}mincolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional, default\+: glm\+::vec4(0, 0, 0, 0) ~\newline
+ \char`\"{}maxcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional, default\+: glm\+::vec4(1, 1, 1, 1) ~\newline
+ \char`\"{}initialcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional, default\+: glm\+::vec4(0, 0, 0, 0) ~\newline
+ ~\newline
+ \char`\"{}finalcolor\char`\"{}\+: \mbox{[}0,0,0,0\mbox{]}, // Optional, default\+: glm\+::vec4(1, 1, 1, 1) ~\newline
+ ~\newline
  \char`\"{}spline\+Points\+Size\char`\"{}\+: \mbox{[}0.\+5, 0.\+5\mbox{]}, // Optional ~\newline
- \char`\"{}spline\+Points\+Color\char`\"{}\+: \mbox{[}0.\+5, 0.\+5\mbox{]},// Optional ~\newline
+ \char`\"{}spline\+Points\+Color\char`\"{}\+: \mbox{[}0.\+5, 0.\+5\mbox{]}, // Optional ~\newline
  \char`\"{}spline\+Points\+Rotation\char`\"{}\+: \mbox{[}0.\+5, 0.\+5\mbox{]}, // Optional ~\newline
  \}. 
 
@@ -138,25 +140,25 @@ Describes a Particle component ~\newline
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!color\+State@{color\+State}}
 \index{color\+State@{color\+State}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{color\+State}{colorState}}
-{\footnotesize\ttfamily std\+::string Mason\+::\+Particle\+Descriptor\+::color\+State}
+{\footnotesize\ttfamily std\+::string Mason\+::\+Particle\+Descriptor\+::color\+State = \char`\"{}fixed\char`\"{}}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a2b01be3725b46d1f4ef7a6775347be66}{}\label{class_mason_1_1_particle_descriptor_a2b01be3725b46d1f4ef7a6775347be66} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!final\+Color@{final\+Color}}
 \index{final\+Color@{final\+Color}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{final\+Color}{finalColor}}
-{\footnotesize\ttfamily glm\+::vec4 Mason\+::\+Particle\+Descriptor\+::final\+Color}
+{\footnotesize\ttfamily glm\+::vec4 Mason\+::\+Particle\+Descriptor\+::final\+Color = glm\+::vec4(1, 1, 1, 1)}
 
 \hypertarget{class_mason_1_1_particle_descriptor_ac588e3cd99709ae248547649b4a6643b}{}\label{class_mason_1_1_particle_descriptor_ac588e3cd99709ae248547649b4a6643b} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!final\+Rotation@{final\+Rotation}}
 \index{final\+Rotation@{final\+Rotation}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{final\+Rotation}{finalRotation}}
-{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::final\+Rotation}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::final\+Rotation = 1}
 
 \hypertarget{class_mason_1_1_particle_descriptor_ad865ce5734085951e7c1ec384389ca4b}{}\label{class_mason_1_1_particle_descriptor_ad865ce5734085951e7c1ec384389ca4b} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!final\+Size@{final\+Size}}
 \index{final\+Size@{final\+Size}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{final\+Size}{finalSize}}
-{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::final\+Size}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::final\+Size = 1}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a4e686866e2431ae666800ead5d1638c4}{}\label{class_mason_1_1_particle_descriptor_a4e686866e2431ae666800ead5d1638c4} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!found@{found}}
@@ -168,97 +170,97 @@ Describes a Particle component ~\newline
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!gravity@{gravity}}
 \index{gravity@{gravity}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{gravity}{gravity}}
-{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Particle\+Descriptor\+::gravity}
+{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Particle\+Descriptor\+::gravity = glm\+::vec3(0, 0, 0)}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a458d7ca5c19a0bbcf1c73796dbaf3597}{}\label{class_mason_1_1_particle_descriptor_a458d7ca5c19a0bbcf1c73796dbaf3597} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!initial\+Color@{initial\+Color}}
 \index{initial\+Color@{initial\+Color}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{initial\+Color}{initialColor}}
-{\footnotesize\ttfamily glm\+::vec4 Mason\+::\+Particle\+Descriptor\+::initial\+Color}
+{\footnotesize\ttfamily glm\+::vec4 Mason\+::\+Particle\+Descriptor\+::initial\+Color = glm\+::vec4(0, 0, 0, 0)}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a24f23bf106c1d0bf7dc676d16d64c6d7}{}\label{class_mason_1_1_particle_descriptor_a24f23bf106c1d0bf7dc676d16d64c6d7} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!initial\+Rotation@{initial\+Rotation}}
 \index{initial\+Rotation@{initial\+Rotation}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{initial\+Rotation}{initialRotation}}
-{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::initial\+Rotation}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::initial\+Rotation = 0}
 
 \hypertarget{class_mason_1_1_particle_descriptor_aebf2ee5b2a1b72e03e010d66a1ccf054}{}\label{class_mason_1_1_particle_descriptor_aebf2ee5b2a1b72e03e010d66a1ccf054} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!initial\+Size@{initial\+Size}}
 \index{initial\+Size@{initial\+Size}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{initial\+Size}{initialSize}}
-{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::initial\+Size}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::initial\+Size = 0}
 
 \hypertarget{class_mason_1_1_particle_descriptor_ac38adbef0e6dfa77dd42ade2089595fc}{}\label{class_mason_1_1_particle_descriptor_ac38adbef0e6dfa77dd42ade2089595fc} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!lifespan@{lifespan}}
 \index{lifespan@{lifespan}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{lifespan}{lifespan}}
-{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::lifespan}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::lifespan = 1}
 
 \hypertarget{class_mason_1_1_particle_descriptor_aa755ad8771cf25c71ec868e16cff41e2}{}\label{class_mason_1_1_particle_descriptor_aa755ad8771cf25c71ec868e16cff41e2} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!max\+Color@{max\+Color}}
 \index{max\+Color@{max\+Color}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{max\+Color}{maxColor}}
-{\footnotesize\ttfamily glm\+::vec4 Mason\+::\+Particle\+Descriptor\+::max\+Color}
+{\footnotesize\ttfamily glm\+::vec4 Mason\+::\+Particle\+Descriptor\+::max\+Color = glm\+::vec4(1, 1, 1, 1)}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a9590c7ad32834d9cce9c24d530e75609}{}\label{class_mason_1_1_particle_descriptor_a9590c7ad32834d9cce9c24d530e75609} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!max\+Rotation@{max\+Rotation}}
 \index{max\+Rotation@{max\+Rotation}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{max\+Rotation}{maxRotation}}
-{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::max\+Rotation}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::max\+Rotation = 1}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a394842f237899eb5fcd3091c8dd2ba89}{}\label{class_mason_1_1_particle_descriptor_a394842f237899eb5fcd3091c8dd2ba89} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!max\+Size@{max\+Size}}
 \index{max\+Size@{max\+Size}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{max\+Size}{maxSize}}
-{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::max\+Size}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::max\+Size = 1}
 
 \hypertarget{class_mason_1_1_particle_descriptor_afc679429239c6e9c40b5c2e75228e2c1}{}\label{class_mason_1_1_particle_descriptor_afc679429239c6e9c40b5c2e75228e2c1} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!max\+Velocity@{max\+Velocity}}
 \index{max\+Velocity@{max\+Velocity}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{max\+Velocity}{maxVelocity}}
-{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Particle\+Descriptor\+::max\+Velocity}
+{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Particle\+Descriptor\+::max\+Velocity = glm\+::vec3(0, 0, 0)}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a86b3ee8f533d314ed0f0e48228144a25}{}\label{class_mason_1_1_particle_descriptor_a86b3ee8f533d314ed0f0e48228144a25} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!min\+Color@{min\+Color}}
 \index{min\+Color@{min\+Color}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{min\+Color}{minColor}}
-{\footnotesize\ttfamily glm\+::vec4 Mason\+::\+Particle\+Descriptor\+::min\+Color}
+{\footnotesize\ttfamily glm\+::vec4 Mason\+::\+Particle\+Descriptor\+::min\+Color = glm\+::vec4(0, 0, 0, 0)}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a086f4988188e22f066e93529cb02608c}{}\label{class_mason_1_1_particle_descriptor_a086f4988188e22f066e93529cb02608c} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!min\+Rotation@{min\+Rotation}}
 \index{min\+Rotation@{min\+Rotation}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{min\+Rotation}{minRotation}}
-{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::min\+Rotation}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::min\+Rotation = 0}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a5bbc1147b832c903cee0b6ebe964d8c3}{}\label{class_mason_1_1_particle_descriptor_a5bbc1147b832c903cee0b6ebe964d8c3} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!min\+Size@{min\+Size}}
 \index{min\+Size@{min\+Size}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{min\+Size}{minSize}}
-{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::min\+Size}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::min\+Size = 0}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a6412dbc10bc67e2e8b21faef1c050a67}{}\label{class_mason_1_1_particle_descriptor_a6412dbc10bc67e2e8b21faef1c050a67} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!min\+Velocity@{min\+Velocity}}
 \index{min\+Velocity@{min\+Velocity}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{min\+Velocity}{minVelocity}}
-{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Particle\+Descriptor\+::min\+Velocity}
+{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Particle\+Descriptor\+::min\+Velocity = glm\+::vec3(0, 0, 0)}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a250f9c2c5b3fa119d0a38311e301fd2a}{}\label{class_mason_1_1_particle_descriptor_a250f9c2c5b3fa119d0a38311e301fd2a} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!rate@{rate}}
 \index{rate@{rate}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{rate}{rate}}
-{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::rate}
+{\footnotesize\ttfamily float Mason\+::\+Particle\+Descriptor\+::rate = 1}
 
 \hypertarget{class_mason_1_1_particle_descriptor_ac192d2da527967c55804632bc6c0ca9e}{}\label{class_mason_1_1_particle_descriptor_ac192d2da527967c55804632bc6c0ca9e} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!rotation\+State@{rotation\+State}}
 \index{rotation\+State@{rotation\+State}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{rotation\+State}{rotationState}}
-{\footnotesize\ttfamily std\+::string Mason\+::\+Particle\+Descriptor\+::rotation\+State}
+{\footnotesize\ttfamily std\+::string Mason\+::\+Particle\+Descriptor\+::rotation\+State = \char`\"{}fixed\char`\"{}}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a67edecae2a5df1c28ccc2f7cdb0a615f}{}\label{class_mason_1_1_particle_descriptor_a67edecae2a5df1c28ccc2f7cdb0a615f} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!size\+State@{size\+State}}
 \index{size\+State@{size\+State}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{size\+State}{sizeState}}
-{\footnotesize\ttfamily std\+::string Mason\+::\+Particle\+Descriptor\+::size\+State}
+{\footnotesize\ttfamily std\+::string Mason\+::\+Particle\+Descriptor\+::size\+State = \char`\"{}fixed\char`\"{}}
 
 \hypertarget{class_mason_1_1_particle_descriptor_a3a7588bd840bc8010f23bda75ec56e5d}{}\label{class_mason_1_1_particle_descriptor_a3a7588bd840bc8010f23bda75ec56e5d} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!spline\+Points\+Color@{spline\+Points\+Color}}
@@ -288,13 +290,13 @@ Describes a Particle component ~\newline
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!velocity@{velocity}}
 \index{velocity@{velocity}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{velocity}{velocity}}
-{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Particle\+Descriptor\+::velocity}
+{\footnotesize\ttfamily glm\+::vec3 Mason\+::\+Particle\+Descriptor\+::velocity = glm\+::vec3(0, 0, 0)}
 
 \hypertarget{class_mason_1_1_particle_descriptor_ac84b802189304538944403fdff16faf2}{}\label{class_mason_1_1_particle_descriptor_ac84b802189304538944403fdff16faf2} 
 \index{Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}!velocity\+State@{velocity\+State}}
 \index{velocity\+State@{velocity\+State}!Mason\+::\+Particle\+Descriptor@{Mason\+::\+Particle\+Descriptor}}
 \subsubsection{\texorpdfstring{velocity\+State}{velocityState}}
-{\footnotesize\ttfamily std\+::string Mason\+::\+Particle\+Descriptor\+::velocity\+State}
+{\footnotesize\ttfamily std\+::string Mason\+::\+Particle\+Descriptor\+::velocity\+State = \char`\"{}fixed\char`\"{}}
 
 
 

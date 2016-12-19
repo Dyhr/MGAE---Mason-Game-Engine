@@ -89,35 +89,36 @@ $(document).ready(function(){initNavTree('class_mason_1_1_particle_descriptor.ht
 <div class="contents">
 
 <p>Describes a Particle component <br />
- "particles": { "texturePath": "/data/images", // Optional, default: nullptr <br />
- "rate": 60, // Optional<br />
- "lifespan": 0.5, // Optional <br />
- "velocityState": "random", // Optional, options: FIXED | RANDOM | LINEAR | SPLINE <br />
- "minVelocity": [0, 300, 0], // Optional <br />
- "maxVelocity": [20, 300, 0], // Optional <br />
- "gravity": [0, 0, 0], // Optional <br />
+ "particles": { "texturePath": "/data/images/ball.png", // Optional, default: "" <br />
+ "rate": 60, // Optional, default: 1 <br />
+ "lifespan": 0.5, // Optional, default: 1 <br />
+ "gravity": [0, 0, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "velocityState": "random", // Optional, options: "fixed" | "random", default: "fixed" <br />
+ "velocity": [0, 300, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "minVelocity": [0, 300, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "maxVelocity": [20, 300, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "sizeState": "linear", // Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <br />
  "size": 1, // Optional <br />
- "minsize": 0 // Optional <br />
- "maxsize": 1 // Optional <br />
- "sizeState": "linear", // Optional <br />
- "initialSize": 0.3, // Optional <br />
- "finalSize": 0.7, // Optional <br />
- "initialColor": [1, 1, 0, 1], // Optional <br />
- "finalColor": [1, 0, 0, 1], // Optional <br />
- "rotationState": "fixed", // Optional <br />
+ "minsize": 0 // Optional, default: 0 <br />
+ "maxsize": 1 // Optional, default: 1 <br />
+ "initialSize": 0.3, // Optional, default: 0 <br />
+ "finalSize": 0.7, // Optional, default: 1 <br />
+ "rotationState": "fixed", // Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <br />
  "rotation": 0, // Optional <br />
- "minrotation": 0, // Optional <br />
- "maxrotation": 1, // Optional <br />
- "initialrotation": 0, // Optional <br />
- "finalrotation": 1, // Optional <br />
+ "minrotation": 0, // Optional, default: 0 <br />
+ "maxrotation": 1, // Optional, default: 1 <br />
+ "initialrotation": 0, // Optional, default: 0 <br />
+ "finalrotation": 1, // Optional, default: 1 <br />
+ "colorState": "linear", // Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <br />
  "color": [0,0,0,0], // Optional <br />
- "mincolor": [0,0,0,0], // Optional <br />
- "maxcolor": [0,0,0,0], // Optional <br />
- "initialcolor": [0,0,0,0], // Optional <br />
- "finalcolor": [0,0,0,0], // Optional <br />
- "colorState": "linear", // Optional <br />
+ "mincolor": [0,0,0,0], // Optional, default: glm::vec4(0, 0, 0, 0) <br />
+ "maxcolor": [0,0,0,0], // Optional, default: glm::vec4(1, 1, 1, 1) <br />
+ "initialcolor": [0,0,0,0], // Optional, default: glm::vec4(0, 0, 0, 0) <br />
+ <br />
+ "finalcolor": [0,0,0,0], // Optional, default: glm::vec4(1, 1, 1, 1) <br />
+ <br />
  "splinePointsSize": [0.5, 0.5], // Optional <br />
- "splinePointsColor": [0.5, 0.5],// Optional <br />
+ "splinePointsColor": [0.5, 0.5], // Optional <br />
  "splinePointsRotation": [0.5, 0.5], // Optional <br />
  }.  
  <a href="class_mason_1_1_particle_descriptor.html#details">More...</a></p>
@@ -130,49 +131,49 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a4e686866e2431ae666800ead5d1638c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a060bb2c95075b3a19432beca816bfa76"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a060bb2c95075b3a19432beca816bfa76">texturePath</a> = &quot;&quot;</td></tr>
 <tr class="separator:a060bb2c95075b3a19432beca816bfa76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a250f9c2c5b3fa119d0a38311e301fd2a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a250f9c2c5b3fa119d0a38311e301fd2a">rate</a></td></tr>
+<tr class="memitem:a250f9c2c5b3fa119d0a38311e301fd2a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a250f9c2c5b3fa119d0a38311e301fd2a">rate</a> = 1</td></tr>
 <tr class="separator:a250f9c2c5b3fa119d0a38311e301fd2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac38adbef0e6dfa77dd42ade2089595fc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#ac38adbef0e6dfa77dd42ade2089595fc">lifespan</a></td></tr>
+<tr class="memitem:ac38adbef0e6dfa77dd42ade2089595fc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#ac38adbef0e6dfa77dd42ade2089595fc">lifespan</a> = 1</td></tr>
 <tr class="separator:ac38adbef0e6dfa77dd42ade2089595fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a015f949d8089667eea16540fb750f70a"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a015f949d8089667eea16540fb750f70a">velocity</a></td></tr>
+<tr class="memitem:a015f949d8089667eea16540fb750f70a"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a015f949d8089667eea16540fb750f70a">velocity</a> = glm::vec3(0, 0, 0)</td></tr>
 <tr class="separator:a015f949d8089667eea16540fb750f70a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd5c0046bb19ee434c56f713c58103c3"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#abd5c0046bb19ee434c56f713c58103c3">gravity</a></td></tr>
+<tr class="memitem:abd5c0046bb19ee434c56f713c58103c3"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#abd5c0046bb19ee434c56f713c58103c3">gravity</a> = glm::vec3(0, 0, 0)</td></tr>
 <tr class="separator:abd5c0046bb19ee434c56f713c58103c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bbc1147b832c903cee0b6ebe964d8c3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a5bbc1147b832c903cee0b6ebe964d8c3">minSize</a></td></tr>
+<tr class="memitem:a5bbc1147b832c903cee0b6ebe964d8c3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a5bbc1147b832c903cee0b6ebe964d8c3">minSize</a> = 0</td></tr>
 <tr class="separator:a5bbc1147b832c903cee0b6ebe964d8c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a394842f237899eb5fcd3091c8dd2ba89"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a394842f237899eb5fcd3091c8dd2ba89">maxSize</a></td></tr>
+<tr class="memitem:a394842f237899eb5fcd3091c8dd2ba89"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a394842f237899eb5fcd3091c8dd2ba89">maxSize</a> = 1</td></tr>
 <tr class="separator:a394842f237899eb5fcd3091c8dd2ba89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a086f4988188e22f066e93529cb02608c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a086f4988188e22f066e93529cb02608c">minRotation</a></td></tr>
+<tr class="memitem:a086f4988188e22f066e93529cb02608c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a086f4988188e22f066e93529cb02608c">minRotation</a> = 0</td></tr>
 <tr class="separator:a086f4988188e22f066e93529cb02608c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9590c7ad32834d9cce9c24d530e75609"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a9590c7ad32834d9cce9c24d530e75609">maxRotation</a></td></tr>
+<tr class="memitem:a9590c7ad32834d9cce9c24d530e75609"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a9590c7ad32834d9cce9c24d530e75609">maxRotation</a> = 1</td></tr>
 <tr class="separator:a9590c7ad32834d9cce9c24d530e75609"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6412dbc10bc67e2e8b21faef1c050a67"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a6412dbc10bc67e2e8b21faef1c050a67">minVelocity</a></td></tr>
+<tr class="memitem:a6412dbc10bc67e2e8b21faef1c050a67"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a6412dbc10bc67e2e8b21faef1c050a67">minVelocity</a> = glm::vec3(0, 0, 0)</td></tr>
 <tr class="separator:a6412dbc10bc67e2e8b21faef1c050a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc679429239c6e9c40b5c2e75228e2c1"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#afc679429239c6e9c40b5c2e75228e2c1">maxVelocity</a></td></tr>
+<tr class="memitem:afc679429239c6e9c40b5c2e75228e2c1"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#afc679429239c6e9c40b5c2e75228e2c1">maxVelocity</a> = glm::vec3(0, 0, 0)</td></tr>
 <tr class="separator:afc679429239c6e9c40b5c2e75228e2c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86b3ee8f533d314ed0f0e48228144a25"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a86b3ee8f533d314ed0f0e48228144a25">minColor</a></td></tr>
+<tr class="memitem:a86b3ee8f533d314ed0f0e48228144a25"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a86b3ee8f533d314ed0f0e48228144a25">minColor</a> = glm::vec4(0, 0, 0, 0)</td></tr>
 <tr class="separator:a86b3ee8f533d314ed0f0e48228144a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa755ad8771cf25c71ec868e16cff41e2"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#aa755ad8771cf25c71ec868e16cff41e2">maxColor</a></td></tr>
+<tr class="memitem:aa755ad8771cf25c71ec868e16cff41e2"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#aa755ad8771cf25c71ec868e16cff41e2">maxColor</a> = glm::vec4(1, 1, 1, 1)</td></tr>
 <tr class="separator:aa755ad8771cf25c71ec868e16cff41e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebf2ee5b2a1b72e03e010d66a1ccf054"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#aebf2ee5b2a1b72e03e010d66a1ccf054">initialSize</a></td></tr>
+<tr class="memitem:aebf2ee5b2a1b72e03e010d66a1ccf054"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#aebf2ee5b2a1b72e03e010d66a1ccf054">initialSize</a> = 0</td></tr>
 <tr class="separator:aebf2ee5b2a1b72e03e010d66a1ccf054"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad865ce5734085951e7c1ec384389ca4b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#ad865ce5734085951e7c1ec384389ca4b">finalSize</a></td></tr>
+<tr class="memitem:ad865ce5734085951e7c1ec384389ca4b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#ad865ce5734085951e7c1ec384389ca4b">finalSize</a> = 1</td></tr>
 <tr class="separator:ad865ce5734085951e7c1ec384389ca4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a458d7ca5c19a0bbcf1c73796dbaf3597"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a458d7ca5c19a0bbcf1c73796dbaf3597">initialColor</a></td></tr>
+<tr class="memitem:a458d7ca5c19a0bbcf1c73796dbaf3597"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a458d7ca5c19a0bbcf1c73796dbaf3597">initialColor</a> = glm::vec4(0, 0, 0, 0)</td></tr>
 <tr class="separator:a458d7ca5c19a0bbcf1c73796dbaf3597"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b01be3725b46d1f4ef7a6775347be66"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a2b01be3725b46d1f4ef7a6775347be66">finalColor</a></td></tr>
+<tr class="memitem:a2b01be3725b46d1f4ef7a6775347be66"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a2b01be3725b46d1f4ef7a6775347be66">finalColor</a> = glm::vec4(1, 1, 1, 1)</td></tr>
 <tr class="separator:a2b01be3725b46d1f4ef7a6775347be66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24f23bf106c1d0bf7dc676d16d64c6d7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a24f23bf106c1d0bf7dc676d16d64c6d7">initialRotation</a></td></tr>
+<tr class="memitem:a24f23bf106c1d0bf7dc676d16d64c6d7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a24f23bf106c1d0bf7dc676d16d64c6d7">initialRotation</a> = 0</td></tr>
 <tr class="separator:a24f23bf106c1d0bf7dc676d16d64c6d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac588e3cd99709ae248547649b4a6643b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#ac588e3cd99709ae248547649b4a6643b">finalRotation</a></td></tr>
+<tr class="memitem:ac588e3cd99709ae248547649b4a6643b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#ac588e3cd99709ae248547649b4a6643b">finalRotation</a> = 1</td></tr>
 <tr class="separator:ac588e3cd99709ae248547649b4a6643b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac84b802189304538944403fdff16faf2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#ac84b802189304538944403fdff16faf2">velocityState</a></td></tr>
+<tr class="memitem:ac84b802189304538944403fdff16faf2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#ac84b802189304538944403fdff16faf2">velocityState</a> = &quot;fixed&quot;</td></tr>
 <tr class="separator:ac84b802189304538944403fdff16faf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac192d2da527967c55804632bc6c0ca9e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#ac192d2da527967c55804632bc6c0ca9e">rotationState</a></td></tr>
+<tr class="memitem:ac192d2da527967c55804632bc6c0ca9e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#ac192d2da527967c55804632bc6c0ca9e">rotationState</a> = &quot;fixed&quot;</td></tr>
 <tr class="separator:ac192d2da527967c55804632bc6c0ca9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67edecae2a5df1c28ccc2f7cdb0a615f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a67edecae2a5df1c28ccc2f7cdb0a615f">sizeState</a></td></tr>
+<tr class="memitem:a67edecae2a5df1c28ccc2f7cdb0a615f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#a67edecae2a5df1c28ccc2f7cdb0a615f">sizeState</a> = &quot;fixed&quot;</td></tr>
 <tr class="separator:a67edecae2a5df1c28ccc2f7cdb0a615f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea9d3bf8cd0eaf89a9d34ca698062280"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#aea9d3bf8cd0eaf89a9d34ca698062280">colorState</a></td></tr>
+<tr class="memitem:aea9d3bf8cd0eaf89a9d34ca698062280"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#aea9d3bf8cd0eaf89a9d34ca698062280">colorState</a> = &quot;fixed&quot;</td></tr>
 <tr class="separator:aea9d3bf8cd0eaf89a9d34ca698062280"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefa11cd147ec20d3084c661245abb49c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; glm::vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html#aefa11cd147ec20d3084c661245abb49c">splinePointsSize</a></td></tr>
 <tr class="separator:aefa11cd147ec20d3084c661245abb49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,35 +184,36 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Describes a Particle component <br />
- "particles": { "texturePath": "/data/images", // Optional, default: nullptr <br />
- "rate": 60, // Optional<br />
- "lifespan": 0.5, // Optional <br />
- "velocityState": "random", // Optional, options: FIXED | RANDOM | LINEAR | SPLINE <br />
- "minVelocity": [0, 300, 0], // Optional <br />
- "maxVelocity": [20, 300, 0], // Optional <br />
- "gravity": [0, 0, 0], // Optional <br />
+ "particles": { "texturePath": "/data/images/ball.png", // Optional, default: "" <br />
+ "rate": 60, // Optional, default: 1 <br />
+ "lifespan": 0.5, // Optional, default: 1 <br />
+ "gravity": [0, 0, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "velocityState": "random", // Optional, options: "fixed" | "random", default: "fixed" <br />
+ "velocity": [0, 300, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "minVelocity": [0, 300, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "maxVelocity": [20, 300, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "sizeState": "linear", // Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <br />
  "size": 1, // Optional <br />
- "minsize": 0 // Optional <br />
- "maxsize": 1 // Optional <br />
- "sizeState": "linear", // Optional <br />
- "initialSize": 0.3, // Optional <br />
- "finalSize": 0.7, // Optional <br />
- "initialColor": [1, 1, 0, 1], // Optional <br />
- "finalColor": [1, 0, 0, 1], // Optional <br />
- "rotationState": "fixed", // Optional <br />
+ "minsize": 0 // Optional, default: 0 <br />
+ "maxsize": 1 // Optional, default: 1 <br />
+ "initialSize": 0.3, // Optional, default: 0 <br />
+ "finalSize": 0.7, // Optional, default: 1 <br />
+ "rotationState": "fixed", // Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <br />
  "rotation": 0, // Optional <br />
- "minrotation": 0, // Optional <br />
- "maxrotation": 1, // Optional <br />
- "initialrotation": 0, // Optional <br />
- "finalrotation": 1, // Optional <br />
+ "minrotation": 0, // Optional, default: 0 <br />
+ "maxrotation": 1, // Optional, default: 1 <br />
+ "initialrotation": 0, // Optional, default: 0 <br />
+ "finalrotation": 1, // Optional, default: 1 <br />
+ "colorState": "linear", // Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <br />
  "color": [0,0,0,0], // Optional <br />
- "mincolor": [0,0,0,0], // Optional <br />
- "maxcolor": [0,0,0,0], // Optional <br />
- "initialcolor": [0,0,0,0], // Optional <br />
- "finalcolor": [0,0,0,0], // Optional <br />
- "colorState": "linear", // Optional <br />
+ "mincolor": [0,0,0,0], // Optional, default: glm::vec4(0, 0, 0, 0) <br />
+ "maxcolor": [0,0,0,0], // Optional, default: glm::vec4(1, 1, 1, 1) <br />
+ "initialcolor": [0,0,0,0], // Optional, default: glm::vec4(0, 0, 0, 0) <br />
+ <br />
+ "finalcolor": [0,0,0,0], // Optional, default: glm::vec4(1, 1, 1, 1) <br />
+ <br />
  "splinePointsSize": [0.5, 0.5], // Optional <br />
- "splinePointsColor": [0.5, 0.5],// Optional <br />
+ "splinePointsColor": [0.5, 0.5], // Optional <br />
  "splinePointsRotation": [0.5, 0.5], // Optional <br />
  }. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
@@ -222,7 +224,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Mason::ParticleDescriptor::colorState</td>
+          <td class="memname">std::string Mason::ParticleDescriptor::colorState = &quot;fixed&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -236,7 +238,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec4 Mason::ParticleDescriptor::finalColor</td>
+          <td class="memname">glm::vec4 Mason::ParticleDescriptor::finalColor = glm::vec4(1, 1, 1, 1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -250,7 +252,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::ParticleDescriptor::finalRotation</td>
+          <td class="memname">float Mason::ParticleDescriptor::finalRotation = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -264,7 +266,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::ParticleDescriptor::finalSize</td>
+          <td class="memname">float Mason::ParticleDescriptor::finalSize = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -292,7 +294,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Mason::ParticleDescriptor::gravity</td>
+          <td class="memname">glm::vec3 Mason::ParticleDescriptor::gravity = glm::vec3(0, 0, 0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -306,7 +308,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec4 Mason::ParticleDescriptor::initialColor</td>
+          <td class="memname">glm::vec4 Mason::ParticleDescriptor::initialColor = glm::vec4(0, 0, 0, 0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -320,7 +322,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::ParticleDescriptor::initialRotation</td>
+          <td class="memname">float Mason::ParticleDescriptor::initialRotation = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -334,7 +336,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::ParticleDescriptor::initialSize</td>
+          <td class="memname">float Mason::ParticleDescriptor::initialSize = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -348,7 +350,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::ParticleDescriptor::lifespan</td>
+          <td class="memname">float Mason::ParticleDescriptor::lifespan = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -362,7 +364,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec4 Mason::ParticleDescriptor::maxColor</td>
+          <td class="memname">glm::vec4 Mason::ParticleDescriptor::maxColor = glm::vec4(1, 1, 1, 1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -376,7 +378,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::ParticleDescriptor::maxRotation</td>
+          <td class="memname">float Mason::ParticleDescriptor::maxRotation = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -390,7 +392,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::ParticleDescriptor::maxSize</td>
+          <td class="memname">float Mason::ParticleDescriptor::maxSize = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -404,7 +406,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Mason::ParticleDescriptor::maxVelocity</td>
+          <td class="memname">glm::vec3 Mason::ParticleDescriptor::maxVelocity = glm::vec3(0, 0, 0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -418,7 +420,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec4 Mason::ParticleDescriptor::minColor</td>
+          <td class="memname">glm::vec4 Mason::ParticleDescriptor::minColor = glm::vec4(0, 0, 0, 0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -432,7 +434,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::ParticleDescriptor::minRotation</td>
+          <td class="memname">float Mason::ParticleDescriptor::minRotation = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -446,7 +448,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::ParticleDescriptor::minSize</td>
+          <td class="memname">float Mason::ParticleDescriptor::minSize = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -460,7 +462,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Mason::ParticleDescriptor::minVelocity</td>
+          <td class="memname">glm::vec3 Mason::ParticleDescriptor::minVelocity = glm::vec3(0, 0, 0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -474,7 +476,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Mason::ParticleDescriptor::rate</td>
+          <td class="memname">float Mason::ParticleDescriptor::rate = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -488,7 +490,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Mason::ParticleDescriptor::rotationState</td>
+          <td class="memname">std::string Mason::ParticleDescriptor::rotationState = &quot;fixed&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -502,7 +504,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Mason::ParticleDescriptor::sizeState</td>
+          <td class="memname">std::string Mason::ParticleDescriptor::sizeState = &quot;fixed&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -572,7 +574,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Mason::ParticleDescriptor::velocity</td>
+          <td class="memname">glm::vec3 Mason::ParticleDescriptor::velocity = glm::vec3(0, 0, 0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -586,7 +588,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Mason::ParticleDescriptor::velocityState</td>
+          <td class="memname">std::string Mason::ParticleDescriptor::velocityState = &quot;fixed&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">

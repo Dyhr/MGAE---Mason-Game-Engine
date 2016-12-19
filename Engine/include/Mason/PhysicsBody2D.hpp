@@ -10,6 +10,7 @@ namespace Mason {
 
 	/** @class PhysicsBody2D
 	* @brief creates a body in the physics world, so they affect the game object that this component is attached to.
+	* Rigid bodies are perfectly solid, kinematic objects that simulate movement based on forces (Classical/Newtonian mechanics)
 	*/
 	class PhysicsBody2D : public Component {
 	public:

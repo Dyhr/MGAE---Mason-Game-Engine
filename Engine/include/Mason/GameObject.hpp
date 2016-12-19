@@ -9,7 +9,6 @@
 
 namespace Mason {
 
-	class Scene;
 	class Script;
 
 	class GameObject {

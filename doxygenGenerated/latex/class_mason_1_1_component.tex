@@ -14,19 +14,19 @@ Inheritance diagram for Mason\+:\+:Component\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 virtual \hyperlink{class_mason_1_1_component_ab8378fa275af98e568a7e91d33d867af}{$\sim$\+Component} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ \hyperlink{class_mason_1_1_component_a6c96ba73e4added598bfa975e000a3ea}{get\+Game\+Object} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns a shared pointer to the gameobject of the component. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_mason_1_1_component_a19f394f7e3e940e7fc01d18d6a762d46}{Component} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ \hyperlink{class_mason_1_1_component_abaa67b569d0a70e26a4606f4a099a925}{game\+Object})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ \hyperlink{class_mason_1_1_component_abaa67b569d0a70e26a4606f4a099a925}{game\+Object}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em shared pointer to gameobject \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,12 +34,19 @@ class \hyperlink{class_mason_1_1_component_a00df87c957d8f7ee0fc51f07a0542f4a}{Ga
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+for all components. Has a shared pointer to its gameobject 
+
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_mason_1_1_component_ab8378fa275af98e568a7e91d33d867af}{}\label{class_mason_1_1_component_ab8378fa275af98e568a7e91d33d867af} 
 \index{Mason\+::\+Component@{Mason\+::\+Component}!````~Component@{$\sim$\+Component}}
 \index{````~Component@{$\sim$\+Component}!Mason\+::\+Component@{Mason\+::\+Component}}
 \subsubsection{\texorpdfstring{$\sim$\+Component()}{~Component()}}
 {\footnotesize\ttfamily Component\+::$\sim$\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
 
 \hypertarget{class_mason_1_1_component_a19f394f7e3e940e7fc01d18d6a762d46}{}\label{class_mason_1_1_component_a19f394f7e3e940e7fc01d18d6a762d46} 
 \index{Mason\+::\+Component@{Mason\+::\+Component}!Component@{Component}}
@@ -49,12 +56,20 @@ class \hyperlink{class_mason_1_1_component_a00df87c957d8f7ee0fc51f07a0542f4a}{Ga
 
 
 
+Constructor. 
+
+
+
 \subsection{Member Function Documentation}
 \hypertarget{class_mason_1_1_component_a6c96ba73e4added598bfa975e000a3ea}{}\label{class_mason_1_1_component_a6c96ba73e4added598bfa975e000a3ea} 
 \index{Mason\+::\+Component@{Mason\+::\+Component}!get\+Game\+Object@{get\+Game\+Object}}
 \index{get\+Game\+Object@{get\+Game\+Object}!Mason\+::\+Component@{Mason\+::\+Component}}
 \subsubsection{\texorpdfstring{get\+Game\+Object()}{getGameObject()}}
 {\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \hyperlink{class_mason_1_1_game_object}{Game\+Object} $>$ Component\+::get\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a shared pointer to the gameobject of the component. 
 
 
 
@@ -73,6 +88,10 @@ class \hyperlink{class_mason_1_1_component_a00df87c957d8f7ee0fc51f07a0542f4a}{Ga
 \index{game\+Object@{game\+Object}!Mason\+::\+Component@{Mason\+::\+Component}}
 \subsubsection{\texorpdfstring{game\+Object}{gameObject}}
 {\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\hyperlink{class_mason_1_1_game_object}{Game\+Object}$>$ Mason\+::\+Component\+::game\+Object\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+shared pointer to gameobject 
 
 
 

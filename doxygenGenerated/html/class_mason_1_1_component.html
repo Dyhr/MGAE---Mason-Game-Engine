@@ -98,13 +98,13 @@ Inheritance diagram for Mason::Component:</div>
  <div class="center">
   <img src="class_mason_1_1_component.png" usemap="#Mason::Component_map" alt=""/>
   <map id="Mason::Component_map" name="Mason::Component_map">
-<area href="class_mason_1_1_audio.html" alt="Mason::Audio" shape="rect" coords="0,56,150,80"/>
+<area href="class_mason_1_1_audio.html" title="Extends the Component class and holds information about a .wav sound file. " alt="Mason::Audio" shape="rect" coords="0,56,150,80"/>
 <area href="class_mason_1_1_collider2_d.html" title="creates a collider in the physics world, so they affect the game object that this component is attach..." alt="Mason::Collider2D" shape="rect" coords="160,56,310,80"/>
 <area href="class_mason_1_1_particle_emitter.html" alt="Mason::ParticleEmitter" shape="rect" coords="320,56,470,80"/>
 <area href="class_mason_1_1_physics_body2_d.html" title="creates a body in the physics world, so they affect the game object that this component is attached t..." alt="Mason::PhysicsBody2D" shape="rect" coords="480,56,630,80"/>
 <area href="class_mason_1_1_script.html" alt="Mason::Script" shape="rect" coords="640,56,790,80"/>
 <area href="class_mason_1_1_sprite_renderer.html" title="calls the draw() method of every Sprite. " alt="Mason::SpriteRenderer" shape="rect" coords="800,56,950,80"/>
-<area href="class_mason_1_1_transform.html" alt="Mason::Transform" shape="rect" coords="960,56,1110,80"/>
+<area href="class_mason_1_1_transform.html" title="used to store and manipulate the position, rotation and scale of the game object In 2D physics there ..." alt="Mason::Transform" shape="rect" coords="960,56,1110,80"/>
 <area href="class_mason_1_1_box_collider2_d.html" alt="Mason::BoxCollider2D" shape="rect" coords="80,112,230,136"/>
 <area href="class_mason_1_1_circle_collider2_d.html" title="creates a Collider2D with rectangular-shape properties. overrides the virtual class Collider2D ..." alt="Mason::CircleCollider2D" shape="rect" coords="240,112,390,136"/>
 <area href="class_mason_1_1_camera.html" title="We need to translate and scale the camera (not rotate because it is 2D) and setup the viewport plane..." alt="Mason::Camera" shape="rect" coords="960,112,1110,136"/>
@@ -114,18 +114,22 @@ Inheritance diagram for Mason::Component:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab8378fa275af98e568a7e91d33d867af"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_component.html#ab8378fa275af98e568a7e91d33d867af">~Component</a> ()</td></tr>
+<tr class="memdesc:ab8378fa275af98e568a7e91d33d867af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ab8378fa275af98e568a7e91d33d867af">More...</a><br /></td></tr>
 <tr class="separator:ab8378fa275af98e568a7e91d33d867af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c96ba73e4added598bfa975e000a3ea"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_component.html#a6c96ba73e4added598bfa975e000a3ea">getGameObject</a> ()</td></tr>
+<tr class="memdesc:a6c96ba73e4added598bfa975e000a3ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a shared pointer to the gameobject of the component.  <a href="#a6c96ba73e4added598bfa975e000a3ea">More...</a><br /></td></tr>
 <tr class="separator:a6c96ba73e4added598bfa975e000a3ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a19f394f7e3e940e7fc01d18d6a762d46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_component.html#a19f394f7e3e940e7fc01d18d6a762d46">Component</a> (std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt; <a class="el" href="class_mason_1_1_component.html#abaa67b569d0a70e26a4606f4a099a925">gameObject</a>)</td></tr>
+<tr class="memdesc:a19f394f7e3e940e7fc01d18d6a762d46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a19f394f7e3e940e7fc01d18d6a762d46">More...</a><br /></td></tr>
 <tr class="separator:a19f394f7e3e940e7fc01d18d6a762d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:abaa67b569d0a70e26a4606f4a099a925"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_component.html#abaa67b569d0a70e26a4606f4a099a925">gameObject</a></td></tr>
+<tr class="memdesc:abaa67b569d0a70e26a4606f4a099a925"><td class="mdescLeft">&#160;</td><td class="mdescRight">shared pointer to gameobject  <a href="#abaa67b569d0a70e26a4606f4a099a925">More...</a><br /></td></tr>
 <tr class="separator:abaa67b569d0a70e26a4606f4a099a925"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -133,7 +137,9 @@ Friends</h2></td></tr>
 <tr class="memitem:a00df87c957d8f7ee0fc51f07a0542f4a"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_component.html#a00df87c957d8f7ee0fc51f07a0542f4a">GameObject</a></td></tr>
 <tr class="separator:a00df87c957d8f7ee0fc51f07a0542f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>for all components. Has a shared pointer to its gameobject </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab8378fa275af98e568a7e91d33d867af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8378fa275af98e568a7e91d33d867af">&sect;&nbsp;</a></span>~Component()</h2>
 
@@ -156,6 +162,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
@@ -183,6 +191,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Constructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -200,6 +210,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a shared pointer to the gameobject of the component. </p>
 
 </div>
 </div>
@@ -246,6 +258,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>shared pointer to gameobject </p>
 
 </div>
 </div>

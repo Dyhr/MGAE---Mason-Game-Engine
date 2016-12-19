@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Engines: Mason::ParticleEmitterConfig Struct Reference</title>
+<title>Game Engines: Mason::ParticleEmitterConfig Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,117 +85,168 @@ $(document).ready(function(){initNavTree('struct_mason_1_1_particle_emitter_conf
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="struct_mason_1_1_particle_emitter_config-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Mason::ParticleEmitterConfig Struct Reference</div>  </div>
+<div class="title">Mason::ParticleEmitterConfig Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Struct used for configuring a <a class="el" href="class_mason_1_1_particle_emitter.html">ParticleEmitter</a> component.  
+ <a href="struct_mason_1_1_particle_emitter_config.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_particle_emitter_8hpp_source.html">ParticleEmitter.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9ee7a40d6337225cccab9f801e8f793f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_mason.html#aefc2ce7d9295b57af46ab6c8ebfc32f7">AttributeState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a9ee7a40d6337225cccab9f801e8f793f">attributeFromString</a> (std::string str)</td></tr>
+<tr class="memdesc:a9ee7a40d6337225cccab9f801e8f793f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert string value to enum value for AttributeStates. Returns FIXED as default.  <a href="#a9ee7a40d6337225cccab9f801e8f793f">More...</a><br /></td></tr>
 <tr class="separator:a9ee7a40d6337225cccab9f801e8f793f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3781dff36d32c1fb79a8ff63baf2c55"><td class="memItemLeft" align="right" valign="top">std::vector&lt; glm::vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ae3781dff36d32c1fb79a8ff63baf2c55">normalize</a> (std::vector&lt; glm::vec2 &gt; input)</td></tr>
+<tr class="memdesc:ae3781dff36d32c1fb79a8ff63baf2c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes list of points to have values between 0 and 1.  <a href="#ae3781dff36d32c1fb79a8ff63baf2c55">More...</a><br /></td></tr>
 <tr class="separator:ae3781dff36d32c1fb79a8ff63baf2c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92978f0e01ba1078889a3f288ff0c02b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a92978f0e01ba1078889a3f288ff0c02b">setTexture</a> (SRE::Texture *_tex)</td></tr>
+<tr class="memdesc:a92978f0e01ba1078889a3f288ff0c02b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the tex pointer.  <a href="#a92978f0e01ba1078889a3f288ff0c02b">More...</a><br /></td></tr>
 <tr class="separator:a92978f0e01ba1078889a3f288ff0c02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8569c3e45131fd9d51687bbf293e3154"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a8569c3e45131fd9d51687bbf293e3154">setRate</a> (float _rate)</td></tr>
+<tr class="memdesc:a8569c3e45131fd9d51687bbf293e3154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the emission rate.  <a href="#a8569c3e45131fd9d51687bbf293e3154">More...</a><br /></td></tr>
 <tr class="separator:a8569c3e45131fd9d51687bbf293e3154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe91ca5c2d60e5567fe589367b4fd3ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#afe91ca5c2d60e5567fe589367b4fd3ef">setLifespan</a> (float _lifespan)</td></tr>
+<tr class="memdesc:afe91ca5c2d60e5567fe589367b4fd3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the particle lifespan.  <a href="#afe91ca5c2d60e5567fe589367b4fd3ef">More...</a><br /></td></tr>
 <tr class="separator:afe91ca5c2d60e5567fe589367b4fd3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5eafd4808934831fb271304c24b6af7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ae5eafd4808934831fb271304c24b6af7">setVelocity</a> (glm::vec3 _velocity)</td></tr>
-<tr class="separator:ae5eafd4808934831fb271304c24b6af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab34a3cc0d4c7252492a261c063b9376b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ab34a3cc0d4c7252492a261c063b9376b">setGravity</a> (glm::vec3 _gravity)</td></tr>
+<tr class="memdesc:ab34a3cc0d4c7252492a261c063b9376b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the acceleration acting on particles.  <a href="#ab34a3cc0d4c7252492a261c063b9376b">More...</a><br /></td></tr>
 <tr class="separator:ab34a3cc0d4c7252492a261c063b9376b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63a5b2c01c1f4cc0eaa1e8d4b9226146"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a63a5b2c01c1f4cc0eaa1e8d4b9226146">setFixedVelocity</a> (glm::vec3 vel)</td></tr>
+<tr class="memdesc:a63a5b2c01c1f4cc0eaa1e8d4b9226146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the fixed emission velocity.  <a href="#a63a5b2c01c1f4cc0eaa1e8d4b9226146">More...</a><br /></td></tr>
 <tr class="separator:a63a5b2c01c1f4cc0eaa1e8d4b9226146"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9102ce5287cd4c13e89f5e695563076f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a9102ce5287cd4c13e89f5e695563076f">setRandomVelocity</a> (glm::vec3 minVel, glm::vec3 maxVel)</td></tr>
+<tr class="memdesc:a9102ce5287cd4c13e89f5e695563076f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set emission velocity interval.  <a href="#a9102ce5287cd4c13e89f5e695563076f">More...</a><br /></td></tr>
 <tr class="separator:a9102ce5287cd4c13e89f5e695563076f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52313455114fadb6609232719681b4d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a52313455114fadb6609232719681b4d7">setFixedSize</a> (float size)</td></tr>
+<tr class="memdesc:a52313455114fadb6609232719681b4d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the fixed size of particles.  <a href="#a52313455114fadb6609232719681b4d7">More...</a><br /></td></tr>
 <tr class="separator:a52313455114fadb6609232719681b4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab644fd902c0e29f758a53912d0784f19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ab644fd902c0e29f758a53912d0784f19">setRandomSize</a> (float min, float max)</td></tr>
+<tr class="memdesc:ab644fd902c0e29f758a53912d0784f19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the interval for random size.  <a href="#ab644fd902c0e29f758a53912d0784f19">More...</a><br /></td></tr>
 <tr class="separator:ab644fd902c0e29f758a53912d0784f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5495ec9be73c80df30115461b6af7733"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a5495ec9be73c80df30115461b6af7733">setLERPSize</a> (float initial, float final)</td></tr>
+<tr class="memdesc:a5495ec9be73c80df30115461b6af7733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set initial and final size for linear interpolation.  <a href="#a5495ec9be73c80df30115461b6af7733">More...</a><br /></td></tr>
 <tr class="separator:a5495ec9be73c80df30115461b6af7733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4288325ce9dcf3437fbcabaf99f968b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a4288325ce9dcf3437fbcabaf99f968b4">setSplineInterpSize</a> (float initial, float final, std::vector&lt; glm::vec2 &gt; splinePoints)</td></tr>
+<tr class="memdesc:a4288325ce9dcf3437fbcabaf99f968b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set initial and final size for spline interpolation using the given points to interpolate between.  <a href="#a4288325ce9dcf3437fbcabaf99f968b4">More...</a><br /></td></tr>
 <tr class="separator:a4288325ce9dcf3437fbcabaf99f968b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4aa09d5feb556808fba6c23167d9d78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ae4aa09d5feb556808fba6c23167d9d78">setFixedColor</a> (glm::vec4 color)</td></tr>
+<tr class="memdesc:ae4aa09d5feb556808fba6c23167d9d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the fixed color of particles.  <a href="#ae4aa09d5feb556808fba6c23167d9d78">More...</a><br /></td></tr>
 <tr class="separator:ae4aa09d5feb556808fba6c23167d9d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5317af2f90691360678a2663a747c36d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a5317af2f90691360678a2663a747c36d">setRandomColor</a> (glm::vec4 min, glm::vec4 max)</td></tr>
+<tr class="memdesc:a5317af2f90691360678a2663a747c36d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the interval for random color.  <a href="#a5317af2f90691360678a2663a747c36d">More...</a><br /></td></tr>
 <tr class="separator:a5317af2f90691360678a2663a747c36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09620b4edcadd022cd8a447da17867a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a09620b4edcadd022cd8a447da17867a0">setLERPColor</a> (glm::vec4 initial, glm::vec4 final)</td></tr>
+<tr class="memdesc:a09620b4edcadd022cd8a447da17867a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set initial and final color for linear interpolation.  <a href="#a09620b4edcadd022cd8a447da17867a0">More...</a><br /></td></tr>
 <tr class="separator:a09620b4edcadd022cd8a447da17867a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf515319a62060a75edbb1e7b6403ff2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#aaf515319a62060a75edbb1e7b6403ff2">setSplineInterpColor</a> (glm::vec4 initial, glm::vec4 final, std::vector&lt; glm::vec2 &gt; splinePoints)</td></tr>
+<tr class="memdesc:aaf515319a62060a75edbb1e7b6403ff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set initial and final color for spline interpolation using the given points to interpolate between.  <a href="#aaf515319a62060a75edbb1e7b6403ff2">More...</a><br /></td></tr>
 <tr class="separator:aaf515319a62060a75edbb1e7b6403ff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb790846d2a00fd97160fdac66589fd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#acb790846d2a00fd97160fdac66589fd5">setFixedRotation</a> (float rotation)</td></tr>
+<tr class="memdesc:acb790846d2a00fd97160fdac66589fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the fixed rotation of particles.  <a href="#acb790846d2a00fd97160fdac66589fd5">More...</a><br /></td></tr>
 <tr class="separator:acb790846d2a00fd97160fdac66589fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a463adb67fe4ee1732daa20e9d01d2331"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a463adb67fe4ee1732daa20e9d01d2331">setRandomRotation</a> (float min, float max)</td></tr>
+<tr class="memdesc:a463adb67fe4ee1732daa20e9d01d2331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the interval for random rotation.  <a href="#a463adb67fe4ee1732daa20e9d01d2331">More...</a><br /></td></tr>
 <tr class="separator:a463adb67fe4ee1732daa20e9d01d2331"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad96c857c3ceac520462a10981e471c4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ad96c857c3ceac520462a10981e471c4b">setLERPRotation</a> (float initial, float final)</td></tr>
+<tr class="memdesc:ad96c857c3ceac520462a10981e471c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set initial and final rotation for linear interpolation.  <a href="#ad96c857c3ceac520462a10981e471c4b">More...</a><br /></td></tr>
 <tr class="separator:ad96c857c3ceac520462a10981e471c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcaf3368ccf9b524538a3cf3fadb15d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#abcaf3368ccf9b524538a3cf3fadb15d2">setSplineInterpRotation</a> (float initial, float final, std::vector&lt; glm::vec2 &gt; splinePoints)</td></tr>
+<tr class="memdesc:abcaf3368ccf9b524538a3cf3fadb15d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set initial and final rotation for spline interpolation using the given points to interpolate between.  <a href="#abcaf3368ccf9b524538a3cf3fadb15d2">More...</a><br /></td></tr>
 <tr class="separator:abcaf3368ccf9b524538a3cf3fadb15d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a317aa2e9d325160e20fd1bbefdc244f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a317aa2e9d325160e20fd1bbefdc244f5">ParticleEmitterConfig</a> ()</td></tr>
+<tr class="memdesc:a317aa2e9d325160e20fd1bbefdc244f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a317aa2e9d325160e20fd1bbefdc244f5">More...</a><br /></td></tr>
 <tr class="separator:a317aa2e9d325160e20fd1bbefdc244f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50ce1e6e4420674c75b12b402ac5bf33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a50ce1e6e4420674c75b12b402ac5bf33">ParticleEmitterConfig</a> (float <a class="el" href="struct_mason_1_1_particle_emitter_config.html#abc0c7231f9134e3b0456d22ee8d5c8a2">rate</a>, float <a class="el" href="struct_mason_1_1_particle_emitter_config.html#a856b3906e25a7d41eb9bc7e37a91ef93">lifespan</a>, glm::vec3 <a class="el" href="struct_mason_1_1_particle_emitter_config.html#af8c3efa305e0a0636576bebe60938c80">velocity</a>, glm::vec3 <a class="el" href="struct_mason_1_1_particle_emitter_config.html#ad5fa0930e4e3f5d8c9de1324a854e63a">gravity</a>)</td></tr>
+<tr class="memdesc:a50ce1e6e4420674c75b12b402ac5bf33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a50ce1e6e4420674c75b12b402ac5bf33">More...</a><br /></td></tr>
 <tr class="separator:a50ce1e6e4420674c75b12b402ac5bf33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a660e9a7613b158ac36bfc4ffe8b5f610"><td class="memItemLeft" align="right" valign="top">SRE::Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a660e9a7613b158ac36bfc4ffe8b5f610">tex</a> = nullptr</td></tr>
+<tr class="memdesc:a660e9a7613b158ac36bfc4ffe8b5f610"><td class="mdescLeft">&#160;</td><td class="mdescRight">Particle texture pointer. see .  <a href="#a660e9a7613b158ac36bfc4ffe8b5f610">More...</a><br /></td></tr>
 <tr class="separator:a660e9a7613b158ac36bfc4ffe8b5f610"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc0c7231f9134e3b0456d22ee8d5c8a2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#abc0c7231f9134e3b0456d22ee8d5c8a2">rate</a></td></tr>
+<tr class="memdesc:abc0c7231f9134e3b0456d22ee8d5c8a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emission rate in particles/second.  <a href="#abc0c7231f9134e3b0456d22ee8d5c8a2">More...</a><br /></td></tr>
 <tr class="separator:abc0c7231f9134e3b0456d22ee8d5c8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a856b3906e25a7d41eb9bc7e37a91ef93"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a856b3906e25a7d41eb9bc7e37a91ef93">lifespan</a></td></tr>
+<tr class="memdesc:a856b3906e25a7d41eb9bc7e37a91ef93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allowed lifetime for particles in seconds.  <a href="#a856b3906e25a7d41eb9bc7e37a91ef93">More...</a><br /></td></tr>
 <tr class="separator:a856b3906e25a7d41eb9bc7e37a91ef93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8c3efa305e0a0636576bebe60938c80"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#af8c3efa305e0a0636576bebe60938c80">velocity</a></td></tr>
+<tr class="memdesc:af8c3efa305e0a0636576bebe60938c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity of particles at emission. ONLY USED FOR VelocityState == AttributeState::FIXED.  <a href="#af8c3efa305e0a0636576bebe60938c80">More...</a><br /></td></tr>
 <tr class="separator:af8c3efa305e0a0636576bebe60938c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5fa0930e4e3f5d8c9de1324a854e63a"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ad5fa0930e4e3f5d8c9de1324a854e63a">gravity</a></td></tr>
+<tr class="memdesc:ad5fa0930e4e3f5d8c9de1324a854e63a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceleration acting on particles during lifespan.  <a href="#ad5fa0930e4e3f5d8c9de1324a854e63a">More...</a><br /></td></tr>
 <tr class="separator:ad5fa0930e4e3f5d8c9de1324a854e63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab46ccc780e60c6b7006749058654455f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ab46ccc780e60c6b7006749058654455f">minSize</a></td></tr>
+<tr class="memdesc:ab46ccc780e60c6b7006749058654455f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum size of particles at emission. ONLY used when SizeState == AttributeState::RANDOM or AttributeState::FIXED.  <a href="#ab46ccc780e60c6b7006749058654455f">More...</a><br /></td></tr>
 <tr class="separator:ab46ccc780e60c6b7006749058654455f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8b8933ec9758ed264d1b1ccc3d24bd8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ad8b8933ec9758ed264d1b1ccc3d24bd8">maxSize</a></td></tr>
+<tr class="memdesc:ad8b8933ec9758ed264d1b1ccc3d24bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum size of particles at emission. ONLY used when SizeState == AttributeState::RANDOM or AttributeState::FIXED.  <a href="#ad8b8933ec9758ed264d1b1ccc3d24bd8">More...</a><br /></td></tr>
 <tr class="separator:ad8b8933ec9758ed264d1b1ccc3d24bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6755b96da7af8b4c469b64f0887e186"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ae6755b96da7af8b4c469b64f0887e186">minRotation</a></td></tr>
+<tr class="memdesc:ae6755b96da7af8b4c469b64f0887e186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum rotation of particles at emission. ONLY used when RotationState == AttributeState::RANDOM or AttributeState::FIXED, uses radians.  <a href="#ae6755b96da7af8b4c469b64f0887e186">More...</a><br /></td></tr>
 <tr class="separator:ae6755b96da7af8b4c469b64f0887e186"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a7e271bae699c0998a3d9ac73f3bb6f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a3a7e271bae699c0998a3d9ac73f3bb6f">maxRotation</a></td></tr>
+<tr class="memdesc:a3a7e271bae699c0998a3d9ac73f3bb6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum rotation of particles at emission. ONLY used when RotationState == AttributeState::RANDOM or AttributeState::FIXED, uses radians.  <a href="#a3a7e271bae699c0998a3d9ac73f3bb6f">More...</a><br /></td></tr>
 <tr class="separator:a3a7e271bae699c0998a3d9ac73f3bb6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa70f6e44cc9712bf59ef89e1a339726d"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#aa70f6e44cc9712bf59ef89e1a339726d">minColor</a></td></tr>
+<tr class="memdesc:aa70f6e44cc9712bf59ef89e1a339726d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum color of particles at emission. ONLY used when ColorState == AttributeState::RANDOM or AttributeState::FIXED.  <a href="#aa70f6e44cc9712bf59ef89e1a339726d">More...</a><br /></td></tr>
 <tr class="separator:aa70f6e44cc9712bf59ef89e1a339726d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af48c8574b50e51408c3566f862e22dbd"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#af48c8574b50e51408c3566f862e22dbd">maxColor</a></td></tr>
+<tr class="memdesc:af48c8574b50e51408c3566f862e22dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum color of particles at emission. ONLY used when ColorState == AttributeState::RANDOM or AttributeState::FIXED.  <a href="#af48c8574b50e51408c3566f862e22dbd">More...</a><br /></td></tr>
 <tr class="separator:af48c8574b50e51408c3566f862e22dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d8df085c0a91b61f42adc5eef888c79"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a3d8df085c0a91b61f42adc5eef888c79">minVelocity</a></td></tr>
+<tr class="memdesc:a3d8df085c0a91b61f42adc5eef888c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum velocity of particles at emission. ONLY used when VelocityState == AttributeState::RANDOM.  <a href="#a3d8df085c0a91b61f42adc5eef888c79">More...</a><br /></td></tr>
 <tr class="separator:a3d8df085c0a91b61f42adc5eef888c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa449573ac5e8ae2ef3f5110836a3091c"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#aa449573ac5e8ae2ef3f5110836a3091c">maxVelocity</a></td></tr>
+<tr class="memdesc:aa449573ac5e8ae2ef3f5110836a3091c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum velocity of particles at emission. ONLY used when VelocityState == AttributeState::RANDOM.  <a href="#aa449573ac5e8ae2ef3f5110836a3091c">More...</a><br /></td></tr>
 <tr class="separator:aa449573ac5e8ae2ef3f5110836a3091c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a200875bdd8d24d919160527494c5b611"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a200875bdd8d24d919160527494c5b611">initialSize</a></td></tr>
+<tr class="memdesc:a200875bdd8d24d919160527494c5b611"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial size of particles at emission. ONLY used when SizeState == AttributeState::LINEAR or AttributeState::SPLINE.  <a href="#a200875bdd8d24d919160527494c5b611">More...</a><br /></td></tr>
 <tr class="separator:a200875bdd8d24d919160527494c5b611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5aabaa7aa8bd203539a56ee269595f94"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a5aabaa7aa8bd203539a56ee269595f94">finalSize</a></td></tr>
+<tr class="memdesc:a5aabaa7aa8bd203539a56ee269595f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Final size of particles at end of lifespan. ONLY used when SizeState == AttributeState::LINEAR or AttributeState::SPLINE.  <a href="#a5aabaa7aa8bd203539a56ee269595f94">More...</a><br /></td></tr>
 <tr class="separator:a5aabaa7aa8bd203539a56ee269595f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8580419bef5f1d337f75a5224dec0deb"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a8580419bef5f1d337f75a5224dec0deb">initialColor</a></td></tr>
+<tr class="memdesc:a8580419bef5f1d337f75a5224dec0deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial color of particles at emission. ONLY used when ColorState == AttributeState::LINEAR or AttributeState::SPLINE.  <a href="#a8580419bef5f1d337f75a5224dec0deb">More...</a><br /></td></tr>
 <tr class="separator:a8580419bef5f1d337f75a5224dec0deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addf94f6df6c784495840b93aa30ce162"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#addf94f6df6c784495840b93aa30ce162">finalColor</a></td></tr>
+<tr class="memdesc:addf94f6df6c784495840b93aa30ce162"><td class="mdescLeft">&#160;</td><td class="mdescRight">Final color of particles at end of lifespan. ONLY used when ColorState == AttributeState::LINEAR or AttributeState::SPLINE.  <a href="#addf94f6df6c784495840b93aa30ce162">More...</a><br /></td></tr>
 <tr class="separator:addf94f6df6c784495840b93aa30ce162"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94e5a301870aa19cc1bf14d4613cc879"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a94e5a301870aa19cc1bf14d4613cc879">initialRotation</a></td></tr>
+<tr class="memdesc:a94e5a301870aa19cc1bf14d4613cc879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial rotation of particles at emission. ONLY used when RotationState == AttributeState::LINEAR or AttributeState::SPLINE, uses radians.  <a href="#a94e5a301870aa19cc1bf14d4613cc879">More...</a><br /></td></tr>
 <tr class="separator:a94e5a301870aa19cc1bf14d4613cc879"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37a579321019d25bdb1ecf4f32353d7c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a37a579321019d25bdb1ecf4f32353d7c">finalRotation</a></td></tr>
+<tr class="memdesc:a37a579321019d25bdb1ecf4f32353d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Final rotation of particles at end of lifespan. ONLY used when RotationState == AttributeState::LINEAR or AttributeState::SPLINE, uses radians.  <a href="#a37a579321019d25bdb1ecf4f32353d7c">More...</a><br /></td></tr>
 <tr class="separator:a37a579321019d25bdb1ecf4f32353d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66a4652dce73b58e27b8a495e2b6e0eb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; glm::vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a66a4652dce73b58e27b8a495e2b6e0eb">splinePointsColor</a></td></tr>
+<tr class="memdesc:a66a4652dce73b58e27b8a495e2b6e0eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of points used for spline interpolation between initial and final colors.  <a href="#a66a4652dce73b58e27b8a495e2b6e0eb">More...</a><br /></td></tr>
 <tr class="separator:a66a4652dce73b58e27b8a495e2b6e0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae379890e2a2de9c8f4dc1a391393f41a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; glm::vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ae379890e2a2de9c8f4dc1a391393f41a">splinePointsSize</a></td></tr>
+<tr class="memdesc:ae379890e2a2de9c8f4dc1a391393f41a"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of points used for spline interpolation between initial and final sizes.  <a href="#ae379890e2a2de9c8f4dc1a391393f41a">More...</a><br /></td></tr>
 <tr class="separator:ae379890e2a2de9c8f4dc1a391393f41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae03fbdb37c6738eafedc10564d744e8e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; glm::vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#ae03fbdb37c6738eafedc10564d744e8e">splinePointsRotation</a></td></tr>
+<tr class="memdesc:ae03fbdb37c6738eafedc10564d744e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of points used for spline interpolation between initial and final rotations.  <a href="#ae03fbdb37c6738eafedc10564d744e8e">More...</a><br /></td></tr>
 <tr class="separator:ae03fbdb37c6738eafedc10564d744e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94ad732500966a699dcead307033269a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_mason.html#aefc2ce7d9295b57af46ab6c8ebfc32f7">AttributeState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a94ad732500966a699dcead307033269a">colorState</a></td></tr>
+<tr class="memdesc:a94ad732500966a699dcead307033269a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum defining color behavior, either FIXED, RANDOM, LINEAR, or SPLINE.  <a href="#a94ad732500966a699dcead307033269a">More...</a><br /></td></tr>
 <tr class="separator:a94ad732500966a699dcead307033269a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f6f8e64ff56799d85b8512aa97801eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_mason.html#aefc2ce7d9295b57af46ab6c8ebfc32f7">AttributeState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a3f6f8e64ff56799d85b8512aa97801eb">sizeState</a></td></tr>
+<tr class="memdesc:a3f6f8e64ff56799d85b8512aa97801eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum defining size behavior, either FIXED, RANDOM, LINEAR, or SPLINE.  <a href="#a3f6f8e64ff56799d85b8512aa97801eb">More...</a><br /></td></tr>
 <tr class="separator:a3f6f8e64ff56799d85b8512aa97801eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35b60fea30c8a07adcfc77a3c30e1546"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_mason.html#aefc2ce7d9295b57af46ab6c8ebfc32f7">AttributeState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a35b60fea30c8a07adcfc77a3c30e1546">rotationState</a></td></tr>
+<tr class="memdesc:a35b60fea30c8a07adcfc77a3c30e1546"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum defining rotation behavior, either FIXED, RANDOM, LINEAR, or SPLINE.  <a href="#a35b60fea30c8a07adcfc77a3c30e1546">More...</a><br /></td></tr>
 <tr class="separator:a35b60fea30c8a07adcfc77a3c30e1546"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a449a7ec64ad8d9f9be405f1beb5ee507"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_mason.html#aefc2ce7d9295b57af46ab6c8ebfc32f7">AttributeState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mason_1_1_particle_emitter_config.html#a449a7ec64ad8d9f9be405f1beb5ee507">velocityState</a></td></tr>
+<tr class="memdesc:a449a7ec64ad8d9f9be405f1beb5ee507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum defining velocity behavior, either FIXED or RANDOM.  <a href="#a449a7ec64ad8d9f9be405f1beb5ee507">More...</a><br /></td></tr>
 <tr class="separator:a449a7ec64ad8d9f9be405f1beb5ee507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Struct used for configuring a <a class="el" href="class_mason_1_1_particle_emitter.html">ParticleEmitter</a> component. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a317aa2e9d325160e20fd1bbefdc244f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a317aa2e9d325160e20fd1bbefdc244f5">&sect;&nbsp;</a></span>ParticleEmitterConfig() <span class="overload">[1/2]</span></h2>
 
@@ -218,6 +269,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructor. </p>
 
 </div>
 </div>
@@ -267,6 +320,17 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rate</td><td>emission rate in particles/second </td></tr>
+    <tr><td class="paramname">lifespan</td><td>particle lifespan in seconds </td></tr>
+    <tr><td class="paramname">velocity</td><td>initial fixed particle velocity. pixels per second </td></tr>
+    <tr><td class="paramname">gravity</td><td>acceleration acting on particles through lifespan. pixels per second squared </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -294,6 +358,14 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Convert string value to enum value for AttributeStates. Returns FIXED as default. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>attribute state string to be converted. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae3781dff36d32c1fb79a8ff63baf2c55"></a>
@@ -319,6 +391,14 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Normalizes list of points to have values between 0 and 1. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>list of points </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -346,6 +426,14 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Set the fixed color of particles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>fixed color of particles </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="acb790846d2a00fd97160fdac66589fd5"></a>
@@ -371,6 +459,14 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Set the fixed rotation of particles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rotation</td><td>fixed rotation of particles </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -398,6 +494,14 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Set the fixed size of particles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>fixed size of particles </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a63a5b2c01c1f4cc0eaa1e8d4b9226146"></a>
@@ -424,6 +528,14 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Set the fixed emission velocity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vel</td><td>velocity in pixels pr. second. Use .z = 0 for 2D </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab34a3cc0d4c7252492a261c063b9376b"></a>
@@ -449,6 +561,14 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Set the acceleration acting on particles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_gravity</td><td>acceleration in pixels pr. second squared. Use .z = 0 for 2D </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -486,6 +606,15 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Set initial and final color for linear interpolation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initial</td><td>initial color </td></tr>
+    <tr><td class="paramname">final</td><td>final color </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ad96c857c3ceac520462a10981e471c4b"></a>
@@ -521,6 +650,15 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Set initial and final rotation for linear interpolation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initial</td><td>initial rotation </td></tr>
+    <tr><td class="paramname">final</td><td>final rotation </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -558,6 +696,15 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Set initial and final size for linear interpolation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initial</td><td>initial size </td></tr>
+    <tr><td class="paramname">final</td><td>final size </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="afe91ca5c2d60e5567fe589367b4fd3ef"></a>
@@ -583,6 +730,14 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Set the particle lifespan. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_lifespan</td><td>particle lifespan in seconds. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -620,6 +775,15 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Set the interval for random color. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>minimum color for random </td></tr>
+    <tr><td class="paramname">min</td><td>maximum color for random </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a463adb67fe4ee1732daa20e9d01d2331"></a>
@@ -655,6 +819,15 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Set the interval for random rotation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>minimum rotation for random </td></tr>
+    <tr><td class="paramname">min</td><td>maximum rotation for random </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -692,6 +865,15 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Set the interval for random size. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>minimum size for random </td></tr>
+    <tr><td class="paramname">min</td><td>maximum size for random </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a9102ce5287cd4c13e89f5e695563076f"></a>
@@ -728,6 +910,15 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Set emission velocity interval. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minVel</td><td>minimum velocity in pixels pr. second. Use .z = 0 for 2D </td></tr>
+    <tr><td class="paramname">maxVel</td><td>maximum velocity in pixels pr. second. Use .z = 0 for 2D </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a8569c3e45131fd9d51687bbf293e3154"></a>
@@ -753,6 +944,14 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Set the emission rate. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_rate</td><td>emission rate in particles/second. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -796,6 +995,16 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Set initial and final color for spline interpolation using the given points to interpolate between. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initial</td><td>initial color </td></tr>
+    <tr><td class="paramname">final</td><td>final color </td></tr>
+    <tr><td class="paramname">splinePoints</td><td>list of N points for interpolation </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="abcaf3368ccf9b524538a3cf3fadb15d2"></a>
@@ -837,6 +1046,16 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Set initial and final rotation for spline interpolation using the given points to interpolate between. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initial</td><td>initial rotation </td></tr>
+    <tr><td class="paramname">final</td><td>final rotation </td></tr>
+    <tr><td class="paramname">splinePoints</td><td>list of N points for interpolation </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -880,6 +1099,16 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Set initial and final size for spline interpolation using the given points to interpolate between. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initial</td><td>initial size </td></tr>
+    <tr><td class="paramname">final</td><td>final size </td></tr>
+    <tr><td class="paramname">splinePoints</td><td>list of N points for interpolation </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a92978f0e01ba1078889a3f288ff0c02b"></a>
@@ -906,31 +1135,13 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="ae5eafd4808934831fb271304c24b6af7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5eafd4808934831fb271304c24b6af7">&sect;&nbsp;</a></span>setVelocity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Mason::ParticleEmitterConfig::setVelocity </td>
-          <td>(</td>
-          <td class="paramtype">glm::vec3&#160;</td>
-          <td class="paramname"><em>_velocity</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Set the tex pointer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_tex</td><td>see  </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -947,6 +1158,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enum defining color behavior, either FIXED, RANDOM, LINEAR, or SPLINE. </p>
+
 </div>
 </div>
 <a id="addf94f6df6c784495840b93aa30ce162"></a>
@@ -960,6 +1173,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Final color of particles at end of lifespan. ONLY used when ColorState == AttributeState::LINEAR or AttributeState::SPLINE. </p>
 
 </div>
 </div>
@@ -975,6 +1190,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Final rotation of particles at end of lifespan. ONLY used when RotationState == AttributeState::LINEAR or AttributeState::SPLINE, uses radians. </p>
+
 </div>
 </div>
 <a id="a5aabaa7aa8bd203539a56ee269595f94"></a>
@@ -988,6 +1205,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Final size of particles at end of lifespan. ONLY used when SizeState == AttributeState::LINEAR or AttributeState::SPLINE. </p>
 
 </div>
 </div>
@@ -1003,6 +1222,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Acceleration acting on particles during lifespan. </p>
+
 </div>
 </div>
 <a id="a8580419bef5f1d337f75a5224dec0deb"></a>
@@ -1016,6 +1237,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initial color of particles at emission. ONLY used when ColorState == AttributeState::LINEAR or AttributeState::SPLINE. </p>
 
 </div>
 </div>
@@ -1031,6 +1254,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initial rotation of particles at emission. ONLY used when RotationState == AttributeState::LINEAR or AttributeState::SPLINE, uses radians. </p>
+
 </div>
 </div>
 <a id="a200875bdd8d24d919160527494c5b611"></a>
@@ -1044,6 +1269,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initial size of particles at emission. ONLY used when SizeState == AttributeState::LINEAR or AttributeState::SPLINE. </p>
 
 </div>
 </div>
@@ -1059,6 +1286,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Allowed lifetime for particles in seconds. </p>
+
 </div>
 </div>
 <a id="af48c8574b50e51408c3566f862e22dbd"></a>
@@ -1072,6 +1301,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Maximum color of particles at emission. ONLY used when ColorState == AttributeState::RANDOM or AttributeState::FIXED. </p>
 
 </div>
 </div>
@@ -1087,6 +1318,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Minimum rotation of particles at emission. ONLY used when RotationState == AttributeState::RANDOM or AttributeState::FIXED, uses radians. </p>
+
 </div>
 </div>
 <a id="ad8b8933ec9758ed264d1b1ccc3d24bd8"></a>
@@ -1100,6 +1333,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Maximum size of particles at emission. ONLY used when SizeState == AttributeState::RANDOM or AttributeState::FIXED. </p>
 
 </div>
 </div>
@@ -1115,6 +1350,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximum velocity of particles at emission. ONLY used when VelocityState == AttributeState::RANDOM. </p>
+
 </div>
 </div>
 <a id="aa70f6e44cc9712bf59ef89e1a339726d"></a>
@@ -1128,6 +1365,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Minimum color of particles at emission. ONLY used when ColorState == AttributeState::RANDOM or AttributeState::FIXED. </p>
 
 </div>
 </div>
@@ -1143,6 +1382,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Minimum rotation of particles at emission. ONLY used when RotationState == AttributeState::RANDOM or AttributeState::FIXED, uses radians. </p>
+
 </div>
 </div>
 <a id="ab46ccc780e60c6b7006749058654455f"></a>
@@ -1156,6 +1397,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Minimum size of particles at emission. ONLY used when SizeState == AttributeState::RANDOM or AttributeState::FIXED. </p>
 
 </div>
 </div>
@@ -1171,6 +1414,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Minimum velocity of particles at emission. ONLY used when VelocityState == AttributeState::RANDOM. </p>
+
 </div>
 </div>
 <a id="abc0c7231f9134e3b0456d22ee8d5c8a2"></a>
@@ -1184,6 +1429,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Emission rate in particles/second. </p>
 
 </div>
 </div>
@@ -1199,6 +1446,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enum defining rotation behavior, either FIXED, RANDOM, LINEAR, or SPLINE. </p>
+
 </div>
 </div>
 <a id="a3f6f8e64ff56799d85b8512aa97801eb"></a>
@@ -1212,6 +1461,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enum defining size behavior, either FIXED, RANDOM, LINEAR, or SPLINE. </p>
 
 </div>
 </div>
@@ -1227,6 +1478,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>List of points used for spline interpolation between initial and final colors. </p>
+
 </div>
 </div>
 <a id="ae03fbdb37c6738eafedc10564d744e8e"></a>
@@ -1240,6 +1493,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>List of points used for spline interpolation between initial and final rotations. </p>
 
 </div>
 </div>
@@ -1255,6 +1510,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>List of points used for spline interpolation between initial and final sizes. </p>
+
 </div>
 </div>
 <a id="a660e9a7613b158ac36bfc4ffe8b5f610"></a>
@@ -1268,6 +1525,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Particle texture pointer. see . </p>
 
 </div>
 </div>
@@ -1283,6 +1542,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Velocity of particles at emission. ONLY USED FOR VelocityState == AttributeState::FIXED. </p>
+
 </div>
 </div>
 <a id="a449a7ec64ad8d9f9be405f1beb5ee507"></a>
@@ -1297,9 +1558,11 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enum defining velocity behavior, either FIXED or RANDOM. </p>
+
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/Mason/<a class="el" href="_particle_emitter_8hpp_source.html">ParticleEmitter.hpp</a></li>
 </ul>
 </div><!-- contents -->

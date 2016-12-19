@@ -19,13 +19,13 @@ Inheritance diagram for Mason\+:\+:Camera\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{class_mason_1_1_camera_af7aa6752699108d282996199549a704b}{set\+Scale} (float \hyperlink{class_mason_1_1_transform_a0a12711710700aca2523630c1014dc17}{scale}) override
-\item 
+\begin{DoxyCompactList}\small\item\em scales the \hyperlink{class_mason_1_1_game_object}{Game\+Object}. Same scale in x and y. as we don\textquotesingle{}t need to scale differently in x and y any element in our game, we use the same value to scale in both axis. \end{DoxyCompactList}\item 
 void \hyperlink{class_mason_1_1_camera_a69f184af46d081b85209040bbe814cbb}{set\+Position} (glm\+::vec3 \hyperlink{class_mason_1_1_transform_ac9e11b4ec4433a38ac1100f12c955dcb}{position}) override
-\item 
+\begin{DoxyCompactList}\small\item\em sets position in 2D sets the position according by the scale provided \end{DoxyCompactList}\item 
 float \hyperlink{class_mason_1_1_camera_a9c86fd4a182c472001f5d52e99fc0bbc}{get\+Scale} () override
-\item 
+\begin{DoxyCompactList}\small\item\em gets the scale of the transform \end{DoxyCompactList}\item 
 glm\+::vec3 \hyperlink{class_mason_1_1_camera_a71560b8b6216a542ae1958bd91a4361d}{get\+Position} () override
-\item 
+\begin{DoxyCompactList}\small\item\em gets the position of the transform \end{DoxyCompactList}\item 
 glm\+::vec2 \hyperlink{class_mason_1_1_camera_a0d2d26d8b7b80ab508ed4f4f537614b5}{get\+Viewport\+Min} () const
 \item 
 void \hyperlink{class_mason_1_1_camera_aa630259d7e0c0124dec5c9aaf33b7160}{set\+Viewport\+Min} (glm\+::vec2 viewport\+\_\+min)
@@ -96,6 +96,13 @@ Constructor.
 
 
 
+gets the position of the transform 
+
+\begin{DoxyReturn}{Returns}
+Vector3 (x,y,z) 
+\end{DoxyReturn}
+
+
 Reimplemented from \hyperlink{class_mason_1_1_transform_a0b21f641e72d7b55f3a630b986d0b106}{Mason\+::\+Transform}.
 
 \hypertarget{class_mason_1_1_camera_a9c86fd4a182c472001f5d52e99fc0bbc}{}\label{class_mason_1_1_camera_a9c86fd4a182c472001f5d52e99fc0bbc} 
@@ -104,6 +111,13 @@ Reimplemented from \hyperlink{class_mason_1_1_transform_a0b21f641e72d7b55f3a630b
 \subsubsection{\texorpdfstring{get\+Scale()}{getScale()}}
 {\footnotesize\ttfamily float Camera\+::get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+gets the scale of the transform 
+
+\begin{DoxyReturn}{Returns}
+float scale in x and y 
+\end{DoxyReturn}
 
 
 Reimplemented from \hyperlink{class_mason_1_1_transform_afb5f0dbe6bcd49e26a792f578bf5ec9d}{Mason\+::\+Transform}.
@@ -128,6 +142,15 @@ Reimplemented from \hyperlink{class_mason_1_1_transform_afb5f0dbe6bcd49e26a792f5
 
 
 
+sets position in 2D sets the position according by the scale provided 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Vector 3. In 2D we don\textquotesingle{}t need the z coordenate\+: position.\+z=0 \\
+\hline
+\end{DoxyParams}
+
+
 Reimplemented from \hyperlink{class_mason_1_1_transform_a740f389e20c0190c52bcb893aeaa0490}{Mason\+::\+Transform}.
 
 \hypertarget{class_mason_1_1_camera_af7aa6752699108d282996199549a704b}{}\label{class_mason_1_1_camera_af7aa6752699108d282996199549a704b} 
@@ -136,6 +159,15 @@ Reimplemented from \hyperlink{class_mason_1_1_transform_a740f389e20c0190c52bcb89
 \subsubsection{\texorpdfstring{set\+Scale()}{setScale()}}
 {\footnotesize\ttfamily void Camera\+::set\+Scale (\begin{DoxyParamCaption}\item[{float}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+scales the \hyperlink{class_mason_1_1_game_object}{Game\+Object}. Same scale in x and y. as we don\textquotesingle{}t need to scale differently in x and y any element in our game, we use the same value to scale in both axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale.} & It is a float used to scale in x and y. \\
+\hline
+\end{DoxyParams}
 
 
 Reimplemented from \hyperlink{class_mason_1_1_transform_a498d685b66e2f73b88d3583ce55461c8}{Mason\+::\+Transform}.

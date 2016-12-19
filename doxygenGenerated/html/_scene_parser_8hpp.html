@@ -104,35 +104,36 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_particle_descriptor.html">Mason::ParticleDescriptor</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a Particle component <br />
- "particles": { "texturePath": "/data/images", // Optional, default: nullptr <br />
- "rate": 60, // Optional<br />
- "lifespan": 0.5, // Optional <br />
- "velocityState": "random", // Optional, options: FIXED | RANDOM | LINEAR | SPLINE <br />
- "minVelocity": [0, 300, 0], // Optional <br />
- "maxVelocity": [20, 300, 0], // Optional <br />
- "gravity": [0, 0, 0], // Optional <br />
+ "particles": { "texturePath": "/data/images/ball.png", // Optional, default: "" <br />
+ "rate": 60, // Optional, default: 1 <br />
+ "lifespan": 0.5, // Optional, default: 1 <br />
+ "gravity": [0, 0, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "velocityState": "random", // Optional, options: "fixed" | "random", default: "fixed" <br />
+ "velocity": [0, 300, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "minVelocity": [0, 300, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "maxVelocity": [20, 300, 0], // Optional, default: glm::vec3(0, 0, 0) <br />
+ "sizeState": "linear", // Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <br />
  "size": 1, // Optional <br />
- "minsize": 0 // Optional <br />
- "maxsize": 1 // Optional <br />
- "sizeState": "linear", // Optional <br />
- "initialSize": 0.3, // Optional <br />
- "finalSize": 0.7, // Optional <br />
- "initialColor": [1, 1, 0, 1], // Optional <br />
- "finalColor": [1, 0, 0, 1], // Optional <br />
- "rotationState": "fixed", // Optional <br />
+ "minsize": 0 // Optional, default: 0 <br />
+ "maxsize": 1 // Optional, default: 1 <br />
+ "initialSize": 0.3, // Optional, default: 0 <br />
+ "finalSize": 0.7, // Optional, default: 1 <br />
+ "rotationState": "fixed", // Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <br />
  "rotation": 0, // Optional <br />
- "minrotation": 0, // Optional <br />
- "maxrotation": 1, // Optional <br />
- "initialrotation": 0, // Optional <br />
- "finalrotation": 1, // Optional <br />
+ "minrotation": 0, // Optional, default: 0 <br />
+ "maxrotation": 1, // Optional, default: 1 <br />
+ "initialrotation": 0, // Optional, default: 0 <br />
+ "finalrotation": 1, // Optional, default: 1 <br />
+ "colorState": "linear", // Optional, options: "fixed" | "random" | "linear" | "spline", default: "fixed" <br />
  "color": [0,0,0,0], // Optional <br />
- "mincolor": [0,0,0,0], // Optional <br />
- "maxcolor": [0,0,0,0], // Optional <br />
- "initialcolor": [0,0,0,0], // Optional <br />
- "finalcolor": [0,0,0,0], // Optional <br />
- "colorState": "linear", // Optional <br />
+ "mincolor": [0,0,0,0], // Optional, default: glm::vec4(0, 0, 0, 0) <br />
+ "maxcolor": [0,0,0,0], // Optional, default: glm::vec4(1, 1, 1, 1) <br />
+ "initialcolor": [0,0,0,0], // Optional, default: glm::vec4(0, 0, 0, 0) <br />
+ <br />
+ "finalcolor": [0,0,0,0], // Optional, default: glm::vec4(1, 1, 1, 1) <br />
+ <br />
  "splinePointsSize": [0.5, 0.5], // Optional <br />
- "splinePointsColor": [0.5, 0.5],// Optional <br />
+ "splinePointsColor": [0.5, 0.5], // Optional <br />
  "splinePointsRotation": [0.5, 0.5], // Optional <br />
  }.  <a href="class_mason_1_1_particle_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,11 +156,11 @@ Classes</h2></td></tr>
   <a href="class_mason_1_1_physics_body_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_transform_descriptor.html">Mason::TransformDescriptor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a <a class="el" href="class_mason_1_1_transform.html">Transform</a> component <br />
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a <a class="el" href="class_mason_1_1_transform.html" title="used to store and manipulate the position, rotation and scale of the game object In 2D physics there ...">Transform</a> component <br />
   <a href="class_mason_1_1_transform_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_audio_descriptor.html">Mason::AudioDescriptor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes an <a class="el" href="class_mason_1_1_audio.html">Audio</a> component <br />
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes an <a class="el" href="class_mason_1_1_audio.html" title="Extends the Component class and holds information about a .wav sound file. ">Audio</a> component <br />
   <a href="class_mason_1_1_audio_descriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_script_descriptor.html">Mason::ScriptDescriptor</a></td></tr>

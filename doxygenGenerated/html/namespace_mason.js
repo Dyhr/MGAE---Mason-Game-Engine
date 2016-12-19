@@ -16,6 +16,7 @@ var namespace_mason =
     [ "Engine", "class_mason_1_1_engine.html", "class_mason_1_1_engine" ],
     [ "GameObject", "class_mason_1_1_game_object.html", "class_mason_1_1_game_object" ],
     [ "GameObjectDescriptor", "class_mason_1_1_game_object_descriptor.html", "class_mason_1_1_game_object_descriptor" ],
+    [ "GUI", "class_mason_1_1_g_u_i.html", "class_mason_1_1_g_u_i" ],
     [ "InputManager", "class_mason_1_1_input_manager.html", "class_mason_1_1_input_manager" ],
     [ "LeakDetection", "class_mason_1_1_leak_detection.html", null ],
     [ "ParticleDescriptor", "class_mason_1_1_particle_descriptor.html", "class_mason_1_1_particle_descriptor" ],

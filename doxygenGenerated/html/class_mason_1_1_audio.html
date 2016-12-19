@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('class_mason_1_1_audio.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Extends the <a class="el" href="class_mason_1_1_component.html">Component</a> class and holds information about a .wav sound file.  
+ <a href="class_mason_1_1_audio.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Mason::Audio:</div>
@@ -105,28 +108,36 @@ Inheritance diagram for Mason::Audio:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5d4f318f5bee0b59d1a4289495b01b4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_audio.html#a5d4f318f5bee0b59d1a4289495b01b4c">init</a> (std::string file, <a class="el" href="namespace_mason.html#a158d651086d1ba1aacc4c37125b27657">SoundType</a> <a class="el" href="class_mason_1_1_audio.html#a100d9da58685f865bf03dcf44a55fb63">type</a>, <a class="el" href="class_mason_1_1_audio_manager.html">AudioManager</a> *manager, int loops=0)</td></tr>
+<tr class="memdesc:a5d4f318f5bee0b59d1a4289495b01b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="class_mason_1_1_audio.html" title="Extends the Component class and holds information about a .wav sound file. ">Audio</a> component. Calls the <a class="el" href="class_mason_1_1_audio_manager.html">AudioManager</a> to load its <a class="el" href="class_mason_1_1_audio.html" title="Extends the Component class and holds information about a .wav sound file. ">Audio</a> Source.  <a href="#a5d4f318f5bee0b59d1a4289495b01b4c">More...</a><br /></td></tr>
 <tr class="separator:a5d4f318f5bee0b59d1a4289495b01b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2916f9015031bee9abb98adf0d83e7ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_audio.html#a2916f9015031bee9abb98adf0d83e7ee">play</a> ()</td></tr>
+<tr class="memdesc:a2916f9015031bee9abb98adf0d83e7ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the audio by querying the <a class="el" href="class_mason_1_1_audio_manager.html">AudioManager</a>.  <a href="#a2916f9015031bee9abb98adf0d83e7ee">More...</a><br /></td></tr>
 <tr class="separator:a2916f9015031bee9abb98adf0d83e7ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_mason_1_1_component"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_mason_1_1_component')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_mason_1_1_component.html">Mason::Component</a></td></tr>
 <tr class="memitem:ab8378fa275af98e568a7e91d33d867af inherit pub_methods_class_mason_1_1_component"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_component.html#ab8378fa275af98e568a7e91d33d867af">~Component</a> ()</td></tr>
+<tr class="memdesc:ab8378fa275af98e568a7e91d33d867af inherit pub_methods_class_mason_1_1_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="class_mason_1_1_component.html#ab8378fa275af98e568a7e91d33d867af">More...</a><br /></td></tr>
 <tr class="separator:ab8378fa275af98e568a7e91d33d867af inherit pub_methods_class_mason_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c96ba73e4added598bfa975e000a3ea inherit pub_methods_class_mason_1_1_component"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_component.html#a6c96ba73e4added598bfa975e000a3ea">getGameObject</a> ()</td></tr>
+<tr class="memdesc:a6c96ba73e4added598bfa975e000a3ea inherit pub_methods_class_mason_1_1_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a shared pointer to the gameobject of the component.  <a href="class_mason_1_1_component.html#a6c96ba73e4added598bfa975e000a3ea">More...</a><br /></td></tr>
 <tr class="separator:a6c96ba73e4added598bfa975e000a3ea inherit pub_methods_class_mason_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a100d9da58685f865bf03dcf44a55fb63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_mason.html#a158d651086d1ba1aacc4c37125b27657">SoundType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_audio.html#a100d9da58685f865bf03dcf44a55fb63">type</a></td></tr>
+<tr class="memdesc:a100d9da58685f865bf03dcf44a55fb63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the SoundType enum. Either SoundType::EFFECT or SoundType::Music.  <a href="#a100d9da58685f865bf03dcf44a55fb63">More...</a><br /></td></tr>
 <tr class="separator:a100d9da58685f865bf03dcf44a55fb63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a762cc6174ce20a011fe1e3a36e649204"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_audio.html#a762cc6174ce20a011fe1e3a36e649204">path</a></td></tr>
+<tr class="memdesc:a762cc6174ce20a011fe1e3a36e649204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the path to the .wav audio file.  <a href="#a762cc6174ce20a011fe1e3a36e649204">More...</a><br /></td></tr>
 <tr class="separator:a762cc6174ce20a011fe1e3a36e649204"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:aa65245dcba1c0a373b7130e7e36306c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_audio.html#aa65245dcba1c0a373b7130e7e36306c2">Audio</a> (std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt; <a class="el" href="class_mason_1_1_component.html#abaa67b569d0a70e26a4606f4a099a925">gameObject</a>)</td></tr>
+<tr class="memdesc:aa65245dcba1c0a373b7130e7e36306c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aa65245dcba1c0a373b7130e7e36306c2">More...</a><br /></td></tr>
 <tr class="separator:aa65245dcba1c0a373b7130e7e36306c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_mason_1_1_component"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_mason_1_1_component')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_mason_1_1_component.html">Mason::Component</a></td></tr>
 <tr class="memitem:a19f394f7e3e940e7fc01d18d6a762d46 inherit pro_methods_class_mason_1_1_component"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_component.html#a19f394f7e3e940e7fc01d18d6a762d46">Component</a> (std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt; <a class="el" href="class_mason_1_1_component.html#abaa67b569d0a70e26a4606f4a099a925">gameObject</a>)</td></tr>
+<tr class="memdesc:a19f394f7e3e940e7fc01d18d6a762d46 inherit pro_methods_class_mason_1_1_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_mason_1_1_component.html#a19f394f7e3e940e7fc01d18d6a762d46">More...</a><br /></td></tr>
 <tr class="separator:a19f394f7e3e940e7fc01d18d6a762d46 inherit pro_methods_class_mason_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -138,9 +149,12 @@ Friends</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_mason_1_1_component"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_mason_1_1_component')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_mason_1_1_component.html">Mason::Component</a></td></tr>
 <tr class="memitem:abaa67b569d0a70e26a4606f4a099a925 inherit pro_attribs_class_mason_1_1_component"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mason_1_1_game_object.html">GameObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_component.html#abaa67b569d0a70e26a4606f4a099a925">gameObject</a></td></tr>
+<tr class="memdesc:abaa67b569d0a70e26a4606f4a099a925 inherit pro_attribs_class_mason_1_1_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">shared pointer to gameobject  <a href="class_mason_1_1_component.html#abaa67b569d0a70e26a4606f4a099a925">More...</a><br /></td></tr>
 <tr class="separator:abaa67b569d0a70e26a4606f4a099a925 inherit pro_attribs_class_mason_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Extends the <a class="el" href="class_mason_1_1_component.html">Component</a> class and holds information about a .wav sound file. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa65245dcba1c0a373b7130e7e36306c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa65245dcba1c0a373b7130e7e36306c2">&sect;&nbsp;</a></span>Audio()</h2>
 
@@ -164,6 +178,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructor. </p>
 
 </div>
 </div>
@@ -206,6 +222,17 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes the <a class="el" href="class_mason_1_1_audio.html" title="Extends the Component class and holds information about a .wav sound file. ">Audio</a> component. Calls the <a class="el" href="class_mason_1_1_audio_manager.html">AudioManager</a> to load its <a class="el" href="class_mason_1_1_audio.html" title="Extends the Component class and holds information about a .wav sound file. ">Audio</a> Source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>path to a .wav sound file. Must be a .wav file. </td></tr>
+    <tr><td class="paramname">type</td><td>either SoundType::EFFECT for Sound Effect or Soundtype::MUSIC for music. </td></tr>
+    <tr><td class="paramname">manager</td><td>pointer to the active <a class="el" href="class_mason_1_1_audio_manager.html">AudioManager</a> </td></tr>
+    <tr><td class="paramname">loops</td><td>currently unused. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a2916f9015031bee9abb98adf0d83e7ee"></a>
@@ -222,6 +249,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Plays the audio by querying the <a class="el" href="class_mason_1_1_audio_manager.html">AudioManager</a>. </p>
 
 </div>
 </div>
@@ -261,6 +290,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Holds the path to the .wav audio file. </p>
+
 </div>
 </div>
 <a id="a100d9da58685f865bf03dcf44a55fb63"></a>
@@ -274,6 +305,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Holds the SoundType enum. Either SoundType::EFFECT or SoundType::Music. </p>
 
 </div>
 </div>

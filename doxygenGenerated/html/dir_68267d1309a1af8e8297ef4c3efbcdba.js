@@ -10,6 +10,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "Config.cpp", "_config_8cpp.html", null ],
     [ "Engine.cpp", "_engine_8cpp.html", "_engine_8cpp" ],
     [ "GameObject.cpp", "_game_object_8cpp.html", null ],
+    [ "GUI.cpp", "_g_u_i_8cpp.html", null ],
     [ "InputManager.cpp", "_input_manager_8cpp.html", null ],
     [ "LeakDetection.cpp", "_leak_detection_8cpp.html", null ],
     [ "ParticleEmitter.cpp", "_particle_emitter_8cpp.html", null ],

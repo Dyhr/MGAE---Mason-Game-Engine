@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('class_mason_1_1_audio_descriptor.html'
 </div><!--header-->
 <div class="contents">
 
-<p>Describes an <a class="el" href="class_mason_1_1_audio.html">Audio</a> component <br />
+<p>Describes an <a class="el" href="class_mason_1_1_audio.html" title="Extends the Component class and holds information about a .wav sound file. ">Audio</a> component <br />
   
  <a href="class_mason_1_1_audio_descriptor.html#details">More...</a></p>
 
@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('class_mason_1_1_audio_descriptor.html'
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a48908da92ad467deffccb4d8340aea20"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_audio_descriptor.html#a48908da92ad467deffccb4d8340aea20">path</a> =&quot;data/sounds&quot;</td></tr>
+<tr class="memitem:a48908da92ad467deffccb4d8340aea20"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_audio_descriptor.html#a48908da92ad467deffccb4d8340aea20">path</a></td></tr>
 <tr class="separator:a48908da92ad467deffccb4d8340aea20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0235fd20741197930246f28acb5113b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_mason.html#a158d651086d1ba1aacc4c37125b27657">SoundType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mason_1_1_audio_descriptor.html#af0235fd20741197930246f28acb5113b">type</a> =<a class="el" href="namespace_mason.html#a158d651086d1ba1aacc4c37125b27657a3ee843ce73fc06de504eb1480c65c82f">EFFECT</a></td></tr>
 <tr class="separator:af0235fd20741197930246f28acb5113b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,10 +104,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ab49d1cfecfbd13d161f1bad522bd3294"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Describes an <a class="el" href="class_mason_1_1_audio.html">Audio</a> component <br />
+<div class="textblock"><p>Describes an <a class="el" href="class_mason_1_1_audio.html" title="Extends the Component class and holds information about a .wav sound file. ">Audio</a> component <br />
  </p>
 <p>"audio": { <br />
- "path": "data/sounds/1-octave/A5.wav", // Optional, default: "data/sounds" <br />
+ "path": "data/sounds/1-octave/A5.wav", // Mandatory <br />
  "type": "soundeffect" // Optional. Options: "soundeffect" (default) | "music" <br />
  } </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
@@ -132,7 +132,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Mason::AudioDescriptor::path =&quot;data/sounds&quot;</td>
+          <td class="memname">std::string Mason::AudioDescriptor::path</td>
         </tr>
       </table>
 </div><div class="memdoc">

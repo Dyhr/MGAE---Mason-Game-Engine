@@ -13,7 +13,7 @@ var searchData=
   ['parsetemplate',['parseTemplate',['../class_mason_1_1_scene_parser.html#a3e637ac719b878f7c11741b7c0d6c443',1,'Mason::SceneParser']]],
   ['particledescriptor',['ParticleDescriptor',['../class_mason_1_1_particle_descriptor.html',1,'Mason']]],
   ['particleemitter',['ParticleEmitter',['../class_mason_1_1_particle_emitter.html',1,'Mason']]],
-  ['particleemitter',['ParticleEmitter',['../class_mason_1_1_transform.html#a82b374d797a09668286ac5cf26f539f3',1,'Mason::Transform::ParticleEmitter()'],['../class_mason_1_1_particle_emitter.html#a6a985b19a4f37f242030afe2c8cc5545',1,'Mason::ParticleEmitter::ParticleEmitter()']]],
+  ['particleemitter',['ParticleEmitter',['../class_mason_1_1_transform.html#a82b374d797a09668286ac5cf26f539f3',1,'Mason::Transform']]],
   ['particleemitter_2ecpp',['ParticleEmitter.cpp',['../_particle_emitter_8cpp.html',1,'']]],
   ['particleemitter_2ehpp',['ParticleEmitter.hpp',['../_particle_emitter_8hpp.html',1,'']]],
   ['particleemitterconfig',['ParticleEmitterConfig',['../struct_mason_1_1_particle_emitter_config.html',1,'Mason']]],
@@ -41,7 +41,6 @@ var searchData=
   ['playaudiosource',['playAudioSource',['../class_mason_1_1_audio_manager.html#a061109c8b24705aa7ed1a5c28b9a4cd1',1,'Mason::AudioManager']]],
   ['positerations',['posIterations',['../class_mason_1_1_physics.html#a43a4f23b2ee62ad20c3ed54a7c75a468',1,'Mason::Physics']]],
   ['position',['position',['../class_mason_1_1_transform_descriptor.html#acce622c3f89ae5b081c61feabc1319bf',1,'Mason::TransformDescriptor::position()'],['../class_mason_1_1_transform.html#ac9e11b4ec4433a38ac1100f12c955dcb',1,'Mason::Transform::position()']]],
-  ['positions',['positions',['../class_mason_1_1_particle_emitter.html#a9398d92e4bed89396c02d4c028ba3e69',1,'Mason::ParticleEmitter']]],
   ['processevents',['ProcessEvents',['../class_mason_1_1_collision_listener.html#a10c4d83465cd2a9f6dd9d6e4dfba2834',1,'Mason::CollisionListener']]],
   ['push_5fback',['push_back',['../structpicojson_1_1null__parse__context_1_1dummy__str.html#ac2b5c5eca1014b268b4c5a2a87d8923c',1,'picojson::null_parse_context::dummy_str']]]
 ];

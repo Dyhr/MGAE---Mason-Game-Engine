@@ -9,6 +9,5 @@ var searchData=
   ['number_5f',['number_',['../unionpicojson_1_1value_1_1__storage.html#a4fc799f222c28156f943a891e510e438',1,'picojson::value::_storage']]],
   ['number_5ftype',['number_type',['../namespacepicojson.html#acbcfb4072b62a8a097a2aaf7a8f8cc02a258b8cac17e3039fe54eadb2f3ebde96',1,'picojson']]],
   ['numbers',['numbers',['../class_mason_1_1_script_descriptor.html#a536144088cd6770fb4f63fe502d89e3e',1,'Mason::ScriptDescriptor::numbers()'],['../class_mason_1_1_script.html#a39ec15b6842f815f09537f524c0b0786',1,'Mason::Script::numbers()']]],
-  ['numbersprites',['numberSprites',['../_engine_8cpp.html#a8fccb55f373b4b64d7c382ce251e69c7',1,'Engine.cpp']]],
-  ['numparticles',['numParticles',['../class_mason_1_1_particle_emitter.html#a2df785f58db33ede9255ba835e955e11',1,'Mason::ParticleEmitter']]]
+  ['numbersprites',['numberSprites',['../_engine_8cpp.html#a8fccb55f373b4b64d7c382ce251e69c7',1,'Engine.cpp']]]
 ];

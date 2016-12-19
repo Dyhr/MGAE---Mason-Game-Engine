@@ -3,6 +3,7 @@ var class_mason_1_1_script =
     [ "Script", "class_mason_1_1_script.html#a3d41c440d07b53c15437a13754eff7d0", null ],
     [ "OnCollisionEnter", "class_mason_1_1_script.html#a1088013d6edc47d74643aa48a7cbbbdf", null ],
     [ "OnCollisionExit", "class_mason_1_1_script.html#a04d09648b7dba1bcb0a0ad3c3570e2f3", null ],
+    [ "OnGUI", "class_mason_1_1_script.html#aa993a4ef5572ba31f5fa0ce2fa4a733e", null ],
     [ "OnInput", "class_mason_1_1_script.html#a84fff8072c4e8b56fb242b29f3491224", null ],
     [ "OnStart", "class_mason_1_1_script.html#aa42915c752bb7f4623ca679b222edf2f", null ],
     [ "OnUpdate", "class_mason_1_1_script.html#acafa4283460fb677484bb43ebec37743", null ],

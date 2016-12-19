@@ -34,6 +34,7 @@ var hierarchy =
     [ "Mason::Engine", "class_mason_1_1_engine.html", null ],
     [ "Mason::GameObject", "class_mason_1_1_game_object.html", null ],
     [ "Mason::GameObjectDescriptor", "class_mason_1_1_game_object_descriptor.html", null ],
+    [ "Mason::GUI", "class_mason_1_1_g_u_i.html", null ],
     [ "picojson::input< Iter >", "classpicojson_1_1input.html", null ],
     [ "Mason::InputManager", "class_mason_1_1_input_manager.html", null ],
     [ "picojson::last_error_t< T >", "structpicojson_1_1last__error__t.html", null ],
