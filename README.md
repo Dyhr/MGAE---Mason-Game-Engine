@@ -9,7 +9,8 @@ Students should be able to:
 - Manage resources and memory in C++ efficiently 
 - Create game engine modules with high cohesion and low coupling 
 - Optimize performance bottlenecks on both the CPU and GPU 
-- Generalize about the structure of, and similarities and differences between, modern 3d game engines  Help 
+- Generalize about the structure of, and similarities and differences between, modern 3d game engines  
+
 The course objective is to give an overview of the technology that goes into game engines. The course is divided into several segments, each of which looks at one area of game technology. 
 
 The focus of the course is on the foundations of game engine technology, not on the actual design and implementation of games. In addition, it is not primarily focused on using any specific engine or SDK (e.g. Unity or UDK), but instead on the underlying technical concepts. 
