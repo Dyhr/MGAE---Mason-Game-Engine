@@ -1,8 +1,0 @@
-<map id="include/Mason/Collider2D.hpp" name="include/Mason/Collider2D.hpp">
-<area shape="rect" id="node2" href="$_box_collider2_d_8hpp.html" title="include/Mason/BoxCollider2\lD.hpp" alt="" coords="35,80,217,121"/>
-<area shape="rect" id="node5" href="$_circle_collider2_d_8h.html" title="include/Mason/CircleCollider2D.h" alt="" coords="242,87,455,114"/>
-<area shape="rect" id="node7" href="$_physics_8cpp.html" title="src/Physics.cpp" alt="" coords="480,87,596,114"/>
-<area shape="rect" id="node3" href="$_box_collider2_d_8cpp.html" title="src/BoxCollider2D.cpp" alt="" coords="5,169,156,196"/>
-<area shape="rect" id="node4" href="$_engine_8cpp.html" title="src/Engine.cpp" alt="" coords="181,169,290,196"/>
-<area shape="rect" id="node6" href="$_circle_collider2_d_8cpp.html" title="src/CircleCollider2D.cpp" alt="" coords="315,169,476,196"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="Mason::Camera::setViewportMin" name="Mason::Camera::setViewportMin">
-<area shape="rect" id="node2" href="$class_mason_1_1_config.html#aafb3b1eb520c81f3002d4aa78e400ea0" title="Mason::Config::getInt" alt="" coords="535,5,681,32"/>
-<area shape="rect" id="node4" href="$class_mason_1_1_camera.html#a27ff2d3ad004a49db2ae508ac6e9d3c2" title="Mason::Camera::transformize" alt="" coords="264,56,457,83"/>
-<area shape="rect" id="node3" href="$class_mason_1_1_config.html#af80adf2ed2290a3d714fb0407ee8fe55" title="Mason::Config::addInt" alt="" coords="759,5,907,32"/>
-<area shape="rect" id="node5" href="$class_mason_1_1_transform.html#a4dd61568d49044377f3312397ffdafd1" title="Mason::Transform::transformize" alt="" coords="505,56,711,83"/>
-</map>

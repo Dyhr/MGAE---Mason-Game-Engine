@@ -1,6 +1,0 @@
-<map id="Mason::SceneParser::parseFile" name="Mason::SceneParser::parseFile">
-<area shape="rect" id="node2" href="$_scene_parser_8cpp.html#aebf61d8c060020f4498f29f7ba6e85f5" title="to_vec3" alt="" coords="197,5,264,32"/>
-<area shape="rect" id="node4" href="$_scene_parser_8cpp.html#a8acf7c6b2556577c51ba288a465fda30" title="to_vec2" alt="" coords="197,56,264,83"/>
-<area shape="rect" id="node5" href="$_scene_parser_8cpp.html#a0a3abae35f7aec2cb39e7e1c7eba5ea0" title="to_vec4" alt="" coords="197,107,264,133"/>
-<area shape="rect" id="node3" href="$classpicojson_1_1value.html#a6a1099de1eb4f070445dc3eadb843a92" title="picojson::value::get" alt="" coords="312,56,445,83"/>
-</map>

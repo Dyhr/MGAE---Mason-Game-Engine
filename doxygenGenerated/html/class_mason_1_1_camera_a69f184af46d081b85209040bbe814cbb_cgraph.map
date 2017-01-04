@@ -1,6 +1,0 @@
-<map id="Mason::Camera::setPosition" name="Mason::Camera::setPosition">
-<area shape="rect" id="node2" href="$class_mason_1_1_transform.html#a740f389e20c0190c52bcb893aeaa0490" title="Mason::Transform::setPosition" alt="" coords="240,5,439,32"/>
-<area shape="rect" id="node4" href="$class_mason_1_1_config.html#aafb3b1eb520c81f3002d4aa78e400ea0" title="Mason::Config::getInt" alt="" coords="267,56,412,83"/>
-<area shape="rect" id="node3" href="$class_mason_1_1_transform.html#a4dd61568d49044377f3312397ffdafd1" title="Mason::Transform::transformize" alt="" coords="487,5,692,32"/>
-<area shape="rect" id="node5" href="$class_mason_1_1_config.html#af80adf2ed2290a3d714fb0407ee8fe55" title="Mason::Config::addInt" alt="" coords="515,56,663,83"/>
-</map>
